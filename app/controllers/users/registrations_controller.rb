@@ -4,6 +4,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # PATCH/PUT /users/1.json
   def index
     @users = User.all
+    authorize! :read, @users
   end
 
   def show
@@ -24,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
                            end
     respond_to do |format|
       if successfully_updated
-        format.html { redirect_to edit_user_registration_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
