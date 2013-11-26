@@ -2,8 +2,12 @@ Shouter::Application.routes.draw do
 
   root 'homes#show'
 
-  devise_for :users
-
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  
+  devise_scope :user do
+    get "users", :to => "users/registrations#index", as: 'index_users_registration'
+    get "users/:id", :to => "users/registrations#show", as: 'user'
+  end
   resources :homes, only: ['show']
   
   # The priority is based upon order of creation: first created -> highest priority.
