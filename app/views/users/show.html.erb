@@ -1,5 +1,5 @@
 <h2><%= @user.name.titleize %>'s profile</h2>
 
-<p><%= @user.email %></p>
+<%= follow_button @user %>
 
 <%= render @shouts %>
