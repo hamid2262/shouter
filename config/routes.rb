@@ -7,6 +7,7 @@ Shouter::Application.routes.draw do
   devise_scope :user do
     resources :users, only: [:show, :index] do
       post 'follow' => 'following_relationships#create' 
+      delete 'follow' => 'following_relationships#destroy' 
     end
   end
 

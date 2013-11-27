@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :shouts
   has_many :followed_user_relationships, 
-  					foreign_key: 'follower_id'
-  					class_name: 'FollowingRelationship' 
+  					foreign_key: 'follower_id',
+  					class_name: 'FollowingRelationship'
   has_many :followed_users, through: :followed_user_relationships
 
   has_many :follower_relationships,
@@ -17,5 +17,16 @@ class User < ActiveRecord::Base
 
   def name
   	self.try(:username) || self.email
+  end
+  
+  def following? user
+    self.followed_users.include? user
+  end
+
+  def follow user
+    self.followed_users << user
+  end
+  def unfollow user
+    self.followed_users.delete(user)     
   end
 end
