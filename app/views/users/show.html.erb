@@ -2,7 +2,4 @@
 
 <p><%= @user.email %></p>
 
-
-<% @shouts.each do |shout| %>
-	<%= render partial: "shared/shout", locals: { shout: shout} %>
-<% end %>
+<%= render @shouts %>
