@@ -2,11 +2,12 @@ Shouter::Application.routes.draw do
 
   root 'homes#show'
 
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  devise_for :users, :controllers => { registrations: 'users' }
   
   devise_scope :user do
-    get "users", :to => "users/registrations#index", as: 'index_users_registration'
-    get "users/:id", :to => "users/registrations#show", as: 'user'
+    get "users", :to => "users#index", as: 'index_users'
+    get "users/:id", :to => "users#show", as: 'user'
+    get "users/edit", :to => "users#edit", as: 'edit_user'
   end
   resource  :dashboard, only: [:show,:create]  
   resources :homes, only: [:show]

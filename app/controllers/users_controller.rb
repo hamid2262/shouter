@@ -1,4 +1,4 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class UsersController < Devise::RegistrationsController
 	
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
@@ -13,6 +13,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     # @shouts = Shout.where(:user_id, params[:id])
   end
   
+  def edit
+    @user = current_user
+  end
+
   def update
     if user_params[:password].blank?
       user_params.delete(:password)
