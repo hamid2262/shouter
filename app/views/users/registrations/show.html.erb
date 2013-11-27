@@ -1,4 +1,8 @@
-<h2>user profile</h2>
+<h2><%= @user.name.titleize %>'s profile</h2>
 
-<p><%= @user.username %></p>
 <p><%= @user.email %></p>
+
+
+<% @shouts.each do |shout| %>
+	<%= render partial: "shared/shout", locals: { shout: shout} %>
+<% end %>

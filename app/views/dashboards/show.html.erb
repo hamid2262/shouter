@@ -1,0 +1,15 @@
+<ul>
+<% @text_shout.errors.full_messages.each do |msg| %>
+	<li><%= msg %> </li>
+<% end %>
+</ul>
+<%= form_for @text_shout do |f| -%>
+  <%= f.text_field :body, placeholder: 'Shout content here' %>
+  <%= f.submit "Shout!" %>
+<% end %>
+
+<br>
+
+<% @shouts.each do |shout| %>
+	<%= render partial: "shared/shout", locals: { shout: shout} %>
+<% end %>

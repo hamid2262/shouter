@@ -9,6 +9,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def show
     @user = User.find(params[:id])
+    @shouts = @user.shouts
+    # @shouts = Shout.where(:user_id, params[:id])
   end
   
   def update

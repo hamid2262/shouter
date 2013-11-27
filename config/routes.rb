@@ -8,8 +8,10 @@ Shouter::Application.routes.draw do
     get "users", :to => "users/registrations#index", as: 'index_users_registration'
     get "users/:id", :to => "users/registrations#show", as: 'user'
   end
-  resources :homes, only: ['show']
-  
+  resource  :dashboard, only: [:show,:create]  
+  resources :homes, only: [:show]
+  resources :shouts, only: [:show]
+  resources :text_shouts, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
