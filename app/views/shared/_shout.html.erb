@@ -1,7 +1,0 @@
-<%= div_for	shout do %> 
-	<%= link_to shout.user.name, shout.user %>
-	shouted: 	
-	<%#= link_to shout.body, shout %>	
-	<%= render shout.content %>
-	<%= time_ago_in_words(shout.created_at) %> ago
-<% end %>
