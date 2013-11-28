@@ -16,7 +16,11 @@ class User < ActiveRecord::Base
   has_many :followers, through: :follower_relationships
 
   def name
-  	self.try(:username) || self.email
+    if self.username.nil?
+      self.email
+    else
+      self.try(:username).titleize       
+   end
   end
   
   def following? user

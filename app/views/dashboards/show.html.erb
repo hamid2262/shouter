@@ -1,16 +1,17 @@
 <ul>
-<% @text_shout.errors.full_messages.each do |msg| %>
+<% @dashboard.new_text_shout.errors.full_messages.each do |msg| %>
 	<li><%= msg %> </li>
 <% end %>
 </ul>
-<%= form_for @text_shout do |f| -%>
+<%= form_for @dashboard.new_text_shout do |f| -%>
   <%= f.text_field :body, placeholder: 'Shout content here' %>
   <%= f.submit "Shout!" %>
 <% end %>
 
-<%= form_for @photo_shout do |f| -%>
+<%= form_for @dashboard.new_photo_shout do |f| -%>
   <%= f.file_field :image %>
   <%= f.submit "Shout!" %>
 <% end %>
 
-<%= render @shouts %>
+<%= render @dashboard.timeline %>
+			
