@@ -3,19 +3,20 @@ Shouter::Application.routes.draw do
   root 'homes#show'
 
   devise_for :users#, :controllers => { registrations: 'users' }
-  
   devise_scope :user do
     resources :users, only: [:show, :index] do
       post 'follow' => 'following_relationships#create' 
       delete 'follow' => 'following_relationships#destroy' 
     end
   end
-
+  resource  :search, only: [:show]
   resource  :dashboard, only: [:show,:create]  
   resources :homes, only: [:show]
   resources :shouts, only: [:show]
   resources :text_shouts, only: [:create]
   resources :photo_shouts, only: [:create]
+  resources :hashtags, only: [:show]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
