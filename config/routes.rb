@@ -1,5 +1,7 @@
 Shouter::Application.routes.draw do
 
+  resources :countries
+
   resources :vehicle_brands
 
   resources :vehicle_models
