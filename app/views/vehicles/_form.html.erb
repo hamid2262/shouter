@@ -1,4 +1,4 @@
-  <% if @vehicle.errors.any? %>
+<!--   <% if @vehicle.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@vehicle.errors.count, "error") %> prohibited this vehicle from being saved:</h2>
 
@@ -8,32 +8,14 @@
       <% end %>
       </ul>
     </div>
-  <% end %>
+  <% end %> -->
 
-  <div class="field">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :number_plate %><br>
-    <%= f.text_field :number_plate %>
-  </div>
-  <div class="field">
-    <%= f.label :air_condition %><br>
-    <%= f.text_field :air_condition %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br>
-    <%= f.text_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.text_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :vehicle_model_id %><br>
-    <%= f.text_field :vehicle_model_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.input :color %>
+  <%= f.input :number_plate %>
+  <%= f.input :air_condition %>
+  <%= f.input :year, as: :date, start_year: Date.today.year - 40,
+                              end_year: Date.today.year, discard_day: true,
+                              order: [:year] %>
+  <%= f.input :image %>
+  <%= f.input :vehicle_model_id %>
+  <%= f.button :submit %>

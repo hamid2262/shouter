@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20131206112347) do
     t.string   "color"
     t.string   "number_plate"
     t.boolean  "air_condition"
-    t.string   "year"
+    t.date     "year"
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
