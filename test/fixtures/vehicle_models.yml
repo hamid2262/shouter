@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  seats_number: 1
+  default_image: MyString
+  vehicle_brand_id: 
+  up_view_image: MyString
+
+two:
+  name: MyString
+  seats_number: 1
+  default_image: MyString
+  vehicle_brand_id: 
+  up_view_image: MyString

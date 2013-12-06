@@ -1,5 +1,9 @@
 Shouter::Application.routes.draw do
 
+  resources :vehicle_brands
+
+  resources :vehicle_models
+
   root 'homes#show'
 
   devise_for :users, :controllers => { registrations: 'users' }

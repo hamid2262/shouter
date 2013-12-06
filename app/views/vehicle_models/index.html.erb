@@ -1,0 +1,35 @@
+<h1>Listing vehicle_models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Seats number</th>
+      <th>Default image</th>
+      <th>Vehicle brand</th>
+      <th>Up view image</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vehicle_models.each do |vehicle_model| %>
+      <tr>
+        <td><%= vehicle_model.name %></td>
+        <td><%= vehicle_model.seats_number %></td>
+        <td><%= vehicle_model.default_image %></td>
+        <td><%= vehicle_model.vehicle_brand %></td>
+        <td><%= vehicle_model.up_view_image %></td>
+        <td><%= link_to 'Show', vehicle_model %></td>
+        <td><%= link_to 'Edit', edit_vehicle_model_path(vehicle_model) %></td>
+        <td><%= link_to 'Destroy', vehicle_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vehicle model', new_vehicle_model_path %>

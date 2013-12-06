@@ -27,7 +27,7 @@
 
 <p>
   <strong>Vehicle model:</strong>
-  <%= @vehicle.vehicle_model %>
+  <%= @vehicle.vehicle_model.vehicle_brand.name %> - <%= @vehicle.vehicle_model.name %>
 </p>
 
 <%= link_to 'Edit', edit_user_vehicles_path(@user) %>

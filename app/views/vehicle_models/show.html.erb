@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vehicle_model.name %>
+</p>
+
+<p>
+  <strong>Seats number:</strong>
+  <%= @vehicle_model.seats_number %>
+</p>
+
+<p>
+  <strong>Default image:</strong>
+  <%= @vehicle_model.default_image %>
+</p>
+
+<p>
+  <strong>Vehicle brand:</strong>
+  <%= @vehicle_model.vehicle_brand.name %>
+</p>
+
+<p>
+  <strong>Up view image:</strong>
+  <%= @vehicle_model.up_view_image %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_model_path(@vehicle_model) %> |
+<%= link_to 'Back', vehicle_models_path %>
