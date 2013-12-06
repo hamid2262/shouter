@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131127160817) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "following_relationships", force: true do |t|
     t.integer  "follower_id"
     t.integer  "followed_user_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20131127160817) do
     t.datetime "updated_at"
   end
 
-  add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id"
-  add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id"
+  add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id", using: :btree
+  add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id", using: :btree
 
   create_table "photo_shouts", force: true do |t|
     t.string   "image_file_name"
@@ -38,8 +41,8 @@ ActiveRecord::Schema.define(version: 20131127160817) do
     t.datetime "updated_at"
   end
 
-  add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id"
-  add_index "shouts", ["user_id"], name: "index_shouts_on_user_id"
+  add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id", using: :btree
+  add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree
 
   create_table "text_shouts", force: true do |t|
     t.string "body"
@@ -70,8 +73,8 @@ ActiveRecord::Schema.define(version: 20131127160817) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  add_index "users", ["username"], name: "index_users_on_username"
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end

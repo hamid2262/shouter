@@ -15,11 +15,17 @@ class User < ActiveRecord::Base
   					class_name: 'FollowingRelationship'
   has_many :followers, through: :follower_relationships
 
+  validates :firstname, length:   {maximum: 50}
+  validates :lastname,  length:   {maximum: 50}
+  validates :gender,    inclusion:{ in: %w(male female) } 
+
   def name
-    if self.username.nil?
+    if self.firstname.present?
+      self.firstname.titleize       
+    elsif self.username.present?
+       self.username
+    else      
       self.email
-    else
-      self.try(:username).titleize       
    end
   end
   

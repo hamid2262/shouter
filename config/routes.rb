@@ -2,7 +2,7 @@ Shouter::Application.routes.draw do
 
   root 'homes#show'
 
-  devise_for :users#, :controllers => { registrations: 'users' }
+  devise_for :users, :controllers => { registrations: 'users' }
   devise_scope :user do
     resources :users, only: [:show, :index] do
       post 'follow' => 'following_relationships#create' 
