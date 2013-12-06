@@ -31,11 +31,11 @@ ActiveRecord::Schema.define(version: 20131127160817) do
   end
 
   create_table "shouts", force: true do |t|
+    t.string   "content_type"
+    t.integer  "content_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "content_type"
-    t.integer  "content_id"
   end
 
   add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id"
@@ -46,19 +46,28 @@ ActiveRecord::Schema.define(version: 20131127160817) do
   end
 
   create_table "users", force: true do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                             default: "",     null: false
+    t.string   "encrypted_password",                default: "",     null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,      null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
+    t.string   "current_sign_in_ip",     limit: 50
     t.string   "last_sign_in_ip"
+    t.string   "username",               limit: 50
+    t.string   "firstname",              limit: 50
+    t.string   "lastname",               limit: 50
+    t.string   "gender",                 limit: 6,  default: "male", null: false
+    t.string   "tel",                    limit: 20
+    t.string   "mobile",                 limit: 20
+    t.string   "address",                limit: 50
+    t.string   "post_code",              limit: 10
+    t.integer  "city_id"
+    t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
