@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @vehicle.user %>
-</p>
-
-<p>
   <strong>Color:</strong>
   <%= @vehicle.color %>
 </p>
@@ -35,5 +30,4 @@
   <%= @vehicle.vehicle_model %>
 </p>
 
-<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
-<%= link_to 'Back', vehicles_path %>
+<%= link_to 'Edit', edit_user_vehicles_path(@user) %>

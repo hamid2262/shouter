@@ -1,6 +1,9 @@
 <h1>Editing vehicle</h1>
 
-<%= render 'form' %>
+<%= form_for @vehicle,  url: {action: "update"} do |f| %>
 
-<%= link_to 'Show', @vehicle %> |
-<%= link_to 'Back', vehicles_path %>
+<%= render partial: 'form', locals: {f: f} %>
+
+<% end %>
+
+<%= link_to 'Show', current_user %>

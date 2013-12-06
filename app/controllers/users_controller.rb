@@ -10,6 +10,7 @@ class UsersController < Devise::RegistrationsController
   def show
     @user = User.find(params[:id])
     @shouts = @user.shouts
+    @vehicle = @user.vehicle
     # @shouts = Shout.where(:user_id, params[:id])
   end
   
@@ -39,7 +40,6 @@ class UsersController < Devise::RegistrationsController
     end
   end
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation)
   end

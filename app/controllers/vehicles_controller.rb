@@ -27,8 +27,8 @@ class VehiclesController < ApplicationController
     @vehicle = Vehicle.new(vehicle_params)
 
     respond_to do |format|
-      if @vehicle.save
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully created.' }
+      if current_user.vehicle = @vehicle
+        format.html { redirect_to user, notice: 'Vehicle was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vehicle }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        format.html { redirect_to @vehicle, notice: 'Vehicle was successfully updated.' }
+        format.html { redirect_to user, notice: 'Vehicle was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -64,7 +64,12 @@ class VehiclesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_vehicle
-      @vehicle = Vehicle.find(params[:id])
+      
+      @vehicle = user.vehicle
+    end
+
+    def user
+      User.find(params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
