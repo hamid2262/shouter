@@ -32,7 +32,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Personal Information
 
-      t.string   :username,  limit: 50
+      t.integer  :city_id   
+      t.string   :username,   limit: 50
       t.string   :firstname,  limit: 50
       t.string   :lastname,   limit: 50
       t.string   :gender,     limit: 6, default: 'male', :null => false  #["male", "female"]
@@ -40,12 +41,13 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :mobile,     limit: 20
       t.string   :address,    limit: 50
       t.string   :post_code,  limit: 10
-      t.integer  :city_id
       t.string   :image
 
       t.timestamps
     end
-    add_index :users, :username
+
+    add_index :users, :city_id
+    add_index :users, :username,             :unique => true
     add_index :users, :email,                :unique => true
     add_index :users, :reset_password_token, :unique => true
     # add_index :users, :confirmation_token,   :unique => true

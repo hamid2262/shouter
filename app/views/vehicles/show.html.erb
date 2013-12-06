@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vehicle.user %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @vehicle.color %>
+</p>
+
+<p>
+  <strong>Number plate:</strong>
+  <%= @vehicle.number_plate %>
+</p>
+
+<p>
+  <strong>Air condition:</strong>
+  <%= @vehicle.air_condition %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @vehicle.year %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @vehicle.image %>
+</p>
+
+<p>
+  <strong>Vehicle model:</strong>
+  <%= @vehicle.vehicle_model %>
+</p>
+
+<%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
+<%= link_to 'Back', vehicles_path %>

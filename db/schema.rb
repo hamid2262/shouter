@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131127160817) do
+ActiveRecord::Schema.define(version: 20131206112347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20131127160817) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 50
     t.string   "last_sign_in_ip"
+    t.integer  "city_id"
     t.string   "username",               limit: 50
     t.string   "firstname",              limit: 50
     t.string   "lastname",               limit: 50
@@ -67,14 +68,29 @@ ActiveRecord::Schema.define(version: 20131127160817) do
     t.string   "mobile",                 limit: 20
     t.string   "address",                limit: 50
     t.string   "post_code",              limit: 10
-    t.integer  "city_id"
     t.string   "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "vehicles", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "vehicle_model_id"
+    t.string   "color"
+    t.string   "number_plate"
+    t.boolean  "air_condition"
+    t.string   "year"
+    t.string   "image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree
+  add_index "vehicles", ["vehicle_model_id"], name: "index_vehicles_on_vehicle_model_id", using: :btree
 
 end

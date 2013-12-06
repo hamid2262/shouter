@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :vehicle
+
   has_many :shouts
   has_many :followed_user_relationships, 
   					foreign_key: 'follower_id',
