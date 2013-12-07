@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_one :vehicle
 
+  belongs_to :city
+
   has_many :shouts
   has_many :followed_user_relationships, 
   					foreign_key: 'follower_id',

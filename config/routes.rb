@@ -1,5 +1,7 @@
 Shouter::Application.routes.draw do
 
+  resources :cities
+
   resources :states
 
   resources :countries

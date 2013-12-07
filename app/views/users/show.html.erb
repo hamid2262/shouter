@@ -6,7 +6,12 @@
 
 <%= render @shouts %>
 <hr>
+<h2>User Profile</h2>
 
+<%= render 'single' %>
+
+<hr>
+<h2>Car detail</h2>
 <% if @user.vehicle.present? %>
 	<%= render 'vehicles/show' %>	
 <% else %>

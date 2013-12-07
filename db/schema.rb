@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206221819) do
+ActiveRecord::Schema.define(version: 20131206223028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cities", force: true do |t|
+    t.integer  "state_id"
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "countries", force: true do |t|
     t.string   "name"
@@ -49,6 +60,15 @@ ActiveRecord::Schema.define(version: 20131206221819) do
 
   add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id", using: :btree
   add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree
+
+  create_table "states", force: true do |t|
+    t.string   "name"
+    t.integer  "country_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
   create_table "text_shouts", force: true do |t|
     t.string "body"
