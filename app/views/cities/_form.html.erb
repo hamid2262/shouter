@@ -3,7 +3,8 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.association :state %>
+    <%= f.input :local_name %>
+    <%= f.association :state, label_method: :local_name %>
     <%= f.input :latitude %>
     <%= f.input :longitude %>
   </div>
@@ -11,4 +12,8 @@
   <div class="form-actions">
     <%= f.button :submit %>
   </div>
+
+<br>
+
+<%= map_address(@city, 9) %>
 <% end %>

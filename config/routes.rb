@@ -27,6 +27,10 @@ Shouter::Application.routes.draw do
   resources :text_shouts, only: [:create]
   resources :photo_shouts, only: [:create]
   resources :hashtags, only: [:show]
+  
+  get 'upgrade_cities' => 'cities#upgrade'
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,6 @@
 class UsersController < Devise::RegistrationsController
-	
+  before_action :require_login
+
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def index
@@ -37,6 +38,15 @@ class UsersController < Devise::RegistrationsController
         format.html { render action: 'edit' }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+private
+
+  def require_login
+    unless user_signed_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_user_session_url # halts request cycle
     end
   end
 

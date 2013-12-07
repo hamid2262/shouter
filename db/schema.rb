@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131206223028) do
   create_table "cities", force: true do |t|
     t.integer  "state_id"
     t.string   "name"
+    t.string   "local_name"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
@@ -29,6 +30,7 @@ ActiveRecord::Schema.define(version: 20131206223028) do
 
   create_table "countries", force: true do |t|
     t.string   "name"
+    t.string   "local_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -63,6 +65,7 @@ ActiveRecord::Schema.define(version: 20131206223028) do
 
   create_table "states", force: true do |t|
     t.string   "name"
+    t.string   "local_name"
     t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
