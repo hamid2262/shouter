@@ -3,6 +3,8 @@ class City < ActiveRecord::Base
   has_many   :users
 
   default_scope order(:state_id, :local_name)
+  scope :sorted, -> { order(:name) }
+
   geocoded_by :name
 	after_validation :geocode, :if => :name_changed?
 

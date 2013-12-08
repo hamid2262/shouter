@@ -8,7 +8,7 @@ gem "paperclip", "~> 3.5.2"
 gem "geocoder", "~> 1.1.8"
 gem 'pg'
 gem 'simple_form'
-
+gem "gravatar_image_tag", "~> 1.2.0"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
