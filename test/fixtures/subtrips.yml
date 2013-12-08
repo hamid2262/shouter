@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  trip_id: 
+  datetime: 2013-12-08 22:00:05
+  price: 1
+
+two:
+  trip_id: 
+  datetime: 2013-12-08 22:00:05
+  price: 1
