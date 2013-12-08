@@ -1,33 +1,20 @@
-<p id="notice"><%= notice %></p>
+<h3>Car detail</h3>  
+<% if @user.vehicle.present? %>
+  <p id="notice"><%= notice %></p>
+  <table class="table">
+    <tbody>
+      <%=  table_show_cell "Color", @vehicle.color %>
+      <%=  table_show_cell "Number plate", @vehicle.number_plate %>
+      <%=  table_show_cell "Air condition", @vehicle.air_condition %>
+      <%=  table_show_cell "Year", @vehicle.year %>
+      <%=  table_show_cell "Image", @vehicle.image %>
+      <%=  table_show_cell "Model", "#{@vehicle.vehicle_model.vehicle_brand.name} - #{@vehicle.vehicle_model.name}" %>
+    </tbody>
+  </table>
 
-<p>
-  <strong>Color:</strong>
-  <%= @vehicle.color %>
-</p>
+  <%= link_to 'Edit', edit_user_vehicles_path(@user) %>
 
-<p>
-  <strong>Number plate:</strong>
-  <%= @vehicle.number_plate %>
-</p>
-
-<p>
-  <strong>Air condition:</strong>
-  <%= @vehicle.air_condition %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @vehicle.year %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @vehicle.image %>
-</p>
-
-<p>
-  <strong>Vehicle model:</strong>
-  <%= @vehicle.vehicle_model.vehicle_brand.name %> - <%= @vehicle.vehicle_model.name %>
-</p>
-
-<%= link_to 'Edit', edit_user_vehicles_path(@user) %>
+<% else %>
+  <p>There is no car registered.</p>
+  <p><%= link_to "Enter your car details", new_user_vehicles_path(@user) %></p>
+<% end %>

@@ -4,16 +4,11 @@
 	<%= follow_button @user %>
 <% end %>
 
-<%= render @shouts %>
-<hr>
-<h2>User Profile</h2>
+<%= render @shouts %> <hr>
 
-<%= render 'single' %>
+<%= render 'single_profile' %><hr>
 
-<hr>
-<h2>Car detail</h2>
-<% if @user.vehicle.present? %>
+
+
 	<%= render 'vehicles/show' %>	
-<% else %>
-	<p><%= link_to "Enter your car details", new_user_vehicles_path(@user) %></p>
-<% end %>
+
