@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2013-12-08 21:37:27
+  total_available_seats: 1
+  detail: MyString
+  user_id: 
+
+two:
+  date: 2013-12-08 21:37:27
+  total_available_seats: 1
+  detail: MyString
+  user_id: 

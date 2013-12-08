@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @trip.date %>
+</p>
+
+<p>
+  <strong>Total available seats:</strong>
+  <%= @trip.total_available_seats %>
+</p>
+
+<p>
+  <strong>Detail:</strong>
+  <%= @trip.detail %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @trip.user %>
+</p>
+
+<%= link_to 'Edit', edit_trip_path(@trip) %> |
+<%= link_to 'Back', trips_path %>

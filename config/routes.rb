@@ -1,15 +1,19 @@
 Shouter::Application.routes.draw do
 
+  resources :trips
   resources :cities
-
   resources :states
-
   resources :countries
-
   resources :vehicle_brands
-
   resources :vehicle_models
-
+  resource  :search, only: [:show]
+  resource  :dashboard, only: [:show,:create]  
+  resources :homes, only: [:show]
+  resources :shouts, only: [:show]
+  resources :text_shouts, only: [:create]
+  resources :photo_shouts, only: [:create]
+  resources :hashtags, only: [:show]
+  
   root 'homes#show'
 
   devise_for :users, :controllers => { registrations: 'users' }
@@ -20,13 +24,7 @@ Shouter::Application.routes.draw do
       delete 'follow' => 'following_relationships#destroy' 
     end
   end
-  resource  :search, only: [:show]
-  resource  :dashboard, only: [:show,:create]  
-  resources :homes, only: [:show]
-  resources :shouts, only: [:show]
-  resources :text_shouts, only: [:create]
-  resources :photo_shouts, only: [:create]
-  resources :hashtags, only: [:show]
+
   
   get 'upgrade_cities' => 'cities#upgrade'
 

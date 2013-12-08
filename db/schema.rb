@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206223028) do
+ActiveRecord::Schema.define(version: 20131208203727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20131206223028) do
   create_table "text_shouts", force: true do |t|
     t.string "body"
   end
+
+  create_table "trips", force: true do |t|
+    t.datetime "date"
+    t.integer  "total_available_seats", default: 8
+    t.string   "detail"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "",     null: false

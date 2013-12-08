@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_one :vehicle
 
+  has_many :trips
+  
   belongs_to :city
 
   has_many :shouts
