@@ -2,7 +2,7 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @trip.date %>
+  <%= @trip.subtrips.first.datetime if @trip.subtrips.any? %>
 </p>
 
 <p>
@@ -17,7 +17,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @trip.user %>
+  <%= @trip.driver.name %>
 </p>
 
 <%= link_to 'Edit', edit_trip_path(@trip) %> |
