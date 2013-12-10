@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131208183504) do
+ActiveRecord::Schema.define(version: 20131210185016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20131208183504) do
     t.datetime "updated_at"
   end
 
+  add_index "cities", ["latitude", "longitude"], name: "index_cities_on_latitude_and_longitude", using: :btree
+  add_index "cities", ["local_name"], name: "index_cities_on_local_name", using: :btree
+  add_index "cities", ["name"], name: "index_cities_on_name", using: :btree
   add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
 
   create_table "countries", force: true do |t|
@@ -73,9 +76,34 @@ ActiveRecord::Schema.define(version: 20131208183504) do
 
   add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
+  create_table "subtrips", force: true do |t|
+    t.integer  "trip_id"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.datetime "datetime"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "subtrips", ["datetime", "origin_id", "destination_id"], name: "index_subtrips_on_datetime_and_origin_id_and_destination_id", using: :btree
+  add_index "subtrips", ["destination_id"], name: "index_subtrips_on_destination_id", using: :btree
+  add_index "subtrips", ["origin_id"], name: "index_subtrips_on_origin_id", using: :btree
+  add_index "subtrips", ["trip_id"], name: "index_subtrips_on_trip_id", using: :btree
+
   create_table "text_shouts", force: true do |t|
     t.string "body"
   end
+
+  create_table "trips", force: true do |t|
+    t.integer  "total_available_seats", default: 8
+    t.string   "detail"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "",     null: false
