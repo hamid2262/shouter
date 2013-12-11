@@ -10,6 +10,7 @@ class TripsController < ApplicationController
 
   def new
     @trip = Trip.new
+    @sub = Subtrip.new
   end
 
   def edit
@@ -20,6 +21,9 @@ class TripsController < ApplicationController
     @trip.driver = current_user
     respond_to do |format|
       if @trip.save
+        @trip.subtrips.build(subtrip_first_params)
+        @trip.save
+        @trip.fill_subtrips_destination
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render action: 'show', status: :created, location: @trip }
       else
@@ -54,8 +58,13 @@ class TripsController < ApplicationController
       @trip = Trip.find(params[:id])
     end
 
+    def subtrip_first_params
+      params.require(:first_sub).permit(:datetime, :origin_id, :destination_id)
+    end
+
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-                                  subtrips_attributes: [:price, :datetime, :id, :_destroy])    
+                                  subtrips_attributes: [:id, :origin_id, :price, :datetime, :_destroy])    
     end
+   
 end

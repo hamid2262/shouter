@@ -4,7 +4,7 @@ class City < ActiveRecord::Base
 
   has_many	:outgoing_trips, class_name: "Subtrip", foreign_key: "origin_id"
   has_many  :incoming_trips, class_name: "Subtrip", foreign_key: "destination_id"
-  default_scope { order(:state_id, :local_name) }
+  default_scope { order(:id, :local_name) }
   scope :sorted, -> { order(:name) }
 
   geocoded_by :name
