@@ -1,0 +1,8 @@
+<fieldset>
+  <%= f.input :datetime, as: :time %>  
+  <%= f.object.origin.name %> -----> <%= f.object.destination.name %> 
+	<%= f.select :price, (0..100).step(1).map{|s| ["#{s} EURO", s]}%>
+
+  <%= f.hidden_field :_destroy %>
+  <%= link_to "Remove", "#", class: "remove_fields" %>  
+</fieldset>

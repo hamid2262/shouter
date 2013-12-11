@@ -11,11 +11,9 @@
     <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>
 
   <%= f.simple_fields_for :subtrips do |builder| %>
-    <hr>  
-  	<fieldset>
+  	<fieldset> <hr>
     	<%= render 'subtrip_fields', f: builder %>
     </fieldset>
-    <hr>
   <% end %>
   <%= link_to_add_fields "Add Subtrip", f, :subtrips %> <br>
 

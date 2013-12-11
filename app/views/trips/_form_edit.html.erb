@@ -1,0 +1,19 @@
+<%= simple_form_for(@trip) do |f| %>
+  <%= f.error_notification %>
+  Total seats: <%= f.select :total_available_seats, 1..6 %> <br>
+
+  
+  Departure date: 
+    <%= @trip.subtrips.first.datetime.to_s(:date) %>  <br>
+  Departure Time: 
+    <%= @trip.subtrips.first.datetime.to_s(:time) %>  <br>
+
+  <%= f.simple_fields_for :subtrips do |builder| %>
+  	<fieldset> <hr>
+    	<%= render 'subtrip_fields_edit', f: builder %>
+    </fieldset>
+  <% end %>
+
+  <%= f.input :detail %>
+  <%= f.button :submit %>
+<% end %>
