@@ -3,6 +3,29 @@ class Trip < ActiveRecord::Base
   has_many   :subtrips , dependent: :destroy
   accepts_nested_attributes_for :subtrips, allow_destroy: true
 
+  def first_city
+    path_list.first
+  end
+
+  def last_city
+    path_list.last  
+  end
+
+  def via_cities_obj
+    path_list[1..-1]
+  end
+
+  def path_list
+    list = []
+    path_list_obj = []
+    self.subtrips.each do |c|
+      unless list.include?(c.origin.name)
+        path_list_obj << c
+        list << c.origin.name
+      end
+    end
+    path_list_obj
+  end
 
   def fill_subtrips_destination 
     cities_ids = create_city_array self       
