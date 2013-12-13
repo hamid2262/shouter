@@ -1,6 +1,6 @@
 <%= simple_form_for(@trip) do |f| %>
   <%= f.error_notification %>
-  Total seats: <%= f.select :total_available_seats, 1..6 %> <br>
+  Total seats: <%= f.select :total_available_seats, 1..@vehicle_seats, selected: @vehicle_seats %> <br>
 
   
   Departure date: 
