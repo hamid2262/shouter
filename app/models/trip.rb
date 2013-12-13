@@ -27,7 +27,25 @@ class Trip < ActiveRecord::Base
     path_list_obj
   end
 
-  def fill_subtrips_destination 
+  def subtrips_init main_subtrip_params
+    self.subtrips.build(main_subtrip_params)
+    self.save
+    self.fill_subtrips_destination
+    self.seats_init
+  end
+
+  def seats_init
+    self.subtrips.each do |s|
+      for i in 1..(self.total_available_seats) do
+        s.seats << 0
+      end
+      s.seats_will_change!
+      s.save      
+    end
+
+  end
+
+  def fill_subtrips_destination
     cities_ids = create_city_array self       
     for i in 0..(cities_ids.size-1)
       origin = self.subtrips.where(origin_id: cities_ids[i]).first   

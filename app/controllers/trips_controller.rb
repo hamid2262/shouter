@@ -9,6 +9,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    @vehicle_seats = vehicle_seats_number current_user
     @trip = Trip.new
     @sub = Subtrip.new
   end
@@ -19,11 +20,10 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.driver = current_user
+
     respond_to do |format|
       if @trip.save
-        @trip.subtrips.build(subtrip_first_params)
-        @trip.save
-        @trip.fill_subtrips_destination
+        @trip.subtrips_init main_subtrip_params
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render action: 'show', status: :created, location: @trip }
       else
@@ -58,13 +58,23 @@ class TripsController < ApplicationController
       @trip = Trip.find(params[:id])
     end
 
-    def subtrip_first_params
-      params.require(:first_sub).permit(:datetime, :origin_id, :destination_id)
+    def main_subtrip_params
+      params.require(:first_sub).permit(:datetime, :origin_id, :destination_id, :seats)
     end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-                                  subtrips_attributes: [:id, :origin_id, :price, :datetime, :_destroy])    
+                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :datetime, :_destroy])    
     end
-   
+
+    def vehicle_seats_number user
+      if user.vehicle.present?
+        user.vehicle.vehicle_model.seats_number
+      else
+        flash[:notice] = "First enter detail of your vehicle"
+        session[:return_to] = new_trip_path
+        redirect_to new_user_vehicles_path(user)
+      end
+    end
+
 end

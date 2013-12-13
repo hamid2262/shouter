@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20131210185016) do
     t.integer  "destination_id"
     t.datetime "datetime"
     t.integer  "price"
+    t.integer  "seats",          default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
