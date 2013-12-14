@@ -4,10 +4,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :vehicle
+  has_one    :vehicle
 
-  has_many :trips
-  
+  has_many   :trips
+  has_many   :bookings  
   belongs_to :city
 
   has_many :shouts

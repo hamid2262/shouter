@@ -1,5 +1,7 @@
 Shouter::Application.routes.draw do
 
+  resources :bookings
+
   resources :trips
   resources :cities
   resources :states
