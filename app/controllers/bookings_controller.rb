@@ -24,6 +24,8 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
+    @data =  params
+    return false
     @booking = Booking.new(booking_params)
 
     respond_to do |format|

@@ -1,0 +1,25 @@
+<h1>Subtrips</h1>
+<%= @subtrip.inspect %>
+
+<table class="table">
+  <tbody>
+  <h3>Subtrip detail</h3>
+		<%= table_show_cell "From"	,@subtrip.origin.name %>
+		<%= table_show_cell "To"  	,@subtrip.destination.name %>
+		<%= table_show_cell "On"		,@subtrip.datetime.to_s(:date) %>
+		<%= table_show_cell "At"		,@subtrip.datetime.to_s(:time) %>
+		<%= table_show_cell "Price" ,@subtrip.price %>
+  </tbody>
+</table>
+
+<%= form_tag '/bookings',method: :post do %>
+
+	<p> "Seats" </p>
+	<ul>
+		<% @subtrip.seats.each_with_index do |id, index| %>
+			<%= check_for_seat_state(id, index+1) %>
+		<% end %> <!-- Form End -->
+	</ul>
+
+<div><%= submit_tag 'Save' %></div>
+<% end -%>

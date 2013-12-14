@@ -18,11 +18,13 @@ ActiveRecord::Schema.define(version: 20131213220406) do
 
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
+    t.integer  "subtrip_id"
     t.boolean  "accaptance_status", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "cities", force: true do |t|
@@ -104,18 +106,6 @@ ActiveRecord::Schema.define(version: 20131213220406) do
   create_table "text_shouts", force: true do |t|
     t.string "body"
   end
-
-  create_table "tickets", force: true do |t|
-    t.integer  "booking_id"
-    t.integer  "subtrip_id"
-    t.integer  "seat_number"
-    t.string   "passenger_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tickets", ["booking_id"], name: "index_tickets_on_booking_id", using: :btree
-  add_index "tickets", ["subtrip_id"], name: "index_tickets_on_subtrip_id", using: :btree
 
   create_table "trips", force: true do |t|
     t.integer  "total_available_seats", default: 8
