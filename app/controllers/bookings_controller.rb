@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     
     @subtrip = Subtrip.find(params[:subtrip_id])
 
-    new_seat_array = Subtrip.create_new_seats_array(params, current_user)
+    new_seat_array = Booking.create_new_seats_array(params, current_user)
 
     @all_conflicts = @subtrip.find_conflict_subtrips 
 
@@ -36,9 +36,7 @@ class BookingsController < ApplicationController
       s.save
     end
 
-    return false
-
-    @booking = Booking.new(booking_params)
+    @booking = @subtrip.bookings.build(user_id: current_user.id)
 
     respond_to do |format|
       if @booking.save

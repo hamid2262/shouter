@@ -6,20 +6,6 @@ class Subtrip < ActiveRecord::Base
 
   default_scope { order('datetime ASC') } 
 
-  def self.create_new_seats_array params, current_user
-    new_seats_array = []
-    params[:seat_numbers].each do |k,v|
-      if v == "F"
-        new_seats_array << 0
-      elsif v=="T"
-        new_seats_array << current_user.id
-      else
-        new_seats_array << v.to_i
-      end
-    end
-    new_seats_array
-  end
-
   def find_conflict_subtrips
   	origin = self.origin_id
     destination = self.destination_id

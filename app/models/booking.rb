@@ -5,7 +5,18 @@ class Booking < ActiveRecord::Base
   # after_save :take_subtrip_seats
   # after_destroy :release_subtrip_seats
 
-  # def take_subtrip_seats
-  # 	self.subtrip.seats = 
-  # end
+  def self.create_new_seats_array params, current_user
+    new_seats_array = []
+    params[:seat_numbers].each do |k,v|
+      if v == "F"
+        new_seats_array << 0
+      elsif v=="T"
+        new_seats_array << current_user.id
+      else
+        new_seats_array << v.to_i
+      end
+    end
+    new_seats_array
+  end
+  
 end
