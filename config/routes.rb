@@ -1,5 +1,6 @@
 Shouter::Application.routes.draw do
 
+  resource  :search_subtrips, only: [:show]
   resources :subtrips, only: [:show]
   resources :bookings
 

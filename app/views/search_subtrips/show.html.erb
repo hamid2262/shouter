@@ -1,0 +1,6 @@
+<% @search_subtrips.subtrips.each do |s| %>
+	
+	<%= link_to s.inspect, subtrip_path(s.id) %>
+<% end %>
+
+
