@@ -12,14 +12,4 @@
   </tbody>
 </table>
 
-<%= form_tag '/bookings',method: :post do %>
-
-	<p> "Seats" </p>
-	<ul>
-		<% @subtrip.seats.each_with_index do |id, index| %>
-			<%= check_for_seat_state(id, index+1) %>
-		<% end %> <!-- Form End -->
-	</ul>
-
-<div><%= submit_tag 'Save' %></div>
-<% end -%>
+<%= render 'seats_form' %>

@@ -5,4 +5,34 @@ class Subtrip < ActiveRecord::Base
   has_many	 :bookings
 
   default_scope { order('datetime ASC') } 
+
+  def find_conflict_subtrips
+  	origin = self.origin_id
+    destination = self.destination_id
+    subtrips = self.trip.subtrips
+
+    before_subtrip = find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
+    after_subtrip  = find_before_and_after_destination_conflict_subtrips origin, destination, subtrips
+    inbetween_subtrip  = find_inbetween_origin_and_destination_conflict_subtrips origin, destination, subtrips
+
+    all_conflict_subtrips = (inbetween_subtrip + before_subtrip + after_subtrip).uniq
+
+  end
+
+  def  find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
+    before_and_itself_cities = self.trip.before_and_itself_cities origin
+    after_cities = self.trip.after_cities origin
+    subtrips.where(origin_id: before_and_itself_cities, destination_id: after_cities) 	
+  end
+
+  def find_before_and_after_destination_conflict_subtrips origin, destination, subtrips
+    before_cities = self.trip.before_cities destination
+    after_and_itself_cities = self.trip.after_and_itself_cities destination
+    subtrips.where(origin_id: before_cities, destination_id: after_and_itself_cities)  	
+  end
+
+  def find_inbetween_origin_and_destination_conflict_subtrips origin, destination, subtrips
+    inbetween_cities = self.trip.inbetween_cities origin, destination    
+    subtrips.where(origin_id: inbetween_cities, destination_id: inbetween_cities)  	
+  end
 end

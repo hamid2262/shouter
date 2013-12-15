@@ -15,6 +15,40 @@ class Trip < ActiveRecord::Base
     path_list[1..-1]
   end
 
+  def inbetween_cities c1, c2
+    i = cities_list.index(c1)
+    j = cities_list.index(c2)
+    cities_list[i..j]
+  end
+
+  def before_cities city
+    i = cities_list.index(city)
+    cities_list[0..i-1]
+  end
+
+  def after_cities city
+    i = cities_list.index(city)
+    cities_list[i+1..-1]
+  end
+
+  def before_and_itself_cities city
+    i = cities_list.index(city)
+    cities_list[0..i]
+  end
+
+  def after_and_itself_cities city
+    i = cities_list.index(city)
+    cities_list[i..-1]
+  end
+
+  def cities_list
+    list = []
+    path_list.each do |s|
+      list << s.origin_id
+    end
+    list << path_list.last.destination_id
+  end
+
   def path_list
     list = []
     path_list_obj = []
@@ -65,9 +99,11 @@ class Trip < ActiveRecord::Base
   end
 
   private
+
 	  def main_subtrip cities_ids, i, j
 	    true if cities_ids[i]== cities_ids[0] && cities_ids[j]==cities_ids[cities_ids.size-1]
 	  end
+
 	  def create_city_array trip
 	    cities_ids = []
 	    main_trip = trip.subtrips.where.not(destination_id: nil).first

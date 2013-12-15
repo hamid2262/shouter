@@ -5,13 +5,17 @@ module SubtripsHelper
 	end
 	
 	def check_for_seat_state id, index
-		result = if id == -1
-			"#{index}   =>  unavailable "
-		elsif id == 0
-			"#{index} => available #{check_box_tag('seat_number[]', index+1)} "
+		result = case id 
+		when -1
+			"#{index+1}   =>  unavailable "
+		when  0
+			"#{index+1} => available #{check_box_tag("seat_numbers[#{index}][]", "T")} "
+		when  current_user.id
+			"#{index+1} => Your seat #{check_box_tag("seat_numbers[#{index}][]", "T", true)} "
 		else
-			"#{index}   =>  taken  #{find_user_obj(id).name}  "
+			"#{index+1}   =>  taken  #{find_user_obj(id).name}  "
 		end
+
 		"<li> #{result} </li>".html_safe
 	end
 	

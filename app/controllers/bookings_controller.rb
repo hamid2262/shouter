@@ -24,8 +24,21 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    @data =  params
+    new_seats = []
+    @subtrip = Subtrip.find(params[:subtrip_id])
+    params[:seat_numbers].each do |k,v|
+      @subtrip.seats[k.to_i] = current_user.id
+    end
+
+    @all_conflicts = @subtrip.find_conflict_subtrips 
+
+    @all_conflicts.each do |s|
+      s.seats = @subtrip.seats
+      s.save
+    end
+
     return false
+
     @booking = Booking.new(booking_params)
 
     respond_to do |format|

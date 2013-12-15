@@ -1,0 +1,12 @@
+<%= form_tag bookings_path do %>
+	<p> "Seats" </p>
+	<ul>
+		<% @subtrip.seats.each_with_index do |id, index| %>
+			<%= check_for_seat_state(id, index) %>
+		<% end %> <!-- Form End -->
+	</ul>
+	
+	<%= hidden_field_tag 'subtrip_id', @subtrip.id %>
+	<%= submit_tag 'Save' %>
+<% end -%>
+
