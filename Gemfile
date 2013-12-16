@@ -5,6 +5,8 @@ gem 'rails', '4.0.1'
 gem 'devise'
 gem "cancan", "~> 1.6.10"
 gem "paperclip", "~> 3.5.2"
+gem 'aws-sdk'
+
 gem "geocoder", "~> 1.1.8"
 gem 'pg'
 gem 'simple_form'
