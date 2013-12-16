@@ -1,0 +1,27 @@
+<table class="table table-hover" >
+	<thead>
+		<tr>
+			<th> Origin</th>
+			<th> Destination</th>
+			<th> Time</th>
+			<th> Price per Person</th>
+			<th> Available seats</th>
+			<th> View/Book Trip</th>
+			<th> Driver</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+			<tr>			
+				<td> <%= i.origin.name %> </td>
+				<td> <%= i.destination.name %></td>
+				<td> <%= i.datetime.to_s(:time) %></td>
+				<td> <%= i.price %></td>
+				<td> <%= pluralize(i.seats.count(0), 'Place') %> Available </td>
+				<td><%= link_to "View Detail", subtrip_path(i.id) %></td>
+				<td> <%= link_to gravatar(i.trip.driver,32), i.trip.driver %></td>
+			</tr>
+	</tbody>
+</table>
+
+

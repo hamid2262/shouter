@@ -1,7 +1,9 @@
 class SearchSubtripsController < ApplicationController
 
 	def show
-		@search_subtrips = SearchSubtrip.new(params[:search_subtrip])	
 	end
 
+	def search
+		@search_subtrips = SearchSubtrip.new(params[:search_subtrip])			
+	end
 end

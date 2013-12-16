@@ -20,13 +20,13 @@ module ApplicationHelper
 					
 	end
 
-	def gravatar user, size = 48
+	def gravatar user, size = 48, klass = "img-circle"
 		if user.image.present?
 			image_tag(user.image,size: "#{size}x#{size}", alt:"#{user.name} in hamsafaryab.com")
 		else
 			gravatar_image_tag( user.email.gsub('spam', 'mdeering'), 
 				:alt => "#{user.name} in hamsafaryab.com", 
-				:class => '',
+				:class => klass,
 				:gravatar => { 
 					:default => image(user),
 					:size => size,
