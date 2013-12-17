@@ -7,11 +7,12 @@
       <%=  table_show_cell "Number plate", @vehicle.number_plate %>
       <%=  table_show_cell "Air condition", @vehicle.air_condition %>
       <%=  table_show_cell "Year", @vehicle.year %>
-      <%=  table_show_cell "Image", @vehicle.image %>
       <%=  table_show_cell "Model", "#{@vehicle.vehicle_model.vehicle_brand.name} - #{@vehicle.vehicle_model.name}" %>
     </tbody>
   </table>
-
+  
+  "Image" <%= image_tag @vehicle.image.url(:original) %>
+  
   <%= link_to 'Edit', edit_user_vehicles_path(@user) %>
 
 <% else %>
