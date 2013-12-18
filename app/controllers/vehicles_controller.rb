@@ -1,12 +1,7 @@
 class VehiclesController < ApplicationController
-  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle, only: [:edit, :update, :destroy]
 
-  def index
-    @vehicles = Vehicle.all
-  end
-
-  def show
-  end
+  skip_authorization_check
 
   def new
     @vehicle = Vehicle.new

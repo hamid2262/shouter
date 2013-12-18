@@ -11,16 +11,14 @@ class Ability
             user == u
         end
 
-        can :read, Dashboard
+        can [:create, :new], Vehicle
+        can [:edit, :update, :destroy] do |u|
+            user == u
+        end
 
-        # can :read, Shout
-        # can :read, TextShout
-        # can :read, PhotoShout
-        can :manage, Shout
-        # can :manage ,[Shout, TextShout, PhotoShout]
-        #     shout.user == user
-        # end
+        
         can :manage, Trip
+        can :read, Dashboard
     else
 
     end

@@ -25,7 +25,7 @@ Shouter::Application.routes.draw do
   devise_for :users, :controllers => { registrations: 'users' }
   devise_scope :user do
     resources :users, only: [:show, :index] do
-      resource :vehicles, only: [:edit, :new, :update, :create]
+      resource :vehicles, only: [ :new, :create,:edit, :update ]
       post 'follow' => 'following_relationships#create' 
       delete 'follow' => 'following_relationships#destroy' 
     end
