@@ -1,5 +1,7 @@
 class SearchSubtripsController < ApplicationController
 
+	skip_authorization_check	
+
 	def show
 	end
 

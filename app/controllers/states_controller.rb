@@ -1,6 +1,8 @@
 class StatesController < ApplicationController
   before_action :set_state, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /states
   # GET /states.json
   def index

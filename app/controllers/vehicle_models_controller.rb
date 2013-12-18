@@ -1,6 +1,8 @@
 class VehicleModelsController < ApplicationController
   before_action :set_vehicle_model, only: [:show, :edit, :update, :destroy]
 
+  load_and_authorize_resource
+
   # GET /vehicle_models
   # GET /vehicle_models.json
   def index

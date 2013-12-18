@@ -1,0 +1,15 @@
+<%= form_for :search_subtrip, url: search_search_subtrips_path, method: :get do |f| %>
+	
+	<%= f.label :origin_id, "origin_id" %>
+	<%= f.text_field :origin_id %>
+	<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}%>
+
+	<%= f.label :destination_id, "Destination _Id" %>
+	<%= f.text_field :destination_id %>
+	<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}%> <br>
+	ffd
+	
+	<%= f.date_field :date, value: DateTime.now.to_date %>
+
+	<%= f.submit "Submit" %>
+<% end %>
