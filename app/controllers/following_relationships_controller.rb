@@ -1,5 +1,7 @@
 class FollowingRelationshipsController < ApplicationController
 
+	skip_authorization_check
+	
 	def create
 		current_user.follow user
 		redirect_to user, notice: "Now you are following #{user.name}."

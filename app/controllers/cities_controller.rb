@@ -1,4 +1,7 @@
 class CitiesController < ApplicationController
+
+  load_and_authorize_resource
+  
   before_action :set_city, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -67,7 +70,7 @@ class CitiesController < ApplicationController
 
 private
   def set_city
-    @city = City.find(params[:id])
+    # @city = City.find(params[:id])
   end
 
   def city_params

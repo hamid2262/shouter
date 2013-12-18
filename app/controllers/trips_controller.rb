@@ -1,8 +1,11 @@
 class TripsController < ApplicationController
+
+  load_and_authorize_resource
+
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    @trips = Trip.all
+    # @trips = Trip.all
   end
 
   def show
@@ -68,7 +71,7 @@ class TripsController < ApplicationController
     end
 
     def vehicle_seats_number user
-      if user.vehicle.present?
+      if user && user.vehicle.present?
         user.vehicle.vehicle_model.seats_number
       else
         flash[:notice] = "First enter detail of your vehicle"

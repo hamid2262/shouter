@@ -1,9 +1,11 @@
 class UsersController < Devise::RegistrationsController
+
+  load_and_authorize_resource only: [:index, :show, :update, :edit]
+
   before_action :require_login, only: [:index, :show, :update, :edit]
 
   def index
     @users = User.all
-    authorize! :read, @users
   end
 
   def show

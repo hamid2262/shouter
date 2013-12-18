@@ -1,5 +1,5 @@
 class HomesController < ApplicationController
-	before_action :check_logged_in_user
+	skip_authorization_check :only => [:show, :create]
 
   def show
   end

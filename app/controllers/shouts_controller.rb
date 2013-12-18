@@ -1,4 +1,6 @@
 class ShoutsController < ApplicationController
+	
+	skip_authorization_check
 
 	def show
 		@shout = Shout.find(params[:id])	
@@ -27,6 +29,5 @@ class ShoutsController < ApplicationController
 			shout.save
 		end  	
   end  
-
 
 end
