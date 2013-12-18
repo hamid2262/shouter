@@ -6,5 +6,9 @@ class Shout < ActiveRecord::Base
   def self.text_shouts
   	where(content_type: 'TextShout')	
   end
+  
+  def self.photo_shouts
+  	where(content_type: 'PhotoShout')	
+  end
 
 end

@@ -16,8 +16,8 @@ Shouter::Application.routes.draw do
   resource  :dashboard, only: [:show,:create]  
   resources :homes, only: [:show]
   resources :shouts, only: [:show]
-  resources :text_shouts, only: [:create]
-  resources :photo_shouts, only: [:create]
+  resources :text_shouts, only: [:create, :destroy]
+  resources :photo_shouts, only: [:create, :destroy]
   resources :hashtags, only: [:show]
   
   root 'homes#show'

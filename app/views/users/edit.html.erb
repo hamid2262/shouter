@@ -23,10 +23,13 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>  
   <%= f.input :password, 
-              hint: "leave blank if you don't want to change it." %>
-  <%= f.input :password_confirmation %>
+              hint: "leave blank if you don't want to change it.",
+              placeholder: "password" %>
+  <%= f.input :password_confirmation,
+              placeholder: "password confirmation"  %>
   <%= f.input :current_password, 
-              hint: "we need your current password to confirm your changes." %>
+              hint: "we need your current password to confirm your changes.",
+              placeholder: "current password"  %>
             
   <%= f.button :submit %>
 
