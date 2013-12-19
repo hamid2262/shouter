@@ -1,0 +1,4 @@
+	<%= form_for(:search, url: search_path, method: :get) do |f| -%>
+	  <%= f.text_field :term %>
+	  <%= f.submit "Search" %>
+	<% end %>

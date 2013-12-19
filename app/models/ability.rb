@@ -19,7 +19,7 @@ class Ability
         can :manage, Trip
         can :read, Dashboard
     else
-        can [:manage, :read, :search, :show], SearchSubtrip
+
     end
     
     # The first argument to `can` is the action you are giving the user 
