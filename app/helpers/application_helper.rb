@@ -51,4 +51,22 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end	
+
+	def flash_creator flash
+		message= "";
+		flash.each do |name, msg| 	
+			case name
+				when :success    
+				  message += "<div class=\"alert alert-success\">#{msg}</div>"	
+				when :warning    
+				  message += "<div class=\"alert alert-warning\">#{msg}</div>"	
+				when :error    
+				  message += "<div class=\"alert alert-danger\">#{msg}</div>"
+				else
+				  message += "<div class=\"alert alert-info\">#{msg}</div>"			
+			end
+	 	end 
+	 	message.html_safe
+	end
+  
 end
