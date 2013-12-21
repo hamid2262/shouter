@@ -12,23 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap
-//= require_tree .
-
-//= require jquery-1.6.2.min
-//= require jquery-ui-1.10.3.custom.min
-//= require jquery.ui.datepicker-cc
-//= require calendar
-//= require jquery.ui.datepicker-cc-fa
-
-
-$(function() {
-  $(".datepicker").datepicker({ 
-  	minDate: 0, 
-		showButtonPanel: true,
-		buttonImage: "https://s3-eu-west-1.amazonaws.com/shouter/static_files/css/images/calender.gif",
-		showOn: "both"
-	});
-});
+//= require trips
 
