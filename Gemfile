@@ -6,11 +6,12 @@ gem 'devise'
 gem "cancan", "~> 1.6.10"
 gem "paperclip", "~> 3.5.2"
 gem 'aws-sdk'
-
 gem "geocoder", "~> 1.1.8"
 gem 'pg'
 gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
+gem "jalalidate", "~> 0.3.3"
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -1,3 +1,5 @@
-<% @search_subtrips.subtrips(3).each do |i| %>
-	<%= render partial: 'search_item', locals: {i: i} %>
-<% end %>
+<%# @search_subtrips.subtrips(3).each do |i| %>
+	<%#= render partial: 'search_item', locals: {i: i} %>
+<%# end %>
+
+<%= @search_subtrips.subtrips.to_s %>

@@ -10,7 +10,7 @@
 	<%= f.hidden_field :destination_lat %>
 	<%= f.hidden_field :destination_lng %>
 	
-	<%= text_field_tag :date, Date.today, class: "datepicker" %>
+	<%= f.text_field :date, class: "datepicker" %>
 	
 	<%= f.submit "Search" %>
 <% end %>
