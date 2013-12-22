@@ -2,12 +2,12 @@ class TripsController < ApplicationController
   
   layout 'application_new_jquery'
 
-  load_and_authorize_resource
+  skip_authorization_check
 
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
   def index
-    # @trips = Trip.all
+    @trips = Trip.all
   end
 
   def show
@@ -20,22 +20,6 @@ class TripsController < ApplicationController
   end
 
   def edit
-  end
-
-  def create
-    @trip = Trip.new(trip_params)
-    @trip.driver = current_user
-
-    respond_to do |format|
-      if @trip.save
-        @trip.subtrips_init main_subtrip_params
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @trip }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   def update
@@ -58,18 +42,36 @@ class TripsController < ApplicationController
     end
   end
 
+  def create
+    @trip = Trip.new(trip_params)
+    @trip.driver = current_user
+    respond_to do |format|
+      if @trip.save
+        @trip.subtrips_init main_subtrip_params
+    @data = params
+    return false        
+        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @trip }
+      else
+        format.html { render action: 'new' }
+        format.json { render json: @trip.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+
     def set_trip
       @trip = Trip.find(params[:id])
     end
 
     def main_subtrip_params
-      params.require(:first_sub).permit(:datetime, :origin_id, :destination_id, :seats)
+      params.require(:first_sub).permit(:origin_id, :destination_id, :seats, :jalali_year,:datetime, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute)
     end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :datetime, :_destroy])    
+                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy,:datetime, :jalali_year, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute])    
     end
 
     def vehicle_seats_number user

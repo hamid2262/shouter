@@ -1,11 +1,22 @@
+<%= DateTime.now.year %>
+
 <%= simple_form_for(@trip) do |f| %>
   <%= f.error_notification %>
   Total seats: <%= f.select :total_available_seats, 1..@vehicle_seats, selected: @vehicle_seats %> <br>
 
   
-  Departure date: 
-    <%= time_select :first_sub, :datetime %>  <br>
   Departure Time: 
+    <%= time_select :first_sub, :datetime %>
+    <%= select :first_sub, :jalali_minute, options_for_minute, {:include_blank => true}, class: 'required' %> : 
+    <%= select :first_sub, :jalali_hour, options_for_hour, {:include_blank => true} %>
+
+    <hr>
+  Departure date: 
+  
+    <%= select :first_sub, :jalali_year, options_for_year %>
+    <%= select :first_sub, :jalali_month, options_for_month %>
+    <%= select :first_sub, :jalali_day, options_for_day %>
+
     <%= date_select :first_sub, :datetime %>  <br>
   Origin: 
     <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>

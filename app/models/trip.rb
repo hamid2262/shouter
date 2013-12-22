@@ -64,6 +64,7 @@ class Trip < ActiveRecord::Base
   def subtrips_init main_subtrip_params
     self.subtrips.build(main_subtrip_params)
     self.save
+    return 
     self.fill_subtrips_destination
     self.seats_init
   end
