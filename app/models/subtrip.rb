@@ -17,7 +17,8 @@ class Subtrip < ActiveRecord::Base
   end
 
   def jalali_year=(jyear)
-    self.date_time.year = JalaliDate.new(1388,11,1).g_day
+    self.date_time = DateTime.now if self.date_time.nil?
+    self.date_time.change(year: JalaliDate.new(1388,11,1).g_year)
   end
 
   def find_conflict_subtrips

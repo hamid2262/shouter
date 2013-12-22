@@ -10,7 +10,7 @@
  *
  *= require jquery-ui-1.10.3.custom.min
  *= require bootstrap
- *= require bootstrap-rtl
+ * require bootstrap-rtl
  *= require_self
  *= require_tree .
  */

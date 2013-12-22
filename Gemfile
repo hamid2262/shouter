@@ -12,6 +12,9 @@ gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
 
+group :development, :test do
+	gem "awesome_print", "~> 1.2.0"
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
