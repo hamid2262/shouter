@@ -91,7 +91,7 @@ class Trip < ActiveRecord::Base
             subtrips.first.update(destination_id: cities_ids[j])
             subtrips.first.save
           else
-            self.subtrips.build(origin_id: origin.origin_id, price: origin.price, datetime: origin.datetime, destination_id: cities_ids[j])
+            self.subtrips.build(origin_id: origin.origin_id, price: origin.price, date_time: origin.date_time, destination_id: cities_ids[j])
             self.save
           end
         end

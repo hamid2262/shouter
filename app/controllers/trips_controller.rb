@@ -66,12 +66,12 @@ class TripsController < ApplicationController
     end
 
     def main_subtrip_params
-      params.require(:first_sub).permit(:origin_id, :destination_id, :seats, :jalali_year,:datetime, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute)
+      params.require(:first_sub).permit(:origin_id, :destination_id, :seats, :jalali_year,:date_time, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute)
     end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy,:datetime, :jalali_year, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute])    
+                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy,:date_time, :jalali_year, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute])    
     end
 
     def vehicle_seats_number user

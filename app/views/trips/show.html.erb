@@ -2,16 +2,16 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @trip.subtrips.first.datetime.to_s(:date) if @trip.subtrips.any? %>
+  <%= @trip.subtrips.first.date_time.to_s(:date) if @trip.subtrips.any? %>
 </p>
-<%= select_date(@trip.subtrips.first.datetime) %>
-<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.datetime)   %>
+<%= select_date(@trip.subtrips.first.date_time) %>
+<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>
 <table class="table">
 	<tbody>
 		<%= table_show_cell "Total available seats:", @trip.total_available_seats %>
-		<%= table_show_cell "From:", "#{@trip.first_city.origin.name}  at (#{@trip.first_city.datetime.to_s(:time)})" %>	
+		<%= table_show_cell "From:", "#{@trip.first_city.origin.name}  at (#{@trip.first_city.date_time.to_s(:time)})" %>	
 		<% @trip.via_cities_obj.each do |c| %>
-			<%= table_show_cell "VIA:", "#{c.origin.name} at (#{c.datetime.to_s(:time)})" %>
+			<%= table_show_cell "VIA:", "#{c.origin.name} at (#{c.date_time.to_s(:time)})" %>
 		<% end %>
 		<%= table_show_cell "To:", @trip.last_city.destination.name %>
 	</tbody>

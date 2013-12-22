@@ -2,7 +2,7 @@ class Subtrip < ActiveRecord::Base
 
   attr_accessor  :jalali_year, :jalali_month, :jalali_day, :jalali_hour, :jalali_minute
   
-  before_save { |subtrip| subtrip.datetime = provide_datetime_from_jalali(subtrip) }
+  before_save { |subtrip| subtrip.date_time = provide_date_time_from_jalali(subtrip) }
   belongs_to :trip
   belongs_to :origin, class_name: "City", foreign_key: "origin_id"
   belongs_to :destination, class_name: "City", foreign_key: "destination_id"
@@ -10,14 +10,14 @@ class Subtrip < ActiveRecord::Base
 
   # validates :jalali_minute, presence: true
   
-  default_scope { order('datetime ASC') } 
+  default_scope { order('date_time ASC') } 
 
   def jalali_year
-    JalaliDate.new(datetime).year if datetime.present?
+    JalaliDate.new(date_time).year if date_time.present?
   end
 
   def jalali_year=(jyear)
-    self.datetime.year = JalaliDate.new(1388,11,1).g_day
+    self.date_time.year = JalaliDate.new(1388,11,1).g_day
   end
 
   def find_conflict_subtrips
@@ -35,8 +35,8 @@ class Subtrip < ActiveRecord::Base
 
   private 
 
-    def provide_datetime_from_jalali s
-      # jdate = JalaliDate.new(s.datetime - s.jalali_day.day)
+    def provide_date_time_from_jalali s
+      # jdate = JalaliDate.new(s.date_time - s.jalali_day.day)
       # jdate.to_g      
     end
 

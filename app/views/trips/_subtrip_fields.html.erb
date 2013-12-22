@@ -1,5 +1,5 @@
 <fieldset>
-  <%= f.input :datetime, as: :time %>  
+  <%= f.input :date_time, as: :time %>  
   <%= f.select :jalali_minute, options_for_minute, {:include_blank => true}, class: 'required' %> : 
   <%= f.select :jalali_hour, options_for_hour, {:include_blank => true} %>
   <%= f.association :origin %>  

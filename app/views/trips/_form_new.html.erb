@@ -6,7 +6,7 @@
 
   
   Departure Time: 
-    <%= time_select :first_sub, :datetime %>
+    <%= time_select :first_sub, :date_time %>
     <%= select :first_sub, :jalali_minute, options_for_minute, {:include_blank => true}, class: 'required' %> : 
     <%= select :first_sub, :jalali_hour, options_for_hour, {:include_blank => true} %>
 
@@ -17,7 +17,7 @@
     <%= select :first_sub, :jalali_month, options_for_month %>
     <%= select :first_sub, :jalali_day, options_for_day %>
 
-    <%= date_select :first_sub, :datetime %>  <br>
+    <%= date_select :first_sub, :date_time %>  <br>
   Origin: 
     <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>
 
