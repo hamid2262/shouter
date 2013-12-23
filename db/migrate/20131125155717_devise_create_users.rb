@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :mobile,     limit: 20
       t.string   :address,    limit: 50
       t.string   :post_code,  limit: 10
-      t.attachment :image
+      t.attachment :avatar
 
       t.timestamps
     end

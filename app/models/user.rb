@@ -4,6 +4,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_attached_file :avatar, styles: {
+    thumb: '80x80>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+
   has_one    :vehicle
 
   has_many   :trips

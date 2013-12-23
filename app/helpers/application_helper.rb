@@ -21,21 +21,23 @@ module ApplicationHelper
 	end
 
 	def gravatar user, size = 48, klass = "img-circle"
-		if user.image.present?
-			image_tag(user.image,size: "#{size}x#{size}", alt:"#{user.name} in hamsafaryab.com")
+		if user.avatar.present?
+			image_tag(user.avatar.url(:thumb), 
+				size: "#{size}x#{size}", 
+				alt:"#{user.name} in hamsafaryab.com", class: klass )
 		else
 			gravatar_image_tag( user.email.gsub('spam', 'mdeering'), 
 				:alt => "#{user.name} in hamsafaryab.com", 
 				:class => klass,
 				:gravatar => { 
-					:default => image(user),
+					:default => avatar(user),
 					:size => size,
 				}
 			)
 		end
 	end
 
-	def image user
+	def avatar user
 		if (user.gender == "male")
 			'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png' 		
 		else

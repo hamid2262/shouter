@@ -51,7 +51,7 @@ private
   end
 
   def user_without_password_params
-    params.require(:user).permit(:username,:firstname, :lastname, :gender, :tel, :mobile, :address, :post_code, :image)    
+    params.require(:user).permit(:username,:firstname, :lastname, :gender, :tel, :mobile, :address, :post_code, :avatar)    
   end
 
   def needs_password?(user, params)
