@@ -4,7 +4,7 @@ class Subtrip < ActiveRecord::Base
   belongs_to :destination, class_name: "City", foreign_key: "destination_id"
   has_many	 :bookings
 
-  default_scope { order('datetime ASC') } 
+  default_scope { order('date_time ASC') } 
 
   def find_conflict_subtrips
   	origin = self.origin_id

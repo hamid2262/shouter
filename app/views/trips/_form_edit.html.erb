@@ -4,9 +4,9 @@
 
   
   Departure date: 
-    <%= @trip.subtrips.first.datetime.to_s(:date) %>  <br>
+    <%= @trip.subtrips.first.date_time.to_s(:date) %>  <br>
   Departure Time: 
-    <%= @trip.subtrips.first.datetime.to_s(:time) %>  <br>
+    <%= @trip.subtrips.first.date_time.to_s(:time) %>  <br>
 
   <%= f.simple_fields_for :subtrips do |builder| %>
   	<fieldset> <hr>

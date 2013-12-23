@@ -1,6 +1,7 @@
 class ShoutsController < ApplicationController
 	
-	skip_authorization_check
+	load_and_authorize_resource 
+  skip_load_resource only: [:create] 
 
 	def show
 		@shout = Shout.find(params[:id])	

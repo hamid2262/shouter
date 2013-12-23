@@ -23,7 +23,7 @@ class SearchSubtrip
 	  subtrips = Subtrip.where("origin_id IN (?)", origin_ids ) 
 	  subtrips.where("destination_id IN (?)", destination_ids ) 
 	  	# , destination_id: destination_id)
-		# subtrips.where("datetime > ?", start_date).where("datetime < ?", end_date)		
+		# subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)		
 	end
 
 	private

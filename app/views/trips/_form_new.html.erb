@@ -4,9 +4,9 @@
 
   
   Departure date: 
-    <%= time_select :first_sub, :datetime %>  <br>
+    <%= time_select :first_sub, :date_time %>  <br>
   Departure Time: 
-    <%= date_select :first_sub, :datetime %>  <br>
+    <%= date_select :first_sub, :date_time %>  <br>
   Origin: 
     <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>
 

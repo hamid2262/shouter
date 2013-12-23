@@ -1,7 +1,8 @@
 class VehicleBrandsController < ApplicationController
   before_action :set_vehicle_brand, only: [:show, :edit, :update, :destroy]
 
-  load_and_authorize_resource
+  load_and_authorize_resource 
+  skip_load_resource only: [:create] 
 
   # GET /vehicle_brands
   # GET /vehicle_brands.json

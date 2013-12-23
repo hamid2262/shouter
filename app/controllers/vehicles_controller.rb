@@ -1,7 +1,8 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:edit, :update, :destroy]
 
-  skip_authorization_check
+  load_and_authorize_resource 
+  skip_load_resource only: [:create] 
 
   def new
     @vehicle = Vehicle.new

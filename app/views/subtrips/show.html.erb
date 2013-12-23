@@ -6,8 +6,8 @@
   <h3>Subtrip detail</h3>
 		<%= table_show_cell "From"	,@subtrip.origin.name %>
 		<%= table_show_cell "To"  	,@subtrip.destination.name %>
-		<%= table_show_cell "On"		,@subtrip.datetime.to_s(:date) %>
-		<%= table_show_cell "At"		,@subtrip.datetime.to_s(:time) %>
+		<%= table_show_cell "On"		,@subtrip.date_time.to_s(:date) %>
+		<%= table_show_cell "At"		,@subtrip.date_time.to_s(:time) %>
 		<%= table_show_cell "Price" ,@subtrip.price %>
   </tbody>
 </table>
