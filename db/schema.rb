@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131217224544) do
+ActiveRecord::Schema.define(version: 20131213220406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,14 +91,19 @@ ActiveRecord::Schema.define(version: 20131217224544) do
     t.integer  "trip_id"
     t.integer  "origin_id"
     t.integer  "destination_id"
-    t.datetime "datetime"
+    t.datetime "date_time"
+    t.integer  "jyear"
+    t.integer  "jmonth"
+    t.integer  "jday"
+    t.integer  "jhour"
+    t.integer  "jminute"
     t.integer  "price"
     t.integer  "seats",          default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "subtrips", ["datetime", "origin_id", "destination_id"], name: "index_subtrips_on_datetime_and_origin_id_and_destination_id", using: :btree
+  add_index "subtrips", ["date_time", "origin_id", "destination_id"], name: "index_subtrips_on_date_time_and_origin_id_and_destination_id", using: :btree
   add_index "subtrips", ["destination_id"], name: "index_subtrips_on_destination_id", using: :btree
   add_index "subtrips", ["origin_id"], name: "index_subtrips_on_origin_id", using: :btree
   add_index "subtrips", ["trip_id"], name: "index_subtrips_on_trip_id", using: :btree
@@ -128,6 +133,7 @@ ActiveRecord::Schema.define(version: 20131217224544) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 50
     t.string   "last_sign_in_ip"
+    t.boolean  "admin",                             default: false
     t.integer  "city_id"
     t.string   "username",               limit: 50
     t.string   "firstname",              limit: 50
@@ -137,10 +143,12 @@ ActiveRecord::Schema.define(version: 20131217224544) do
     t.string   "mobile",                 limit: 20
     t.string   "address",                limit: 50
     t.string   "post_code",              limit: 10
-    t.string   "image"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",                             default: false
   end
 
   add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
@@ -173,12 +181,12 @@ ActiveRecord::Schema.define(version: 20131217224544) do
     t.string   "number_plate"
     t.boolean  "air_condition"
     t.date     "year"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "vehicles", ["user_id"], name: "index_vehicles_on_user_id", using: :btree

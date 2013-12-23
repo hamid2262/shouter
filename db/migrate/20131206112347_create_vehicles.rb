@@ -7,7 +7,7 @@ class CreateVehicles < ActiveRecord::Migration
       t.string     :number_plate
       t.boolean    :air_condition
       t.date       :year
-      t.string     :image
+      t.attachment :image
 
       t.timestamps
     end

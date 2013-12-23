@@ -4,12 +4,17 @@ class CreateSubtrips < ActiveRecord::Migration
       t.belongs_to :trip, index: true
       t.integer :origin_id
       t.integer :destination_id
-      t.datetime :datetime
+      t.datetime :date_time
+      t.integer  :jyear
+      t.integer  :jmonth
+      t.integer  :jday
+      t.integer  :jhour
+      t.integer  :jminute
       t.integer :price
       t.integer :seats, array: true, default: []
       t.timestamps
     end
-    add_index  :subtrips, [:datetime, :origin_id, :destination_id] 
+    add_index  :subtrips, [:date_time, :origin_id, :destination_id] 
     add_index  :subtrips, [:destination_id] 
     add_index  :subtrips, [:origin_id] 
   end

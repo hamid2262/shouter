@@ -31,7 +31,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       # t.datetime :locked_at
 
       ## Personal Information
-
+      t.boolean  :admin,      default: false
       t.integer  :city_id   
       t.string   :username,   limit: 50
       t.string   :firstname,  limit: 50
@@ -41,7 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string   :mobile,     limit: 20
       t.string   :address,    limit: 50
       t.string   :post_code,  limit: 10
-      t.string   :image
+      t.attachment :image
 
       t.timestamps
     end
