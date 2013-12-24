@@ -3,7 +3,7 @@ class SearchSubtripsController < ApplicationController
 	skip_authorization_check	
 
 	def show
-		@subtrips = SearchSubtrip.all
+		@search_subtrips = SearchSubtrip.all
 	end
 
 	def search

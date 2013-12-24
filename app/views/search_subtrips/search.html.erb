@@ -1,15 +1,26 @@
-<%# @search_subtrips.subtrips(3).each do |i| %>
-	<%#= render partial: 'search_item', locals: {i: i} %>
-<%# end %>
 <%= render 'search_form' %>
-<% if @search_subtrip.subtrips.any? %>
-	<% @search_subtrip.subtrips.each do |s| %>
-		<%= s.inspect %> <hr>
-	 <% end %>	
+<% if @search_subtrip.subtrips(3).any? %>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>At</th>
+				<th>Price</th>
+				<th>Driver</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @search_subtrip.subtrips(3).each do |s| %>
+					<%= render partial: 'subtrip', locals:{s: s} %>
+			 <% end %>	
+		 </tbody>
+		</table>
 <% else %>
 	<p>No record with this condition. please try again.</p>
 <% end %>
 
 
-<%= (ap @search_subtrip).html_safe %> <hr>
-<%= @search_subtrip.class %> <hr>
+
+<%#= (ap @search_subtrip).html_safe %> 
+

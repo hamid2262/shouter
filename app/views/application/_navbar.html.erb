@@ -16,7 +16,8 @@
 				<li><%= link_to gravatar(current_user, 32, "img-rounded"), dashboard_path %> </li>
 				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
 				<li><%= link_to "show Profile", current_user %></li>
-				<li><%= link_to "Insert trip", new_trip_path %></li>
+        <li><%= link_to "Insert trip", new_trip_path %></li>
+        <li><%= link_to "Find a trip", search_subtrips_path %></li>
 				<li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
 			<% else %>
 				<li><%= link_to "Sign Up", new_user_registration_path %></li>

@@ -14,18 +14,15 @@ class SearchSubtrip
       end
   		@date = convert_jalali_to_gregorian( attributes.fetch(:date, "") )
     end
-		# @origin_lat = attributes.fetch(:origin_lat, "")
-		# @origin_lng = attributes.fetch(:origin_lng, "")
-		# @origin_cycle = attributes.fetch(:origin_cycle, "")
-		# @destination_lat = attributes.fetch(:destination_lat, "")
-		# @destination_lng = attributes.fetch(:destination_lng, "")
-		# @destination_cycle = attributes.fetch(:destination_cycle, "")
-		# @date = convert_jalali_to_gregorian( attributes.fetch(:date, "") )
 	end
 
   def persisted?
     false
   end
+
+	def self.inspect
+	  "#<#{ self.to_s} #{ self.attributes.collect{ |e| ":#{ e }" }.join(', ') }>"
+	end
 
   def self.all
     Subtrip.all
@@ -46,11 +43,11 @@ class SearchSubtrip
 
 	private
 		def cities_near_origin
-			City.near([origin_lat,origin_lng],origin_cycle.to_f/1.609344 )
+			City.near([origin_lat,origin_lng], 1 + origin_cycle.to_f/1.609344 )
 		end
 
 		def cities_near_destination
-			City.near([destination_lat,destination_lng],destination_cycle.to_f/1.609344 )
+			City.near([destination_lat,destination_lng],1 + destination_cycle.to_f/1.609344 )
 		end
 
 		def convert_jalali_to_gregorian date
