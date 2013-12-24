@@ -3,18 +3,15 @@
   Total seats: <%= f.select :total_available_seats, 1..@vehicle_seats, selected: @vehicle_seats %> <br>
 
   
-  Departure Time: 
-    <%= select :first_sub, :jminute, options_for_minute %> : 
-    <%= select :first_sub, :jhour, options_for_hour %>
-
-    <%= time_select :first_sub, :date_time %>  <br>
-  Departure Date: 
-    <br>
-    <%= select :first_sub, :jyear, options_for_year %> 
-    <%= select :first_sub, :jmonth, options_for_month %>
+  Departure Date and Time: <br>
+    <%= select :first_sub, :jminute, options_for_minute, {:include_blank => true}  %> : 
+    <%= select :first_sub, :jhour, options_for_hour, {:include_blank => true}  %>
+    at:
     <%= select :first_sub, :jday, options_for_day %> 
-    <%= date_select :first_sub, :date_time %>  <br>
-  Origin: 
+    <%= select :first_sub, :jmonth, options_for_month %>
+    <%= select :first_sub, :jyear, options_for_year %> 
+    <br>
+  From: 
     <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>
 
   <%= f.simple_fields_for :subtrips do |builder| %>
@@ -24,7 +21,7 @@
   <% end %>
   <%= link_to_add_fields "Add Subtrip", f, :subtrips %> <br>
 
-  Destination: 
+  To: 
     <%= collection_select :first_sub, :destination_id, City.all, :id, :name %><br>
 
   <%= f.input :detail %>

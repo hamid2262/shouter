@@ -24,8 +24,6 @@ class TripsController < ApplicationController
   end
 
   def create
-    # @data = params
-    # return false
     @trip = Trip.new(trip_params)
     @trip.driver = current_user
 
@@ -68,13 +66,13 @@ class TripsController < ApplicationController
 
     def main_subtrip_params
       params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
-                              :date_time, :jminute, :jhour, :jyear, :jmonth, :jday)
+                              :jminute, :jhour, :jyear, :jmonth, :jday)
     end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
         subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy, 
-                              :date_time, :jminute, :jhour, :jyear, :jmonth, :jday])    
+                              :jminute, :jhour, :jyear, :jmonth, :jday])    
     end
 
     def vehicle_seats_number user
