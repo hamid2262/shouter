@@ -1,5 +1,15 @@
 <%# @search_subtrips.subtrips(3).each do |i| %>
 	<%#= render partial: 'search_item', locals: {i: i} %>
 <%# end %>
+<%= render 'search_form' %>
+<% if @search_subtrip.subtrips.any? %>
+	<% @search_subtrip.subtrips.each do |s| %>
+		<%= s.inspect %> <hr>
+	 <% end %>	
+<% else %>
+	<p>No record with this condition. please try again.</p>
+<% end %>
 
-<%= @search_subtrips.subtrips.to_s %>
+
+<%= (ap @search_subtrip).html_safe %> <hr>
+<%= @search_subtrip.class %> <hr>
