@@ -1,6 +1,13 @@
 <fieldset>
+  <%= f.select :jminute, options_for_minute, {:include_blank => true} %> : 
+  <%= f.select :jhour, options_for_hour, {:include_blank => true} %>
+	<br>
+  <%= f.select :jyear, options_for_year %> 
+  <%= f.select :jmonth, options_for_month %>
+  <%= f.select :jday, options_for_day %> 
+
   <%= f.input :date_time, as: :time %>  
-  <%= f.association :origin %>  
+  <%= f.association :origin, wrapper_html: { :style => 'display: inline' } %>  
   <%= f.hidden_field :_destroy %>
-  <%= link_to "Remove Subtrip", "#", class: "remove_fields" %>  
+  <%= link_to "Remove", "#", class: "remove_fields" %>  
 </fieldset>

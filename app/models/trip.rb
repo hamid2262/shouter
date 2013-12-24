@@ -63,6 +63,7 @@ class Trip < ActiveRecord::Base
 
   def subtrips_init main_subtrip_params
     self.subtrips.build(main_subtrip_params)
+    self.date_time_update_with_jalali self
     self.save
     self.fill_subtrips_destination
     self.seats_init
@@ -79,18 +80,36 @@ class Trip < ActiveRecord::Base
 
   end
 
+  def date_time_update_with_jalali s
+    s.subtrips.each do |s|
+      jdate = JalaliDate.new(s.jyear,s.jmonth,s.jday).to_g
+      jdate = jdate + s.jhour.hours + s.jminute.minutes
+      s.date_time = jdate
+    end
+  end
+
   def fill_subtrips_destination
     cities_ids = create_city_array self       
     for i in 0..(cities_ids.size-1)
       origin = self.subtrips.where(origin_id: cities_ids[i]).first   
       for j in (i+1)..(cities_ids.size-1)
         unless main_subtrip(cities_ids, i, j) then
-          subtrips = self.subtrips.where(origin_id: cities_ids[i], destination_id: nil)            
+          subtrips = self.subtrips.where(origin_id: cities_ids[i], 
+                                         destination_id: nil)            
           if subtrips.any?
             subtrips.first.update(destination_id: cities_ids[j])
             subtrips.first.save
           else
-            self.subtrips.build(origin_id: origin.origin_id, price: origin.price, date_time: origin.date_time, destination_id: cities_ids[j])
+            self.subtrips.build(origin_id: origin.origin_id, 
+                                price: origin.price, 
+                                date_time: origin.date_time, 
+                                jminute: origin.jminute, 
+                                jhour: origin.jhour, 
+                                jday: origin.jday, 
+                                jmonth: origin.jmonth, 
+                                jyear: origin.jyear, 
+                                destination_id: cities_ids[j]
+                               )
             self.save
           end
         end

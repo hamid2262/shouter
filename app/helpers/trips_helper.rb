@@ -15,7 +15,7 @@ module TripsHelper
 	end		 
 
 	def options_for_day
-		options_for_select(1..31 , JalaliDate.new(Date.today).day)		
+		options_for_select(1..31 , JalaliDate.new(2.days.from_now).day)		
 	end		 
 
 	def options_for_hour

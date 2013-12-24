@@ -2,7 +2,8 @@ class TripsController < ApplicationController
   
   layout 'application_new_jquery'
 
-  load_and_authorize_resource
+  load_and_authorize_resource 
+  skip_load_resource only: [:create] 
 
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
 
@@ -23,6 +24,8 @@ class TripsController < ApplicationController
   end
 
   def create
+    # @data = params
+    # return false
     @trip = Trip.new(trip_params)
     @trip.driver = current_user
 
@@ -64,12 +67,14 @@ class TripsController < ApplicationController
     end
 
     def main_subtrip_params
-      params.require(:first_sub).permit(:date_time, :origin_id, :destination_id, :seats)
+      params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
+                              :date_time, :jminute, :jhour, :jyear, :jmonth, :jday)
     end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-                                  subtrips_attributes: [:id, :origin_id, :price, :seats, :date_time, :_destroy])    
+        subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy, 
+                              :date_time, :jminute, :jhour, :jyear, :jmonth, :jday])    
     end
 
     def vehicle_seats_number user
