@@ -3,8 +3,8 @@
   <h3>Subtrip detail</h3>
 		<%= table_show_cell "From"	,@subtrip.origin.local_name %>
 		<%= table_show_cell "To"  	,@subtrip.destination.local_name %>
-		<%= table_show_cell "On"		,JalaliDate.new(@subtrip.date_time).strftime("%Y-%m-%d - %A") %>
-		<%= table_show_cell "At"		,JalaliDate.new(@subtrip.date_time).strftime("%I:%M - %p") %>
+		<%= table_show_cell "On"		,jalali_date(@subtrip.date_time) %>
+		<%= table_show_cell "At"		,jalali_time(@subtrip.date_time) %>
 		<%= table_show_cell "Price" ,@subtrip.price %>
   </tbody>
 </table>

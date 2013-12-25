@@ -71,4 +71,12 @@ module ApplicationHelper
 	 	message.html_safe
 	end
   
+  def jalali_date s
+    JalaliDate.new(s).strftime("%Y-%m-%d - %A")
+  end
+ 
+  def jalali_time s
+    JalaliDate.new(s).strftime("%I:%M - %p")
+  end
+
 end
