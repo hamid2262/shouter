@@ -1,5 +1,7 @@
 class SubtripsController < ApplicationController
   before_action :set_subtrip, only: [:show]
+  
+	skip_authorization_check	
 
   def show
   end

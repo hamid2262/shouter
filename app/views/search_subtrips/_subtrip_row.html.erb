@@ -3,6 +3,10 @@
 	<td><%= s.destination.name %> </td>
 	<td><%= s.date_time.to_s(:time) %> </td>
 	<td><%= s.price %> </td>
-	<td><%= s.trip.driver.name %> </td>
-	<td><%= link_to "Book trip", booking_path(s.id) %></td>
+	<td>
+		<%= s.trip.driver.name %> 
+		<%= gravatar(s.trip.driver, 32, "img-rounded img-circle") %>
+		<span class="ratingSmall"></span>
+	</td>
+	<td><%= link_to "Detail", subtrip_path(s.id) %></td>
 </tr>
