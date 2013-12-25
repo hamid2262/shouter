@@ -4,6 +4,22 @@ module SubtripsHelper
 		User.find_by(id: id)
 	end
 	
+	def print_cities_name s, current_s
+		if (s.origin == current_s.origin) || (s.origin == current_s.destination)
+			"<b class=\"text-danger\">#{s.origin.local_name}  </b>".html_safe			
+		else
+			"#{s.origin.local_name}  (#{s.date_time.to_s(:time)})"		
+		end
+	end
+
+	def print_last_city_name s, current_s
+		if s.destination == current_s.destination
+			"<b class=\"text-danger\">#{s.destination.local_name} </b>".html_safe			
+		else
+			s.destination.local_name			
+		end
+	end
+
 	def check_for_seat_state id, index
 		result = case id 
 		when -1
@@ -30,10 +46,3 @@ module SubtripsHelper
 	end
 	
 end
-
-
-				#{hidden_field_tag("seat_numbers[#{index}][]", "F")}
-				#{check_box_tag("seat_numbers[#{index}][]", "T", true)} 
-			
-			#{check_box_tag("seat_numbers[#{index}]", "T")} 
-			#{hidden_field_tag("seat_numbers[#{index}]", "F")}	

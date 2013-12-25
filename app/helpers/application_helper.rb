@@ -1,6 +1,7 @@
 module ApplicationHelper
 	
 	def table_show_cell(title, value)
+		value = 'No Data' if value.blank?
 		"<tr> 
 				<th>
 						#{title}
@@ -8,7 +9,7 @@ module ApplicationHelper
 				<td>
 						#{value} 
 				</td>
-			</tr>".html_safe unless value.blank?
+			</tr>".html_safe #unless value.blank?
 	end
 
 	def map_address(address, zoom = 9)

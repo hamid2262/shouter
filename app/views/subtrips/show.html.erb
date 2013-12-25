@@ -1,10 +1,13 @@
 <table class="table">
   <tbody>
   <h3>Subtrip detail</h3>
-		<%= table_show_cell "From"	,@subtrip.origin.local_name %>
-		<%= table_show_cell "To"  	,@subtrip.destination.local_name %>
 		<%= table_show_cell "On"		,jalali_date(@subtrip.date_time) %>
-		<%= table_show_cell "At"		,jalali_time(@subtrip.date_time) %>
+		<%= table_show_cell "At"		,jalali_time(@subtrip.date_time) %>		
+		<%= table_show_cell "From", print_cities_name(@subtrip.trip.first_city, @subtrip) %> 
+		<% @subtrip.trip.via_cities_obj.each do |s| %>
+			<%= table_show_cell "Via", print_cities_name(s, @subtrip) %> 
+		<% end %>
+		<%=  table_show_cell "To", print_last_city_name(@subtrip.trip.last_city, @subtrip) %>
 		<%= table_show_cell "Price" ,@subtrip.price %>
   </tbody>
 </table>
