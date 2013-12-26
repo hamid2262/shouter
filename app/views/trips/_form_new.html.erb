@@ -12,14 +12,15 @@
     <%= select :first_sub, :jyear, options_for_year %> 
     <br>
   From: 
-    <%= collection_select :first_sub, :origin_id, City.all, :id, :name %><br>
+
+    <%= grouped_collection_select :first_sub, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select start city"} %><br>
 
   <%= f.simple_fields_for :subtrips do |builder| %>
   	<fieldset> <hr>
     	<%= render 'subtrip_fields', f: builder %>
     </fieldset>
   <% end %>
-  <%= link_to_add_fields "Add Subtrip", f, :subtrips %> <br>
+  <%= link_to_add_fields "Add Stopover", f, :subtrips %> <br>
 
   To: 
     <%= collection_select :first_sub, :destination_id, City.all, :id, :name %><br>

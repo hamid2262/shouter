@@ -12,17 +12,19 @@ gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+group :assets do
+	# Use SCSS for stylesheets
+	gem 'sass-rails', '~> 4.0.0'
 
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+	# Use Uglifier as compressor for JavaScript assets
+	gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
+	# Use CoffeeScript for .js.coffee assets and views
+	gem 'coffee-rails', '~> 4.0.0'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+	# See https://github.com/sstephenson/execjs#readme for more supported runtimes
+	# gem 'therubyracer', platforms: :ruby
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

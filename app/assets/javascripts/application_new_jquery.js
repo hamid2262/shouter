@@ -13,5 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require select2
 //= require trips
 
+$(function() {
+  $(".select2_input").select2({ 
+		width: '200px' 
+	});
+});
