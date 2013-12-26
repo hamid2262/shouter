@@ -1,30 +1,93 @@
-<%= simple_form_for(@trip) do |f| %>
-  <%= f.error_notification %>
-  Total seats: <%= f.select :total_available_seats, 1..@vehicle_seats, selected: @vehicle_seats %> <br>
+<div id="new_trip_form" class="row col-sm-8">
+<div class="panel panel-default">
+  <div class="panel-heading">New trip Form</div>
+  <div class="panel-body">
+    <%= simple_form_for(@trip) do |f| %>
+      <%= f.error_notification %>
 
-  
-  Departure Date and Time: <br>
-    <%= select :first_sub, :jminute, options_for_minute, {:include_blank => true}  %> : 
-    <%= select :first_sub, :jhour, options_for_hour, {:include_blank => true}  %>
-    at:
-    <%= select :first_sub, :jday, options_for_day %> 
-    <%= select :first_sub, :jmonth, options_for_month %>
-    <%= select :first_sub, :jyear, options_for_year %> 
-    <br>
-  From: 
+    <div class="panel-body">
+  <!-- Time -->    
+      <div class="row">
+        <div class="col-sm-3">
+          <b>Time</b>   
+        </div>
+         <div class="col-sm-8">
+          <%= select :first_sub, :jminute, options_for_minute, {:include_blank => false}  %>
+          <%= select :first_sub, :jhour, options_for_hour, {:include_blank => false}  %>
+        </div>              
+      </div>
 
-    <%= grouped_collection_select :first_sub, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select start city"} %><br>
+  <!-- Date -->
+      <div class="row">      
+        <div class="col-sm-3">
+          <b>Date</b>   
+        </div>     
+        <div class="col-sm-8">
+          <%= select :first_sub, :jday, options_for_day %> 
+          <%= select :first_sub, :jmonth, options_for_month %>
+          <%= select :first_sub, :jyear, options_for_year %> 
+        </div>
+      </div>    
+     
+     <b>Route</b>
+      <div class="trip-route">
+    <!-- From -->
+        <div class="row">      
+          <div class="col-sm-3">
+            From   
+          </div>     
+          <div class="col-sm-8">
+            <%= grouped_collection_select :first_sub, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select start city"} %>
+          </div>
+        </div> 
 
-  <%= f.simple_fields_for :subtrips do |builder| %>
-  	<fieldset> <hr>
-    	<%= render 'subtrip_fields', f: builder %>
-    </fieldset>
-  <% end %>
-  <%= link_to_add_fields "Add Stopover", f, :subtrips %> <br>
+    <!-- Stopovers -->
+        <div class="row">
+            <%= f.simple_fields_for :subtrips do |builder| %>
+                <%= render 'subtrip_fields', f: builder %>
+            <% end %>          
+          <%= link_to_add_fields "Add Stopover", f, :subtrips %>
+        </div> 
 
-  To: 
-    <%= collection_select :first_sub, :destination_id, City.all, :id, :name %><br>
+    <!-- To -->
+        <div class="row">      
+          <div class="col-sm-3">
+            To 
+          </div>     
+          <div class="col-sm-8">
+            <%= grouped_collection_select :first_sub, :destination_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select destination city"} %>
+          </div>
+        </div> 
+      </div> <!-- trip-route -->
+  <!-- Total seats -->
+      <div class="row">
+        <div class="col-sm-3">
+                  <%= f.label :total_available_seats, 'Total seats' %>
 
-  <%= f.input :detail %>
-  <%= f.button :submit %>
-<% end %>
+        </div>  
+        <div class="col-sm-8">        
+           <%= f.input :total_available_seats, collection: 1..@vehicle_seats, selected: @vehicle_seats, hint: 'This field related to your car\'s seating capacity.', label: false %> <br>
+        </div>
+      </div>
+
+  <!-- detail -->
+      <div class="row">      
+        <div class="col-sm-3">
+          <%= f.label :detail %>
+        </div>     
+        <div class="col-sm-9">
+          <%= f.input_field :detail, as: :text, class: "form-control col-sm-12", rows: "3" %>
+        </div>
+      </div> 
+
+  <!-- submit -->
+      <div class="row">      
+        <div class="col-sm-3 col-sm-offset-9">
+          <%= f.button :submit,'Submit Trip', class: "add_fields btn btn-primary btn-sm pull-left" %>
+        </div>
+      </div>     
+    <% end %>
+    </div>
+  </div>
+</div>
+</div>
