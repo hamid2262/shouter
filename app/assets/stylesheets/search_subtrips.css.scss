@@ -1,0 +1,25 @@
+.origin_input, .destination_input{
+	position: relative;
+	select{
+    border: medium none;
+    left: -10px;
+    overflow: hidden;
+    position: absolute;
+    top: -10px;
+    width: 62px;		
+	}
+}
+
+.datepicker-input{
+	position: relative;
+	input{
+		padding-right: 40px;
+		width: 140px;
+	}
+	.ui-datepicker-trigger{
+		border: medium none;
+		position: absolute;
+		right: 3px;
+		top: 5px;
+	}
+}
