@@ -1,9 +1,11 @@
 body{
-	background: url('https://dvh6hceihc0bg.cloudfront.net/assets/striped_lens_@2X.png');
+	background: #eee;
 }
 
 .container{
 	background: #f9f9f9;
+	border-radius: 6px;
+	box-shadow: 0 0 3px #999999;	
 }
 
 #siteHeader{
