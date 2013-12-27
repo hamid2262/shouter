@@ -14,10 +14,28 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require select2
-//= require trips
+// require trips
 
 $(function() {
   $(".select2_input").select2({ 
 		width: '200px' 
 	});
+});
+
+
+jQuery(function() {
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('fieldset').hide();
+    return event.preventDefault();
+  });
+  return $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    if ($('fieldset:visible').length < 4) {
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      $(this).before($(this).data('fields').replace(regexp, time));
+    }
+    return event.preventDefault();
+  });
 });
