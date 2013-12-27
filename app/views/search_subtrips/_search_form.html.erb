@@ -1,32 +1,41 @@
-<div class="container">
+<div id="top-search-form">
 	<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
     :html => { :class => 'form-inline',role: "form" } do |f| %>
 		
-		<span class="origin_input">
-			<div class="form-group">
-				<%= f.input :origin_id,:label => false, placeholder: "Origin", class: "form-control" %>
+<!-- Origin -->
+		<div class="origin_input col-sm-3">
+			<div class="form-group ">
+				<%= f.input :origin_id,:label => false, placeholder:"Insert start city",  input_html: {class: "form-control"} %>
 			</div>
-			<div class="form-group">
-				<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, class: "form-control"%>
+			<div class=" cycle">
+			<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: ""%>
 			</div>
-		</span>
+		</div>
 		
-		<span class="destination_input">
-			<div class="form-group">
-				<%= f.input :destination_id,:label => false, placeholder:"Destination", class: "form-control" %>
+<!-- Destination -->
+		<div class=" destination_input col-sm-3">
+			<div class="form-group ">
+				<%= f.input :destination_id,:label => false, placeholder: "Insert your destination", input_html: {class: "form-control"} %>
 			</div>
-			<div class="form-group">
-				<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]} %> 
+			<div class=" cycle">
+			<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: "" %> 
 			</div>
-		</span>
+		</div>
 
-		<div class="form-group datepicker-input">
+<!-- DatePicker -->
+		<div class="form-group datepicker-input col-sm-2">
 			<%= f.text_field :date, class: "form-control datepicker" %>
 		</div>
+
+<!-- Hidden fields -->
 		<%= f.hidden_field :origin_lat %>
 		<%= f.hidden_field :origin_lng %>
 		<%= f.hidden_field :destination_lat %>
 		<%= f.hidden_field :destination_lng %>		
-		<%= f.submit "Search", class: "btn btn-primary" %>
+
+<!-- Submit -->
+	  <div class="form-group col-sm-1">
+				<%= f.submit "Search", class: "btn btn-primary" %>
+		</div>
 	<% end %>
 </div>

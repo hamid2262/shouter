@@ -1,17 +1,27 @@
-.origin_input, .destination_input{
-	position: relative;
-	select{
-    border: medium none;
-    left: -10px;
-    overflow: hidden;
-    position: absolute;
-    top: -10px;
-    width: 62px;		
+#top-search-form{
+	input{
+		width: 100%;
+	}
+  .origin_input, .destination_input{
+	  .form-group{
+		width: 100%;
+		}
+		.cycle{
+	  position: absolute;
+	  left: 17px;
+	  top: 3px; 			
+			position: absolute;
+			select{
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
+			border: medium none;
+			padding-top: 6px;
+			width: 65px;
+			}
+		}
 	}
 }
 
 .datepicker-input{
-	position: relative;
 	input{
 		padding-right: 40px;
 		width: 140px;
@@ -19,7 +29,7 @@
 	.ui-datepicker-trigger{
 		border: medium none;
 		position: absolute;
-		right: 3px;
-		top: 5px;
+		right: 16px;
+		top: 6px;
 	}
 }
