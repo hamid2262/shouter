@@ -27,7 +27,11 @@ class UsersController < Devise::RegistrationsController
       @user.update_with_password(user_params)
     else
       params[:user].delete(:current_password)
-      @user.update_without_password(user_without_password_params)
+      if current_user.is_admin?
+        @user.update_without_password(admin_user_params)          
+      else
+        @user.update_without_password(user_without_password_params)       
+      end
     end
 
     if successfully_updated
@@ -52,6 +56,10 @@ private
 
   def user_without_password_params
     params.require(:user).permit(:username,:firstname, :lastname, :gender, :tel, :mobile, :address, :post_code, :avatar)    
+  end
+
+  def admin_user_params
+    params.require(:user).permit(:username,:firstname, :lastname, :gender, :tel, :mobile, :address, :post_code, :avatar, :admin)    
   end
 
   def needs_password?(user, params)

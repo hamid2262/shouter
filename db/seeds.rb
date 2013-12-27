@@ -10,7 +10,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
    # City.create(id: 'Emanuel', staate_id: cities.first)
-states = State.create([
+countries = Country.create([
 	{ id:	1,	name:	'Iran',	local_name:	'ایران'}
 ])
 

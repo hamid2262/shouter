@@ -143,10 +143,10 @@ ActiveRecord::Schema.define(version: 20131213220406) do
     t.string   "mobile",                 limit: 20
     t.string   "address",                limit: 50
     t.string   "post_code",              limit: 10
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -41,6 +41,10 @@ class User < ActiveRecord::Base
    end
   end
   
+  def is_admin?
+    true if self.admin? || self.email == 'hamid2262@yahoo.com'  
+  end
+
   def following? user
     self.followed_users.include? user
   end
