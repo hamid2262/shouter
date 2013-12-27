@@ -11,8 +11,13 @@ gem 'pg'
 gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
+gem 'unicorn'
 
-gem 'rails_12factor', group: :production
+group :production do
+	gem 'rails_12factor'
+end
+
+
 group :assets do
 	# Use SCSS for stylesheets
 	gem 'sass-rails', '~> 4.0.0'
