@@ -1,41 +1,27 @@
 <div id="top-search-form">
 	<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
-    :html => { :class => 'form-inline',role: "form" } do |f| %>
+    :html => { :class => '',role: "form" } do |f| %>
 		
-<!-- Origin -->
-		<div class="origin_input col-sm-3">
-			<div class="form-group ">
-				<%= f.input :origin_id,:label => false, placeholder:"Insert start city",  input_html: {class: "form-control"} %>
-			</div>
-			<div class=" cycle">
-			<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: ""%>
-			</div>
-		</div>
-		
-<!-- Destination -->
-		<div class=" destination_input col-sm-3">
-			<div class="form-group ">
-				<%= f.input :destination_id,:label => false, placeholder: "Insert your destination", input_html: {class: "form-control"} %>
-			</div>
-			<div class=" cycle">
-			<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: "" %> 
-			</div>
-		</div>
+<!-- Search From Select -->
+		<% if session['search_mode'] == 'autocomplete' %>
+			<%= render partial: 'search_subtrips/search_form_with_autocomplete', locals:{f: f} %>	
+		<% else %>
+			<%= render partial: 'search_subtrips/search_form_without_autocomplete', locals:{f: f} %>
+		<% end %>		
 
-<!-- DatePicker -->
-		<div class="form-group datepicker-input col-sm-2">
-			<%= f.text_field :date, class: "form-control datepicker" %>
-		</div>
 
-<!-- Hidden fields -->
-		<%= f.hidden_field :origin_lat %>
-		<%= f.hidden_field :origin_lng %>
-		<%= f.hidden_field :destination_lat %>
-		<%= f.hidden_field :destination_lng %>		
+<!-- Form Mode Change Links -->
+	<div class="col-sm-4 col-md-4">
+		<% if session['search_mode'] == 'autocomplete' %>
+				<%= link_to "Autocomplete Mode", choose_search_mode_search_subtrips_path(search_mode: 'select') %>
+		<% else %>
+				<%= link_to "Select Mode", choose_search_mode_search_subtrips_path(search_mode: 'autocomplete') %> 
+		<% end %>
+	</div>
 
 <!-- Submit -->
-	  <div class="form-group col-sm-1">
-				<%= f.submit "Search", class: "btn btn-primary" %>
-		</div>
+	  <div class="col-sm-4 col-md-4">
+				<%= f.submit "Search", class: "btn btn-primary " %>
+		</div>		
 	<% end %>
 </div>
