@@ -2,6 +2,7 @@
 	<td><%= s.origin.local_name %> </td>
 	<td><%= s.destination.local_name %> </td>
 	<td><%= s.date_time.to_s(:time) %> </td>
+	<td><%= jalali_date s.date_time %> </td>
 	<td><%= s.price %> </td>
 	<td>
 		<%= s.trip.driver.name %> 

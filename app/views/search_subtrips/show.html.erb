@@ -1,7 +1,6 @@
 <%= render 'search_form' %>
-<% if @search_subtrips.any? %>
-	<% subtrips = @search_subtrips %>
-	<%= render partial: 'subtrips', locals:{subtrips: subtrips} %>
+<% if @subtrips.any? %>
+	<%= render partial: 'subtrips', locals:{subtrips: @subtrips} %>
 <% end %>
 
 

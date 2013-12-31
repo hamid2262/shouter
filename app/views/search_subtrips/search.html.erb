@@ -1,7 +1,9 @@
-<%= render 'search_form' %>
-<% if @search_subtrips.subtrips(3).any? %>
-	<% subtrips = @search_subtrips.subtrips(3) %>
-	<%= render partial: 'subtrips', locals:{subtrips: subtrips} %>
+<div class="row ">
+	<%= render partial: 'search_form', locals:{search_mode: @search_mode, search_subtrip: @search_subtrip  } %>
+</div>
+
+<% if @search_subtrip.subtrips(3).any? %>
+	<%= render partial: 'subtrips', locals:{subtrips: subtrips, search_subtrip: @search_subtrip  } %>
 <% else %>
 	<p>No record with this condition. please try again.</p>
 <% end %>

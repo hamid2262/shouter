@@ -5,7 +5,8 @@ class SearchSubtrip
   
 	attr_accessor :origin_id, :origin_lat, :origin_lng, :origin_cycle, 
 								:destination_id, :destination_lat, :destination_lng, :destination_cycle, 
-								:date
+								:date, :jday, :jmonth, :jyear,
+								:search_form_type
 
 	def initialize attributes ={}
     unless attributes.nil?
@@ -27,6 +28,7 @@ class SearchSubtrip
   def self.all
     Subtrip.all
   end
+
 	def subtrips days=0
 		origin_ids = cities_near_origin.map { |d| d.id }
 		destination_ids = cities_near_destination.map { |d| d.id }
@@ -36,10 +38,20 @@ class SearchSubtrip
 	  subtrips = Subtrip.where("origin_id IN (?)", origin_ids ) 
 	  subtrips.where("destination_id IN (?)", destination_ids ) 
 
-	  	# , destination_id: destination_id)
+	  # , destination_id: destination_id)
 		# subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)		
 		# subtrips = Subtrip.all
 	end
+
+	def make_jdateـfor_search session, params
+		if self && self.date && session == 'autocomplete'
+			self.date = JalaliDate.new(self.date)
+
+		elsif self  && session == 'select' && (params.nil? || params[:jday].nil? )
+			self.jday = JalaliDate.new(Date.today).day			
+			self.jmonth = JalaliDate.new(Date.today).month			
+			self.jyear = JalaliDate.new(Date.today).year			
+		end	end
 
 	private
 		def cities_near_origin
