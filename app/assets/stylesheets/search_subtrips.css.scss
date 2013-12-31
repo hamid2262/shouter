@@ -7,9 +7,6 @@
 		width: 100%;
 		}
 		.cycle{
-	  position: absolute;
-	  left: 17px;
-	  top: 3px; 			
 			position: absolute;
 			select{
 			background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -19,6 +16,15 @@
 			}
 		}
 	}
+}
+
+.autocomplete_mode{
+  left: 17px;
+  top: 3px; 		
+}
+.select_mode{
+  left: 17px;
+  top: -4px;	
 }
 
 .datepicker-input{
