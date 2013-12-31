@@ -12,7 +12,7 @@ gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
 gem 'unicorn'
-
+gem 'awesome_print'
 group :production do
 	gem 'rails_12factor'
 end
