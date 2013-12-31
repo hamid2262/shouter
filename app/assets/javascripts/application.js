@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require chosen.proto.min
+//= require docsupport/prism
+
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
