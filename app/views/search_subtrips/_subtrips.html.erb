@@ -10,8 +10,8 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% subtrips.each do |s| %>
-			<%= render partial: 'subtrip_row', locals:{s: s} %>
+		<% subtrips.each_with_index do |s, i| %>
+			<%= render partial: 'subtrip_row', locals:{s: s, i: i, subtrips:subtrips} %>
 		<% end %>	
 	</tbody>
 </table>
