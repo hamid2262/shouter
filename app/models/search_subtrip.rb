@@ -30,14 +30,18 @@ class SearchSubtrip
   end
 
 	def subtrips days=0
-		origin_ids = cities_near_origin.map { |d| d.id }
-		destination_ids = cities_near_destination.map { |d| d.id }
+		if self.destination_lat.present? && self.origin_lat.present?
+			origin_ids = cities_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle).map { |d| d.id } 
+			destination_ids = cities_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle).map { |d| d.id } 
+			# start_date = DateTime.parse(date) 
+			# end_date = start_date.end_of_day + days.days
+		elsif self.destination_id.present? && self.origin_id.present?			
+			origin_ids = cities_near_cityid(self.origin_id, origin_cycle).map { |d| d.id }
+			destination_ids = cities_near_cityid(self.destination_id, destination_cycle).map { |d| d.id }
+		end
 
-		# start_date = DateTime.parse(date) 
-		# end_date = start_date.end_of_day + days.days
 	  subtrips = Subtrip.where("origin_id IN (?)", origin_ids ) 
-	  subtrips.where("destination_id IN (?)", destination_ids ) 
-
+	  subtrips.where("destination_id IN (?)", destination_ids ) 			
 	  # , destination_id: destination_id)
 		# subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)		
 		# subtrips = Subtrip.all
@@ -54,12 +58,17 @@ class SearchSubtrip
 		end	end
 
 	private
-		def cities_near_origin
-			City.near([origin_lat,origin_lng], 1 + origin_cycle.to_f/1.609344 )
+		def cities_near_latlng lat, lng, cycle
+			City.near([lat,lng], 1 + cycle.to_f/1.609344 )
 		end
 
-		def cities_near_destination
+		def cities_near_destination_latlng
 			City.near([destination_lat,destination_lng],1 + destination_cycle.to_f/1.609344 )
+		end
+
+		def cities_near_cityid city_id, cycle
+			city = City.find(city_id)
+			City.near(city, 1 + cycle.to_f/1.609344 )
 		end
 
 		def convert_jalali_to_gregorian date

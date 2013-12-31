@@ -11,6 +11,8 @@ class SearchSubtripsController < ApplicationController
 	def search
 		@search_subtrip = SearchSubtrip.new(params[:search_subtrip])
 		@subtrips = @search_subtrip.subtrips(3)
+		# raise @subtrips.to_yaml
+		# return false
 		initial_select_mode_jday
 	end
 
