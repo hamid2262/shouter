@@ -2,6 +2,8 @@ class HomesController < ApplicationController
 	skip_authorization_check :only => [:show, :create]
 
   def show
+		@search_subtrip = SearchSubtrip.new
+			@search_subtrip.make_jdateـfor_search(session['search_mode'], params[:search_subtrip]) 
   end
 
   private

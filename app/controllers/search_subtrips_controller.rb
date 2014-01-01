@@ -12,12 +12,8 @@ class SearchSubtripsController < ApplicationController
 		@search_subtrip = SearchSubtrip.new(params[:search_subtrip])
 		if @search_subtrip.valid?
 			@subtrips = @search_subtrip.subtrips(3) if @search_subtrip
-			initial_select_mode_jday
 		end
-		 # @search_subtrip.errors.full_messages
-		 
-		
-
+		initial_select_mode_jday
 	end
 
 	def choose_search_mode
