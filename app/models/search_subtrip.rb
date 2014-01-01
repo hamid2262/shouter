@@ -8,6 +8,10 @@ class SearchSubtrip
 								:date, :jday, :jmonth, :jyear,
 								:search_form_type
 
+	validates :destination_id, presence: true
+	validates :origin_id, presence: true
+	validate :jday, :jday_validate
+
 	def initialize attributes ={}
     unless attributes.nil?
       attributes.each do |name, value|
@@ -33,18 +37,24 @@ class SearchSubtrip
 		if self.destination_lat.present? && self.origin_lat.present?
 			origin_ids = cities_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle).map { |d| d.id } 
 			destination_ids = cities_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle).map { |d| d.id } 
-			# start_date = DateTime.parse(date) 
-			# end_date = start_date.end_of_day + days.days
 		elsif self.destination_id.present? && self.origin_id.present?			
 			origin_ids = cities_near_cityid(self.origin_id, origin_cycle).map { |d| d.id }
 			destination_ids = cities_near_cityid(self.destination_id, destination_cycle).map { |d| d.id }
 		end
 
+		if self.jday.present?
+
+				start_date = JalaliDate.new(jyear.to_i,jmonth.to_i,jday.to_i).to_gregorian.beginning_of_day - 1.minute				
+
+		elsif self.date.present?
+			start_date = JalaliDate.new(date).to_gregorian.beginning_of_day - 1.minute
+		end
+
+		end_date = start_date.end_of_day + days.days
+
 	  subtrips = Subtrip.where("origin_id IN (?)", origin_ids ) 
 	  subtrips.where("destination_id IN (?)", destination_ids ) 			
-	  # , destination_id: destination_id)
-		# subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)		
-		# subtrips = Subtrip.all
+		subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)
 	end
 
 	def make_jdateـfor_search session, params
@@ -81,5 +91,12 @@ class SearchSubtrip
 				date_obj = JalaliDate.new(Date.today)
 			end
 			date = date_obj.to_g
+		end
+
+		def jday_validate
+			if self.jmonth.to_i > 6 && jday.to_i > 30 ||
+			   self.jmonth.to_i == 12 && jday.to_i > 29
+				errors.add(:jday, "Day is not a valid day")
+			end
 		end
 end
