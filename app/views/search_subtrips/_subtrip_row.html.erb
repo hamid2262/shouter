@@ -1,7 +1,7 @@
-<% if subtrips[i-1] && subtrips[i].jday !=  subtrips[i-1].jday%>
+<% if (subtrips[i-1] && subtrips[i].jday !=  subtrips[i-1].jday) || i == 0%>
 	<tr  class="success">
-		<td> <h4> <%= jalali_date subtrips[i].date_time %> </h4></td>
-		<td></td>
+		<td><h4> <%= jalali_day subtrips[i].date_time %> </h4></td>
+		<td><h4> <%= jalali_date subtrips[i].date_time %> </h4></td>
 		<td></td>
 		<td></td>
 		<td></td>
@@ -13,8 +13,6 @@
 	<td><%= s.date_time.to_s(:time) %> </td>
 	<td><%= s.origin.local_name %> </td>
 	<td><%= s.destination.local_name %> </td>
-
-	
 	<td><%= s.price %> </td>
 	<td>
 		<%= s.trip.driver.name %> 

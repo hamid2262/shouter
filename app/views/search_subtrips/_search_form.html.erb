@@ -10,6 +10,12 @@
 		<% end %>		
 
 
+<!-- Submit -->
+	  <div class="col-sm-4 col-md-4">
+				<%= f.submit "Search", class: "btn btn-primary " %>
+		</div>		
+	<% end %>
+
 <!-- Form Mode Change Links -->
 	<div class="col-sm-4 col-md-4">
 		<% if session['search_mode'] == 'autocomplete' %>
@@ -19,9 +25,4 @@
 		<% end %>
 	</div>
 
-<!-- Submit -->
-	  <div class="col-sm-4 col-md-4">
-				<%= f.submit "Search", class: "btn btn-primary " %>
-		</div>		
-	<% end %>
 </div>

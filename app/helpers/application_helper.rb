@@ -78,7 +78,11 @@ module ApplicationHelper
 	end
   
   def jalali_date s
-    JalaliDate.new(s).strftime("%A  %d %b %Y")
+    JalaliDate.new(s).strftime("%d %b %Y")
+  end
+
+  def jalali_day s
+    JalaliDate.new(s).strftime("%A")
   end
  
   def jalali_time s

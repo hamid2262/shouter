@@ -17,3 +17,12 @@ body{
 #siteLogo{
 	margin-top: 30px;
 }
+
+.sidebar{
+	padding-right: 0;
+}
+
+.content{
+	padding-left: 0;
+	padding-right: 0;
+}
