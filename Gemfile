@@ -13,10 +13,16 @@ gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
 gem 'unicorn'
 gem 'awesome_print'
+
 group :production do
 	gem 'rails_12factor'
 end
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
 
 group :assets do
 	# Use SCSS for stylesheets
