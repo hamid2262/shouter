@@ -31,6 +31,12 @@ class User < ActiveRecord::Base
   validates :lastname,  length:   {maximum: 50}
   validates :gender,    inclusion:{ in: %w(male female) } 
 
+  after_create :send_admin_mail
+
+  def send_admin_mail
+    UserMailer.signup_confirmation(self).deliver
+  end
+  
   def name
     if self.firstname.present?
       self.firstname.titleize       

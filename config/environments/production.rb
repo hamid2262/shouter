@@ -65,6 +65,24 @@ Shouter::Application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  config.action_mailer.default_url_options = { :host => 'sheltered-caverns-6627.herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  # config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    # :port => 25,
+    domain: 'hamsafaryab.com',
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: 'hamsafaryab@gmail.com',
+    password: 'pectaiyocwaodpjq'
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
   config.i18n.fallbacks = true
@@ -77,8 +95,6 @@ Shouter::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-
-  config.action_mailer.default_url_options = { :host => 'sheltered-caverns-6627.herokuapp.com' }
 
   # Amazon S3 settings for Paperclip uploads
   config.paperclip_defaults = {
