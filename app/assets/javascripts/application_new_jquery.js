@@ -20,6 +20,7 @@ $(function() {
   $(".select2_input").select2({ 
 		width: '200px' 
 	});
+  
 });
 
 

@@ -25,7 +25,6 @@
 //= require calendar
 //= require jquery.ui.datepicker-cc-fa
 
-
 $(function() {
   $(".datepicker").datepicker({ 
   	minDate: 0, 
@@ -33,4 +32,6 @@ $(function() {
 		buttonImage: "https://s3-eu-west-1.amazonaws.com/shouter/static_files/css/images/calender.gif",
 		showOn: "both"
 	});
+	$(".tip").tooltip();
 });
+
