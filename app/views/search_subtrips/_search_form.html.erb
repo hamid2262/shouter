@@ -2,7 +2,7 @@
   <div class="panel-body">
 	  <div id="top-search-form">
 			<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
-		    :html => { :class => '',role: "form" } do |f| %>
+		    :html => { :class => 'form-inline',role: "form" } do |f| %>
 				
 		<!-- Search From Select -->
 				<% if session['search_mode'] == 'autocomplete' %>
@@ -13,7 +13,7 @@
 
 		<!-- Submit -->
 			  <div class="col-sm-4 col-md-4">
-						<%= f.submit "Search", class: "btn btn-primary " %>
+						<%= f.button :submit, "Search", class: "btn btn-primary " %>
 				</div>		
 			<% end %>
 
