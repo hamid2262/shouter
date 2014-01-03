@@ -2,6 +2,7 @@ class SearchSubtripsController < ApplicationController
 
 	skip_authorization_check
 	before_action :initial_search_mode
+	
 	def show
 		@subtrips = SearchSubtrip.all
 		@search_subtrip = SearchSubtrip.new	
@@ -34,6 +35,7 @@ class SearchSubtripsController < ApplicationController
 		end
 
 		def initial_select_mode_jday
-			@search_subtrip.make_jdateـfor_search(session['search_mode'], params[:search_subtrip]) 
+			@search_subtrip.make_jdateـfor_search(params[:search_subtrip]) 
 		end
+
 end

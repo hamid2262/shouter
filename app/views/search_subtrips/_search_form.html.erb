@@ -11,6 +11,12 @@
 					<%= render partial: 'search_subtrips/search_form_without_autocomplete', locals:{f: f} %>
 				<% end %>		
 
+		<!-- DatePicker -->
+				<div class="form-group datepicker-input col-sm-4 col-md-3">
+				    <%= f.select :jday, 1..31  %> 
+				    <%= f.select :jmonth, collection_for_month %>
+				    <%= f.select :jyear, 1392..1393 %> 
+				</div>
 		<!-- Submit -->
 			  <div class="col-sm-4 col-md-4">
 						<%= f.button :submit, "Search", class: "btn btn-primary " %>

@@ -57,15 +57,13 @@ class SearchSubtrip
 		subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)
 	end
 
-	def make_jdateـfor_search session, params
-		if self && self.date && session == 'autocomplete'
-			self.date = JalaliDate.new(self.date)
-
-		elsif self  && session == 'select' && (params.nil? || params[:jday].nil? )
+	def make_jdateـfor_search params
+		if self  && (params.nil? || params[:jday].nil? )
 			self.jday = JalaliDate.new(Date.today).day			
 			self.jmonth = JalaliDate.new(Date.today).month			
 			self.jyear = JalaliDate.new(Date.today).year			
-		end	end
+		end	
+	end
 
 	private
 		def cities_near_latlng lat, lng, cycle

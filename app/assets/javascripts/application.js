@@ -11,27 +11,33 @@
 // about supported directives.
 //
 //= require jquery
-//= require chosen.proto.min
-//= require docsupport/prism
-
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
+//= require select2
 //= require_tree .
 
-//= require jquery-1.6.2.min
-//= require jquery-ui-1.10.3.custom.min
-//= require jquery.ui.datepicker-cc
-//= require calendar
-//= require jquery.ui.datepicker-cc-fa
-
 $(function() {
-  $(".datepicker").datepicker({ 
-  	minDate: 0, 
-		showButtonPanel: true,
-		buttonImage: "https://s3-eu-west-1.amazonaws.com/shouter/static_files/css/images/calender.gif",
-		showOn: "both"
+  $(".select2_input").select2({ 
+		width: '200px' 
 	});
-	$(".tip").tooltip();
+  
 });
 
+
+jQuery(function() {
+  $('form').on('click', '.remove_fields', function(event) {
+    $(this).prev('input[type=hidden]').val('1');
+    $(this).closest('fieldset').hide();
+    return event.preventDefault();
+  });
+  return $('form').on('click', '.add_fields', function(event) {
+    var regexp, time;
+    if ($('fieldset:visible').length < 4) {
+      time = new Date().getTime();
+      regexp = new RegExp($(this).data('id'), 'g');
+      $(this).before($(this).data('fields').replace(regexp, time));
+    }
+    return event.preventDefault();
+  });
+});

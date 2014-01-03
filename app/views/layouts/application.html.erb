@@ -3,24 +3,26 @@
 <head>
   <title>Shouter</title>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
+  <div class="container">
 
-	<%= render 'navbar' %>
-	
-	<%= render 'header' %>
+  	<%= render 'navbar' %>
+  	
+  	<%= render 'header' %>
 
-	<%#= render 'searches/form' %>
-  <%= render 'second_nav' %>
+  	<%#= render 'searches/form' %>
+    <%= render 'second_nav' %>
 
-	<%= flash_creator flash %>
+  	<%= flash_creator flash %>
 
-	<%= yield %>
-</div>
+  	<%= yield %>
+  </div>
+
+  <%= render 'footer' %>
 
 
 <script type="text/javascript">
@@ -41,6 +43,11 @@
     }
     return results;
   });
+
+    $(document).ready(function(){
+   $(".tip").tooltip();
+  });
+    
   </script>
 </body>
 </html>

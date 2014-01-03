@@ -1,7 +1,5 @@
 class TripsController < ApplicationController
   
-  layout 'application_new_jquery'
-
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
 
