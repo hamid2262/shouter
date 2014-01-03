@@ -15,14 +15,10 @@
 	<%= render 'header' %>
 
 	<%#= render 'searches/form' %>
-
+  <%= render 'second_nav' %>
 
 	<%= flash_creator flash %>
 
-	<% flash.each do |name, msg| %>
-		<%= content_tag :div, msg, id: "flash_#{name}" %>
-	<% end %>
-	
 	<%= yield %>
 </div>
 

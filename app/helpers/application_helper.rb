@@ -64,7 +64,7 @@ module ApplicationHelper
 		message= "";
 		flash.each do |name, msg| 	
 			case name
-				when :success    
+				when :notice    
 				  message += "<div class=\"alert alert-success\">#{msg}</div>"	
 				when :warning    
 				  message += "<div class=\"alert alert-warning\">#{msg}</div>"	
