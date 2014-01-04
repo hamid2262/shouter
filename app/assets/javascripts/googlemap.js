@@ -5,8 +5,8 @@ function initialize() {
     componentRestrictions: {country: "ir"}
   };
 
-  var origin = document.getElementById('search_subtrip_origin_id');
-  var destination = document.getElementById('search_subtrip_destination_id');
+  var origin = document.getElementById('search_subtrip_origin_name');
+  var destination = document.getElementById('search_subtrip_destination_name');
 
   var autocomplete_origin = new google.maps.places.Autocomplete(origin, options);
   var autocomplete_destination = new google.maps.places.Autocomplete(destination, options);

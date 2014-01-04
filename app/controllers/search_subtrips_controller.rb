@@ -6,7 +6,6 @@ class SearchSubtripsController < ApplicationController
 	def show
 		@subtrips = SearchSubtrip.all
 		@search_subtrip = SearchSubtrip.new	
-		initial_select_mode_jday
 	end
 
 	def search
@@ -14,7 +13,6 @@ class SearchSubtripsController < ApplicationController
 		if @search_subtrip.valid?
 			@subtrips = @search_subtrip.subtrips(3) if @search_subtrip
 		end
-		initial_select_mode_jday
 	end
 
 	def choose_search_mode
@@ -32,10 +30,6 @@ class SearchSubtripsController < ApplicationController
 					session['search_mode'] = 'autocomplete'
 				end
 			end
-		end
-
-		def initial_select_mode_jday
-			@search_subtrip.make_jdateـfor_search(params[:search_subtrip]) 
 		end
 
 end

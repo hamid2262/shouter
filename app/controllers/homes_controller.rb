@@ -4,7 +4,6 @@ class HomesController < ApplicationController
 
   def show
 		@search_subtrip = SearchSubtrip.new
-			@search_subtrip.make_jdateـfor_search(params[:search_subtrip]) 
   end
 
   private
