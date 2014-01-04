@@ -1,0 +1,49 @@
+// Place all the styles related to the vehicles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.form-sign-in-up {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-sign-in-up .form-sign-in-up-heading,
+.form-sign-in-up .checkbox {
+  margin-bottom: 10px;
+}
+.form-sign-in-up .checkbox {
+  font-weight: normal;
+}
+.form-sign-in-up .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form-sign-in-up .form-control:focus {
+  z-index: 2;
+}
+.form-sign-in-up input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-sign-in-up input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.form-sign-in-up .field_with_errors{
+	position: relative;
+	span{
+		position: absolute;
+		right: 311px;
+		width: 300px;
+		top: 12px;
+		font-size: .9em;
+	}	
+}

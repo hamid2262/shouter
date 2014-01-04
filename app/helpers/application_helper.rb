@@ -68,7 +68,7 @@ module ApplicationHelper
 				  message += "<div class=\"alert alert-success\">#{msg}</div>"	
 				when :warning    
 				  message += "<div class=\"alert alert-warning\">#{msg}</div>"	
-				when :error    
+				when :error, :alert
 				  message += "<div class=\"alert alert-danger\">#{msg}</div>"
 				else
 				  message += "<div class=\"alert alert-info\">#{msg}</div>"			
