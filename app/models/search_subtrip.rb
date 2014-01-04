@@ -90,15 +90,19 @@ class SearchSubtrip
 		end
 
 		def check_for_cities_validation
-			unless Geocoder.search(self.origin_name)[0].try(:latitude).nil?  
-				self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
-				self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
-				self.origin_name = Geocoder.search(self.origin_name)[0].address
+			if self.origin_lat.nil? 
+				if Geocoder.search(self.origin_name)[0].try(:latitude).present?
+					self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
+					self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
+					self.origin_name = Geocoder.search(self.origin_name)[0].address
+				end
 			end
-			unless Geocoder.search(self.destination_name)[0].try(:latitude).nil?  
-				self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
-				self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
-				self.destination_name = Geocoder.search(self.destination_name)[0].address
+			if self.destination_lat.nil? 
+				if Geocoder.search(self.destination_name)[0].try(:latitude).present?  
+					self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
+					self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
+					self.destination_name = Geocoder.search(self.destination_name)[0].address
+				end
 			end
 		end
 
