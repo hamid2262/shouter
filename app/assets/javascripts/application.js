@@ -19,13 +19,10 @@
 
 $(function() {
   $(".select2_input").select2({ 
-		width: '200px' 
+		width: '265px' 
 	});
   
-});
-
-
-jQuery(function() {
+// stopover cities add/remove
   $('form').on('click', '.remove_fields', function(event) {
     $(this).prev('input[type=hidden]').val('1');
     $(this).closest('fieldset').hide();

@@ -36,3 +36,35 @@ body{
 	padding-top: 5px;
 
 }
+
+/*make select2 highlight for states*/
+.select2-results li.select2-result-with-children > .select2-result-label {
+    background-color: #bbb;
+}
+
+@media (min-width: 768px) {
+    .my-col-md-1 { width: 4.166666667%; }
+    .my-col-md-2 { width: 8.333333333%; }
+    .my-col-md-3 { width: 12.500000001%; }
+    .my-col-md-4 { width: 16.666666667%; }
+    .my-col-md-5 { width: 20.833333334%; }
+    .my-col-md-6 { width: 25.000000001%; }
+    .my-col-md-7 { width: 29.166666668%; }
+    .my-col-md-8 { width: 33.333333333%; }
+    .my-col-md-9 { width: 37.500000002%; }
+    .my-col-md-10 { width: 41.666666669%; }
+    .my-col-md-11 { width: 45.833333336%; }
+    .my-col-md-12 { width: 50%; }
+    .my-col-md-13 { width: 54.166666667%; }
+    .my-col-md-14 { width: 58.333333334%; }
+    .my-col-md-15 { width: 62.500000001%; }
+    .my-col-md-16 { width: 66.666666667%; }
+    .my-col-md-17 { width: 70.833333335%; }
+    .my-col-md-18 { width: 75.000000002%; }
+    .my-col-md-19 { width: 79.166666669%; }
+    .my-col-md-20 { width: 83.333333336%; }
+    .my-col-md-21 { width: 87.500000003%; }
+    .my-col-md-22 { width: 91.66666667%; }
+    .my-col-md-23 { width: 95.833333337%; }
+    .my-col-md-24 { width: 100%; }
+}

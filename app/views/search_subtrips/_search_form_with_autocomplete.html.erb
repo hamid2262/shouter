@@ -1,16 +1,22 @@
 <!-- Origin -->
-<div class="origin_input col-sm-6 col-md-4">
+<div class="origin_input col-sm-6 my-col-md-7">
+	<span class="glyphicon glyphicon-map-marker"></span>
 	<%= f.input :origin_id,:label => false, placeholder:"Select start city",  input_html: {class: "form-control"} %>					
-	<div class=" cycle autocomplete_mode">
-	<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: ""%>
+	<div class=" cycle autocomplete_mode" style="border:0;">
+	<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {selected: 20} %>
+	<span class="glyphicon glyphicon-chevron-down"></span>
+
 	</div>
 </div>
 
 <!-- Destination -->
-<div class=" destination_input col-sm-6 col-md-4">
+<div class=" destination_input col-sm-6 my-col-md-7">
+	<span class="glyphicon glyphicon-map-marker"></span>
 	<%= f.input :destination_id,:label => false, placeholder: "Select your destination", input_html: {class: "form-control"} %>
-	<div class=" cycle autocomplete_mode">
-	<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {}, class: "" %> 
+	<div class=" cycle autocomplete_mode"  style="border:0;">
+	<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {selected: 20} %> 
+	<span class="glyphicon glyphicon-chevron-down"></span>
+
 	</div>
 </div>
 
