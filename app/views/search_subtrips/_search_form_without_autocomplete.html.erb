@@ -2,7 +2,7 @@
 <div class="origin_input col-sm-6 my-col-md-7">
     <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select start city"} %>
 	<div class="cycle select_mode">
-	<%= f.select :origin_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {selected: 20}%>
+	<%= f.select :origin_cycle, (5..50).step(5).map{|s| ["#{s} KM", s]}%>
 		<span class="glyphicon glyphicon-chevron-down"></span>
 	</div>
 </div>
@@ -11,7 +11,7 @@
 <div class=" destination_input col-sm-6 my-col-md-7">
     <%= f.grouped_collection_select :destination_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: "Select destination city"} %>
 	<div class="cycle select_mode">
-	<%= f.select :destination_cycle, (0..50).step(5).map{|s| ["#{s} Km", s]}, {selected: 20} %> 
+	<%= f.select :destination_cycle, (5..50).step(5).map{|s| ["#{s} KM", s]} %> 
 		<span class="glyphicon glyphicon-chevron-down"></span>
 	</div>
 </div>

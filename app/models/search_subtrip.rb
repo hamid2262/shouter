@@ -18,6 +18,8 @@ class SearchSubtrip
         send("#{name}=", value)
       end
   		@date = convert_jalali_to_gregorian( attributes.fetch(:date, "") )
+  		@origin_cycle ||= 20
+  		@destination_cycle ||= 20
     end
 	end
 
