@@ -47,6 +47,10 @@ class User < ActiveRecord::Base
    end
   end
   
+def online?
+  updated_at > 10.minutes.ago
+end
+
   def is_admin?
     true if self.admin? || self.email == 'hamid2262@yahoo.com'  
   end
