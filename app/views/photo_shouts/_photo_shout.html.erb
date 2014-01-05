@@ -1,2 +1,7 @@
 <%= link_to image_tag(photo_shout.image.url(:shout)), photo_shout.image.url %>
-<%= link_to "remove", photo_shout_path(photo_shout), method: :delete %>
+
+<% if can? :destroy, photo_shout %>
+	<span class="can">
+		<%= link_to "remove", photo_shout_path(photo_shout), method: :delete %>
+	</span>
+<% end %>

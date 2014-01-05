@@ -12,8 +12,17 @@ class Ability
         end
 
         can [:create, :new], Vehicle
-        can [:edit, :update, :destroy] do |u|
-            user == u
+        can [:edit, :update, :destroy], Vehicle do |v|
+            user == v.user
+        end
+
+        can [:read, :create, :new], [TextShout, PhotoShout, Shout]
+        can [:manage], [TextShout, PhotoShout] do |s|
+            user == s.shouts.first.user
+        end
+
+        can [:manage], FollowingRelationship do |f|
+            user == s.follower
         end
 
         can :manage, Trip

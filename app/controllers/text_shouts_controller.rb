@@ -1,6 +1,8 @@
 class TextShoutsController < ShoutsController
+
 	load_and_authorize_resource 
-  skip_load_resource only: [:destroy, :create] 
+  skip_load_resource only: [:create] 
+
 	def destroy
 		TextShout.find(params[:id]).destroy
 		current_user.shouts.text_shouts.find_by(content_id: params[:id]).destroy
