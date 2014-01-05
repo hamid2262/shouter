@@ -10,7 +10,7 @@ class ShoutsController < ApplicationController
 	def create
 		content = build_content
 		shout_save content
-		flash[:notice] = massage(content)
+		massage(content)
 		redirect_to dashboard_path
 	end
 
@@ -27,9 +27,9 @@ class ShoutsController < ApplicationController
 
   def massage obj
   	if obj.valid?
-  		"successfully shouted!"
+  		flash[:notice] = "successfully shouted!"
   	else
-	  	obj.errors.full_messages.first || "Could not shout"		
+	  	flash[:alert] = obj.errors.full_messages.first || "Could not shout"		
 	  end
   end
 
