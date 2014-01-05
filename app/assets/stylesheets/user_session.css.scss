@@ -47,3 +47,35 @@
 		font-size: .9em;
 	}	
 }
+
+.users-list{
+  .user-row-small{
+    position: relative;
+    border-bottom: #EEEEEE 1px solid;
+    margin-bottom: 6px;
+    padding-bottom: 2px;
+    .meta{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    .user-name{
+      position: absolute;
+      right: 59px;
+      top: 1px;  
+    }
+    .followers-number{
+      position: absolute;
+      right: 59px;
+      bottom: 0px;        
+    }
+  }
+  img{
+    border: 2px solid #ddd;
+  }
+  .online{
+    img{
+      border: 2px solid #b7c821;
+    }    
+  }
+}

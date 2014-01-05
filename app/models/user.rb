@@ -38,18 +38,18 @@ class User < ActiveRecord::Base
   end
   
   def name
-    if self.firstname.present?
-      self.firstname.titleize       
+    if self.firstname.present? || self.lastname.present?
+      self.try(:firstname).try(:titleize) + " "+ self.try(:lastname).try(:titleize)
     elsif self.username.present?
        self.username
     else      
-      self.email
+      self.email.partition("@").first 
    end
   end
   
-def online?
-  updated_at > 10.minutes.ago
-end
+  def online?
+    updated_at > 10.minutes.ago
+  end
 
   def is_admin?
     true if self.admin? || self.email == 'hamid2262@yahoo.com'  
