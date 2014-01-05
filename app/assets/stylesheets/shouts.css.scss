@@ -1,0 +1,23 @@
+// Place all the styles related to the cities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.shout{
+	border-bottom: solid 1px #CCC;
+	padding: 5px 0;
+	.content{
+		padding: 0 50px
+	} 
+}
+
+.shout .remove{
+	display: none;
+}
+
+.shout.hover .remove{
+	display: inline;
+}
+
+.shout.hover{
+	background: #f7f7f7;
+}

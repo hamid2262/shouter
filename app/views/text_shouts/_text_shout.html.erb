@@ -1,5 +1,1 @@
 <%= shouterize(text_shout.body) %> 
-<% if can? :destroy, text_shout %>
-	<%= link_to "remove", text_shout_path(text_shout), method: :delete %>	
-<% end %>
-

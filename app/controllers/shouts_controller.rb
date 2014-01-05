@@ -14,6 +14,15 @@ class ShoutsController < ApplicationController
 		redirect_to dashboard_path
 	end
 
+	def destroy
+		shout = current_user.shouts.find_by(content_id: params[:id])
+		shout.content.destroy
+		shout.destroy
+		flash[:notice] = "deleted successfully!"
+		redirect_to dashboard_path	
+		return false	
+	end
+
   protected
 
   def massage obj
