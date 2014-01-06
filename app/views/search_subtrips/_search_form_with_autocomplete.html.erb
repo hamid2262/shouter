@@ -21,7 +21,8 @@
 </div>
 
 <!-- Hidden fields -->
-<%= f.hidden_field :origin_lat %>
-<%= f.hidden_field :origin_lng %>
-<%= f.hidden_field :destination_lat %>
-<%= f.hidden_field :destination_lng %>		
+<%= f.hidden_field :origin_lat, value: nil %>
+<%= f.hidden_field :origin_lng, value: nil %>
+<%= f.hidden_field :destination_lat, value: nil %>
+<%= f.hidden_field :destination_lng, value: nil %>	
+<%= f.hidden_field :autocomplete, value: true %>	

@@ -7,10 +7,10 @@ class SearchSubtrip
 	attr_accessor :origin_id, :origin_name, :origin_lat, :origin_lng, :origin_cycle, 
 								:destination_id, :destination_name, :destination_lat, :destination_lng, :destination_cycle, 
 								:date, :jday, :jmonth, :jyear,
-								:search_form_type
+								:autocomplete
+	
 
-	validates :destination_name, presence: true
-	validates :origin_name, presence: true
+	validate :cities_cannot_be_blank
 	validate :jday, :jday_validate
 	before_validation :check_for_cities_validation
 
@@ -90,19 +90,31 @@ class SearchSubtrip
 		end
 
 		def check_for_cities_validation
-			if self.origin_lat.nil? 
-				if Geocoder.search(self.origin_name)[0].try(:latitude).present?
-					self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
-					self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
-					self.origin_name = Geocoder.search(self.origin_name)[0].address
+			if self.autocomplete == "true"
+				if self.origin_lat.blank? && self.origin_name
+					if Geocoder.search(self.origin_name)[0].try(:latitude).present?
+						self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
+						self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
+						self.origin_name = Geocoder.search(self.origin_name)[0].address
+					end
 				end
+				if self.destination_lat.blank? && self.destination_name
+					if Geocoder.search(self.destination_name)[0].try(:latitude).present?  
+						self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
+						self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
+						self.destination_name = Geocoder.search(self.destination_name)[0].address
+					end
+				end				
 			end
-			if self.destination_lat.nil? 
-				if Geocoder.search(self.destination_name)[0].try(:latitude).present?  
-					self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
-					self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
-					self.destination_name = Geocoder.search(self.destination_name)[0].address
-				end
+		end
+
+		def cities_cannot_be_blank
+			if @autocomplete == "true"
+				errors.add(:origin_name, "can't be blank")	if @origin_name.blank?		
+				errors.add(:destination_name, "can't be blank")	if @destination_name.blank?		
+			else
+				errors.add(:origin_id, "can't be blank")	if @origin_id.blank?		
+				errors.add(:destination_id, "can't be blank")	if @destination_id.blank?					
 			end
 		end
 
