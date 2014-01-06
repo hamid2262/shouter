@@ -26,7 +26,6 @@ class Ability
         end
 
         can :manage, Trip
-        can :read, Dashboard
     else
 
     end
