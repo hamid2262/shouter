@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213220406) do
+ActiveRecord::Schema.define(version: 20140106044203) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -123,12 +123,12 @@ ActiveRecord::Schema.define(version: 20131213220406) do
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                             default: "",     null: false
-    t.string   "encrypted_password",                default: "",     null: false
+    t.string   "email",                             default: "",    null: false
+    t.string   "encrypted_password",                default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                     default: 0,      null: false
+    t.integer  "sign_in_count",                     default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 50
@@ -138,7 +138,7 @@ ActiveRecord::Schema.define(version: 20131213220406) do
     t.string   "username",               limit: 50
     t.string   "firstname",              limit: 50
     t.string   "lastname",               limit: 50
-    t.string   "gender",                 limit: 6,  default: "male", null: false
+    t.string   "gender",                 limit: 6,                  null: false
     t.string   "tel",                    limit: 20
     t.string   "mobile",                 limit: 20
     t.string   "address",                limit: 50
@@ -149,6 +149,11 @@ ActiveRecord::Schema.define(version: 20131213220406) do
     t.datetime "avatar_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "age"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
   end
 
   add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree

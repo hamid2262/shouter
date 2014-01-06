@@ -4,14 +4,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_attached_file :avatar, styles: {
-    thumb: '80x80#',
-    square: '200x200#',
-    medium: '300x300>'
-  }
+  has_attached_file :avatar, 
+    styles: lambda { |a| {:thumb => "x100>", :square => "x200#", :large => "x600>"} if a.instance.is_image? }
+  has_attached_file :cover, 
+    styles: lambda { |a| {:small => "370x140#", :large => "851x315#"} if a.instance.is_cover? },
+    default_url: "#{IMAGES_PATH}default_cover.png"
+  after_create :send_admin_mail
 
   has_one    :vehicle
-
   has_many   :trips
   has_many   :bookings  
   belongs_to :city
@@ -29,9 +29,25 @@ class User < ActiveRecord::Base
 
   validates :firstname, length:   {maximum: 50}
   validates :lastname,  length:   {maximum: 50}
-  validates :gender,    inclusion:{ in: %w(male female) } 
+  validates :email,     uniqueness: true
+  validates :username,  presence: true, uniqueness: true
+  validates :gender,    presence: true, inclusion: { in: ['f','m'], message: "Please select gender" }
+  # validates :city_id,   presence: true
+  validates :age,       inclusion:{ in: 0..99 }, allow_blank: true
+  validates :tel,       length:{ in: 7..32 }, allow_blank: true
+  validates :mobile,    length:{ in: 7..32 }, allow_blank: true
+  validates :post_code, length:{ in: 5..15 }, allow_blank: true
 
-  after_create :send_admin_mail
+  validates_attachment :avatar, :size => { in: 0..1.megabytes }
+  validates_attachment :cover,  :size => { in: 0..2.megabytes }
+
+  def is_image?
+    avatar.instance.avatar_content_type =~ %r(image)
+  end
+
+  def is_cover?
+    cover.instance.cover_content_type =~ %r(image)
+  end
 
   def send_admin_mail
     UserMailer.signup_confirmation(self).deliver
