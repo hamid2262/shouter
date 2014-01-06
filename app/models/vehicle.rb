@@ -8,8 +8,6 @@ class Vehicle < ActiveRecord::Base
 
 	validates_attachment :image, :size => { in: 0..1.megabytes }
   validates :vehicle_model_id, presence: true
-  validates :user_id, presence: true
-  
 	  
   def is_image?
     image.instance.image_content_type =~ %r(image)
