@@ -1,6 +1,10 @@
 <div class="users-list panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Your Followed Users</h3>
+    <h3 class="panel-title">
+    	Your Followed Users 
+			<small class="pull-left ">Last online </small>
+    </h3>
+
   </div>
   <div class="panel-body">
 		<% if users.any? %>
@@ -20,7 +24,7 @@
 					<% else %>
 							<%= link_to gravatar(user, 50, "img-thumbnail"), user %>
 							<small class="meta text-muted">
-								Last online: <%= time_ago_in_words(user.updated_at) %> ago	
+								<%= time_ago_in_words(user.updated_at) %> ago	
 							</small>				
 					<% end %>		
 						

@@ -1,0 +1,12 @@
+<h3>Personal Detail</h3>
+<%= f.input :gender %>
+<%= f.input :username %>
+<%= f.input :firstname %>
+<%= f.input :lastname %>
+<% if current_user.is_admin? %>
+  <%= f.label :admin, "Admin" %>
+  <%= f.check_box :admin %>  
+<% end %>
+<%= f.input :avatar, as: :file %>
+<%= f.input :cover, as: :file %>
+ <%= f.button :submit %>
