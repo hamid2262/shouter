@@ -50,8 +50,7 @@ class VehiclesController < ApplicationController
   end
 
   private
-    def set_vehicle
-      
+    def set_vehicle      
       @vehicle = user.vehicle
     end
 
