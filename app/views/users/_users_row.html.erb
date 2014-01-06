@@ -1,15 +1,17 @@
 <div class="users-list panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title">Your Followed users</h3>
+    <h3 class="panel-title">Your Followed Users</h3>
   </div>
   <div class="panel-body">
 		<% if users.any? %>
+		
 			<% users.each do |user| %>
 				<div class="user-row-small">
 					<%= link_to user.name, user,class: "user-name" %>
 					<span class="followers-number small">
 						(<%= pluralize(user.followers.size, 'Follower')  %>)
 					</span> 
+
 					<% if user.online? %>
 						<span class="online">
 							<%= link_to gravatar(user, 50, "img-thumbnail"), user %>
@@ -23,6 +25,7 @@
 					<% end %>		
 						
 				</div>
+
 			<% end %>	
 		<% else %>
 			The Followed List is empty
