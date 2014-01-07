@@ -36,19 +36,15 @@ module ApplicationHelper
 				:alt => "#{user.name} in hamsafaryab.com", 
 				:class => klass,
 				:gravatar => { 
-					:default => avatar(user),
+					:default => default_avatar(user),
 					:size => size,
 				}
 			)
 		end
 	end
 
-	def avatar user
-		if (user.gender == "male")
-			'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png' 		
-		else
-			'http://primility.com/wp-content/uploads/2012/05/avatar-female.png'
-		end
+	def default_avatar user
+		IMAGES_PATH + user.gender + '_default_avatar.png'
 	end
 
   def link_to_add_fields(name, f, association)
