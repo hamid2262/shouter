@@ -1,33 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Shouter</title>
-  <meta name="LANGUAGE" content="fa" />
-  <meta name="description" content="همسفریاب &#10004; بلیط اتوبوس &#10004; بلیط قطار &#10004; بلیط هواپیما &#10004; سفر راحت &#10004;">
+<%= render 'layouts/head' %>
 
-  <%= favicon_link_tag IMAGES_PATH + "ico/favicon.png" %>
-  <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<%= render 'navbar' %>
 
-  <%= render 'navbar' %>
+<div class="container">
+	
+	<%= render 'header' %>
 
-  <div class="container">
-  	
-  	<%= render 'header' %>
-
-  	<%#= render 'searches/form' %>
-    <div id="siteContent">
-      <%= flash_creator flash %>
-      <%= yield %>  
-    </div>
-    
+	<%#= render 'searches/form' %>
+  <div id="siteContent">
+    <%= flash_creator flash %>
+    <%= yield %>  
   </div>
+  
+</div>
 
-  <%= render 'footer' %>
-
-</body>
-</html>
+<%= render 'layouts/footer' %>

@@ -1,0 +1,14 @@
+  <%= render 'layouts/head' %>
+
+  <%= render 'navbar' %>
+
+  <div class="container">
+  	
+    <div id="siteContent">
+      <%#= flash_creator flash %>
+      <%= yield %>  
+    </div>
+    
+  </div>
+
+  <%= render 'layouts/footer' %>
