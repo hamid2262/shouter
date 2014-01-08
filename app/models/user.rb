@@ -5,10 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_attached_file :avatar, 
-    styles: lambda { |a| {:thumb => "x100>", :square => "x200#", :large => "x600>"} if a.instance.is_image? }
+    styles: lambda { |a| {:thumb => "48x48#", :square => "160x160#"} if a.instance.is_image? },
+    default_url: lambda { |a| "#{IMAGES_PATH}#{a.instance.gender}_default_avatar.png"}
   has_attached_file :cover, 
     styles: lambda { |a| {:small => "370x140#", :large => "851x315#"} if a.instance.is_cover? },
-    default_url: "#{IMAGES_PATH}default_cover.png"
+    default_url:  "#{IMAGES_PATH}default_cover.png"
   after_create :send_admin_mail
 
   has_one    :vehicle
@@ -30,7 +31,7 @@ class User < ActiveRecord::Base
   validates :firstname, length:   {maximum: 50}
   validates :lastname,  length:   {maximum: 50}
   validates :email,     uniqueness: true
-  validates :username,  presence: true, uniqueness: true
+  validates :username,  uniqueness: true, allow_blank: true
   validates :gender,    presence: true, inclusion: { in: ['f','m'], message: "Please select gender" }
   # validates :city_id,   presence: true
   validates :age,       inclusion:{ in: 0..99 }, allow_blank: true
