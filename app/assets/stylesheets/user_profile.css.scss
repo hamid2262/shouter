@@ -1,0 +1,54 @@
+#userContainer{
+	padding: 0;
+	#sidebar{
+		overflow: hidden;
+	}
+	#cover{		
+		position: relative;
+		margin-bottom: 80px;
+		// overflow: hidden;
+		.follow{
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+		}
+		.coverImage{
+			img{
+				width: 100%;
+				padding: 0;
+			}			
+		}
+	} // #cover
+	.hidden-lg{
+		.userAvatar{
+			position: absolute;
+			bottom: -40px;
+			right: 35px;
+			.nameOfUser{
+				position: absolute;
+				width: 600px;
+				right: 180px;
+				bottom: 40px;
+			}
+			.stars{
+				background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/sprite_rating_stars.png');
+				position: absolute;
+				bottom: 10px;
+				right: 181px;
+				width: 147px;
+				height: 26px;
+			}
+			.score{
+				position: absolute;
+				bottom: -1px;
+				right: 331px;
+				font-size: 1.5em;
+				font-weight: bold;			
+			}
+		} //.userAvatar{
+	}// .visible-lg
+	.visible-lg{
+
+	}
+}// #userContainer
+

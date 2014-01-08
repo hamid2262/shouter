@@ -1,12 +1,10 @@
-<h2><%= @user.name %>'s profile</h2>
+<!-- --       Larg Screen      -- -->
+<div class="visible-lg">
+	<%= render 'users/show/large_screens' %>
+</div>
 
-<% if current_user.can_follow? @user %>
-	<%= follow_button @user %>
-<% end %>
 
-<%= render @shouts %> <hr>
-
-<%= render 'single_profile' %><hr>
-
-<%= render 'vehicles/show' %>	
-
+<!-- --       Small Screen     -- -->
+<div class=" hidden-lg "> 
+	<%= render 'users/show/small_screens' %>
+</div>

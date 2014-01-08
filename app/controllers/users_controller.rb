@@ -66,7 +66,6 @@ private
 
   def needs_password?(user, params)
     user.email != params[:email] ||
-    user.username != params[:username] ||
       params[:password].present?
   end
   

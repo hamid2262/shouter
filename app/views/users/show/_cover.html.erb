@@ -1,0 +1,15 @@
+<div id='cover'>
+	<div class="coverImage">
+		<%= image_tag(@user.cover.url(:large), 
+				alt:"#{@user.name} in hamsafaryab.com", class: "img-responsive") %>
+	</div>
+
+	<% if current_user.can_follow? @user %>
+		<div class="follow"><%= follow_button @user %></div> 
+	<% end %>
+	
+	<!-- Hidden for large screens -->
+	<%= render 'users/show/avatar_and_brief_for_small_screen' %>
+</div>
+
+

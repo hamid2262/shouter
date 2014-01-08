@@ -26,9 +26,9 @@ module ApplicationHelper
 					
 	end
 
-	def gravatar user, size = 48, klass = "img-circle"
+	def gravatar user, size = 48, klass = "img-circle", style = :thumb
 		if user.avatar.present?
-			image_tag(user.avatar.url(:thumb), 
+			image_tag(user.avatar.url(style), 
 				size: "#{size}x#{size}", 
 				alt:"#{user.name} in hamsafaryab.com", class: klass )
 		else
