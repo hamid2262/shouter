@@ -1,19 +1,22 @@
-<%= div_for	shout do %> 
-	<%= link_to gravatar(shout.user), shout.user %>
-	<%= link_to shout.user.name, shout.user %>
-	<div class="content">
-		<p>
-			<%= render shout.content %>
-		</p>
-		<span class="meta">
-			<%= time_ago_in_words(shout.created_at) %> ago			
-			<%# if can? :destroy, shout.content %>
-			<% if shout.user == current_user %>
-				<span class="remove">
-					<%= link_to "remove", shout.content, method: :delete, class: "pull-left", data: {confirm: "Are you sure you want to delete this shout?"} %>
-				</span>
-			<% end %>
-		</span>	
+<div class="panel panel-default shout">
+  <div class="panel-body">
+		<%= div_for	shout do %> 
+			<%= link_to gravatar(shout.user), shout.user %>
+			<%= link_to shout.user.name, shout.user %>
+			<div class="content">
+				<p>
+					<%= render shout.content %>
+				</p>
+				<span class="meta">
+					<%= time_ago_in_words(shout.created_at) %> ago			
+					<%# if can? :destroy, shout.content %>
+					<% if shout.user == current_user %>
+						<span class="remove">
+							<%= link_to "remove", shout.content, method: :delete, class: "pull-left", data: {confirm: "Are you sure you want to delete this shout?"} %>
+						</span>
+					<% end %>
+				</span>	
+			</div>
+		<% end %>
 	</div>
-
-<% end %>
+</div>
