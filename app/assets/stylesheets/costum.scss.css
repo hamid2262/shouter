@@ -57,6 +57,9 @@ body{
     color: #911;
 }
 
+.clear{
+    clear: both;
+}
 /*make select2 highlight for states*/
 .select2-results li.select2-result-with-children > .select2-result-label {
     background-color: #bbb;

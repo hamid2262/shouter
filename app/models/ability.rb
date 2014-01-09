@@ -16,9 +16,9 @@ class Ability
             user == v.user
         end
 
-        can [:read, :create, :new], [TextShout, PhotoShout, Shout]
-        can [:manage], [TextShout, PhotoShout] do |s|
-            user == s.shouts.first.user
+        can [:read, :create, :new], [Shout]
+        can [:edit, :update, :destroy], [Shout] do |s|
+            user == s.content.user
         end
 
         can [:manage], FollowingRelationship do |f|
