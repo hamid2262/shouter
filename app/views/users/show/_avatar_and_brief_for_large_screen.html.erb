@@ -1,6 +1,12 @@
-<div class="userAvatarLargeScreen">
-	<%= gravatar(@user, 160, "img-responsive img-thumbnail",:square) %>
-	<h1 class="nameOfUser"><small><%= @user.name %></small></h1>
-	<span class="stars" style="background-position:1431px 0px;"></span>
-	<p class="score">(4.5/5)</p> 
+<div class="userAvatarLargeScreen raw">
+	<div class="avatar col-lg-5">
+		<%= gravatar(@user, 160, "img-responsive img-thumbnail",:square) %>
+	</div>
+	<div class="meta col-lg-7">
+		<h2 class="nameOfUser"><small><%= @user.name %></small></h2>		
+		<span class="stars" style="background-position:1431px 0px;"></span>
+		<p class="score">(4.5/5)</p> 
+		<%= resent_activity(@user, "activity", "Last online: ") %>
+		
+	</div>
 </div>

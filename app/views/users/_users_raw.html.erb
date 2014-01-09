@@ -1,7 +1,7 @@
 <div class="users-list panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">
-    	Your Followed Users 
+    	<%= title %>
 			<small class="pull-left ">Last online </small>
     </h3>
 
@@ -12,21 +12,16 @@
 			<% users.each do |user| %>
 				<div class="user-row-small">
 					<%= link_to user.name, user,class: "user-name" %>
+
 					<span class="followers-number small">
 						(<%= pluralize(user.followers.size, 'Follower')  %>)
 					</span> 
 
-					<% if user.online? %>
-						<span class="online">
-							<%= link_to gravatar(user, 50, "img-thumbnail"), user %>
-						</span>		
-						<strong class="meta"><small class="text-success">Online</small></strong>
-					<% else %>
-							<%= link_to gravatar(user, 50, "img-thumbnail"), user %>
-							<small class="meta text-muted">
-								<%= time_ago_in_words(user.updated_at) %> ago	
-							</small>				
-					<% end %>		
+					<span class="<%= "online" if user.online? %> ">
+						<%= link_to gravatar(user, 50, "img-thumbnail"), user %>
+					</span>		
+					
+					<%= resent_activity(user, "meta") %>
 						
 				</div>
 

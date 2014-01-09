@@ -14,6 +14,7 @@ class UsersController < Devise::RegistrationsController
     @user = User.find(params[:id])
     @shouts = @user.shouts
     @vehicle = @user.vehicle
+    @followed_users = @user.followed_users.order(updated_at: :desc)
     # @shouts = Shout.where(:user_id, params[:id])
   end
   
