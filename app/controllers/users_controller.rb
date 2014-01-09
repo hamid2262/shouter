@@ -33,14 +33,14 @@ class UsersController < Devise::RegistrationsController
       if current_user.is_admin?
         @user.update_without_password(admin_user_params)          
       else
-        @user.update_without_password(user_without_password_params)       
+        @user.update_without_password(user_without_password_params)  
       end
     end
 
     if successfully_updated
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user , notice: "Profile was successfully updated."
     else
-      render action: 'edit'
+      render action: 'edit', locals: {tab: params[:user][:tab]}
     end
   end
 
@@ -66,7 +66,7 @@ private
   end
 
   def needs_password?(user, params)
-    user.email != params[:email] ||
+    # user.email != params[:email] ||
       params[:password].present?
   end
   

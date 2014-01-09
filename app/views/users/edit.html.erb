@@ -1,12 +1,41 @@
 <div class="page-header">
   <h2>Edit <%= resource_name.to_s.humanize %></h2>  
 </div>
+<div class="panel panel-default col-md-8">
 
-<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
 
-  <%= render partial: 'users/edit/personal_details', locals: {f: f} %>
-  <%= render partial: 'users/edit/contact_details', locals: {f: f} %>
-  <%= render partial: 'users/edit/acount_settings', locals: {f: f} %>
 
-<% end %>
+	  <div class="panel-body">
+		  <%= devise_error_messages! %>
+	  </div>
+
+		<ul id="myTab" class="nav nav-tabs nav-justified">
+		  <li class="active"><a href="#personal_profile" data-toggle="tab">Personal Profile</a></li>
+		  <li><a href="#contact_details" data-toggle="tab">Contact Details</a></li>
+		  <li><a href="#acount_settings" data-toggle="tab">Acount settings</a></li>
+		  <li><a href="#messages" data-toggle="tab">Messages</a></li>
+		</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+
+	<div class="tab-pane active" id="personal_profile">
+	  <%= render partial: 'users/edit/personal_profile' %>
+	</div>
+
+  <div class="tab-pane" id="contact_details">
+  	<%= render partial: 'users/edit/contact_details' %>
+  </div>
+
+	<div class="tab-pane" id="acount_settings">
+		<%= render partial: 'users/edit/acount_settings' %>
+	</div>
+
+  <div class="tab-pane" id="messages">messages</div>
+</div>
+</div>
+
+
+<p class="tab" style="visibility:hidden;">
+	<%= params[:user][:tab] if params[:user] && params[:user][:tab] %>
+</p>
