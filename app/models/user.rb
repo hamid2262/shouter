@@ -33,14 +33,18 @@ class User < ActiveRecord::Base
   validates :email,     uniqueness: true
   validates :username,  uniqueness: true, allow_blank: true
   validates :gender,    presence: true, inclusion: { in: ['f','m'], message: "Please select gender" }
-  # validates :city_id,   presence: true
   validates :age,       inclusion:{ in: 0..99 }, allow_blank: true
+  # validates :city_id,   presence: true
   validates :tel,       length:{ in: 7..32 }, allow_blank: true
   validates :mobile,    length:{ in: 7..32 }, allow_blank: true
   validates :post_code, length:{ in: 5..15 }, allow_blank: true
 
   validates_attachment :avatar, :size => { in: 0..1.megabytes }
   validates_attachment :cover,  :size => { in: 0..2.megabytes }
+
+  def gender_in_word
+    (self.gender == 'm') ? "Male" :  "Female"
+  end
 
   def is_image?
     avatar.instance.avatar_content_type =~ %r(image)
@@ -53,7 +57,7 @@ class User < ActiveRecord::Base
   def send_admin_mail
     UserMailer.signup_confirmation(self).deliver
   end
-  
+
   def name
     if self.firstname.present? || self.lastname.present?
       self.try(:firstname).try(:titleize) + " "+ self.try(:lastname).try(:titleize)
