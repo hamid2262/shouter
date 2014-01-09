@@ -125,4 +125,14 @@ module ApplicationHelper
 		options_for_select ['00','15','30','45']
 	end	
 	
+  def resent_activity user, klass, pretext = ""
+  	if user.online?
+			"<strong><small class=\"text-success #{klass}\">Online</small></strong>".html_safe
+  	else
+			"<small class=\"text-muted #{klass}\">
+				#{pretext} #{time_ago_in_words(user.updated_at)} ago
+			</small>".html_safe
+  	end
+  end
+
 end
