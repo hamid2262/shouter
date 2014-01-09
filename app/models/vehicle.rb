@@ -3,7 +3,7 @@ class Vehicle < ActiveRecord::Base
   belongs_to :vehicle_model
 
   has_attached_file :image, 
-    styles: lambda { |a| {:small => "x100>", :normal => "x300>", :large => "x600>"} if a.instance.is_image? 
+    styles: lambda { |a| {:small => "x100>", :normal => "x300>"} if a.instance.is_image? 
 		}
 
 	validates_attachment :image, :size => { in: 0..1.megabytes }

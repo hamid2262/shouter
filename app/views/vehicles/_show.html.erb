@@ -1,21 +1,27 @@
-<h3>Car detail</h3>  
-<% if @user.vehicle.present? %>
-  <p id="notice"><%= notice %></p>
-  <table class="table">
-    <tbody>
-      <%=  table_show_cell "Color", @vehicle.color %>
-      <%=  table_show_cell "Number plate", @vehicle.number_plate %>
-      <%=  table_show_cell "Air condition", @vehicle.air_condition %>
-      <%=  table_show_cell "Year", @vehicle.year %>
-      <%=  table_show_cell "Model", "#{@vehicle.vehicle_model.vehicle_brand.name} - #{@vehicle.vehicle_model.name}" %>
-    </tbody>
-  </table>
-  
-  "Image" <%= image_tag @vehicle.image.url(:original) %>
-  
-  <%= link_to 'Edit', edit_user_vehicles_path(@user) %>
+<div class="panel panel-default clear">
+  <div class="panel-heading">Car detail</div>
+  <% if @user.vehicle.present? %>
+    <p id="notice"><%= notice %></p>
+    <table class="table">
+      <tbody>
+        <%=  table_show_cell "Color", @vehicle.color %>
+        <%=  table_show_cell "Number plate", @vehicle.number_plate %>
+        <%=  table_show_cell "Air condition", @vehicle.air_condition %>
+        <%=  table_show_cell "Year", @vehicle.year %>
+        <%=  table_show_cell "Model", "#{@vehicle.vehicle_model.vehicle_brand.name} - #{@vehicle.vehicle_model.name}" %>
+      </tbody>
+    </table>
+    
+    <%= link_to (image_tag @vehicle.image.url(:small)), @vehicle.image.url(:normal) %> <br>
+    <% if @user == current_user %>
+      <%= link_to 'Edit car detail', edit_user_vehicles_path(@user), class: "btn btn-primary" %>
+    <% end %>
 
-<% else %>
-  <p>There is no car registered.</p>
-  <p><%= link_to "Enter your car details", new_user_vehicles_path(@user) %></p>
-<% end %>
+  <% else %>
+    <p>There is no car registered.</p>
+    <% if @user == current_user %>
+      <p><%= link_to "Enter your car details", new_user_vehicles_path(@user) %></p>    
+    <% end %>
+  <% end %>
+
+  </div>
