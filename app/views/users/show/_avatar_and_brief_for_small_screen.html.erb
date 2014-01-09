@@ -1,5 +1,7 @@
 <div class="userAvatar hidden-lg">
-	<%= gravatar(@user, 160, "img-responsive img-thumbnail",:square) %>
+	<div class="gravatar">
+		<%= render 'users/show/gravatar' %>
+	</div>
 	<h1 class="nameOfUser"><small><%= @user.name %></small></h1>	
 	<span class="stars" style="background-position:1431px 0px;"></span>
 	<p class="score">(4.5/5)</p> 

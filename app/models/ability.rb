@@ -6,7 +6,7 @@ class Ability
     if user.admin?
         can :manage, :all
     elsif user.try(:email)
-        can :read, User 
+        can :show, User
         can [:edit, :update], User do |u|
             user == u
         end

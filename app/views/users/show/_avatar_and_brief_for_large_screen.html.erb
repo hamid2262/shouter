@@ -1,6 +1,8 @@
 <div class="userAvatarLargeScreen raw">
 	<div class="avatar col-lg-5">
-		<%= gravatar(@user, 160, "img-responsive img-thumbnail",:square) %>
+		<div class="gravatar">
+			<%= render 'users/show/gravatar' %>
+		</div>
 	</div>
 	<div class="meta col-lg-7">
 		<h2 class="nameOfUser"><small><%= @user.name %></small></h2>		
