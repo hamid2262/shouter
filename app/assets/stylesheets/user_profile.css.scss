@@ -1,8 +1,29 @@
+$h1_font_size : 1em;
+@media(max-width:767px){ }
+@media(min-width:768px){}
+@media(min-width:992px){$h1_font_size : 4em;}
+@media(min-width:1200px){$h1_font_size : 2em;}
+
+h2{
+	font-size: $h1_font_size;
+}
 #userContainer{
+	h2{
+		font-size: $h1_font_size;
+	}
 	padding: 0;
 	#sidebar{
 		overflow: hidden;
 	}
+	.score{
+		font-size: 1.5em;
+		font-weight: bold;			
+	}	
+	.stars{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/sprite_rating_stars.png');
+		width: 147px;
+		height: 26px;
+	}	
 	#cover{		
 		position: relative;
 		margin-bottom: 80px;
@@ -31,24 +52,34 @@
 				bottom: 40px;
 			}
 			.stars{
-				background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/sprite_rating_stars.png');
 				position: absolute;
 				bottom: 10px;
 				right: 181px;
-				width: 147px;
-				height: 26px;
 			}
 			.score{
 				position: absolute;
 				bottom: -1px;
 				right: 331px;
-				font-size: 1.5em;
-				font-weight: bold;			
 			}
 		} //.userAvatar{
-	}// .visible-lg
+	}// .hidden-lg
 	.visible-lg{
-
-	}
+		#sidebar{
+			.userAvatarLargeScreen{
+				margin-top: 20px;
+				.meta{
+					h2.nameOfUser {
+						margin-top: 0;
+					}					
+					.stars{
+						display: inline-block;
+					}
+					.score{
+						padding-right: 41px;					
+					}					
+				}// .meta{
+			}// .userAvatarLargeScreen
+		} // #sidebar
+	} //visible-lg
 }// #userContainer
 
