@@ -3,9 +3,13 @@
   <%= render 'users/show/avatar_and_brief_for_large_screen' %>
 	<%= render 'single_profile' %>
 	<%= render 'vehicles/show' %>
+
+	<%= render partial: 'users/users_raw', locals: {users: @followed_users, title: "#{@user.name }'s Followed Users "} %>
+
 </div>
 <div id="leftContent" class="col-lg-8">
 	<%= render 'users/show/cover' %>
 	<%= flash_creator flash %>
 	<%= render @shouts %>
+
 </div>
