@@ -1,39 +1,37 @@
   <fieldset class="col-sm-12 1col-sm-offset-3">
-
   <!-- At -->
-    <div class="row">
       <div class="col-sm-3">
         At   
       </div> 
-      <div class="col-sm-8">
+      <div class="col-sm-9">
         <%= f.select :jminute, options_for_minute, {:include_blank => true} %> : 
         <%= f.select :jhour, options_for_hour, {:include_blank => true} %>
       </div>
-   </div>
 
   <!-- On -->
-    <div class="row">
       <div class="col-sm-3">
         On   
       </div> 
-      <div class="col-sm-8">
+      <div class="col-sm-9">
         <%= f.select :jday, options_for_day %> 
         <%= f.select :jmonth, options_for_month %>
         <%= f.select :jyear, options_for_year %> 
       </div>
-    </div>
 
   <!-- Via -->
-    <div class="row">
       <div class="col-sm-3">
         Via   
       </div> 
-      <div class="col-sm-8">
-        <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select-via-city form-control'} %>     
+      <div class="col-sm-9 states_cities">
+        <div class="states">
+          <%= collection_select :temp, :state_id, State.order(:local_name), :id, :local_name,  {:prompt=>true} ,{ class: 'my-states'} %>        
+        </div>
+        <div class="cities">
+          <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:class => 'select-via-city form-control '} %>     <!-- select2_input -->        
+        </div>
         <%= f.hidden_field :_destroy %>
-        <%= link_to "Remove", "#", class: "remove_fields" %>  
+        <div class="remove_fields_div">
+          <%= link_to "Remove", "#", class: "remove_fields" %>            
+        </div>
       </div>
-    </div>
-  
-
 </fieldset>

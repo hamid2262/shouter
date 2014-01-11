@@ -15,7 +15,8 @@ class TripsController < ApplicationController
   def new
     @vehicle_seats = vehicle_seats_number current_user
     @trip = Trip.new
-    @sub = Subtrip.new
+    @trip.subtrips.build
+    @trip.subtrips.build
   end
 
   def edit
@@ -27,7 +28,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        @trip.subtrips_init main_subtrip_params
+        # @trip.subtrips_init main_subtrip_params
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render action: 'show', status: :created, location: @trip }
       else

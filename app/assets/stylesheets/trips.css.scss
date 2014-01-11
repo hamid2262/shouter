@@ -3,6 +3,15 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #new_trip_form{
+	.states_cities div{
+		float: right;
+	}
+	.field_with_errors {
+		display: inline;
+		select{
+			border: 1px solid #a94442;
+		}
+	}
 	.row{
 		margin-bottom: 5px;
 	}
@@ -18,7 +27,10 @@
     fieldset{
     	border: dotted 1px #AEAEB6;
 			padding: 7px 19px;
-			margin-bottom: 3px;    	
+			margin-bottom: 3px;   
+			.remove_fields_div{
+				float: left;
+			} 	
     }
 	}
 }

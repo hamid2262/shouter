@@ -21,38 +21,20 @@ $(function() {
   $(".select2_input").select2({ 
 		width: '265px' 
 	});
-  
-// stopover cities add/remove
-  $('form').on('click', '.remove_fields', function(event) {
-    $(this).prev('input[type=hidden]').val('1');
-    $(this).closest('fieldset').hide();
-    return event.preventDefault();
-  });
-  return $('form').on('click', '.add_fields', function(event) {
-    var regexp, time;
-    if ($('fieldset:visible').length < 4) {
-      time = new Date().getTime();
-      regexp = new RegExp($(this).data('id'), 'g');
-      $(this).before($(this).data('fields').replace(regexp, time));
-    }
-    return event.preventDefault();
-  });
-});
 
-// url change with nav-tabs hashed address
-$(function(){
-  var hash = window.location.hash;
-  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
-
+  // update url by tab changing
   $('.nav-tabs a').click(function (e) {
     $(this).tab('show');
     var scrollmem = $('body').scrollTop();
     window.location.hash = this.hash;
     // $('html,body').scrollTop(scrollmem);
   });
-});
 
-$(function(){
+  // url change with nav-tabs hashed address
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+  // in user update profile when form has validation error, must go to tab that has error
   var t = $('p.tab').text();
   t = $('ul.nav a[href="#' + $.trim(t) + '"]');
   t && t.tab('show');  
