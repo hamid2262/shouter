@@ -6,6 +6,14 @@ class Subtrip < ActiveRecord::Base
 
   default_scope { order('date_time ASC') } 
 
+  validate  :jday, :jday_validate
+  validates :origin_id, presence: true
+  validates :jminute, presence: true
+  validates :jhour, presence: true
+
+  before_create :set_seats
+  before_create :set_date_time
+ 
   def find_conflict_subtrips
   	origin = self.origin_id
     destination = self.destination_id
@@ -35,4 +43,26 @@ class Subtrip < ActiveRecord::Base
     inbetween_cities = self.trip.inbetween_cities origin, destination    
     subtrips.where(origin_id: inbetween_cities, destination_id: inbetween_cities)  	
   end
+
+  private
+    def jday_validate
+      if self.jmonth.to_i > 6 && jday.to_i > 30 ||
+         self.jmonth.to_i == 12 && jday.to_i > 29
+        errors.add(:jday, "Day is not a valid day")
+      end
+    end
+
+    def set_seats
+      s = []
+      for i in 0..(self.trip.total_available_seats-1) do
+        s << 0
+      end
+      self.seats = s
+    end
+
+    def set_date_time    
+      jdate = JalaliDate.new(self.jyear,self.jmonth,self.jday)  
+      gdate = jdate.to_g
+      self.date_time = gdate + self.jhour.hours + self.jminute.minutes
+    end
 end

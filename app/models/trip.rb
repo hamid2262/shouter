@@ -3,6 +3,9 @@ class Trip < ActiveRecord::Base
   has_many   :subtrips , dependent: :destroy
   accepts_nested_attributes_for :subtrips, allow_destroy: true
 
+  validates_associated :subtrips
+  validates :driver, presence: true
+
   def first_city
     path_list.first
   end
