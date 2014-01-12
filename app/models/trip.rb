@@ -6,6 +6,8 @@ class Trip < ActiveRecord::Base
   validates_associated :subtrips
   validates :driver, presence: true
 
+  after_create :subtrips_init
+
   def first_city
     path_list.first
   end
@@ -64,77 +66,34 @@ class Trip < ActiveRecord::Base
     path_list_obj
   end
 
-  def subtrips_init main_subtrip_params
-    self.subtrips.build(main_subtrip_params)
-    self.date_time_update_with_jalali self
-    self.save
-    self.fill_subtrips_destination
-    self.seats_init
-  end
-
-  def seats_init
-    self.subtrips.each do |s|
-      for i in 1..(self.total_available_seats) do
-        s.seats << 0
-      end
-      s.seats_will_change!
-      s.save      
-    end
-
-  end
-
-  def date_time_update_with_jalali s
-    s.subtrips.each do |s|
-      jdate = JalaliDate.new(s.jyear,s.jmonth,s.jday).to_g
-      jdate = jdate + s.jhour.hours + s.jminute.minutes
-      s.date_time = jdate
-    end
-  end
-
-  def fill_subtrips_destination
-    cities_ids = create_city_array self       
-    for i in 0..(cities_ids.size-1)
-      origin = self.subtrips.where(origin_id: cities_ids[i]).first   
-      for j in (i+1)..(cities_ids.size-1)
-        unless main_subtrip(cities_ids, i, j) then
-          subtrips = self.subtrips.where(origin_id: cities_ids[i], 
-                                         destination_id: nil)            
-          if subtrips.any?
-            subtrips.first.update(destination_id: cities_ids[j])
-            subtrips.first.save
-          else
-            self.subtrips.build(origin_id: origin.origin_id, 
-                                price: origin.price, 
-                                date_time: origin.date_time, 
-                                jminute: origin.jminute, 
-                                jhour: origin.jhour, 
-                                jday: origin.jday, 
-                                jmonth: origin.jmonth, 
-                                jyear: origin.jyear, 
-                                destination_id: cities_ids[j]
+  # initialize other subtrips and fill destination cities id
+  def subtrips_init 
+    subtrips = self.subtrips.order(:date_time) 
+    for i in 0..(subtrips.size-1)
+      if subtrips[i+1]
+        subtrips[i].destination_id = subtrips[i+1].origin_id
+        for j in (i+2)..(subtrips.size-1)
+            self.subtrips.build(origin_id: subtrips[i].origin_id, 
+                                price: subtrips[i].price, 
+                                date_time: subtrips[i].date_time, 
+                                jminute: subtrips[i].jminute, 
+                                jhour: subtrips[i].jhour, 
+                                jday: subtrips[i].jday, 
+                                jmonth: subtrips[i].jmonth, 
+                                jyear: subtrips[i].jyear, 
+                                destination_id: subtrips[j].origin_id
                                )
             self.save
-          end
         end
+      else
+        subtrips[i].destination_id = subtrips[i].origin_id        
       end
+      subtrips[i].save
     end
   end
+
 
   private
 
-	  def main_subtrip cities_ids, i, j
-	    true if cities_ids[i]== cities_ids[0] && cities_ids[j]==cities_ids[cities_ids.size-1]
-	  end
 
-	  def create_city_array trip
-	    cities_ids = []
-	    main_trip = trip.subtrips.where.not(destination_id: nil).first
-	    cities_ids << main_trip.origin_id
-	    trip.subtrips.where(destination_id: nil).each do  |sub|
-	      cities_ids <<  sub.origin_id
-	    end
-	    cities_ids << main_trip.destination_id      
-	    cities_ids
-	  end
-	  
 end

@@ -28,7 +28,8 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        # @trip.subtrips_init main_subtrip_params
+        # @data = @trip.subtrips_init 
+        # return false
         format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
         format.json { render action: 'show', status: :created, location: @trip }
       else
@@ -63,10 +64,10 @@ class TripsController < ApplicationController
       @trip = Trip.find(params[:id])
     end
 
-    def main_subtrip_params
-      params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
-                              :jminute, :jhour, :jyear, :jmonth, :jday)
-    end
+    # def main_subtrip_params
+    #   params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
+    #                           :jminute, :jhour, :jyear, :jmonth, :jday)
+    # end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
