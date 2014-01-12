@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.validate
+//= require localization/messages_fa
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
@@ -38,4 +40,9 @@ $(function() {
   var t = $('p.tab').text();
   t = $('ul.nav a[href="#' + $.trim(t) + '"]');
   t && t.tab('show');  
+
+  $("#new_trip").validate();
 });
+
+
+

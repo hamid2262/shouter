@@ -4,7 +4,7 @@
   <div class="panel-body">
     <%= form_for(@trip) do |f| %>
       <%= error_messages_for(@trip) %>
-    <div class="panel-body">
+     
      
      <b>Route</b>
       <div class="trip-route">
@@ -25,16 +25,14 @@
            <%= f.select :total_available_seats, 1..seats, selected: seats, hint: 'This field related to your car\'s seating capacity.', label: false %> <br>
         </div>
       </div>
-
-      <%= grouped_collection_select :test, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:class => 'select-via-city form-control '} %>     
-
+      
       <!-- detail -->
       <div class="row"> 
         <div class="col-sm-3">
           <%= f.label :detail %>
         </div>     
         <div class="col-sm-9">
-          <%= f.text_area :detail, class: "form-control col-sm-12", rows: "3" %>
+          <%= f.text_area :detail, class: "form-control col-sm-12" , rows: "3" %>
         </div>
       </div> 
 
@@ -45,7 +43,10 @@
         </div>
       </div>     
     <% end %>
-    </div>
-  </div>
+    
+  </div>  <!-- <div class="panel-body"> -->
 </div>
 </div>
+
+<!-- helps to the select box of cities -->
+<%= grouped_collection_select :test, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'select-via-city form-control visible-print'} %>     

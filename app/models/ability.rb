@@ -25,7 +25,7 @@ class Ability
             user == s.follower
         end
 
-        can :manage, Trip
+        can [:show, :create, :new, :destroy], Trip
     else
 
     end
