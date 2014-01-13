@@ -15,7 +15,7 @@
       <ul class="nav navbar-nav">
 			<% if user_signed_in? %>
 				<li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), dashboard_path %> </li>
-				<li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+				<li><%= link_to "#{t "navbar.profile.edit"}", edit_user_registration_path %></li>
 				<li><%= link_to "show Profile", current_user %></li>
 				<li><%= link_to "Sign out <span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, destroy_user_session_path, method: :delete %>     
         </li>
@@ -28,6 +28,8 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to "Insert trip", new_trip_path %></li>
         <li><%= link_to "Find a trip <span class=\"glyphicon glyphicon-road\"></span>".html_safe, search_subtrips_path %></li>
+        <li><%= link_to_unless_current "English", locale: "en" %></li>
+        <li><%= link_to_unless_current "Farsi", locale: "fa" %></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

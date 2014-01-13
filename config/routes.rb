@@ -1,41 +1,44 @@
 Shouter::Application.routes.draw do
-
-  resource  :search_subtrips, only: [:show] do
-    get 'search' => 'search_subtrips#search'
-    get 'choose_search_mode' => 'search_subtrips#choose_search_mode'
-  end
-  resources :subtrips, only: [:show]
-  resources :bookings
-
-  resources :trips
-  resources :cities
-  resources :states
-  resources :countries
-  resources :vehicle_brands
-  resources :vehicle_models
-  resource  :search, only: [:show]
-  resource  :dashboard, only: [:show,:create]  
-  resources :homes, only: [:show]
-  resources :shouts, only: [:show]
-  resources :text_shouts, only: [:create, :destroy]
-  resources :photo_shouts, only: [:create, :destroy]
-  resources :hashtags, only: [:show]
-  
-  root 'homes#show'
-
-  devise_for :users, :controllers => { registrations: 'users' }
-  devise_scope :user do
-    resources :users, only: [:show, :index] do
-      resource :vehicles, only: [ :new, :create,:edit, :update ]
-      post 'follow' => 'following_relationships#create' 
-      delete 'follow' => 'following_relationships#destroy' 
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    resource  :search_subtrips, only: [:show] do
+      get 'search' => 'search_subtrips#search'
+      get 'choose_search_mode' => 'search_subtrips#choose_search_mode'
     end
+    resources :subtrips, only: [:show]
+    resources :bookings
+
+    resources :trips
+    resources :cities
+    resources :states
+    resources :countries
+    resources :vehicle_brands
+    resources :vehicle_models
+    resource  :search, only: [:show]
+    resource  :dashboard, only: [:show,:create]  
+    resources :homes, only: [:show]
+    resources :shouts, only: [:show]
+    resources :text_shouts, only: [:create, :destroy]
+    resources :photo_shouts, only: [:create, :destroy]
+    resources :hashtags, only: [:show]
+    
+    root 'homes#show'
+
+    devise_for :users, :controllers => { registrations: 'users' }
+    devise_scope :user do
+      resources :users, only: [:show, :index] do
+        resource :vehicles, only: [ :new, :create,:edit, :update ]
+        post 'follow' => 'following_relationships#create' 
+        delete 'follow' => 'following_relationships#destroy' 
+      end
+    end
+
+    
+    get 'upgrade_cities' => 'cities#upgrade'
+
   end
 
-  
-  get 'upgrade_cities' => 'cities#upgrade'
-
-
+  get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '', to: redirect("/#{I18n.default_locale}")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
