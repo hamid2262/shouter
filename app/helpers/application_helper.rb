@@ -32,14 +32,18 @@ module ApplicationHelper
 				size: "#{size}x#{size}", 
 				alt:"#{user.name} in hamsafaryab.com", class: klass )
 		else
-			gravatar_image_tag( user.email.gsub('spam', 'mdeering'), 
-				:alt => "#{user.name} in hamsafaryab.com", 
-				:class => klass,
-				:gravatar => { 
-					:default => default_avatar(user),
-					:size => size,
-				}
-			)
+			image_tag(default_avatar(user), 
+				size: "#{size}x#{size}", 
+				alt:"#{user.name} in hamsafaryab.com", class: klass )
+
+				# gravatar_image_tag( user.email.gsub('spam', 'mdeering'), 
+				# 	:alt => "#{user.name} in hamsafaryab.com", 
+				# 	:class => klass,
+				# 	:gravatar => { 
+				# 		:default => default_avatar(user),
+				# 		:size => size,
+				# 	}
+				# )				
 		end
 	end
 
