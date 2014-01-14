@@ -1,7 +1,16 @@
 <!-- --       Larg Screen      -- -->
 <div id="sidebar" class="col-lg-4">
   <%= render 'users/show/avatar_and_brief_for_large_screen' %>
-  <p>Last login from <%= Geocoder.search(@user.last_sign_in_ip)[0].city %>, <%= Geocoder.search(@user.last_sign_in_ip)[0].country %></p>
+
+<div class="panel panel-default">
+  <div class="panel-body">
+		Last loged in from: 
+		<%= @user.last_login_city %>, 
+		<%= @user.last_login_country %>  
+	</div>
+</div>
+
+  <p></p>
 	<%= render 'single_profile' %>
 	<%= render 'vehicles/show' %>
 

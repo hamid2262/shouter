@@ -92,4 +92,12 @@ class User < ActiveRecord::Base
     self.followed_users.delete(user)     
   end
 
+  def last_login_city
+    Geocoder.search(self.last_sign_in_ip)[0].try(:city)
+  end
+
+  def last_login_country
+    Geocoder.search(self.last_sign_in_ip)[0].try(:country)
+  end
+
 end
