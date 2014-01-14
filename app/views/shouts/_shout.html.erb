@@ -8,7 +8,7 @@
 					<%= render shout.content %>
 				</p>
 				<span class="meta">
-					<%= time_ago_in_words(shout.created_at) %> ago			
+					<%= time_ago_in_words(shout.created_at) %> <%=t("ago")  %>
 					<%# if can? :destroy, shout.content %>
 					<% if shout.user == current_user %>
 						<span class="remove">

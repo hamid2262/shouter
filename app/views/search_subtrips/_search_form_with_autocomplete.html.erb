@@ -8,7 +8,7 @@
 
 <!-- Destination -->
 <div class=" destination_input col-sm-6  my-col-md-12 my-col-lg-7">
-	<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control"} %>
+	<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control required"} %>
 	<div class=" cycle autocomplete_mode"  style="border:0;">
 		<%= f.select :destination_cycle, (5..50).step(5).map{|s| ["#{s} #{t("search_subtrips.form.km")} ", s]}%> 
 	</div>

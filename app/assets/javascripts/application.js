@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery.validate
-//= require localization/messages_fa
+// require localization/messages_fa   moved to application.html with an if condition
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
@@ -41,7 +41,6 @@ $(function() {
   t = $('ul.nav a[href="#' + $.trim(t) + '"]');
   t && t.tab('show');  
 
-  $("#new_trip").validate();
 });
 
 

@@ -134,7 +134,7 @@ module ApplicationHelper
 			"<strong><small class=\"text-success #{klass}\">Online</small></strong>".html_safe
   	else
 			"<small class=\"text-muted #{klass}\">
-				#{pretext} #{time_ago_in_words(user.updated_at)} ago
+				#{pretext} #{time_ago_in_words(user.updated_at)} #{t("ago")}
 			</small>".html_safe
   	end
   end
