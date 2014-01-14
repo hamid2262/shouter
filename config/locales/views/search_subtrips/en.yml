@@ -1,0 +1,16 @@
+en:
+  search_subtrips:
+    form:
+      search_btn: "Search" 
+      km: "KM"     
+      mode:
+        select: 
+          selector: "Select Mode"
+          placeholder:
+            origin: "Please select start city"
+            destination: "Please select destination"
+        autocomplete: 
+          selector: "Autocomplete Mode"
+          placeholder:
+            origin: "Please insert start city"
+            destination: "Please insert destination"      

@@ -1,0 +1,16 @@
+fa:
+  search_subtrips:
+    form:
+      search_btn: "جستجو"
+      km: "کیلومتر"
+      mode:
+        select: 
+          selector: "حالت انتخابی"
+          placeholder:
+            origin: "لطفا شهر مبدا را انتخاب کنید"
+            destination: "لطفا شهر مقصد را انتخاب کنید"
+        autocomplete: 
+          selector: "حالت کامل کن"
+          placeholder:
+            origin: "لطفا شهر مبدا را وارد کنید"
+            destination: "لطفا شهر مقصد را وارد کنید"
