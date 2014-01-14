@@ -16,7 +16,7 @@ class Ability
             user == v.user
         end
 
-        can [:read, :create, :new], [Shout]
+        can [:read, :create, :new], [Shout, TextShout, PhotoShout]
         can [:edit, :update, :destroy], [Shout] do |s|
             user == s.content.user
         end
