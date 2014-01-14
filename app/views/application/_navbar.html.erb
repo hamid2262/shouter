@@ -15,21 +15,25 @@
       <ul class="nav navbar-nav">
 			<% if user_signed_in? %>
 				<li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), dashboard_path %> </li>
-				<li><%= link_to "#{t "navbar.profile.edit"}", edit_user_registration_path %></li>
-				<li><%= link_to "show Profile", current_user %></li>
-				<li><%= link_to "Sign out <span class=\"glyphicon glyphicon-log-out\"></span>".html_safe, destroy_user_session_path, method: :delete %>     
+				<li><%= link_to t("navbar.profile.edit"), edit_user_registration_path %></li>
+				<li><%= link_to t("navbar.profile.show"), current_user %></li>
+				<li><%= link_to t("navbar.session.sign_out"), destroy_user_session_path, method: :delete %>     
         </li>
 			<% else %>
-				<li><%= link_to "Sign Up", new_user_registration_path %></li>
-				<li><%= link_to "Sign in <span class=\"glyphicon glyphicon-log-in\"></span>".html_safe, new_user_session_path %></li>
+				<li><%= link_to t("navbar.user.sign_up"), new_user_registration_path %></li>
+				<li><%= link_to t("navbar.session.sign_in"), new_user_session_path %></li>
 			<% end %>	
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to "Insert trip", new_trip_path %></li>
-        <li><%= link_to "Find a trip <span class=\"glyphicon glyphicon-road\"></span>".html_safe, search_subtrips_path %></li>
-        <li><%= link_to_unless_current "English", locale: "en" %></li>
-        <li><%= link_to_unless_current "Farsi", locale: "fa" %></li>
+        <li><%= link_to t("navbar.trip.insert"), new_trip_path %></li>
+        <li><%= link_to t("navbar.trip.search"), search_subtrips_path %></li>
+
+        <% if current_page?( locale: "fa") %>
+          <li><%= link_to_unless_current t("navbar.language.english"), locale: "en" %></li>
+        <% else %>
+          <li><%= link_to_unless_current t("navbar.language.farsi"), locale: "fa" %></li>
+        <% end %>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

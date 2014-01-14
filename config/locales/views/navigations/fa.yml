@@ -1,0 +1,17 @@
+# navbar
+fa:
+  navbar:
+    profile:
+      show: مشاهده پروفایل
+      edit: ویرایش پروفایل
+    session:
+      sign_out: خروج
+      sign_in: ورود
+    user:
+      sign_up: ثبت نام
+    trip:
+      search: جستجوی سفر
+      insert: ثبت سفر
+    language:
+      english: English
+      farsi: فارسی

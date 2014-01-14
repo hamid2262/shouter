@@ -197,7 +197,3 @@ fa:
   activerecord:
     errors:
       <<: *errors
-
-  navbar:
-    profile:
-      edit: ویرایش پروفایل

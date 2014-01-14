@@ -1,0 +1,17 @@
+# navbar
+en:
+  navbar:
+    profile:
+      edit: Edit Profile    
+      show: Show Profile
+    session:
+      sign_out: Sign Out
+      sign_in: Sign In
+    user:
+      new: Sign Up
+    trip:
+      search: Find Trip
+      insert: Insert Trip
+    language:
+      english: English
+      farsi: فارسی
