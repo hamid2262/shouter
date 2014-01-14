@@ -8,7 +8,7 @@ en:
       sign_out: Sign Out
       sign_in: Sign In
     user:
-      new: Sign Up
+      sign_up: Sign Up
     trip:
       search: Find Trip
       insert: Insert Trip
