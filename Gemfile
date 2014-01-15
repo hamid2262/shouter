@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+ source 'https://rubygems.org'
 
 gem 'rails', '4.0.1'
 
@@ -14,6 +14,7 @@ gem "jalalidate", "~> 0.3.3"
 gem 'unicorn'
 gem 'awesome_print'
 gem 'newrelic_rpm'
+gem 'exception_notification'
 
 group :production do
 	gem 'rails_12factor'
@@ -23,6 +24,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  gem 'letter_opener'
 end
 
 group :assets do

@@ -1,7 +1,6 @@
 <div class="panel panel-default clear">
   <div class="panel-heading">Car detail</div>
   <% if @user.vehicle.present? %>
-    <p id="notice"><%= notice %></p>
     <table class="table">
       <tbody>
         <%=  table_show_cell "Color", @vehicle.color %>

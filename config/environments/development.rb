@@ -56,4 +56,14 @@ Shouter::Application.configure do
       :secret_access_key => 'hPSpd+6YTbuhe+RxSLJ+AYL+cou9X8vfXPXA/yQH' # ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
+
+
+  # config.middleware.use ExceptionNotification::Rack,
+  #   :email => {
+  #     # :email_prefix => "[Whatever] ",
+  #     :sender_address => %{"notifier" <noreply@hamsafaryab.com>},
+  #     :exception_recipients => %w{hrmohseni@yahoo.com}
+  #   }
+
+  # config.action_mailer.delivery_method = :letter_opener
 end
