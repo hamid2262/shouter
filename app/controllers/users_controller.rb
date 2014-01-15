@@ -58,7 +58,7 @@ private
   end
 
   def user_without_password_params
-    params.require(:user).permit(:firstname, :lastname, :gender, :city_id, :age, :tel, :mobile, :address, :post_code, :avatar, :cover)    
+    params.require(:user).permit(:slug, :firstname, :lastname, :gender, :city_id, :age, :tel, :mobile, :address, :post_code, :avatar, :cover)    
   end
 
   def admin_user_params

@@ -1,3 +1,5 @@
+require 'digest/sha1'
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -11,6 +13,16 @@ class User < ActiveRecord::Base
     styles: lambda { |a| {:small => "370x140#", :large => "851x315#"} if a.instance.is_cover? },
     default_url:  "#{IMAGES_PATH}default_cover.png"
   after_create :send_admin_mail
+
+  # SLUG_REGEX =           
+  validates :slug, uniqueness: { case_sensitive: false }, 
+                    length: { in: 8..39},
+                    format: { with: /\A[a-zA-Z][a-zA-Z0-9._-]+\z/i  },
+                    on: :update
+
+  before_create :generate_slug
+  # before_update :change_slug
+  validate :have_slug_registered
 
   has_one    :vehicle
   has_many   :trips
@@ -41,6 +53,18 @@ class User < ActiveRecord::Base
 
   validates_attachment :avatar, :size => { in: 0..1.megabytes }
   validates_attachment :cover,  :size => { in: 0..2.megabytes }
+
+  def generate_slug
+    self.slug = Digest::SHA1.hexdigest(self.email)
+  end
+
+  def have_slug_registered
+    old_slug = User.find(self.id).slug
+
+      if old_slug.length < 40
+        errors.add(:slug, "can be changed only one time")     
+      end    
+  end
 
   def gender_in_word
     (self.gender == 'm') ? "Male" :  "Female"
@@ -101,6 +125,7 @@ class User < ActiveRecord::Base
   end
 
   def last_login_location
+    return "No date" if (self.email == "hamid2262@yahoo.com") or (self.last_sign_in_ip == '93.131.104.148')
     country = self.last_login_country if self.last_login_country.present?
     city =  ', '+ self.last_login_city if self.last_login_city.present?
     if  country && city
