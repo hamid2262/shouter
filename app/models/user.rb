@@ -100,4 +100,19 @@ class User < ActiveRecord::Base
     Geocoder.search(self.last_sign_in_ip)[0].try(:country)
   end
 
+  def last_login_location
+    country = self.last_login_country if self.last_login_country.present?
+    city =  ', '+ self.last_login_city if self.last_login_city.present?
+    if  country && city
+      city + ', ' + country
+    elsif city
+      city
+    elsif country
+      country
+    else
+      "No Data"
+    end
+  end
+
+
 end
