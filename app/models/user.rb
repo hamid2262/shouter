@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
 
   before_create :generate_slug
   # before_update :change_slug
-  validate :have_slug_registered
+  validate :have_slug_registered, on: :update
 
   has_one    :vehicle
   has_many   :trips
@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
   def have_slug_registered
     old_slug = User.find(self.id).slug
 
-      if old_slug.length < 40
+      if old_slug && old_slug.length < 40
         errors.add(:slug, "can be changed only one time")     
       end    
   end
