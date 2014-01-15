@@ -1,5 +1,14 @@
 <%= render partial: 'search_subtrips/search_form' %>
-<p>Welcome to Hamsafaryab!</p>
-<p>به همسفریاب خوش آمدید</p>
 
-<%= render 'users/new/form' %>
+<!-- <h2>به همسفریاب خوش آمدید</h2> -->
+
+
+<div class="col-md-6 col-md-offset-3 ">
+<h2>Welcome to Hamsafaryab!</h2>
+	<div class="panel panel-default">
+	  <div class="panel-heading">You are a member of hamsafaryab.com</div>
+	  <div class="panel-body">
+				<%= render 'devise/sessions/form' %>	
+	  </div>
+	</div>
+</div>
