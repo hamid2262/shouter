@@ -17,12 +17,15 @@ class User < ActiveRecord::Base
   # SLUG_REGEX =           
   validates :slug, uniqueness: { case_sensitive: false }, 
                     length: { in: 8..39},
-                    format: { with: /\A[a-zA-Z][a-zA-Z0-9._-]+\z/i  },
-                    on: :update
+                    format: { with: /\A[a-zA-Z][a-zA-Z0-9._-]+\z/i  }, on: :update,
+                    if: :have_slug_registered?
+
+
+  
 
   before_create :generate_slug
   # before_update :change_slug
-  validate :have_slug_registered, on: :update
+  # validate :have_slug_registered, on: :update
 
   has_one    :vehicle
   has_many   :trips
@@ -58,12 +61,9 @@ class User < ActiveRecord::Base
     self.slug = Digest::SHA1.hexdigest(self.email)
   end
 
-  def have_slug_registered
-    old_slug = User.find(self.id).slug
-
-      if old_slug && old_slug.length < 40
-        errors.add(:slug, "can be changed only one time")     
-      end    
+  def have_slug_registered?
+    # user = User.find(self.id)
+    true if self.slug_changed? 
   end
 
   def gender_in_word
