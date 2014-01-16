@@ -1,8 +1,8 @@
 <div class="panel panel-default shout">
   <div class="panel-body">
 		<%= div_for	shout do %> 
-			<%= link_to gravatar(shout.user), shout.user %>
-			<%= link_to shout.user.name, shout.user %>
+			<%= link_to gravatar(shout.user), profile_url(shout.user) %>
+			<%= link_to shout.user.name, profile_url(shout.user) %>
 			<div class="content">
 				<p>
 					<%= render shout.content %>

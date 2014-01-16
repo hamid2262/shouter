@@ -1,25 +1,25 @@
 <div class="panel panel-default clear">
   <div class="panel-heading">Car detail</div>
-  <% if @user.vehicle.present? %>
+  <% if user.vehicle.present? %>
     <table class="table">
       <tbody>
-        <%=  table_show_cell "Color", @vehicle.color %>
-        <%=  table_show_cell "Number plate", @vehicle.number_plate %>
-        <%=  table_show_cell "Air condition", @vehicle.air_condition %>
-        <%=  table_show_cell "Year", @vehicle.year %>
-        <%=  table_show_cell "Model", "#{@vehicle.vehicle_model.vehicle_brand.name} - #{@vehicle.vehicle_model.name}" %>
+        <%=  table_show_cell "Color", user.vehicle.color %>
+        <%=  table_show_cell "Number plate", user.vehicle.number_plate %>
+        <%=  table_show_cell "Air condition", user.vehicle.air_condition %>
+        <%=  table_show_cell "Year", user.vehicle.year %>
+        <%=  table_show_cell "Model", "#{user.vehicle.vehicle_model.vehicle_brand.name} - #{user.vehicle.vehicle_model.name}" %>
       </tbody>
     </table>
     
-    <%= link_to (image_tag @vehicle.image.url(:small)), @vehicle.image.url(:normal) %> <br>
-    <% if @user == current_user %>
-      <%= link_to 'Edit car detail', edit_user_vehicles_path(@user), class: "btn btn-primary" %>
+    <%= link_to (image_tag user.vehicle.image.url(:small)), user.vehicle.image.url(:normal) %> <br>
+    <% if user == current_user %>
+      <%= link_to 'Edit car detail', edit_user_vehicles_path(user), class: "btn btn-primary" %>
     <% end %>
 
   <% else %>
     <p>There is no car registered.</p>
-    <% if @user == current_user %>
-      <p><%= link_to "Enter your car details", new_user_vehicles_path(@user) %></p>    
+    <% if user == current_user %>
+      <p><%= link_to "Enter your car details", new_user_vehicles_path(user) %></p>    
     <% end %>
   <% end %>
 

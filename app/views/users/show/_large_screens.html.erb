@@ -5,7 +5,7 @@
 	<%= render 'users/show/user_overview' %>
 
 	<%= render 'single_profile' %>
-	<%= render 'vehicles/show' %>
+	<%= render partial: 'vehicles/show', locals: {user: @user} %>
 
 	<%= render partial: 'users/users_raw', locals: {users: @followed_users, title: "#{@user.name }'s Followed Users "} %>
 
