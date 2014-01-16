@@ -1,0 +1,33 @@
+<div class="users-list panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+    	<%= title %>
+			<small class="pull-left ">Last online </small>
+    </h3>
+
+  </div>
+  <div class="panel-body">
+		<% if users.any? %>
+		
+			<% users.each do |user| %>
+				<div class="user-row-small">
+					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
+
+					<span class="followers-number small">
+						(<%= pluralize(user.followers.size, 'Follower')  %>)
+					</span> 
+
+					<span class="<%= "online" if user.online? %> ">
+						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user) %>
+					</span>		
+					
+					<%= resent_activity(user, "meta") %>
+						
+				</div>
+
+			<% end %>	
+		<% else %>
+			The Followed List is empty
+		<% end %>
+  </div>
+</div>

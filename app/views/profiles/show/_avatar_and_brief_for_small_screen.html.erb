@@ -1,0 +1,10 @@
+<div class="userAvatar hidden-lg">
+	<div class="gravatar">
+		<%= render partial: 'profiles/show/gravatar', locals: {user: @profile.user} %>
+	</div>
+	<h1 class="nameOfUser"><small><%= user.name %></small></h1>	
+	<span class="stars" style="background-position:1431px 0px;"></span>
+	<p class="score">(4.5/5)</p> 
+	<%= resent_activity(user, "activity", "Last online: ") %>
+
+</div>

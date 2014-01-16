@@ -1,0 +1,27 @@
+<div class="panel panel-default clear">
+  <div class="panel-heading">Personal Detail <%=t  'hello.nav'  %></div>
+	<table class="table">
+		<tbody>
+			<%=  table_show_cell "First Name", @profile.user.firstname %>
+			<%=  table_show_cell "Last Name", @profile.user.lastname %>
+			<%=  table_show_cell "Username", @profile.user.username %>
+			<%=  table_show_cell "Gender", @profile.user.gender_in_word %>
+			<%=  table_show_cell "Age", @profile.user.age %>
+		</tbody>
+	</table>
+</div>
+
+
+<div class="panel panel-default clear">
+  <div class="panel-heading">Contact Detail</div>
+	<table class="table">		
+		<tbody>
+			<%#=  table_show_cell "Email", @profile.user.email %>
+			<%#=  table_show_cell "Tel", @profile.user.tel %>
+			<%#=  table_show_cell "Mobile", @profile.user.mobile %>
+			<%=  table_show_cell "City", @profile.user.city %>
+			<%=  table_show_cell "Address", @profile.user.address %>
+			<%#=  table_show_cell "Post Code", @user.post_code %>
+		</tbody>
+	</table>
+</div>

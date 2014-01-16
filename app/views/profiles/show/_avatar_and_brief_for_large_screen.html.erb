@@ -1,0 +1,12 @@
+<div class="userAvatarLargeScreen raw">
+	<div class="avatar col-lg-5">
+		<div class="gravatar">
+			<%= render partial: 'profiles/show/gravatar', locals: {user: user} %>
+		</div>
+	</div>
+	<div class="meta col-lg-7">
+		<h2 class="nameOfUser"><small><%= user.name %></small></h2>		
+		<span class="stars" style="background-position:1431px 0px;"></span>
+		<p class="score">(4.5/5)</p> 
+	</div>
+</div>

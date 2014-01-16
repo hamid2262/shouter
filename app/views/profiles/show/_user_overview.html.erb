@@ -1,0 +1,30 @@
+<div class="panel panel-default clear">
+  <div class="panel-heading">
+  	<%= @profile.user.name %> 
+  	<%=t  '.overview'  %>
+  </div>
+<!--   <div class="panel-body">	</div> -->
+	<table class="table">
+		<tbody>
+		<tr>
+			<td>Activity</td>
+			<td><%= resent_activity(@profile.user, "activity") %></td>
+		</tr>
+			<tr>
+				<td>Last login Location</td>
+				<td><%= @profile.user.last_login_location %></td>
+			</tr>
+
+			<% if @profile.user.slug_updated %>
+				<tr>
+					<td>Url</td>
+					<td>
+						<%= link_to_profile @profile.user %> 
+						</td>
+				</tr>	
+			<% end %>
+		</tbody>
+	</table>
+</div>
+
+<%=  %>
