@@ -12,6 +12,11 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
 	after_filter :user_activity
 
+  def profile_url user
+     root_url[0..-3] + user.slug
+  end
+  helper_method :profile_url
+  
   protected
 
     def configure_permitted_parameters
