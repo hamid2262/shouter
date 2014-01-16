@@ -18,3 +18,5 @@ $ ->
     $('.cover_upload_submit').show()
     $(this).parent().parent().show()
 
+  $("#user_cover, #user_avatar").change ->
+    $(this).closest("form").submit()

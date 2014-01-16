@@ -11,7 +11,7 @@
 	<% if can? :edit, @user %>
 		<%= simple_form_for(:user, url: user_registration_path, html: { method: :put, class: "cover_upload_form" } ) do |f| %>
 			<%= f.input :cover, as: :file, label: false, input_html: { class: 'cover_upload_button' } %>
-		 	<%= f.button :submit, "Upload Cover", {class: ' btn-primary cover_upload_submit'}%>
+		 	<%= f.button :submit, "Please wait",disabled: true, class: 'btn-primary cover_upload_submit'%>
 		<% end %>
 	<% end %> 
 
