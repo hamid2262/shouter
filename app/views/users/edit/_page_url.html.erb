@@ -1,0 +1,29 @@
+<%= simple_form_for(resource, 
+	as: resource_name, 
+	url: registration_path(resource_name), 
+	html: { method: :put, class: 'form-horizontal' }		) do |f| %>
+
+		<h3>Profile web link</h3>
+		<% if f.object.slug_updated %>
+			<div class="well">
+			<p class="text-center">
+				your url is:
+				<a href="http:/www.hamsafaryab.com/<%= f.object.slug %>"> 
+					www.hamsafaryab.com/<%= f.object.slug %>
+				</a>
+			</p>
+			</div>
+		<% else %>
+		<div class="userurl_input form-group">	
+			<span class="hamsafaryaburl">www.hamsafaryab.com</span>
+			<span class="slash">/</span>
+			<%= f.label :slug, "Profile Url", class: "control-label col-sm-3" %>
+			<div class="col-sm-8">
+				<%= f.text_field :slug,:value => '', placeholder: "Enter your desired url", class: "form-control" %>
+			</div>
+
+		</div>
+		<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>
+		<%= f.hidden_field :tab, :value => "page_url" %>			
+		<% end %>			
+<% end %>

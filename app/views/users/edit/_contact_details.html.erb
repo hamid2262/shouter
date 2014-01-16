@@ -15,7 +15,7 @@
 	<%= f.input :mobile %>
 	<%= f.input :address %>
 	<%= f.input :post_code %>
-	<%= f.button :submit %>
+	<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>
 	<%= f.hidden_field :tab, :value => "contact_details" %>
 		  
 <% end %>

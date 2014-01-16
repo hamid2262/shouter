@@ -18,14 +18,10 @@ class User < ActiveRecord::Base
   validates :slug, uniqueness: { case_sensitive: false }, 
                     length: { in: 8..39},
                     format: { with: /\A[a-zA-Z][a-zA-Z0-9._-]+\z/i  }, on: :update,
-                    if: :have_slug_registered?
-
-
-  
-
+                    if: :has_slug_changed?
+  validate :check_for_slud_updated_one_time
   before_create :generate_slug
-  # before_update :change_slug
-  # validate :have_slug_registered, on: :update
+  before_update :update_slug_update
 
   has_one    :vehicle
   has_many   :trips
@@ -57,13 +53,21 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, :size => { in: 0..1.megabytes }
   validates_attachment :cover,  :size => { in: 0..2.megabytes }
 
+  def update_slug_update
+    self.slug_updated = true  if self.slug_changed?
+  end
+
   def generate_slug
     self.slug = Digest::SHA1.hexdigest(self.email)
   end
 
-  def have_slug_registered?
-    # user = User.find(self.id)
-    true if self.slug_changed? 
+  def has_slug_changed?
+    false
+    true if self.slug_changed?
+  end
+
+  def check_for_slud_updated_one_time
+    errors.add(:base, 'Url can be changed only one time') if(self.slug_updated && self.slug_changed?)
   end
 
   def gender_in_word

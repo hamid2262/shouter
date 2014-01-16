@@ -1,4 +1,5 @@
 Shouter::Application.routes.draw do
+    # resources :profiles , only: [:show] 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     resource  :search_subtrips, only: [:show] do
       get 'search' => 'search_subtrips#search'
@@ -31,11 +32,13 @@ Shouter::Application.routes.draw do
         delete 'follow' => 'following_relationships#destroy' 
       end
     end
-
     
     get 'upgrade_cities' => 'cities#upgrade'
 
   end
+
+  get '*id/:locale' => 'profiles#show'
+  get '*id', to: redirect("/%{id}/#{I18n.default_locale}")
 
   get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
   get '', to: redirect("/#{I18n.default_locale}")

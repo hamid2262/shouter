@@ -15,7 +15,6 @@
 			<%= f.input :username %>
 			<%= f.input :firstname %>
 			<%= f.input :lastname %>
-			<%= f.input :slug,label: "url address", disabled: true, hint: 'You can change your url only one time.' %>
 			<%= f.input :age, collection: 13..90 %>
 			<% if current_user.is_admin? %>
 			  <%= f.label :admin, "Admin" %>
