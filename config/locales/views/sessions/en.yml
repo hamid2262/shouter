@@ -1,0 +1,12 @@
+en:
+  devise:
+    sessions:
+      form:
+        page_title: 'Sign In'
+        sign_in_title: 'Sign in to Hamsafaryab' 
+        password: 'Password'    
+        email: 'Email Address'  
+        remember_me: 'Remember me'
+        submit: 'Sign In'
+        sign_up: 'Sign Up'
+        forget_password: 'Forget Password'

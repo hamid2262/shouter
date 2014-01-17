@@ -1,0 +1,12 @@
+fa:
+  devise:
+    sessions:
+      form:
+        page_title: 'ورود'
+        sign_in_title: 'ورود به همسفریاب'
+        password: 'رمز ورود'
+        email: 'ایمیل'
+        remember_me: 'مرا به خاطر بسپار' 
+        submit: 'ورود'       
+        sign_up: 'ثبت نام'
+        forget_password: 'فراموشی رمز عبور'        
