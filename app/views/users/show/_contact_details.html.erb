@@ -1,0 +1,8 @@
+<form class="form-horizontal" role="form">
+	<h3>Contact Detail</h3>
+	<%= user_form_control_static  "Tel", @user.tel %>
+	<%= user_form_control_static  "Mobile", @user.tel %>
+	<%= user_form_control_static  "Address", @user.address %>
+	<%= user_form_control_static  "Tel", @user.post_code %>
+  <%= link_to "Change Contact Details", edit_user_registration_path+'#contact_details', class: 'btn btn-primary col-sm-offset-3' %>
+</form>

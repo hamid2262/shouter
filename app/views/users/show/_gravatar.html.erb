@@ -1,9 +1,0 @@
-<%= gravatar(@user, 160, "img-responsive img-thumbnail",:square) %>
-
-<%#= button_to "Upload Photo", edit_user_registration_path %>
-<% if can? :edit, @user %>
-	<%= simple_form_for(:user, url: user_registration_path, html: { method: :put, class: "avatar_upload_form" } ) do |f| %>
-		<%= f.input :avatar, as: :file, label: false, input_html: { class: 'avatar_upload_button' } %>
-	 	<%= f.button :submit, "Please wait", disabled: true, class: 'btn-primary avatar_upload_submit' %>
-	<% end %>
-<% end %> 

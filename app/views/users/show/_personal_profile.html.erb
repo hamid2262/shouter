@@ -1,0 +1,12 @@
+<form class="form-horizontal" role="form">
+	<h3>Personal Profile</h3>
+	<% gender = 'Male'? @user.gender == 'm' : "Female" %>
+	<%= user_form_control_static  "Gender", @user.gender %>
+	<%= user_form_control_static  "Username", @user.username %>
+	<%= user_form_control_static  "Firstname", @user.firstname %>
+	<%= user_form_control_static  "Lastname", @user.lastname %>
+	<%= user_form_control_static  "Age", @user.age %>
+
+  <%= link_to "Change Personal Profile", edit_user_registration_path+'#personal_profile', class: 'btn btn-primary col-sm-offset-3' %>
+  
+</form>
