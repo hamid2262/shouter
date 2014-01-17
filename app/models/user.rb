@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   # SLUG_REGEX =           
   validates :slug, uniqueness: { case_sensitive: false }, 
                     length: { in: 8..39},
-                    format: { with: /\A[a-zA-Z][a-zA-Z0-9._-]+\z/i  }, on: :update,
+                    format: { with: /\A[a-zA-Z][a-zA-Z0-9_-]+\z/i, message: "must be include letter and number and - , _ "  }, on: :update,
                     if: :has_slug_changed?
   validate :check_for_slud_updated_one_time
   before_create :generate_slug
