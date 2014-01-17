@@ -1,8 +1,8 @@
 class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:edit, :update, :destroy]
-
-  load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  
+  before_action :user_authentication, except: [:show]
+  skip_authorization_check 
 
   def new
     @vehicle = Vehicle.new
@@ -60,5 +60,9 @@ class VehiclesController < ApplicationController
 
     def vehicle_params
       params.require(:vehicle).permit(:user_id, :color, :number_plate, :air_condition, :year, :image, :vehicle_model_id)
+    end
+
+    def user_authentication
+      redirect_to root_url unless current_user.id == params[:user_id].to_i
     end
 end

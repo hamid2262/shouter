@@ -11,11 +11,6 @@ class Ability
             user == u
         end
 
-        can [:create, :new], Vehicle
-        can [:edit, :update, :destroy], Vehicle do |v|
-            user == v.user
-        end
-
         can [:read, :create, :new], [Shout, TextShout, PhotoShout]
         can [:edit, :update, :destroy], [Shout, TextShout, PhotoShout] do |s|
             user == s.shouts.first.user
