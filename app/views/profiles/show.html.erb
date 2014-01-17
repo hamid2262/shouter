@@ -7,5 +7,5 @@
 
 <!-- --       Small Screen     -- -->
 <div class=" hidden-lg "> 
-	<%#= render 'profiles/show/small_screens' %>
+	<%= render partial:  'profiles/show/small_screens', locals: {user: @profile.user}   %>
 </div>

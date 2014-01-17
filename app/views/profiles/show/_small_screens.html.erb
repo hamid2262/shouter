@@ -1,9 +1,10 @@
 <!-- --       Small Screen     -- -->
 <div class=" hidden-lg "> 
-	<%= render 'users/show/cover' %>
+	<%= render partial: 'profiles/show/cover', locals: {user: user}   %>
 	<%= flash_creator flash %>
-	<%= render 'single_profile' %>
-	<%= render 'vehicles/show' %>
-	<%= render partial: 'users/users_raw', locals: {users: @followed_users, title: "#{@user.name }'s Followed Users "} %>	
-	<%= render @shouts %>
+	<%= render partial: 'profiles/show/user_overview', locals: {user: user}  %>
+	<%= render partial: 'profiles/show/single_profile', locals: {user: user}  %>
+	<%= render partial: 'vehicles/show', locals: {user: user} %>
+	<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: "#{@profile.user.name }'s Followed Users "} %>
+	<%= render @profile.timeline %>
 </div>
