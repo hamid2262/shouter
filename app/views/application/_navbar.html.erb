@@ -16,7 +16,7 @@
 			<% if user_signed_in? %>
 				<li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), dashboard_path %> </li>
 				<li><%= link_to t("navbar.profile.edit"), edit_user_registration_path %></li>
-				<li><%= link_to t("navbar.profile.show"), current_user %></li>
+				<li><%= link_to t("navbar.profile.show"), profile_url(current_user) %></li>
 				<li><%= link_to t("navbar.session.sign_out"), destroy_user_session_path, method: :delete %>     
         </li>
 			<% else %>
