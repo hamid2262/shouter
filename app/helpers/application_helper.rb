@@ -1,7 +1,7 @@
 module ApplicationHelper
 
-	def link_to_profile user, klass="small"
-		name = truncate(profile_url(user), length: 40, omission: '').gsub("http://", "")		
+	def link_to_profile user, klass="small", length = 100
+		name = truncate(profile_url(user), length: length, omission: '').gsub("http://", "")		
 		link_to name, profile_url(user),class: klass
 	end
 
