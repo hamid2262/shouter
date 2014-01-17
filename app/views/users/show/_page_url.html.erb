@@ -8,9 +8,7 @@
     <label class="col-sm-3 control-label">Profile Url</label>
     <div class="col-sm-9">
       <p class="form-control-static">
-				<a href="http:/www.hamsafaryab.com/<%= @user.slug %>"> 
-					www.hamsafaryab.com/<%= @user.slug %>
-				</a>
+				<%= link_to_profile(@user, "") %>
       </p>
     </div>
   </div>

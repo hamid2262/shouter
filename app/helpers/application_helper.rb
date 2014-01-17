@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+	def link_to_profile user, klass="small"
+		name = truncate(profile_url(user), length: 40, omission: '').gsub("http://", "")		
+		link_to name, profile_url(user),class: klass
+	end
+
   def error_messages_for(object)
     render(:partial => 'application/error_messages',
       :locals => {:object => object})
