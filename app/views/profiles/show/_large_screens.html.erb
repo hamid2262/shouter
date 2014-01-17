@@ -7,7 +7,7 @@
 	<%= render partial: 'profiles/show/single_profile', locals: {user: user}  %>
 	<%= render partial: 'vehicles/show', locals: {user: user} %>
 
-	<%= render partial: 'profiles/show/users_raw', locals: {users: @followed_users, title: "#{@profile.user.name }'s Followed Users "} %>
+	<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: "#{@profile.user.name }'s Followed Users "} %>
 
 </div>
 <div id="leftContent" class="col-lg-8">
