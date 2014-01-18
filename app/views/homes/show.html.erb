@@ -1,18 +1,19 @@
 <div id="home">
-	<div id="search_form" class="col-md-6">
+	<div id="search_form" class="">
+		<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
 		<%= render partial: 'search_form' %>	
 	</div>
 
 	<div class="col-md-6">
-		<div class="panel panel-default">
-		  <div class="panel-heading">
-		  	<h4><%= t('.welcome_message') %> </h4> 
-		  </div>
-		  <div class="panel-body">
-		  	<div class="col-md-10 col-md-offset-1">
-					<%= render 'devise/sessions/form' %>	
-		  	</div>
-		  </div>
-		</div>		
+		<div class="frame">
+			<div class="title">
+				<h4>
+					<strong class= "lead"><%= t('.welcome_message') %></strong>
+				</h4>
+			</div>
+			<div class="inner">
+			  <%= render 'devise/sessions/form' %>
+			</div>			
+		</div>
 	</div>
 </div>

@@ -2,9 +2,16 @@
 $green: #b5c023;
 #home{
 	#search_form{
-		background: $green;
-		border: 2px solid #C3D329;
-		border-radius: 6px;
+		position: relative;
+		.passenger{
+			position: absolute;
+			top: 9px;
+			right: -11px;
+			z-index: 10;
+		}
+		// background: $green;
+		// border: 2px solid #C3D329;
+		// border-radius: 6px;
 		.panel{
 			// background: $green;
 			border: 1px solid $green;
@@ -16,5 +23,22 @@ $green: #b5c023;
 				background: $green;
 			}
 		}		
+	}
+	.frame{
+		background: none repeat scroll 0 0 #B5C023;
+    border: 2px solid #C3D329;
+    border-radius: 6px;
+    padding: 0px 15px 15px 15px;
+    .title{
+			color: #FFFFFF;
+			padding-right: 15px;
+			margin-bottom: 8px;
+    }
+    .inner{
+    	background: none repeat scroll 0 0 #FFFFFF;
+    	border-radius: 4px;
+    	overflow: hidden;
+    	padding: 15px;
+    }
 	}
 }
