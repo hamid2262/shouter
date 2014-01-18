@@ -4,7 +4,9 @@
 	html: { method: :put, class: 'form-horizontal' }		) do |f| %>
 
 		<% unless @user.slug_updated %>
-			<div class="alert alert-danger text-center">You can change your profile url only one time</div>	
+			<div class="alert alert-danger text-center">
+				<%= t (".change_url_message") %>
+			</div>	
 		<% end %>
 
 		<% if f.object.slug_updated %>

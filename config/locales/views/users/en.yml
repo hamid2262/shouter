@@ -2,11 +2,13 @@ en:
   users:
     account_setting: Acount Settings
     contact_details: Contact Details
+    edit:
+      page_url:
+        change_url_message: 'Caution: You can change your profile url only one time'
+      title: '''s Profile Edit'
     page_url: Page Url
     personal_profile: Personal Profile
-    edit:
-      title: '''s Profile Edit'
     show:
-      title: "'s Profile"
+      title: '''s Profile'
       user_overview:
         overview: Overview

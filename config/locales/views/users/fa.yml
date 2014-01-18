@@ -2,10 +2,12 @@ fa:
   users:
     account_settings: تنظیمات حساب کاربری
     contact_details: اطلاعات تماس
+    edit:
+      page_url:
+        change_url_message:  'توجه: آدرس اینترنتی شما در همسفریاب تنها یک بار قابل تغییر است!'
+      title: ویرایش پروفایل
     page_url: آدرس اینترنتی در همسفریاب
     personal_profile: اطلاعات شخصی
-    edit:
-      title: ویرایش پروفایل
     show:
       title: پروفایل
       user_overview:
