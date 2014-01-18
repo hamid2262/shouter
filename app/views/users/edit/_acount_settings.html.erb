@@ -10,7 +10,6 @@
 	 		label_html: { class: 'col-sm-3' }
 	 	}			) do |f| %>
 
-		<h3>Acount settings</h3>
 		<%= f.input :email, input_html: { disabled: "disabled" } %>
 		<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

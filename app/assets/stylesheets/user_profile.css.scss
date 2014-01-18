@@ -111,7 +111,14 @@ h2{
 	} //visible-lg
 }// #userContainer
 
-#user_edit{
+.user_profile{
+	.panel-heading{
+		overflow: hidden;
+		padding: 1px;
+		h3{
+			margin-top: 25px;
+		}
+	}
 	.userurl_input{
 		position: relative;
 		color: blue;

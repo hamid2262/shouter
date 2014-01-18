@@ -1,5 +1,4 @@
 <form class="form-horizontal" role="form">
-	<h3>Personal Profile</h3>
 	<% gender = 'Male'? @user.gender == 'm' : "Female" %>
 	<%= user_form_control_static  "Gender", @user.gender %>
 	<%= user_form_control_static  "Username", @user.username %>

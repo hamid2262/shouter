@@ -3,8 +3,6 @@
 	url: registration_path(resource_name), 
 	html: { method: :put, class: 'form-horizontal' }		) do |f| %>
 
-		<h3>Profile web link</h3>
-		
 		<% unless @user.slug_updated %>
 			<div class="alert alert-danger text-center">You can change your profile url only one time</div>	
 		<% end %>

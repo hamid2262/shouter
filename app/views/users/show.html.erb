@@ -1,14 +1,15 @@
-<div id="user_edit">
-	<div class="page-header">
-	  <h2><%= @user.name %>'s Profile</h2>  
-	</div>
-	<div class="panel panel-default col-md-8">
-
-
-
-		  <div class="panel-body">
-			  <%= devise_error_messages! %>
+<div id="user_show" class="user_profile">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+		    <h3 class="panel-title col-xs-8">
+		    	<%= @user.name %>'s Profile Page
+		    </h3>
+				<div class="pull-left">
+					<%= gravatar @user, 85, "img-thumbnail", :square %>
+				</div>		    	   
 		  </div>
+
 
 			<ul id="myTab" class="nav nav-tabs nav-justified">
 			  <li class="active"><a href="#personal_profile" data-toggle="tab">Personal Profile</a></li>
@@ -17,25 +18,26 @@
 			  <li><a href="#page_url" data-toggle="tab">Page Url</a></li>
 			</ul>
 
-	<!-- Tab panes -->
-	<div class="tab-content">
+			<!-- Tab panes -->
+			<div class="tab-content">
 
-		<div class="tab-pane active" id="personal_profile">
-		  <%= render partial: 'users/show/personal_profile' %>
+				<div class="tab-pane active" id="personal_profile">
+				  <%= render partial: 'users/show/personal_profile' %>
+				</div>
+
+			  <div class="tab-pane" id="contact_details">
+			  	<%= render partial: 'users/show/contact_details' %>
+			  </div>
+
+				<div class="tab-pane" id="acount_settings">
+					<%= render partial: 'users/show/acount_settings' %>
+				</div>
+
+			  <div class="tab-pane" id="page_url">
+					<%= render partial: 'users/show/page_url' %>
+			  </div>
+			</div>
 		</div>
-
-	  <div class="tab-pane" id="contact_details">
-	  	<%= render partial: 'users/show/contact_details' %>
-	  </div>
-
-		<div class="tab-pane" id="acount_settings">
-			<%= render partial: 'users/show/acount_settings' %>
-		</div>
-
-	  <div class="tab-pane" id="page_url">
-			<%= render partial: 'users/show/page_url' %>
-	  </div>
-	</div>
 	</div>
 
 
