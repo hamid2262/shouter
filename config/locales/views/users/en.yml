@@ -1,5 +1,12 @@
 en:
   users:
+    account_setting: Acount Settings
+    contact_details: Contact Details
+    page_url: Page Url
+    personal_profile: Personal Profile
+    edit:
+      title: '''s Profile Edit'
     show:
+      title: "'s Profile"
       user_overview:
-        overview: "Overview"
+        overview: Overview

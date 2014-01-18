@@ -1,5 +1,12 @@
 fa:
   users:
+    account_settings: تنظیمات حساب کاربری
+    contact_details: اطلاعات تماس
+    page_url: آدرس اینترنتی در همسفریاب
+    personal_profile: اطلاعات شخصی
+    edit:
+      title: ویرایش پروفایل
     show:
-      user_overview: 
-        overview: "در یک نگاه"
+      title: پروفایل
+      user_overview:
+        overview: در یک نگاه

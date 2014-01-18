@@ -3,7 +3,7 @@
 		<div class="panel panel-default">
 			<div class="panel-heading">
 		    <h3 class="panel-title col-xs-8">
-		    	<%= @user.name %>'s Profile Page
+		    	<%= @user.name.titleize %> <%= t (".title") %>
 		    </h3>
 				<div class="pull-left">
 					<%= gravatar @user, 85, "img-thumbnail", :square %>
@@ -12,10 +12,14 @@
 
 
 			<ul id="myTab" class="nav nav-tabs nav-justified">
-			  <li class="active"><a href="#personal_profile" data-toggle="tab">Personal Profile</a></li>
-			  <li><a href="#contact_details" data-toggle="tab">Contact Details</a></li>
-			  <li><a href="#acount_settings" data-toggle="tab">Acount settings</a></li>
-			  <li><a href="#page_url" data-toggle="tab">Page Url</a></li>
+			  
+			  <li class="active">
+			  	<a href="#personal_profile" data-toggle="tab"><%= t('users.personal_profile') %></a>
+			  </li>
+
+			  <li><a href="#contact_details" data-toggle="tab"><%= t('users.contact_details') %></a></li>
+			  <li><a href="#acount_settings" data-toggle="tab"><%= t('users.account_settings') %></a></li>
+			  <li><a href="#page_url" data-toggle="tab"><%= t('users.page_url') %></a></li>
 			</ul>
 
 			<!-- Tab panes -->
