@@ -1,0 +1,24 @@
+<!-- Origin -->
+<div class="form-group">
+	<div class="origin_input ">
+		<%= f.input :origin_name,:label => false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control input-lg required"} %>					
+	</div>
+</div>
+
+<!-- Destination -->
+<div class="form-group">
+	<div class=" destination_input">
+		<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control required input-lg"} %>
+	</div>
+</div>
+
+<!-- Hidden fields -->
+
+<%= f.hidden_field :origin_cycle, value: 20 %>
+<%= f.hidden_field :destination_cycle, value: 20 %>
+
+<%= f.hidden_field :origin_lat, value: nil %>
+<%= f.hidden_field :origin_lng, value: nil %>
+<%= f.hidden_field :destination_lat, value: nil %>
+<%= f.hidden_field :destination_lng, value: nil %>	
+<%= f.hidden_field :autocomplete, value: true %>	

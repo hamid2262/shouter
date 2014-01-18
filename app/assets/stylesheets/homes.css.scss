@@ -1,3 +1,20 @@
-// Place all the styles related to the homes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$green: #b5c023;
+#home{
+	#search_form{
+		background: $green;
+		border: 2px solid #C3D329;
+		border-radius: 6px;
+		.panel{
+			// background: $green;
+			border: 1px solid $green;
+			.panel-heading{
+				font-weight: bold;
+				background: $green;
+				color: #fff;
+				font-weight: 800;
+				background: $green;
+			}
+		}		
+	}
+}

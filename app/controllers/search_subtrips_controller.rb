@@ -16,8 +16,9 @@ class SearchSubtripsController < ApplicationController
 	end
 
 	def choose_search_mode
+		session[:return_to] ||= request.referer
 		session['search_mode'] = params[:search_mode]
-		redirect_to action: "search"		
+		redirect_to session.delete(:return_to)	
 	end
 
 	private

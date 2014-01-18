@@ -1,3 +1,19 @@
+$btn-primary-color: #fbd921;
+$btn-primary-darker:  darken($btn-primary-color, 8%);
+
+.top_search_trip_form{
+	background: #b7c821;
+
+	.btn-primary.gold_btn { 
+		background-color: $btn-primary-color; 
+		border: #313131;
+		color: #636363;
+		font-weight: bold;
+		font-size: 1.2em;
+	} //button
+	.btn-primary.gold_btn:hover { background-color: $btn-primary-darker; } //hover
+}
+
 #top-search-form{
 	input{
 		width: 100%;

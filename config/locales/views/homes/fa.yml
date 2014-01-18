@@ -1,0 +1,7 @@
+fa:
+  homes:
+    show:
+      welcome_message: 'به همسفریاب خوش آمدید'
+    search_form:
+      trip_search: "جستجوی سفر"
+    

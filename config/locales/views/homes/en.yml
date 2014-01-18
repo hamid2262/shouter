@@ -1,0 +1,6 @@
+en:
+  homes:
+    show:
+      welcome_message: 'Welcome to Hamsafaryab!'
+    search_form:
+      trip_search: "Trip Search"

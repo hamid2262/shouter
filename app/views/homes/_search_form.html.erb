@@ -1,36 +1,40 @@
 <div class="panel panel-default">
-  <div class="panel-body top_search_trip_form">
-	  <div id="top-search-form">
+		<div class="panel-heading">
+	  	<strong class="lead"><%= t('.trip_search') %></strong> 
+	  </div>
+  <div class="panel-body">
+
 			<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
-		    :html => { :class => 'form-inline',role: "form" } do |f| %>
+		    :html => { :class => 'subtrip_search_form',role: "form" } do |f| %>
 				
 		<!-- Search From Select -->
 				<% if session['search_mode'] == 'autocomplete' %>
-					<%= render partial: 'search_subtrips/search_form_with_autocomplete', locals:{f: f} %>	
+					<%= render partial: 'search_form_with_autocomplete', locals:{f: f} %>	
 				<% else %>
-					<%= render partial: 'search_subtrips/search_form_without_autocomplete', locals:{f: f} %>
+					<%= render partial: 'search_form_without_autocomplete', locals:{f: f} %>
 				<% end %>		
 
+		<div class=" ">
 		<!-- DatePicker -->
-				<div class="form-group datepicker-input col-sm-4 my-col-lg-5">
+				<div class="form-group col-sm-6">
 				    <%= f.select :jday, 1..31  %> 
 				    <%= f.select :jmonth, collection_for_month %>
 				    <%= f.select :jyear, 1392..1393 %> 
 				</div>
 		<!-- Submit -->
-			  <div class="col-sm-4 my-col-lg-3">
-						<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-primary gold_btn" %>
+			  <div class="col-sm-6">
+						<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-warning btn-lg btn-block" %>
 				</div>		
-			<% end %>
+			<% end %>			
+		</div>
 
 		<!-- Form Mode Change Links -->
-			<div class="col-sm-4 my-col-lg-2 mode-selector">
+			<div class="mode-selector">
 				<% if session['search_mode'] == 'autocomplete' %>
 						<%= link_to  t("search_subtrips.form.mode.autocomplete.selector"), choose_search_mode_search_subtrips_path(search_mode: 'select') %>
 				<% else %>
 						<%= link_to  t("search_subtrips.form.mode.select.selector"), choose_search_mode_search_subtrips_path(search_mode: 'autocomplete') %> 
 				<% end %>
 			</div>
-		</div>
 	</div>
 </div>

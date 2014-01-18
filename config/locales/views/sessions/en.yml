@@ -3,7 +3,7 @@ en:
     sessions:
       form:
         page_title: 'Sign In'
-        sign_in_title: 'Sign in to Hamsafaryab' 
+        sign_in_title: 'Sign in' 
         password: 'Password'    
         email: 'Email Address'  
         remember_me: 'Remember me'

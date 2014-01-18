@@ -3,7 +3,7 @@ fa:
     sessions:
       form:
         page_title: 'ورود'
-        sign_in_title: 'ورود به همسفریاب'
+        sign_in_title: 'ورود اعضا'
         password: 'رمز ورود'
         email: 'ایمیل'
         remember_me: 'مرا به خاطر بسپار' 
