@@ -7,11 +7,18 @@
 		  url(https://s3-eu-west-1.amazonaws.com/shouter/static_files/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular) format('svg');
 
 }
+.date-select{
+	select{
+		display: inline;
+		width: initial;
+	}	
+} 
 
-.field_with_errors {
-  @extend .has-error
+$input-border-focus: #8a9627;
+$input-bg: #FDFCDF;
+	.field_with_errors {
+	  @extend .has-error
 }
-
 $navbar-height: 50px;
 
 @import "../../../vendor/assets/stylesheets/bootstrap2.scss";
