@@ -5,12 +5,13 @@ class FollowingRelationshipsController < ApplicationController
 	
 	def create
 		current_user.follow user
-		redirect_to profile_url(user), notice: "Now you are following #{user.name}."
+		redirect_to profile_url(user)+"/"+locale.to_s, notice: t(:following_message,name: user.name) 
 	end
 
 	def destroy
 		current_user.unfollow user
-		redirect_to profile_url(user), notice: "#{user.name} unfollowed."
+
+		redirect_to profile_url(user)+"/"+locale.to_s, notice: t(:unfollowed_message,name: user.name)
 	end
 
 	private

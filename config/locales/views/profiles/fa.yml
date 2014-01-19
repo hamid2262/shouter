@@ -1,5 +1,7 @@
 fa:
   profiles:
+    follow: دنبال کن
+    unfollow: دنبال میکنید
     show:
       force_login_message: قابل رویت برای کاربران عضو.
       single_profile:

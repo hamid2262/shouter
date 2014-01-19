@@ -2,9 +2,9 @@ module UsersHelper
 
 	def follow_button user, klass = "btn btn-default"
 		if current_user.following? user
-			button_to 'Unfollow', user_follow_path(user), method: :delete, class: "#{klass}"
+			button_to t('profiles.unfollow'), user_follow_path(user), method: :delete, class: "btn btn-success"
 		else
-			button_to 'Follow', user_follow_path(user), class: "#{klass}"			
+			button_to t('profiles.follow'), user_follow_path(user), class: "#{klass}"			
 		end
 	end
 

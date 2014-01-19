@@ -1,5 +1,7 @@
 en:
   profiles:
+    follow: Follow
+    unfollow: Following
     show:
       force_login_message: Visible for signed in users.
       single_profile:
