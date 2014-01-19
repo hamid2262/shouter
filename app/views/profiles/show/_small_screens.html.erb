@@ -8,7 +8,7 @@
 	<% if current_user %>
 		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: "#{t 'followed_users'} #{@profile.user.name }"} %>
 	<% end %>
-	<div class="posts">
-		<%= render @profile.timeline %>
-  </div>
+
+	<%= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>
+
 </div>

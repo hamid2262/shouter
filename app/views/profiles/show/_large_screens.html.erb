@@ -14,13 +14,6 @@
 	<%= render partial: 'profiles/show/cover', locals: {user:user} %>
 	<%= flash_creator flash %>
 
-  <div class="users-list panel panel-default">
-	  <div class="panel-heading">
-			<%= t 'posts' %>
-	  </div>
-	  <div class="panel-body">
-			<%= render @profile.timeline %>
-		</div>
-	</div>
+	<%= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>
 
 </div>

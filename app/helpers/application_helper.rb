@@ -97,7 +97,7 @@ module ApplicationHelper
     JalaliDate.new(s).strftime("%I:%M - %p")
   end
 
-# Date picker for jalali
+  # Date picker for jalali
 	def options_for_year 
 		options_for_select( 1392..1393, JalaliDate.new(Date.today).year)
 	end

@@ -3,5 +3,6 @@ fa:
   last_login: آخرین ورود  
   followed_users:  دنبال شونده های
   posts: پستها
+  no_post_message: هیچ پستی برای نمایش وجود ندارد.  
   site_info:
     title: "همسفریاب"

@@ -5,5 +5,6 @@
 
 <div class="col-md-8">
 	<%= render 'shouts/form' %>
-	<%= render @dashboard.timeline %>
+
+	<%= render partial: 'shared/posts_panel', locals: {objs:@dashboard.timeline} %>
 </div>
