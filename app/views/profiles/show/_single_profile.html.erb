@@ -1,5 +1,5 @@
 <div class="panel panel-default clear">
-  <div class="panel-heading">Personal Detail <%=t  'hello.nav'  %></div>
+  <div class="panel-heading"> <%=t  '.personal_profile'  %></div>
 	<table class="table">
 		<tbody>
 			<%=  table_show_cell "First Name", @profile.user.firstname %>
@@ -13,15 +13,19 @@
 
 
 <div class="panel panel-default clear">
-  <div class="panel-heading">Contact Detail</div>
+  <div class="panel-heading"><%=t  '.contact_details'  %></div>
 	<table class="table">		
 		<tbody>
-			<%#=  table_show_cell "Email", @profile.user.email %>
-			<%#=  table_show_cell "Tel", @profile.user.tel %>
-			<%#=  table_show_cell "Mobile", @profile.user.mobile %>
-			<%=  table_show_cell "City", @profile.user.city %>
-			<%=  table_show_cell "Address", @profile.user.address %>
-			<%#=  table_show_cell "Post Code", @user.post_code %>
+			<% if current_user %>
+				<%#=  table_show_cell "Email", @profile.user.email %>
+				<%#=  table_show_cell "Tel", @profile.user.tel %>
+				<%#=  table_show_cell "Mobile", @profile.user.mobile %>
+				<%=  table_show_cell "City", @profile.user.city %>
+				<%=  table_show_cell "Address", @profile.user.address %>
+				<%#=  table_show_cell "Post Code", @user.post_code %>
+			<% else %>
+				<%= force_to_sign_in_message %>
+			<% end %> <!-- if current_user -->
 		</tbody>
 	</table>
 </div>

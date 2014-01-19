@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController  
   layout 'application_user', only: [:show]
 	
-	before_filter :authenticate_user!
+	# before_filter :authenticate_user!
 	skip_authorization_check
 
 	def show
