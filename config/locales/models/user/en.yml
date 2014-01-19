@@ -1,0 +1,29 @@
+en:
+  activerecord:
+    models:
+      user: User
+    attributes:
+      user:
+        username: Username
+        firstname: "First Name"
+        lastname: Last Name
+        gender: Gender
+        tel: Telphone
+        mobile: Cellphone
+        address: Address
+        post_code: Zip Code
+        age: Age
+        slug: Your Web Address in Hamsafaryab
+        email: Email
+        avatar: Profile Image        
+        cover: Cover Image        
+        last_sign_in_at: Last Signed in at 
+        password: Password
+        password_confirmation: Password Confirmation
+        current_password: Current Password
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"

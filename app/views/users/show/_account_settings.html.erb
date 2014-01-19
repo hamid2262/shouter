@@ -1,0 +1,12 @@
+<form class="form-horizontal" role="form">
+	<%= user_form_control_static  User.human_attribute_name("email"), @user.email %>
+	<div class="form-group">
+    <label class="col-sm-3 control-label"> <%= User.human_attribute_name("password") %></label>
+    <div class="col-sm-9">
+      <p class="form-control-static">
+      	*********** &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      	<%= link_to t('.goto_change_account_settings'), edit_user_registration_path+'#account_settings' %>
+      </p>
+    </div>
+  </div>
+</form>

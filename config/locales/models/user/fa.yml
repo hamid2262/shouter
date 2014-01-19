@@ -1,0 +1,29 @@
+fa:
+  activerecord:
+    models:
+      user: کاربر
+    attributes:
+      user:
+        username: نام کاربری
+        firstname: نام
+        lastname: نام خانوادگی
+        gender: جنسیت
+        tel: تلفن
+        mobile: موبایل
+        address: آدرس
+        post_code: کد پستی
+        age: سن
+        slug: آدرس اینترنتی شما در همسفریاب
+        email: ایمیل
+        avatar: تصویر پروفایل
+        cover: تصویر سربرگ
+        last_sign_in_at: آخرین ورود در 
+        password: رمز عبور
+        password_confirmation: تایید رمز عبور
+        current_password: رمز عبور فعلی      
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"

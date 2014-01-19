@@ -9,7 +9,7 @@ module UsersHelper
 	end
 
 	def user_form_control_static title, field_value
-		field_value = 'No Data' if field_value.blank?
+		field_value = t('no_data') if field_value.blank?
 		html = <<-HTML
 		  <div class="form-group">
 		    <label class="col-sm-3 control-label">#{title}</label>

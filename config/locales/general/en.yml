@@ -1,0 +1,8 @@
+en:
+  no_data: No data
+  gender:
+    male: Male
+    female: Female
+  # flash messages
+  following_message: Now you are following %{name}.
+  unfollowed_message: You unfollowed %{name}.    

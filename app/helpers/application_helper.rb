@@ -1,5 +1,13 @@
 module ApplicationHelper
 
+	def t_gender gender
+			if gender == 'm'
+				t('gender.male')
+			else
+				t('gender.female')
+			end
+	end
+
 	def link_to_profile user, klass="small", length = 100
 		name = truncate(profile_url(user), length: length, omission: '').gsub("http://", "")		
 		link_to name, profile_url(user),class: klass

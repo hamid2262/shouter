@@ -6,5 +6,3 @@ fa:
   no_post_message: هیچ پستی برای نمایش وجود ندارد.  
   site_info:
     title: "همسفریاب"
-  following_message: شما  "%{name}" را دنبال میکنید
-  unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید. 

@@ -1,0 +1,8 @@
+fa:
+  no_data: ثبت نشده
+  gender:
+    male: آقا
+    female: خانم
+  # flash messages   
+  following_message: شما  "%{name}" را دنبال میکنید
+  unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.     

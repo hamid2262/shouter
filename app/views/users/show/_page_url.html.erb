@@ -1,11 +1,11 @@
 
 <form class="form-horizontal" role="form">
 	<% unless @user.slug_updated %>
-		<div class="alert alert-danger text-center">You can change your profile url only one time</div>	
+		<div class="alert alert-danger text-center"><%= t '.change_url_message' %></div>	
 	<% end %>
   <div class="form-group">
-    <label class="col-sm-3 control-label">Profile Url</label>
-    <div class="col-sm-9">
+    <label class="col-sm-4 control-label"><%= User.human_attribute_name("slug") %></label>
+    <div class="col-sm-8">
       <p class="form-control-static">
         <strong>
           <%= link_to_profile(@user,"") %>          
@@ -15,6 +15,6 @@
   </div>
 
 	<% unless @user.slug_updated %>
-  	<%= link_to "Change Contact Details", edit_user_registration_path+'#page_url', class: 'btn btn-primary col-sm-offset-3' %>
+  	<%= link_to t(".goto_change_page_url"), edit_user_registration_path+'#page_url', class: 'btn btn-link col-sm-offset-4' %>
   <% end %>
 </form>

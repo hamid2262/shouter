@@ -4,6 +4,7 @@ en:
     contact_details: Contact Details
     edit:
       page_url:
+        your_url_is: 'Your url is:'
         change_url_message: 'Caution: You can change your profile url only one time'
       title: '''s Profile Edit'
     page_url: Page Url
@@ -12,3 +13,13 @@ en:
       title: '''s Profile'
       user_overview:
         overview: Overview
+      contact_details:
+        goto_change_contact_details: Go to change contact details Page
+      personal_profile:
+        goto_change_personal_profile: Go to Change Personal Profile Page
+      account_setting:
+        goto_change_account_settings: Go to change Password Page
+      page_url:
+        goto_change_page_url: Go to Change Page Url Page
+        change_url_message: 'Caution: You can change your profile url only one time'
+

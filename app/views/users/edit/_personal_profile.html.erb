@@ -10,7 +10,7 @@
 	 		label_html: { class: 'col-sm-3' }
 	 	}			) do |f| %>
 
-			<%= f.input :gender, collection: [['Male','m'],['Female','f']], prompt: "Select Gender" %>
+			<%= f.input :gender, collection: [[t('gender.male'),'m'],[t('gender.female'),'f']], prompt: "Select Gender" %>
 			<%= f.input :username %>
 			<%= f.input :firstname %>
 			<%= f.input :lastname %>

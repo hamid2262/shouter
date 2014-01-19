@@ -6,5 +6,3 @@ en:
   no_post_message: There is no post to display.
   site_info:
     title: "Hamsafaryab"
-  following_message: Now you are following %{name}.
-  unfollowed_message: You unfollowed %{name}.
