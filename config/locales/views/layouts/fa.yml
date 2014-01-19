@@ -1,3 +1,7 @@
 fa:
+  sign_in: ورود
+  last_login: آخرین ورود  
+  followed_users:  دنبال شونده های
+  posts: پستها
   site_info:
     title: "همسفریاب"

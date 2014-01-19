@@ -3,13 +3,14 @@
 <head>
   <title><%=t 'site_info.title' %><%= " | #{@page_title}" if @page_title %></title>
   <meta name="LANGUAGE" content="fa" />
-  <meta name="description" content="همسفریاب &#10004; بلیط اتوبوس &#10004; بلیط قطار &#10004; تسهیل در یافتن همسفر در مسافرت های بین شهری &#10004; سفر راحت &#10004;">
+  <meta name="description" content=" اتوبوس &#10004; تسهیل در یافتن همسفر در مسافرت های بین شهری &#10004; سفر راحت &#10004;">
 
   <%= favicon_link_tag IMAGES_PATH + "ico/favicon.gif" %>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
 	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
 
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+          <%= javascript_include_tag :defaults %>
 
   <% if params[:locale] == 'fa' %>
   	<%= javascript_include_tag "localization/messages_fa" %>  	

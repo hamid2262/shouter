@@ -1,0 +1,9 @@
+fa:
+  profiles:
+    show:
+      force_login_message: قابل رویت برای کاربران عضو.
+      single_profile:
+        contact_details: اطلاعات تماس
+        personal_profile: مشخصات فردی
+      user_overview:
+        overview: در یک نگاه

@@ -1,0 +1,9 @@
+en:
+  profiles:
+    show:
+      force_login_message: Visible for signed in users.
+      single_profile:
+        contact_details: Contact Details
+        personal_profile: Personal Profile
+      user_overview:
+        overview: Overview
