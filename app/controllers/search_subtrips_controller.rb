@@ -25,11 +25,11 @@ class SearchSubtripsController < ApplicationController
 
 		def initial_search_mode
 			if session[:search_mode].nil?
-				if request.ip.try(:country_code) == 'IR'
-					session['search_mode'] = 'select'
-				else
+				# if request.ip.try(:country_code) == 'IR'
+				# 	session['search_mode'] = 'select'
+				# else
 					session['search_mode'] = 'autocomplete'
-				end
+				# end
 			end
 		end
 

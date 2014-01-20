@@ -65,6 +65,12 @@ body{
     background-color: #bbb;
 }
 
+select.datepicker {
+    background: #fdfcdf;
+    border: 1px solid #B6B6B6;
+    border-radius: 5px;
+}
+
 @media (min-width: 968px) {
     .my-col-md-1 { width: 4.166666667%; margin-bottom: 10px;}
     .my-col-md-2 { width: 8.333333333%; margin-bottom: 10px;}

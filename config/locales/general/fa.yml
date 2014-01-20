@@ -5,4 +5,6 @@ fa:
     female: خانم
   # flash messages   
   following_message: شما  "%{name}" را دنبال میکنید
-  unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.     
+  unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
+  sign_up: ثبت نام
+       

@@ -6,4 +6,4 @@ en:
   # flash messages
   following_message: Now you are following %{name}.
   unfollowed_message: You unfollowed %{name}.    
-  
+  sign_up: Sign Up

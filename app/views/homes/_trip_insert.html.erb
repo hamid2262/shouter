@@ -1,0 +1,21 @@
+<div class="frame">
+	<div class="title">
+		<h4>
+			<strong class="lead"><%= t('.title') %></strong> 
+			<%= t('.for_driver') %>
+		</h4>
+
+		<p><%= t('.description') %></p>
+	</div>
+	<div class="inner">
+
+    <% t('.guide', register: link_to(t('sign_up'), new_user_registration_path) ).each_line do |line| %>
+      <p class="text-warning"><%= line.html_safe %></p>
+    <% end %>
+
+	  <div class="col-sm-6 col-sm-offset-6">
+			<%= link_to t('.register'), new_trip_path , class: "btn btn-warning btn-lg btn-block" %>
+		</div>	
+
+	</div>			
+</div>

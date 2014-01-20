@@ -1,8 +1,10 @@
 <div class="frame">
 	<div class="title">
 		<h4>
-			<strong class="lead"><%= t('.trip_search') %></strong>
+			<strong class="lead"><%= t('.title') %></strong>
+			<%= t('.for_passenger') %>
 		</h4>
+		<p> <%= t('.description') %></p>
 	</div>
 	<div class="inner">
 		<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
@@ -16,9 +18,9 @@
 			<% end %>		
 			<!-- DatePicker -->
 			<div class="form-group  date-select col-sm-6">
-		    <%= f.select :jday, 1..31,{}, {class: "form-control col-xs-1"}  %> 
-		    <%= f.select :jmonth, collection_for_month,{}, {class: "form-control col-xs-1"} %>
-		    <%= f.select :jyear, 1392..1393,{}, {class: "form-control col-xs-1"} %> 
+		    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
+		    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
+		    <%= f.select :jyear, 1392..1393,{}, {class: "datepicker"} %> 
 			</div>
 
 			<!-- Submit -->
