@@ -1,0 +1,18 @@
+en:
+  activerecord:
+    models:
+      vehicle: Car
+    attributes:
+      vehicle:
+        vehicle_model: Model
+        vehicle_brand: Brand
+        color: Color
+        number_plate: Number Plate
+        air_condition: Air Condition
+        year: Year of manufacture
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"

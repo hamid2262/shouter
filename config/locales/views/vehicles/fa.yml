@@ -2,3 +2,6 @@ fa:
   vehicles:
     show:
       car_details: مشخصات خودرو
+      edit_car_detail_btn: بروزرسانی مشخصات خودرو
+      enter_car_detail_btn: صفحه ثبت مشخصات خودرو
+      there_is_no_car_registered: مشخصات خودرو ثبت نشده است

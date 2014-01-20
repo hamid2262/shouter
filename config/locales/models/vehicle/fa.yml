@@ -1,0 +1,18 @@
+fa:
+  activerecord:
+    models:
+      vehicle: خودرو
+    attributes:
+      vehicle:
+        vehicle_model: مدل خودرو
+        vehicle_brand: برند        
+        color: رنگ
+        number_plate: شماره پلاک
+        air_condition: کولر
+        year: سال ساخت
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"

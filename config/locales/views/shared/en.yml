@@ -1,0 +1,4 @@
+en:
+  shared:
+    users_list:
+      list_is_empty: List is Empty.

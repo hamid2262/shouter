@@ -15,6 +15,7 @@ en:
         age: Age
         slug: Your Web Address in Hamsafaryab
         email: Email
+        city: City
         avatar: Profile Image        
         cover: Cover Image        
         last_sign_in_at: Last Signed in at 

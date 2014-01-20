@@ -3,34 +3,22 @@
   	<%= @profile.user.name %> 
   	<%=t  '.overview'  %>
   </div>
-<!--   <div class="panel-body">	</div> -->
-	<table class="table">
-		<tbody>
+	<div class="panel-body">
+		<form class="form-horizontal" role="form">
 
 			<% if current_user %>
-				<tr>
-					<td>Activity</td>
-					<td><%= resent_activity(@profile.user, "activity") %></td>
-				</tr>
-				<tr>
-					<td>Last login Location</td>
-					<td><%= @profile.user.last_login_location %></td>
-				</tr>
+				<%=  user_form_control_static t(".last_activity"), resent_activity(@profile.user, "activity"),"col-sm-4","col-sm-8" %>
+				<%=  user_form_control_static t(".last_login_location"), @profile.user.last_login_location,"col-sm-4","col-sm-8" %>
 
 				<% if @profile.user.slug_updated %>
-					<tr>
-						<td>Url</td>
-						<td>
-							<%= link_to_profile @profile.user %> 
-							</td>
-					</tr>	
+					<%=  user_form_control_static "Url", link_to_profile(@profile.user) %>
 				<% end %>
 
 			<% else %>
 				<%= force_to_sign_in_message %>
 			<% end %> <!-- if current_user -->
 			
-		</tbody>
-	</table>
+		</form>
+	</div>
 </div>
 

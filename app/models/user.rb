@@ -70,10 +70,6 @@ class User < ActiveRecord::Base
     errors.add(:base, 'Url can be changed only one time') if(self.slug_updated && self.slug_changed?)
   end
 
-  def gender_in_word
-    (self.gender == 'm') ? "Male" :  "Female"
-  end
-
   def is_image?
     avatar.instance.avatar_content_type =~ %r(image)
   end
@@ -129,7 +125,7 @@ class User < ActiveRecord::Base
   end
 
   def last_login_location
-    return "No date" if (self.email == "hamid2262@yahoo.com") or (self.last_sign_in_ip == '93.131.104.148')
+    return 'no data' if (self.email == "hamid2262@yahoo.com") or (self.last_sign_in_ip == '93.131.104.148')
     country = self.last_login_country if self.last_login_country.present?
     city =  ', '+ self.last_login_city if self.last_login_city.present?
     if  country && city
@@ -139,7 +135,7 @@ class User < ActiveRecord::Base
     elsif country
       country
     else
-      "No Data"
+      'no data'
     end
   end
 

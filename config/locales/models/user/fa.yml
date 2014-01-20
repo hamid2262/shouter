@@ -15,6 +15,7 @@ fa:
         age: سن
         slug: آدرس اینترنتی شما در همسفریاب
         email: ایمیل
+        city: شهر
         avatar: تصویر پروفایل
         cover: تصویر سربرگ
         last_sign_in_at: آخرین ورود در 

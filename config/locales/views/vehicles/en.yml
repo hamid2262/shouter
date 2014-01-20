@@ -2,3 +2,6 @@ en:
   vehicles:
     show:
       car_details: Car Details
+      edit_car_detail_btn: Update Car Details
+      enter_car_detail_btn: Enter Your Car Details
+      there_is_no_car_registered: There is no data for car.

@@ -1,11 +1,13 @@
 en:
   profiles:
     follow: Follow
-    unfollow: Following
     show:
       force_login_message: Visible for signed in users.
       single_profile:
         contact_details: Contact Details
         personal_profile: Personal Profile
       user_overview:
+        last_activity: Last Activity
+        last_login_location: Last login Location
         overview: Overview
+    unfollow: Following

@@ -1,31 +1,31 @@
 <div class="panel panel-default clear">
   <div class="panel-heading"> <%=t  '.personal_profile'  %></div>
-	<table class="table">
-		<tbody>
-			<%=  table_show_cell "First Name", @profile.user.firstname %>
-			<%=  table_show_cell "Last Name", @profile.user.lastname %>
-			<%=  table_show_cell "Username", @profile.user.username %>
-			<%=  table_show_cell "Gender", @profile.user.gender_in_word %>
-			<%=  table_show_cell "Age", @profile.user.age %>
-		</tbody>
-	</table>
+	<div class="panel-body">
+		<form class="form-horizontal" role="form">
+			<%=  user_form_control_static User.human_attribute_name("firstname"), @profile.user.firstname %>
+			<%=  user_form_control_static User.human_attribute_name("lastname"), @profile.user.lastname %>
+			<%=  user_form_control_static User.human_attribute_name("username"), @profile.user.username %>
+			<%=  user_form_control_static User.human_attribute_name("gender"), t_gender(@profile.user.gender) %>
+			<%=  user_form_control_static User.human_attribute_name("age"), @profile.user.age %>
+		</form>
+	</div>
 </div>
 
 
 <div class="panel panel-default clear">
-  <div class="panel-heading"><%=t  '.contact_details'  %></div>
-	<table class="table">		
-		<tbody>
+  <div class="panel-heading"><%=t '.contact_details'  %></div>
+	<div class="panel-body">
+		<form class="form-horizontal" role="form">
 			<% if current_user %>
-				<%#=  table_show_cell "Email", @profile.user.email %>
-				<%#=  table_show_cell "Tel", @profile.user.tel %>
-				<%#=  table_show_cell "Mobile", @profile.user.mobile %>
-				<%=  table_show_cell "City", @profile.user.city %>
-				<%=  table_show_cell "Address", @profile.user.address %>
-				<%#=  table_show_cell "Post Code", @user.post_code %>
+				<%#=  user_form_control_static "Email", @profile.user.email %>
+				<%#=  user_form_control_static "Tel", @profile.user.tel %>
+				<%#=  user_form_control_static "Mobile", @profile.user.mobile %>
+				<%=  user_form_control_static User.human_attribute_name("city"), @profile.user.city %>
+				<%=  user_form_control_static User.human_attribute_name("address"), @profile.user.address %>
+				<%#=  user_form_control_static "Post Code", @user.post_code %>
 			<% else %>
 				<%= force_to_sign_in_message %>
 			<% end %> <!-- if current_user -->
-		</tbody>
-	</table>
+		</form>
+	</div>
 </div>

@@ -1,11 +1,11 @@
 module ApplicationHelper
 
 	def t_gender gender
-			if gender == 'm'
-				t('gender.male')
-			else
-				t('gender.female')
-			end
+		if gender == 'm'
+			t('gender.male')
+		else
+			t('gender.female')
+		end
 	end
 
 	def link_to_profile user, klass="small", length = 100
@@ -18,8 +18,23 @@ module ApplicationHelper
       :locals => {:object => object})
   end
 	
+  def user_form_control_static title, field_value, klass1="col-sm-3", klass2="col-sm-9"
+    field_value = t('no_data') if field_value.blank?
+    html = <<-HTML
+      <div class="form-group">
+        <label class="#{klass1} control-label">#{title}</label>
+        <div class="#{klass2}">
+          <p class="form-control-static">
+                                    #{field_value}
+          </p>
+        </div>
+      </div>
+    HTML
+    html.html_safe 
+  end
+
 	def table_show_cell(title, value)
-		value = 'No Data' if value.blank?
+		value = t('no_data') if value.blank?
 		html = <<-HTML
 		<tr> 
 			<th>
