@@ -1,6 +1,12 @@
 
 $green: #b5c023;
-#home{
+#home{		
+	.passenger_man{
+		position: absolute;
+		left: -67px;
+		top: -52px;
+		z-index: 10;
+	}
 	#search_form{
 		position: relative;
 		.passenger{
