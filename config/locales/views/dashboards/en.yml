@@ -1,0 +1,5 @@
+en:
+  dashboards:
+    show:
+      followed_users: Followed Users
+      other_users: Other Users

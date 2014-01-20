@@ -2,3 +2,11 @@ fa:
   shared:
     users_list:
       list_is_empty: لیست خالی است.
+  followers:
+    zero: بدون دنبال کننده
+    one: یک دنبال کننده
+    other: ' %{count} دنبال کننده'
+  followeds:
+    zero: بدون دنبال شونده
+    one: یک دنبال شونده
+    other: '%{count} دنبال شونده'

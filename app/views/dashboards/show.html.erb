@@ -1,6 +1,6 @@
 <div class="col-md-4">
-	<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: "Your Followed Users "} %>
-	<%= render partial: 'shared/users_list', locals: {users: @random_users, title: "Users you may want to know"} %>
+	<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('.followed_users')} %>
+	<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users') } %>
 </div>
 
 <div class="col-md-8">
