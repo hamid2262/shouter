@@ -1,5 +1,21 @@
-  
+	
 	<%= render "ga" if Rails.env.production?  %>
+
+
+    <div id="footer">
+      <div class="container small">
+        <p class="text-muted <%= farsi_right %>">
+        	<%= t('.copyright', year: Time.now().year, href: link_to(t("site_info.title"), root_path) ).html_safe %>
+        </p>
+
+        <p class=" text-muted <%= farsi_left %>">
+        	<%= link_to t('.term'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+        	<%= link_to t('.security'), root_path, class: "navbar-link" %> &nbsp;&nbsp;
+        	<%= link_to t('.privacy'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+        	<%= link_to t('.contact'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+	       </p>
+      </div>
+    </div>
 
 </body>
 </html>

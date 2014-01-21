@@ -1,17 +1,14 @@
 <%= render 'head' %>
 
 <%= render 'navbar' %>
-
-<div class="container">
-	
+<div id="wrap" class="container">
+		
 	<%= render 'header' %>
 
 	<%#= render 'searches/form' %>
   <div id="siteContent">
     <%= flash_creator flash %>
     <%= yield %>  
-  </div>
-  
+  </div>	  
 </div>
-
 <%= render 'footer' %>

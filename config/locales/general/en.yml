@@ -7,3 +7,5 @@ en:
   following_message: Now you are following %{name}.
   unfollowed_message: You unfollowed %{name}.    
   sign_up: Sign Up
+#  vehicle
+  enter_vehicle_detail_message: "Please first enter details of your vehicle"

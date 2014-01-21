@@ -14,7 +14,7 @@ class FollowingRelationshipsController < ApplicationController
 		redirect_to profile_url(user)+"/"+locale.to_s, notice: t(:unfollowed_message,name: user.name)
 	end
 
-	private
+private
 
 	def user
 		@_user ||= User.find(params[:user_id])

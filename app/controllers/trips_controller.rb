@@ -79,7 +79,7 @@ class TripsController < ApplicationController
       if user && user.vehicle.present?
         user.vehicle.vehicle_model.seats_number
       else
-        flash[:notice] = "First enter detail of your vehicle"
+        flash[:notice] = t(:enter_vehicle_detail_message)
         session[:return_to] = new_trip_path
         redirect_to new_user_vehicles_path(user)
       end

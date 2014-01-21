@@ -6,3 +6,12 @@ en:
   no_post_message: There is no post to display.
   site_info:
     title: "Hamsafaryab"
+  application:
+    footer:
+      copyright:  © %{year} %{href} All rights reserved
+      term: Terms
+      privacy: Privacy
+      security: Security
+      contact: Contact
+  
+

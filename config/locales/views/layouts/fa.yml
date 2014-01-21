@@ -6,3 +6,12 @@ fa:
   no_post_message: هیچ پستی برای نمایش وجود ندارد.  
   site_info:
     title: "همسفریاب"
+  application:
+    footer:
+      copyright: تمام حقوق این سایت متعلق به %{href}  می باشد.
+      term: قوانین
+      privacy: حریم خصوصی
+      security: امنیت
+      contact: تماس
+  
+

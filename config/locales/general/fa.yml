@@ -7,4 +7,6 @@ fa:
   following_message: شما  "%{name}" را دنبال میکنید
   unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
   sign_up: ثبت نام
+#  vehicle
+  enter_vehicle_detail_message: ابتدا لطفا مشخصات خودرو خود را وارد کنید
        

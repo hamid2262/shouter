@@ -1,12 +1,46 @@
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
 body{
     padding-top: 50px;
-	background: #eee;
+    background: #eee;
 }
 
-.container{
-	background: #f9f9f9;
-	border-radius: 6px;
-	box-shadow: 0 0 3px #999999;	
+#wrap {
+  min-height: 100%;
+  height: auto;
+  margin: 0 auto -58px;
+  padding: 0 0 60px;
+}
+
+
+.container {
+  background: #f9f9f9;
+  border-radius: 6px;
+  box-shadow: 0 0 3px #999999;    
+  width: auto;
+  padding: 0 15px;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+ 
+#footer{
+  height: 60px;
+  .container {
+    ul{
+      background: red;
+      list-style: none;
+      display: inline;
+      li{
+        display: inline-block;
+        padding: 0 5px;
+      }
+    }       
+  }
+
 }
 
 @media (min-width: 750px) {
@@ -25,7 +59,7 @@ body{
 }
  
 #siteLogo{
-	margin-top: 30px;
+	margin: 25px 15px 15px;
 }
 
 .navbar{
@@ -35,7 +69,8 @@ body{
 }
 
 #siteContent{
-    margin-top: 15px;
+    margin-top: 16px;
+    padding: 0 15px;
 }
 
 .sidebar{
