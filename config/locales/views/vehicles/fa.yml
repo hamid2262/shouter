@@ -1,5 +1,12 @@
 fa:
   vehicles:
+    edit:
+      title: فرم ویرایش مشخصات خودرو
+    form:
+      deesnt_have: ندارد
+      has: دارد
+    new:
+      title: فرم مشخصات خودرو
     show:
       car_details: مشخصات خودرو
       edit_car_detail_btn: بروزرسانی مشخصات خودرو

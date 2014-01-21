@@ -87,7 +87,9 @@ body{
 	padding-top: 5px;
 
 }
-
+.panel-heading{
+  overflow: hidden;
+}
 .error{
     color: #911;
 }

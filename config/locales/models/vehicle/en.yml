@@ -10,6 +10,7 @@ en:
         number_plate: Number Plate
         air_condition: Air Condition
         year: Year of manufacture
+        image: Image
     errors:
       template:
         header:

@@ -2,6 +2,7 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:edit, :update, :destroy]
   
   before_action :user_authentication, except: [:show]
+  before_action :user_finder, only: [:new, :create, :update, :edit]
   skip_authorization_check 
 
   def new
@@ -30,6 +31,7 @@ class VehiclesController < ApplicationController
   end
 
   def update
+    @vehicle = Vehicle.new(vehicle_params)    
     respond_to do |format|
       if @vehicle.update(vehicle_params)
         format.html { redirect_to profile_url(user), notice: 'Vehicle was successfully updated.' }
@@ -64,5 +66,9 @@ class VehiclesController < ApplicationController
 
     def user_authentication
       redirect_to root_url unless current_user.id == params[:user_id].to_i
+    end
+
+    def user_finder
+      @user = current_user
     end
 end

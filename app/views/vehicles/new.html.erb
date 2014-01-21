@@ -1,9 +1,26 @@
-<h1>New vehicle</h1>
+<div id="vehicle" class="">
+	<div class="col-md-8">
+		<div class="panel panel-default">
 
-<%= simple_form_for @vehicle,  url: {action: "create"} do |f| %>
+			<div class="panel-heading">
+		    <h3 class="panel-title col-xs-8">
+		    	 <%= t (".title") %>
+		    </h3>  	   
+		  </div>
 
-<%= render partial: 'form', locals: {f: f} %>
-
-<% end %>
-
-<%= link_to 'Back', current_user %>
+			<div class="panel-body">
+				<div class="tab-content">
+					<%= simple_form_for @vehicle,  url: {action: "create"}, 
+					  html: { class: 'form-horizontal' },
+					  defaults: { 
+					  wrapper_html: { class: 'form-group' }, 
+					  input_html:   { class: 'form-control col-sm-7' },
+					  label_html:   { class: 'col-sm-3' }
+					  }      do |f| %>
+						<%= render partial: 'form', locals: {f: f} %>
+					<% end %> 
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>

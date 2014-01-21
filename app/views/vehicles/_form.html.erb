@@ -1,12 +1,20 @@
-  <%= f.input :color, input_html: { class: 'form-control' } %>
-  <%= f.input :number_plate, input_html: { class: 'form-control' }  %>
-  <%= f.input :air_condition %>
-  <%= f.input :year, as: :date,
-              input_html: { class: 'form-control' }, 
-              start_year: Date.today.year - 40,
-              end_year: Date.today.year, discard_day: true,
-              order: [:year] %>
-  <%= f.input :image, as: :file, input_html: { class: 'form-control' }  %>
-  <%= f.association :vehicle_model, input_html: { class: 'form-control' },
-              :label_method => lambda { |vehicle_model| "#{vehicle_model.vehicle_brand.name} | #{vehicle_model.name}" } %>
-  <%= f.button :submit %>
+<%= devise_error_messages! %>
+<%= f.input :color %>
+<%= f.input :number_plate  %>
+<%= f.input :air_condition, collection: [[t('.has'), true],[t('.deesnt_have'),false]]  %>
+<%= f.input :year, as: :date,
+            start_year: Date.today.year - 40,
+            end_year: Date.today.year, discard_day: true,
+            order: [:year] %>
+<%= f.input :image, as: :file %>
+<%= f.association :vehicle_model,
+            :label_method => lambda { |vehicle_model| "#{vehicle_model.vehicle_brand.name} | #{vehicle_model.name}" } %>
+
+<div class="states">
+          <%= collection_select :temp, :brand_id, VehicleBrand.order(:name), :id, :name,  {:prompt=>true} ,{ class: 'my-states'} %>      
+</div>
+<div class="cities">
+  <%= f.grouped_collection_select :vehicle_model_id, VehicleBrand.order(:name), :vehicle_models, :name, :id, :name,{}, {:class => 'required'} %>     <!-- select2_input -->        
+</div>
+
+<%= f.button :submit , {class: 'btn btn-warning col-sm-3 col-sm-offset-7'}%>

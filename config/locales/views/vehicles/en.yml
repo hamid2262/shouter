@@ -1,5 +1,12 @@
 en:
   vehicles:
+    edit:
+      title: Edit Vehicle Details Form
+    form:
+      deesnt_have: 'No'
+      has: 'Yes'
+    new:
+      title: Car Details Form
     show:
       car_details: Car Details
       edit_car_detail_btn: Update Car Details

@@ -10,6 +10,7 @@ fa:
         number_plate: شماره پلاک
         air_condition: کولر
         year: سال ساخت
+        image: تصویر
     errors:
       template:
         header:
