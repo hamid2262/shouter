@@ -5,12 +5,14 @@ fa:
     attributes:
       vehicle:
         vehicle_model: مدل خودرو
+        vehicle_model_id: مدل خودرو
         vehicle_brand: برند        
         color: رنگ
         number_plate: شماره پلاک
         air_condition: کولر
         year: سال ساخت
         image: تصویر
+        brand: کارخانه سازنده
     errors:
       template:
         header:

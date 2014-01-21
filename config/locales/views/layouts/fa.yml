@@ -13,5 +13,6 @@ fa:
       privacy: حریم خصوصی
       security: امنیت
       contact: تماس
-  
-
+    error_messages:
+      title: خطا مانع ثبت این رکورد در سیستم شده است
+      description: 'خطا در فیلدهای زیر بوده است:'

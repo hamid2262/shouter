@@ -5,12 +5,14 @@ en:
     attributes:
       vehicle:
         vehicle_model: Model
+        vehicle_model_id: Model
         vehicle_brand: Brand
         color: Color
         number_plate: Number Plate
         air_condition: Air Condition
         year: Year of manufacture
         image: Image
+        brand: Brand
     errors:
       template:
         header:

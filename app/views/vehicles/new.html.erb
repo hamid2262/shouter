@@ -1,4 +1,4 @@
-<div id="vehicle" class="">
+<div id="new_vehicle" class="vehicle">
 	<div class="col-md-8">
 		<div class="panel panel-default">
 
@@ -10,13 +10,14 @@
 
 			<div class="panel-body">
 				<div class="tab-content">
+					<%= error_messages_for(@vehicle) %>
 					<%= simple_form_for @vehicle,  url: {action: "create"}, 
 					  html: { class: 'form-horizontal' },
 					  defaults: { 
-					  wrapper_html: { class: 'form-group' }, 
-					  input_html:   { class: 'form-control col-sm-7' },
-					  label_html:   { class: 'col-sm-3' }
-					  }      do |f| %>
+						  wrapper_html: { class: 'form-group' }, 
+						  input_html:   { class: 'form-control col-sm-7' },
+						  label_html:   { class: 'col-sm-3' }
+					  } do |f| %>
 						<%= render partial: 'form', locals: {f: f} %>
 					<% end %> 
 				</div>

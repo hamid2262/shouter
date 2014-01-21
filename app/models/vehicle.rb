@@ -8,7 +8,12 @@ class Vehicle < ActiveRecord::Base
 
 	validates_attachment :image, :size => { in: 0..1.megabytes }
   validates :vehicle_model_id, presence: true
-	  
+
+  # virtual attribute getter
+  def brand
+    @brand = self.try(:vehicle_model).try(:vehicle_brand).try(:id) if self
+  end
+
   def is_image?
     image.instance.image_content_type =~ %r(image)
   end

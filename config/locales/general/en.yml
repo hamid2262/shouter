@@ -9,3 +9,5 @@ en:
   sign_up: Sign Up
 #  vehicle
   enter_vehicle_detail_message: "Please first enter details of your vehicle"
+  vehicle_updated_message: Vehicle was successfully updated
+  vehicle_created_message: Vehicle was successfully created 

@@ -1,20 +1,24 @@
-<%= devise_error_messages! %>
+<%= f.input :brand, collection: VehicleBrand.order(:name),  
+      :prompt=>true ,input_html: {class: 'my-brand string optional form-control col-sm-7 required'} %> 
+
+<%= f.input :vehicle_model_id, collection: VehicleBrand.order(:name), as: :grouped_select, group_method: :vehicle_models, class: 'required'  %>
+
 <%= f.input :color %>
+
 <%= f.input :number_plate  %>
+
 <%= f.input :air_condition, collection: [[t('.has'), true],[t('.deesnt_have'),false]]  %>
+
 <%= f.input :year, as: :date,
-            start_year: Date.today.year - 40,
+            start_year: Date.today.year - 70,
             end_year: Date.today.year, discard_day: true,
             order: [:year] %>
 <%= f.input :image, as: :file %>
-<%= f.association :vehicle_model,
+<%#= f.association :vehicle_model,
             :label_method => lambda { |vehicle_model| "#{vehicle_model.vehicle_brand.name} | #{vehicle_model.name}" } %>
 
-<div class="states">
-          <%= collection_select :temp, :brand_id, VehicleBrand.order(:name), :id, :name,  {:prompt=>true} ,{ class: 'my-states'} %>      
-</div>
-<div class="cities">
-  <%= f.grouped_collection_select :vehicle_model_id, VehicleBrand.order(:name), :vehicle_models, :name, :id, :name,{}, {:class => 'required'} %>     <!-- select2_input -->        
-</div>
+<%= f.button :submit , {class: 'btn btn-warning col-sm-3 col-sm-offset-7 required'}%>
 
-<%= f.button :submit , {class: 'btn btn-warning col-sm-3 col-sm-offset-7'}%>
+
+<!-- hidden - - helps to the select box of cities -->
+<%= grouped_collection_select :test, :vehicle_model_id, VehicleBrand.order(:name), :vehicle_models, :name, :id, :name,{}, {:class => 'select-via-city visible-print'} %>     <!-- visible-print -->

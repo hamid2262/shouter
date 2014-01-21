@@ -1,5 +1,6 @@
 <div class="panel panel-default clear">
   <div class="panel-heading"><%= t '.car_details' %></div>
+  <div class="panel-body">
     <% if current_user %>
       <% if user.vehicle.present? %>
         <form class="form-horizontal" role="form">
@@ -27,4 +28,5 @@
   <% else %>
     <%= force_to_sign_in_message %>
   <% end %> <!-- if current_user -->
-  </div>
+</div>
+</div>

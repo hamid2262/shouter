@@ -1,4 +1,4 @@
-<div id="vehicle" class="">
+<div id="edit_vehicle" class="vehicle">
 	<div class="col-md-8">
 		<div class="panel panel-default">
 
@@ -10,6 +10,7 @@
 
 			<div class="panel-body">
 				<div class="tab-content">
+					<%= error_messages_for(@vehicle) %>
 					<%= simple_form_for @vehicle,  url: {action: "update"}, 
 					  html: { class: 'form-horizontal' },
 					  defaults: { 

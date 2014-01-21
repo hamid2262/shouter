@@ -2,7 +2,8 @@ class VehiclesController < ApplicationController
   before_action :set_vehicle, only: [:edit, :update, :destroy]
   
   before_action :user_authentication, except: [:show]
-  before_action :user_finder, only: [:new, :create, :update, :edit]
+  before_action :set_user #, only: [:new, :create, :update, :edit]
+  before_action :set_vehicle, only: [:update, :edit]
   skip_authorization_check 
 
   def new
@@ -14,14 +15,14 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = @user
     respond_to do |format|
-      if @vehicle.valid?
-      	current_user.vehicle = @vehicle
+      if @vehicle.save
         if session[:return_to].present?
           redirect_to session.delete(:return_to)
           return false
         end         	
-        format.html { redirect_to user, notice: 'Vehicle was successfully created.' }
+        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_created_message) ) }
         format.json { render action: 'show', status: :created, location: @vehicle }
       else
         format.html { render action: 'new' }
@@ -31,10 +32,9 @@ class VehiclesController < ApplicationController
   end
 
   def update
-    @vehicle = Vehicle.new(vehicle_params)    
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        format.html { redirect_to profile_url(user), notice: 'Vehicle was successfully updated.' }
+        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_updated_message) ) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -53,11 +53,11 @@ class VehiclesController < ApplicationController
 
   private
     def set_vehicle      
-      @vehicle = user.vehicle
+      @vehicle = @user.vehicle
     end
 
-    def user
-      User.find(params[:user_id])
+    def set_user
+      @user = current_user
     end
 
     def vehicle_params
@@ -68,7 +68,4 @@ class VehiclesController < ApplicationController
       redirect_to root_url unless current_user.id == params[:user_id].to_i
     end
 
-    def user_finder
-      @user = current_user
-    end
 end

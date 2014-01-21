@@ -9,4 +9,5 @@ fa:
   sign_up: ثبت نام
 #  vehicle
   enter_vehicle_detail_message: ابتدا لطفا مشخصات خودرو خود را وارد کنید
-       
+  vehicle_updated_message: مشخصات خودرو با موفقیت ویرایش  شد.
+  vehicle_created_message:  مشخصات خودرو با موفقیت ثبت شد.        
