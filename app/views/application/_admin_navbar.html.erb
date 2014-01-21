@@ -1,0 +1,37 @@
+<div id="admin_navbar" class="fixed-top" >
+  <div id="wrapper">
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand"><%= link_to "Admin Panel", root_path %></li>
+        <li> <%= link_to "Users",  users_path %></li>
+        <li> <%= link_to "States", states_path %></li>
+        <li> <%= link_to "Trips",  trips_path %></li>
+        <li> <%= link_to "vehicle models", vehicle_models_path %></li>
+        <li> <%= link_to "vehicle brands", vehicle_brands_path %></li>
+        <li> <%= link_to "countries", countries_path %></li>
+        <li> <%= link_to "bookings", bookings_path %></li>
+      </ul>
+    </div>
+  </div>
+        <!-- Page content -->
+ 
+    <a id="menu-toggle" href="#" class="btn btn-default">
+    <i class="icon-reorder">Admin</i>
+    </a>                   
+
+                
+
+
+    <!-- Custom JavaScript for the Menu Toggle -->
+    <script>
+    $(function() {
+      $("#wrapper").addClass("active");
+    });
+
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("active");
+    });
+    </script>
+
+</div>

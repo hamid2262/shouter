@@ -1,6 +1,11 @@
 <%= render 'head' %>
 
 <%= render 'navbar' %>
+
+<% if current_user.try(:is_admin?) %>
+	<%= render 'admin_navbar' %>		
+<% end %>
+
 <div id="wrap" class="container">
 		
 	<%= render 'header' %>
