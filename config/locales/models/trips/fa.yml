@@ -1,0 +1,19 @@
+fa:
+  activerecord:
+    models:
+      trip: سفر
+    attributes:
+      trip:
+        total_available_seats: تعداد صندلی های در دسترس
+        detail: توضیحات
+        driver: راننده
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"
+  helpers:
+    submit:
+      trip:
+        create: "ثبت سفر"

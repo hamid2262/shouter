@@ -1,0 +1,19 @@
+en:
+  activerecord:
+    models:
+      trip: Trip
+    attributes:
+      trip:
+        total_available_seats: Total Seats
+        detail: Details
+        driver: Driver
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"
+  helpers:
+    submit:
+      trip:
+        create: "Create %{model}"

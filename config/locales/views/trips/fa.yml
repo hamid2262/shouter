@@ -1,0 +1,11 @@
+fa:
+  trips:
+    form_new:
+      add_stopover: اضافه کردن شهر عبوری
+      route: مسیر حرکت
+      title: فرم ورود مشخصات سفر
+    subtrip_fields:
+      at: در ساعت
+      city: از شهر
+      'on': تاریخ
+      remove: حذف

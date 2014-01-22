@@ -13,7 +13,7 @@ class TripsController < ApplicationController
   end
 
   def new
-    @vehicle_seats = vehicle_seats_number current_user
+    @max_vehicle_seats = 8
     @trip = Trip.new
     @trip.subtrips.build
     @trip.subtrips.build
@@ -75,14 +75,14 @@ class TripsController < ApplicationController
                               :jminute, :jhour, :jyear, :jmonth, :jday])    
     end
 
-    def vehicle_seats_number user
-      if user && user.vehicle.present?
-        user.vehicle.vehicle_model.seats_number
-      else
-        flash[:notice] = t(:enter_vehicle_detail_message)
-        session[:return_to] = new_trip_path
-        redirect_to new_user_vehicles_path(user)
-      end
-    end
+    # def vehicle_seats_number user
+    #   if user && user.vehicle.present?
+    #     user.vehicle.vehicle_model.seats_number
+    #   else
+    #     flash[:notice] = t(:enter_vehicle_detail_message)
+    #     session[:return_to] = new_trip_path
+    #     redirect_to new_user_vehicles_path(user)
+    #   end
+    # end
 
 end

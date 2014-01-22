@@ -1,7 +1,7 @@
   <fieldset class="col-sm-12 1col-sm-offset-3">
   <!-- At -->
       <div class="col-sm-3">
-        At   
+         <%= t('.at') %>  
       </div> 
       <div class="col-sm-9">
         <%= f.select :jminute, options_for_minute %> : 
@@ -10,7 +10,7 @@
 
   <!-- On -->
       <div class="col-sm-3">
-        On   
+        <%= t('.on') %>  
       </div> 
       <div class="col-sm-9">
         <%= f.select :jday, options_for_day %> 
@@ -20,7 +20,7 @@
 
   <!-- Via -->
       <div class="col-sm-3">
-        Via   
+        <%= t('.city') %>  
       </div> 
       <div class="col-sm-9 states_cities">
         <div class="states">
@@ -31,7 +31,7 @@
         </div>
         <%= f.hidden_field :_destroy %>
         <div class="remove_fields_div">
-          <%= link_to "Remove", "#", class: "remove_fields" %>            
+          <%= link_to t(".remove"), "#", class: "remove_fields" %>            
         </div>
       </div>
 </fieldset>

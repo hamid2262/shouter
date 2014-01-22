@@ -1,28 +1,27 @@
 <div id="new_trip_form" class="row col-sm-8">
 <div class="panel panel-default">
-  <div class="panel-heading">New trip Form</div>
+  <div class="panel-heading"><%= t('.title') %></div>
   <div class="panel-body">
     <%= form_for(@trip) do |f| %>
       <%= error_messages_for(@trip) %>
      
      
-     <b>Route</b>
+     <b><%= t('.route') %></b>
       <div class="trip-route">
         <!-- Stopovers -->
         <%= f.simple_fields_for :subtrips do |s| %>
           <%= render 'subtrip_fields', f: s %>
         <% end %>  <!--  f.simple_fields_for :subtrips do |s|  -->
-        <%= link_to_add_fields "Add Stopover", f, :subtrips %>
+        <%= link_to_add_fields t(".add_stopover"), f, :subtrips %>
       </div> <!-- trip-route -->
 
       <!-- Total seats -->
       <div class="row">
         <div class="col-sm-3">
-          <%= f.label :total_available_seats, 'Total seats' %>
+          <%= f.label :total_available_seats %>
         </div>  
         <div class="col-sm-8">        
-           <% seats = current_user.vehicle.vehicle_model.seats_number  %>
-           <%= f.select :total_available_seats, 1..seats, selected: seats, hint: 'This field related to your car\'s seating capacity.', label: false %> <br>
+           <%= f.select :total_available_seats, 1..@max_vehicle_seats, selected: 4, hint: 'This field related to your car\'s seating capacity.', label: false %> <br>
         </div>
       </div>
       
@@ -39,7 +38,7 @@
       <!-- submit -->
       <div class="row">      
         <div class="col-sm-3 col-sm-offset-9">
-          <%= f.submit 'Submit Trip', class: "add_fields btn btn-primary btn-sm pull-left" %>
+          <%= f.submit class: "add_fields btn btn-warning btn pull-left" %>
         </div>
       </div>     
     <% end %>
