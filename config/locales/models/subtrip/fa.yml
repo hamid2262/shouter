@@ -1,0 +1,37 @@
+fa:
+  activerecord:
+    models:
+      subtrip: سفر
+    attributes:
+      subtrip:
+        origin: مبدا
+        destination: مقصد
+        date_time: زمان و تاریخ حرکت
+        jyear: سال
+        jmonth: ماه
+        jday: روز
+        jhour: ساعت
+        jminute: دقیقه
+        price: قیمت
+        seats: صندلی
+        driver: راننده
+    errors:
+      template:
+        header:
+          one:   "1 error prohibited this %{model} from being saved"
+          other: "%{count} errors prohibited this %{model} from being saved"
+        body:    "There were problems with the following fields:"
+      models:
+        subtrip:
+          attributes:
+            jday:
+              invalid_date: نباید گذشته باشد.
+            jmonth:
+              invalid_date: نباید گذشته باشد.
+            jyear:
+              invalid_date: نباید گذشته باشد.
+    
+  helpers:
+    submit:
+      subtrip:
+        create: "ثبت سفر"

@@ -6,7 +6,10 @@ class Subtrip < ActiveRecord::Base
 
   default_scope { order('date_time ASC') } 
 
-  validate  :jday, :jday_validate
+  validate  :jday,   :jday_validate
+  validate  :jdate_must_not_be_past
+
+
   validates :origin_id, presence: true
   validates :jminute, presence: true
   validates :jhour, presence: true
@@ -45,6 +48,17 @@ class Subtrip < ActiveRecord::Base
   end
 
   private
+
+    def jdate_must_not_be_past
+
+      if JalaliDate.new(self.jyear, self.jmonth, self.jday ) < JalaliDate.new(Date.today) 
+        errors.add(:jday, :invalid_date)   
+        errors.add(:jmonth, :invalid_date)   
+        errors.add(:jyear, :invalid_date)   
+      end
+      
+    end
+
     def jday_validate
       if self.jmonth.to_i > 6 && jday.to_i > 30 ||
          self.jmonth.to_i == 12 && jday.to_i > 29
