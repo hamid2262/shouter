@@ -2,12 +2,17 @@ class UsersController < Devise::RegistrationsController
 
   # layout 'application_user', only: [:show]
   
-  load_and_authorize_resource only: [:index, :show, :update, :edit]
+  load_and_authorize_resource only: [:index, :show, :update, :edit, :destroy]
 
   before_action :require_login, only: [:index, :show, :update, :edit]
 
   def index
-    @users = User.all
+    @users = User.scoped
+    if params[:search]
+      @users = @users.order( params[:search]+ " DESC" )
+    else
+      @users = @users.order(:id)
+    end
   end
 
   def show
@@ -41,6 +46,13 @@ class UsersController < Devise::RegistrationsController
     else
       render action: 'edit', locals: {tab: params[:user][:tab]}
     end
+  end
+
+  def destroy
+    unless current_user.is_admin?
+      redirect_to root_url
+      return false
+    end  
   end
 
 private

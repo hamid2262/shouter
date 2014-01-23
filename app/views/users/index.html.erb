@@ -1,6 +1,31 @@
-<h1>hello</h1>
-<ul>
-	<% @users.each do |user| %>
-		<li> <%= link_to user.name, (profile_url user) %></li>
+<h2>Users</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th><%= link_to "ID", users_path(search: "id")%></th>
+			<th>gravatar</th>
+			<th>name</th>
+			<th><%= link_to "sign_in_count", users_path(search: "sign_in_count")%> </th>
+			<th>last_login_location</th>
+			<th><%= link_to "resent_activity", users_path(search: "updated_at")%> </th> 
+			<th><%= link_to "Sign up", users_path(search: "created_at")%></th>
+			<th></th>
+		</tr>
+	</thead>
+
+	<tbody>
+	<% @users.each do |u| %>
+		
+			<tr>
+				<th><%= u.id %></th>
+				<th><%= gravatar(u, 30, "img-responsive img-thumbnail",:thumb) %></th>
+				<th><%= link_to u.name, (profile_url u) %></th>
+				<th><%= u.sign_in_count %></th>
+				<th><%= u.last_login_location %> </th>
+				<th><%= resent_activity(u, "activity") %></th>
+				<th><%= jalali_date u.created_at %></th>
+				<th></th>
+			</tr>
 	<% end %>
-</ul>
+	</tbody>
+</table>
