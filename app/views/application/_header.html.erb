@@ -1,9 +1,13 @@
-<div id="siteHeader" class="hidden-xs">
+<%  if params[:locale] == 'en' %>
+	<% side = "background-position: right;" %>
+<% end %>
+
+<div id="siteHeader" class="hidden-xs"  style="<%= side %> background-image:url('<%= "#{IMAGES_PATH}headerBG-#{lang_direction}.gif" %>');">
+
 	<div id="siteLogo" style="background-image:url('<%= "#{IMAGES_PATH}logo-#{lang_direction}.gif" %>');">
 		<a href="<%= root_path %>"  > 
-			<h1 id="logo"><%= t('hamsafaryab') %></h1>
-			<h2 id="slogan"><%= t('slogan') %></h2>
+			<h1 id="logo"><strong> <%= t('hamsafaryab') %></strong></h1>
+			<h2 id="slogan"><strong> <%= t('slogan') %></strong></h2>
 		</a>
 	</div>
-
 </div>
