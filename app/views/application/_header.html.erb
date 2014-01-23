@@ -1,5 +1,9 @@
-	<div id="siteHeader" class="hidden-xs">
-		<div id="siteLogo" class="pull-right">
-      <%= link_to image_tag("#{IMAGES_PATH}logo.gif"), root_path %>
-		</div>
+<div id="siteHeader" class="hidden-xs">
+	<div id="siteLogo" style="background-image:url('<%= "#{IMAGES_PATH}logo-#{lang_direction}.gif" %>');">
+		<a href="<%= root_path %>"  > 
+			<h1 id="logo"><%= t('hamsafaryab') %></h1>
+			<h2 id="slogan"><%= t('slogan') %></h2>
+		</a>
 	</div>
+
+</div>

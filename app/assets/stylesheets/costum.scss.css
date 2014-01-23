@@ -60,6 +60,12 @@ body{
  
 #siteLogo{
 	margin: 25px 15px 15px;
+  width: 256px;
+  height: 55px;
+
+}
+#siteLogo #logo, #siteLogo #slogan{
+  text-indent: 7272px ;
 }
 
 .navbar{

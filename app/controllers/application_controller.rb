@@ -22,6 +22,15 @@ class ApplicationController < ActionController::Base
   end
   helper_method :profile_url
   
+  def lang_direction
+    if params[:locale]=='fa' 
+      'rtl'
+    else 
+      'ltr'
+    end 
+  end
+  helper_method :lang_direction
+
   protected
 
     def configure_permitted_parameters
