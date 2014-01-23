@@ -1,0 +1,49 @@
+
+	
+
+<div class="panel-body ">	
+	<div class="col-sm-4 panel-body">
+		<strong>
+				<%= t('.description', date: @date) %> 
+				(<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>)
+		</strong>
+	</div>
+
+	<div class="col-sm-8 route_table">
+		<table class="table">
+			<thead>
+				<tr>
+					<th></th>
+					<th><%= t 'city' %></th>
+					<th><%= t 'at' %></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><%= t 'from' %></th>
+					<td><%= @trip.first_city.origin.name %></td>
+					<td><%= @trip.first_city.date_time.to_s(:time) %></td>
+				</tr>
+
+				<% @trip.via_cities_obj.each do |c| %>
+					<tr>
+						<th><%= t 'via' %></th>
+						<td><%= c.origin.name%></td>
+						<td><%= c.date_time.to_s(:time) %></td>
+					</tr>
+				<% end %>
+
+				<tr>
+					<th><%= t 'to' %></th>
+					<td><%= @trip.last_city.destination.name %></td>
+					<td><%= @trip.subtrips.last.date_time.to_s(:time) %></td>
+				</tr>
+			</tbody>
+		</table>	
+	</div>
+
+</div>
+
+<div class="panel-body subtrips_edit_field">
+	<%= render 'trips/show/form_edit' %>
+</div>

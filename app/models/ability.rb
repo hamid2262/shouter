@@ -20,8 +20,8 @@ class Ability
             user == s.follower
         end
 
-        can [:show, :create, :new], Trip
-        can [:edit, :update, :destroy], [Trip] do |t|
+        can [:create, :new], Trip
+        can [:show, :index, :edit, :update, :destroy], [Trip] do |t|
             user == t.driver
         end        
     else

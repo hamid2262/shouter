@@ -6,7 +6,9 @@ fa:
       subtrip:
         origin: مبدا
         destination: مقصد
-        date_time: زمان و تاریخ حرکت
+        date_time: زمان 
+        date: تاریخ
+        time: زمان
         jyear: سال
         jmonth: ماه
         jday: روز

@@ -2,18 +2,16 @@
   <%= f.error_notification %>
   Total seats: <%= f.select :total_available_seats, 1..6 %> <br>
 
-  
-  Departure date: 
-    <%= @trip.subtrips.first.date_time.to_s(:date) %>  <br>
-  Departure Time: 
-    <%= @trip.subtrips.first.date_time.to_s(:time) %>  <br>
+  <% temp = nil  %>
+  <%= f.simple_fields_for :subtrips do |b| %>
+      <% next if b.object.origin == b.object.destination %>
+    	<%= render 'subtrip_fields_edit', f: b %>
 
-  <%= f.simple_fields_for :subtrips do |builder| %>
-  	<fieldset> <hr>
-    	<%= render 'subtrip_fields_edit', f: builder %>
-    </fieldset>
+    <% temp = f.object %>
+   
   <% end %>
-
+<br><hr>
   <%= f.input :detail %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-danger" %>
 <% end %>
+

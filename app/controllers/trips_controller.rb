@@ -3,13 +3,25 @@ class TripsController < ApplicationController
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
 
+  before_action :set_user, only: [:show, :edit]
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
   def index
-    # @trips = Trip.all
+    if current_user.is_admin?
+      @trips = Trip.all
+    else
+      @trips = current_user.trips      
+    end
   end
 
   def show
+    if params[:locale] == "fa"
+      @date = @trip.jdate     
+    else
+      @date = @trip.subtrips.first.date_time.to_s(:date)
+    end
+
+    @via_cities = @trip.via_cities_obj
   end
 
   def new
@@ -28,11 +40,10 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        # @data = @trip.subtrips_init 
-        # return false
-        format.html { redirect_to @trip, notice: 'Trip was successfully created.' }
+        format.html { redirect_to @trip, notice: t(:trip_create_message) }
         format.json { render action: 'show', status: :created, location: @trip }
       else
+        @max_vehicle_seats = 8
         format.html { render action: 'new' }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
       end
@@ -42,7 +53,7 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: 'Trip was successfully updated.' }
+        format.html { redirect_to @trip, notice: t(:trip_update_message) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -54,7 +65,7 @@ class TripsController < ApplicationController
   def destroy
     @trip.destroy
     respond_to do |format|
-      format.html { redirect_to trips_url }
+      format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
       format.json { head :no_content }
     end
   end
@@ -64,6 +75,9 @@ class TripsController < ApplicationController
       @trip = Trip.find(params[:id])
     end
 
+    def set_user
+      @user = @trip.driver
+    end
     # def main_subtrip_params
     #   params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
     #                           :jminute, :jhour, :jyear, :jmonth, :jday)
@@ -72,7 +86,7 @@ class TripsController < ApplicationController
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
         subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy, 
-                              :jminute, :jhour, :jyear, :jmonth, :jday])    
+                              :jminute, :jhour, :jyear, :jmonth, :jday])
     end
 
     # def vehicle_seats_number user

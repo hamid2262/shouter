@@ -1,0 +1,40 @@
+<%= simple_form_for(@trip,
+  html: { method: :put, class: 'form-horizontal' } ) do |f| %>
+
+  <%= f.error_notification %>
+
+  <%= f.simple_fields_for :subtrips do |b| %>
+      <% next if b.object.origin == b.object.destination %>
+    	<%= render 'trips/show/subtrip_fields_edit', f: b %>
+  <% end %>
+  
+  <hr>
+  
+  <div class="form-group">
+    <%= f.label :total_available_seats, class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.input :total_available_seats, collection: 1..6, label: false, input_html:{ class: "form-control"} %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :detail,class: "col-sm-3 control-label" %>
+    <div class="col-sm-9">
+      <%= f.text_area :detail,  rows: 4, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-9 col-sm-offset-3">
+      <% if can? :edit, @trip %>
+        <%= f.button :submit, class: "btn btn-warning" %>
+        <% if can? :edit, @trip %>
+          <%= link_to t('.delete'), trip_path(@trip), method: :delete, class: "btn btn-danger" %>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+
+<% end %>
+

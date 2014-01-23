@@ -3,6 +3,7 @@ en:
   last_login: Last login
   followed_users: Followed Users by
   posts: Posts
+  currency: $ %{amount}
   no_post_message: There is no post to display.
   site_info:
     title: "Hamsafaryab"

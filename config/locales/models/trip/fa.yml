@@ -7,12 +7,26 @@ fa:
         total_available_seats: تعداد صندلی های در دسترس
         detail: توضیحات
         driver: راننده
+        subtrips: مسیر 
+      trip/subtrips:
+        origin: مبدا
+        destination: مقصد
+        date_time: زمان
+        jyear: سال
+        jmonth: ماه
+        jday: روز
+        jhour: ساعت
+        jminute: دقیقه
+        price: قیمت
+        seats: صندلی
+        
     errors:
       template:
         header:
           one:   "1 error prohibited this %{model} from being saved"
           other: "%{count} errors prohibited this %{model} from being saved"
         body:    "There were problems with the following fields:"
+     
   helpers:
     submit:
       trip:

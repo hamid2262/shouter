@@ -6,7 +6,9 @@ en:
       subtrip:
         origin: Origin
         destination: Destination
-        date_time: Date and Time
+        date_time: Time
+        date: Date
+        time: Time
         jyear: Year
         jmonth: Month
         jday: Day

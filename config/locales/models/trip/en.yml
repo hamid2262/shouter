@@ -7,6 +7,18 @@ en:
         total_available_seats: Total Seats
         detail: Details
         driver: Driver
+        subtrips: Routes
+      trip/subtrips:
+        origin: Origin
+        destination: Destination
+        date_time: Time
+        jyear: Year
+        jmonth: Month
+        jday: Day
+        jhour: Hour
+        jminute: Minute
+        price: Price
+            
     errors:
       template:
         header:

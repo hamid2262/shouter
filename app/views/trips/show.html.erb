@@ -1,39 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div id="user_show" class="user_profile">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+		    <h3 class="panel-title col-xs-8">
+		    	<%= t('.title') %>
+		    </h3>
+				<div class="pull-left">
+					<%= gravatar @user, 85, "img-thumbnail", :square %>
+				</div>		    	   
+		  </div>
+			<%= render 'trips/show/show' %>
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Date:</strong>
-  <%= @trip.subtrips.first.date_time.to_s(:date) if @trip.subtrips.any? %>
-</p>
-<%= select_date(@trip.subtrips.first.date_time) %>
-<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>
-<table class="table">
-	<tbody>
-		<%= table_show_cell "Total available seats:", @trip.total_available_seats %>
-		<%= table_show_cell "From:", "#{@trip.first_city.origin.name}  at (#{@trip.first_city.date_time.to_s(:time)})" %>	
-		<% @trip.via_cities_obj.each do |c| %>
-			<%= table_show_cell "VIA:", "#{c.origin.name} at (#{c.date_time.to_s(:time)})" %>
-		<% end %>
-		<%= table_show_cell "To:", @trip.last_city.destination.name %>
-	</tbody>
-</table>
-
-
-
-
-<p>
-  <strong>Total available seats:</strong>
-  <%= @trip.total_available_seats %>
-</p>
-
-<p>
-  <strong>Detail:</strong>
-  <%= @trip.detail %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @trip.driver.name %>
-</p>
-
-<%= link_to 'Edit', edit_trip_path(@trip) %> |
-<%= link_to 'Back', trips_path %>

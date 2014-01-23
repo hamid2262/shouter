@@ -1,4 +1,3 @@
 <%= render 'form_edit' %>
 
-<%= link_to 'Show', @trip %> |
-<%= link_to 'Back', trips_path %>
+<%= link_to 'Show', @trip %> | <%= link_to "Delete", trip_path(@trip), method: :delete %>

@@ -8,6 +8,12 @@ class Trip < ActiveRecord::Base
 
   after_create :subtrips_init
 
+  def jdate
+    JalaliDate.new( self.subtrips.first.date_time ).strftime("%d %b %Y") 
+  end
+
+
+
   def first_city
     path_list.first
   end
@@ -17,7 +23,7 @@ class Trip < ActiveRecord::Base
   end
 
   def via_cities_obj
-    path_list[1..-1]
+    path_list[1..-2]
   end
 
   def inbetween_cities c1, c2

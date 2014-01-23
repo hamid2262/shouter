@@ -22,7 +22,7 @@ class VehiclesController < ApplicationController
           redirect_to session.delete(:return_to)
           return false
         end         	
-        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_created_message) ) }
+        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_create_message) ) }
         format.json { render action: 'show', status: :created, location: @vehicle }
       else
         format.html { render action: 'new' }
@@ -34,7 +34,7 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_updated_message) ) }
+        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_update_message) ) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -3,11 +3,22 @@ fa:
   gender:
     male: آقا
     female: خانم
+  city: شهر
+  at: در ساعت
+  from: مبدا حرکت از 
+  via: گذر از 
+  to: به مقصد
+  remove: حذف
   # flash messages   
-  following_message: شما  "%{name}" را دنبال میکنید
+  following_message: 'شما  "%{name}" را دنبال میکنید'
   unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
   sign_up: ثبت نام
 #  vehicle
   enter_vehicle_detail_message: ابتدا لطفا مشخصات خودرو خود را وارد کنید
-  vehicle_updated_message: مشخصات خودرو با موفقیت ویرایش  شد.
-  vehicle_created_message:  مشخصات خودرو با موفقیت ثبت شد.        
+  vehicle_update_message: مشخصات خودرو با موفقیت ویرایش  شد.
+  vehicle_create_message:  مشخصات خودرو با موفقیت ثبت شد.        
+
+  trip_create_message: سفر با موفقیت ثبت شد
+  trip_update_message: سفر با موفقبت به روزرسانی شد
+  trip_delete_message: سفر ما موفقیت حذف شد
+  

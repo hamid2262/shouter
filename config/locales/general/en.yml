@@ -3,11 +3,23 @@ en:
   gender:
     male: Male
     female: Female
+  city: City
+  at: At
+  from: From
+  via: Via
+  to: To 
+  remove: Remove
+  delete: Delete
   # flash messages
   following_message: Now you are following %{name}.
-  unfollowed_message: You unfollowed %{name}.    
+  unfollowed_message: You unfollowed %{name}.
   sign_up: Sign Up
 #  vehicle
   enter_vehicle_detail_message: "Please first enter details of your vehicle"
-  vehicle_updated_message: Vehicle was successfully updated
+
   vehicle_created_message: Vehicle was successfully created 
+  vehicle_updated_message: Vehicle was successfully updated
+
+  trip_create_message: Trip was successfully created 
+  trip_update_message: Trip was successfully updated
+  trip_delete_message: Trip was successfully deleted
