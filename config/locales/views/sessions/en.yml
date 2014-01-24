@@ -8,5 +8,6 @@ en:
         email: 'Email Address'  
         remember_me: 'Remember me'
         submit: 'Sign In'
+        sign_in: Sign In
         sign_up: 'Sign Up'
         forget_password: 'Forget Password'

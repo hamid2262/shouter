@@ -72,9 +72,23 @@ body{
 }
 
 .navbar{
-    background-color: transparent;
-    
-    border-color: transparent;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* --- popup sign in form */
+#popup_signin_button{
+  background-color: #fff !important;
+}
+
+ul#signin-dropdown{
+  right: -16px;
+  padding: 10px 26px 0 !important;
+  width: 270px;
+  border-radius: 0 0 6px 6px;
+}
+#signin-dropdown .form-group{
+  margin-bottom: 6px !important;
 }
 
 #siteContent{
@@ -99,6 +113,13 @@ body{
 .panel-heading{
   overflow: hidden;
 }
+
+input[type = password],
+input[type = email]  {
+  /*text-align: right;*/
+  direction: ltr;
+}
+
 .error{
     color: #911;
 }
@@ -170,3 +191,5 @@ select.datepicker {
     .my-col-lg-23 { width: 95.833333337%; }
     .my-col-lg-24 { width: 100%; }
 }
+
+

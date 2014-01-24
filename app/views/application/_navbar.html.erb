@@ -20,7 +20,7 @@
 				<li><%= link_to t("navbar.session.sign_out"), destroy_user_session_path, method: :delete %>     
         </li>
 			<% else %>
-				<li><%= link_to t("navbar.session.sign_in"), new_user_session_path %></li>
+        <%= render 'popup_signin' %>
         <li><%= link_to t("navbar.user.sign_up"), new_user_registration_path %></li>
 			<% end %>	
       </ul>

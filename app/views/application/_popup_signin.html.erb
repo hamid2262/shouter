@@ -1,0 +1,37 @@
+<li  class="dropdown hidden-xs">
+  <a id="popup_signin_button" data-toggle="dropdown" class="dropdown-toggle" href="#"><%= t 'devise.sessions.form.sign_in' %><b class="caret"></b></a>
+  <ul id="signin-dropdown" class="dropdown-menu">
+    <li>
+      <%= form_for(resource, :as => resource_name, 
+          :url => session_path(resource_name), 
+          html: {class: "form-horizontal"} ) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, :autofocus => true, :required => true, placeholder: t("devise.sessions.form.email"), class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.password_field :password, placeholder: t("devise.sessions.form.password"), class: "form-control"%>
+        </div>
+        
+        <div class="form-group">
+            <label class="checkbox">
+              <%= f.label :remember_me  do %>
+               <%= f.check_box :remember_me %> 
+              <% end %>
+             <%=  t('devise.sessions.form.remember_me') %>
+            </label>
+        </div>
+  
+        <div class="form-group">                      
+          <%= submit_tag t('devise.sessions.form.sign_in'), class: "btn btn-warning btn-block" %>
+        </div>      
+          <%= link_to t('devise.sessions.form.sign_up'), new_registration_path(resource_name) %>
+  <%= link_to t('devise.sessions.form.forget_password'), new_password_path(resource_name), class: "btn btn-link" %>
+                
+      <% end %> <!--END FORM -->
+    </li>
+  </ul>
+</li>
+
+
+
