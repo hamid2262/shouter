@@ -1,0 +1,14 @@
+<div>
+	<span><%= subtrip.date_time.to_s(:time) %> </span>
+	<span><%= subtrip.origin.local_name %> </span>
+	<span><%= subtrip.destination.local_name %> </span>
+	<span><%= subtrip.price %> </span>
+	<span>
+		<%= subtrip.trip.driver.name %> 
+		<%= gravatar(subtrip.trip.driver, 32, "img-rounded img-circle") %>
+		<!-- TODO Raiting -->
+		<span class="ratingSmall">TODO</span>
+	</span>
+	<span><%= link_to "Detail", subtrip_path(subtrip.id) %></span>
+</div>
+

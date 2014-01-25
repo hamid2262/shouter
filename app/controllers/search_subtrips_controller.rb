@@ -3,16 +3,18 @@ class SearchSubtripsController < ApplicationController
 	skip_authorization_check
 	before_action :initial_search_mode
 	
-	def show
-		@subtrips = SearchSubtrip.all
-		@search_subtrip = SearchSubtrip.new	
-	end
-
 	def search
-		@search_subtrip = SearchSubtrip.new(params[:search_subtrip])
-		if @search_subtrip.valid?
-			@subtrips = @search_subtrip.subtrips(3) if @search_subtrip
+		if params[:search_subtrip].nil?
+			@subtrips = SearchSubtrip.all.page(params[:page]).per_page(10)
+			# @search_subtrip = SearchSubtrip.new	
+			# @subtrips = @search_subtrip.subtrips_close_to_user request.remote_ip #"194.225.220.30" 
+		else
+			@search_subtrip = SearchSubtrip.new(params[:search_subtrip])
+			if @search_subtrip.valid?
+				@subtrips = @search_subtrip.subtrips(3) if @search_subtrip
+			end			
 		end
+
 	end
 
 	def choose_search_mode

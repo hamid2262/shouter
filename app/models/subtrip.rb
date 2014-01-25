@@ -4,7 +4,7 @@ class Subtrip < ActiveRecord::Base
   belongs_to :destination, class_name: "City", foreign_key: "destination_id"
   has_many	 :bookings
 
-  default_scope { order('date_time ASC') } 
+  default_scope { order('date_time ASC').order(:id) } 
 
   validate  :jday,   :jday_validate
   validate  :jdate_must_not_be_past

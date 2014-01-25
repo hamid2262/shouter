@@ -37,13 +37,21 @@ class SearchSubtrip
 	end
 
   def self.all
-    Subtrip.all
+    Subtrip.where.not("origin_id = destination_id").order(date_time: :desc)
+  end
+
+  def subtrips_close_to_user ip, cycle = 100
+  	 lat = Geocoder.search(ip).first.latitude 
+  	 lng = Geocoder.search(ip).first.longitude
+  	 city_ids = city_ids_near_latlng lat, lng, cycle
+	   subtrips = Subtrip.where("origin_id IN (?)", city_ids ) 
+		 subtrips = subtrips.concat( Subtrip.where("destination_id IN (?)", city_ids ) )
   end
 
 	def subtrips days=0
 		if self.destination_lat.present? && self.origin_lat.present?
-			origin_ids = cities_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle).map { |d| d.id } 
-			destination_ids = cities_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle).map { |d| d.id } 
+			origin_ids = city_ids_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle) 
+			destination_ids = city_ids_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle) 
 		elsif self.destination_id.present? && self.origin_id.present?			
 			origin_ids = cities_near_cityid(self.origin_id, origin_cycle).map { |d| d.id }
 			destination_ids = cities_near_cityid(self.destination_id, destination_cycle).map { |d| d.id }
@@ -57,8 +65,9 @@ class SearchSubtrip
 	end
 
 	private
-		def cities_near_latlng lat, lng, cycle
-			City.near([lat,lng], 1 + cycle.to_f/1.609344 )
+		def city_ids_near_latlng lat, lng, cycle
+			cities = City.near([lat,lng], 1 + cycle.to_f/1.609344 )
+			 origin_ids = cities.map{|c| c.id}
 		end
 
 		def cities_near_destination_latlng
