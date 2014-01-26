@@ -5,8 +5,8 @@ class SearchSubtripsController < ApplicationController
 	
 	def search
 		if params[:search_subtrip].nil?
-			@subtrips = SearchSubtrip.all.page(params[:page]).per_page(10)
-			# @search_subtrip = SearchSubtrip.new	
+			@search_subtrip = SearchSubtrip.new	
+			@subtrips = @search_subtrip.newtrips.page(params[:page]).per_page(10)
 			# @subtrips = @search_subtrip.subtrips_close_to_user request.remote_ip #"194.225.220.30" 
 		else
 			@search_subtrip = SearchSubtrip.new(params[:search_subtrip])

@@ -8,7 +8,6 @@ class SearchSubtrip
 								:destination_id, :destination_name, :destination_lat, :destination_lng, :destination_cycle, 
 								:date, :jday, :jmonth, :jyear,
 								:autocomplete
-	
 
 	validate :cities_cannot_be_blank
 	validate :jday, :jday_validate
@@ -36,9 +35,11 @@ class SearchSubtrip
 	  "#<#{ self.to_s} #{ self.attributes.collect{ |e| ":#{ e }" }.join(', ') }>"
 	end
 
-  def self.all
-    Subtrip.where.not("origin_id = destination_id").order(date_time: :desc)
-  end
+	def newtrips
+    subtrips = Subtrip.where.not("origin_id = destination_id")
+    subtrips = subtrips.where("date_time > ?", DateTime.now)
+    subtrips = subtrips.order(date_time: :desc)		
+	end
 
   def subtrips_close_to_user ip, cycle = 100
   	 lat = Geocoder.search(ip).first.latitude 

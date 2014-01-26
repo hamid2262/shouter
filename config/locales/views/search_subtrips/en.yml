@@ -13,4 +13,8 @@ en:
           selector: "Autocomplete Mode"
           placeholder:
             origin: "Please insert start city"
-            destination: "Please insert destination"      
+            destination: "Please insert destination"
+    search:
+      search_filters: Filter Your Search
+      no_trip_registered: No record with this condition. please try again.
+      comming_soon: Comming Soon.

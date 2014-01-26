@@ -4,3 +4,23 @@ en:
       list_is_empty: List is Empty.
   followers: Follower
   followeds: Followed
+  sign_in: Sign In
+  last_login: Last login
+  followed_users: Followed Users by
+  posts: Posts
+  reviews: reviews        
+  currency: $ %{amount}
+  no_post_message: There is no post to display.
+  site_info:
+    title: "Hamsafaryab"
+  application:
+    footer:
+      copyright:  © %{year} %{href} All rights reserved
+      term: Terms
+      privacy: Privacy
+      security: Security
+      contact: Contact
+    error_messages:
+      title: Errors prohibited this record from being saved 
+      description: 'There were problems with the following fields:'
+  

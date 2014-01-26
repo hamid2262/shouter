@@ -7,19 +7,22 @@
 			</div>
 				<div class="user">
 					<h2 class="name">	<%= subtrip.trip.driver.name %> </h2>
-					<span class="old small text-muted"><%= subtrip.trip.driver.try(:age) %> <%= t('years_old') %></span>
+					<span class="old small text-muted">
+						<%= subtrip.trip.driver.try(:age) %> 
+						<%= t('years_old') %>
+					</span>
 				<!-- TODO Raiting -->					
 				</div>
 
 			<span class="ratingSmall col-md-">
 				<span class="stars"></span>
-				<span class="reviews">No review</span>
+				<span class="reviews"><%= t 'reviews' %></span>
 			</span> 
 		</div>
 
 		<div class="description col-xs-5">		
 			<h3 class="time">
-				<%= subtrip.date_time.to_s(:time) %> - 
+				<%= subtrip.date_time.to_s(:time) %> &nbsp; - &nbsp; 
 				<%= jdate_humanize(subtrip.date_time, params[:locale]) %>
 			</h3> 
 			<h3 class="fromto">
@@ -27,7 +30,12 @@
 				<span class="arrow-ie">&larr;</span>  
 				<span class="to"><%= subtrip.destination.local_name %></span>
 			</h3>
-			<h4 class="car"><%= t 'car_model' %>: <%= subtrip.trip.driver.vehicle.try(:vehicle_model).try(:name) %>  <%= subtrip.trip.driver.try(:vehicle).try(:vehicle_model).try(:vehicle_brand).try(:name) %></h4>
+			<h4 class="car">
+				<%= t 'car_model' %> 
+				:&nbsp; 
+				<%= subtrip.trip.driver.vehicle.try(:vehicle_model).try(:name) %>  
+				<%= subtrip.trip.driver.try(:vehicle).try(:vehicle_model).try(:vehicle_brand).try(:name) %>
+			</h4>
 		</div>
 
 		<div class="offer col-xs-3">

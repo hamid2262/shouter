@@ -14,3 +14,7 @@ fa:
           placeholder:
             origin: "لطفا شهر مبدا را وارد کنید"
             destination: "لطفا شهر مقصد را وارد کنید"
+    search:
+      search_filters: جستجو را محدود کنید
+      no_trip_registered:  سفری با این مشخصات پیدا نشد.                          
+      comming_soon: بزودی این امکان اضافه خواهد شد

@@ -10,3 +10,23 @@ fa:
     zero: بدون دنبال شونده
     one: یک دنبال شونده
     other: '%{count} دنبال شونده'
+  sign_in: ورود
+  last_login: آخرین ورود  
+  followed_users:  دنبال شونده های
+  posts: پستها
+  reviews: نظرات
+  currency: '%{amount} تومان '
+  no_post_message: هیچ پستی برای نمایش وجود ندارد.
+  site_info:
+    title: "همسفریاب"
+  application:
+    footer:
+      copyright: تمامی حقوق این سایت متعلق به %{href}  می باشد.
+      term: قوانین
+      privacy: حریم خصوصی
+      security: امنیت
+      contact: تماس
+    error_messages:
+      title: خطا مانع ثبت این رکورد در سیستم شده است
+      description: 'خطا در فیلدهای زیر بوده است:'
+    

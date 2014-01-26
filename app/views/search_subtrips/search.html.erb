@@ -6,10 +6,10 @@
 	<div class="sidebar col-sm-2">
 		<div class="panel panel-default ">
 		  <div class="panel-heading">
-		    <h3 class="panel-title">Search restrictions</h3>
+		    <h3 class="panel-title"><%= t '.search_filters' %></h3>
 		  </div>
 		  <div class="panel-body">
-		    Content
+		    <%= t '.comming_soon' %>
 		  </div>
 		</div>	
 	</div>
@@ -24,7 +24,7 @@
 				<% elsif @search_subtrip && @search_subtrip.errors.any? %>
 					<%= error_messages_for(@search_subtrip) %>
 				<% else %>
-					<p>No record with this condition. please try again.</p>
+					<h3><%= t '.no_trip_registered' %></h3>
 				<% end %>
 			</div>
 		<%= will_paginate @subtrips %>
