@@ -128,3 +128,102 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 		top: 6px;
 	}
 }
+
+#search_subtrips{
+	.pagination{
+		padding-left: 48%;
+		padding-right: 48%;
+	}
+	.subtrips-date{
+		border: 2px solid #D5D5D5;
+		padding: 17px 17px 17px 10px;
+		padding-bottom: 17px;
+		font-weight: bold;
+		background: #E9E9E9;
+	}
+	#search_subtrips_raw{
+		padding-top: 10px;
+		border-bottom: 1px solid #e2e2e2;	
+		&:hover{
+			background: #e8f28f;
+		}
+		.description{
+			border-right: 1px solid #eee;
+			border-left: 1px solid #eee;
+			min-height: 90px;
+			padding-top: 4px;
+			.time{
+				font-weight: bold;
+				margin-top: 0;
+				font-size: 1.3em;
+			}
+			.fromto{
+				color: #474747;
+				font-size: 1.3em;
+				font-weight: bold;				
+				margin-top: 0px;
+			}
+			.car{
+				font-size: 1em;
+				position: absolute;
+				bottom: -8px;
+				margin: 0;
+			}
+		}
+		.user-info{
+			.name{
+				font-size: 1em;
+				margin-top: 6px;
+				position: absolute;
+				top: 0px;
+				right: 92px;			
+			}
+			.old{
+				position: absolute;
+				top: 6px;
+				right: 91px;
+			}
+			.ratingSmall{
+				position: relative;
+				width: 68px;
+				height: 20px;
+				display: inline-block;
+				background: url('sd');
+				background-position: 1000px 0;
+				.stars{
+					background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/sprite_rating_stars.png');
+					width: 70px;
+					height: 26px;
+					display: inline-block;
+					background-position: 1px 0;
+				}	
+				.reviews{
+					position: absolute;
+					top: 4px;
+					right: 75px;
+					width: 108px;
+					color: #6D6D6D;
+				}
+			}
+		}
+		.offer{
+			.price{
+				color: #ff9802;
+				strong{
+					display: block;
+					font-size: 1.8em;
+					line-height: 30px;	
+				}
+			}
+			.avalability{
+				color: #5F5F5F;
+				strong{
+					font-size: 1.4em;
+				}
+				span{
+					font-size: 1em;
+				}
+			}
+		}
+	}
+}

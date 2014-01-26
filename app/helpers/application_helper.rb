@@ -116,6 +116,18 @@ module ApplicationHelper
 	 	message.html_safe
 	end
   
+  def jdate_humanize date_time, locale
+  	if date_time.to_date == Date.today
+  		t "today"
+  	elsif date_time.to_date == Date.today + 1.day
+  		t "tomorrow"
+  	elsif locale == 'fa'
+  		jalali_date date_time
+  	else
+  		date_time.strftime("%d %b %Y")
+  	end
+  end
+
   def jalali_date s
     JalaliDate.new(s).strftime("%d %b %Y")
   end

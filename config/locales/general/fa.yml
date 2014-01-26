@@ -10,6 +10,12 @@ fa:
   from: مبدا حرکت از 
   via: گذر از 
   to: به مقصد
+  per_passenger: هر نفر
+  seats_left: صندلی خالی
+  years_old: ساله
+  car_model: مدل خودرو
+  today: امروز
+  tomorrow: فردا
   remove: حذف
   # flash messages   
   following_message: 'شما  "%{name}" را دنبال میکنید'

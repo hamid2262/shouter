@@ -1,14 +1,49 @@
-<div>
-	<span><%= subtrip.date_time.to_s(:time) %> </span>
-	<span><%= subtrip.origin.local_name %> </span>
-	<span><%= subtrip.destination.local_name %> </span>
-	<span><%= subtrip.price %> </span>
-	<span>
-		<%= subtrip.trip.driver.name %> 
-		<%= gravatar(subtrip.trip.driver, 32, "img-rounded img-circle") %>
-		<!-- TODO Raiting -->
-		<span class="ratingSmall">TODO</span>
-	</span>
-	<span><%= link_to "Detail", subtrip_path(subtrip.id) %></span>
-</div>
+<a href="<%= subtrip_path(subtrip.id) %>" >
+	<div id="search_subtrips_raw" class="row">
+
+		<div class="user-info col-xs-4">
+			<div class="gravatar">
+				<%= gravatar(subtrip.trip.driver, 72, "img-thumbnail") %>				
+			</div>
+				<div class="user">
+					<h2 class="name">	<%= subtrip.trip.driver.name %> </h2>
+					<span class="old small text-muted"><%= subtrip.trip.driver.try(:age) %> <%= t('years_old') %></span>
+				<!-- TODO Raiting -->					
+				</div>
+
+			<span class="ratingSmall col-md-">
+				<span class="stars"></span>
+				<span class="reviews">No review</span>
+			</span> 
+		</div>
+
+		<div class="description col-xs-5">		
+			<h3 class="time">
+				<%= subtrip.date_time.to_s(:time) %> - 
+				<%= jdate_humanize(subtrip.date_time, params[:locale]) %>
+			</h3> 
+			<h3 class="fromto">
+				<span class="from"><%= subtrip.origin.local_name %> </span>
+				<span class="arrow-ie">&larr;</span>  
+				<span class="to"><%= subtrip.destination.local_name %></span>
+			</h3>
+			<h4 class="car"><%= t 'car_model' %>: <%= subtrip.trip.driver.vehicle.try(:vehicle_model).try(:name) %>  <%= subtrip.trip.driver.try(:vehicle).try(:vehicle_model).try(:vehicle_brand).try(:name) %></h4>
+		</div>
+
+		<div class="offer col-xs-3">
+			<div class="price">
+				<strong>
+					<%= t 'currency', amount: subtrip.price %>
+				</strong>
+				<span class="price-unit"><%= t('per_passenger') %></span>
+			</div>
+
+			<div class="avalability">
+				<strong><%= subtrip.seats.count(0) %> </strong>
+				<span><%= t('seats_left') %></span>
+			</div>
+		</div>
+		
+	</div>
+</a>
 

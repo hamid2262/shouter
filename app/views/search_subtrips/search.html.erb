@@ -14,16 +14,20 @@
 		</div>	
 	</div>
 
-	<div class="content col-sm-10">
-		<% if @subtrips && @subtrips.any? %>
+	<div class="content col-sm-10 col-lg-8">
+		<div class="panel panel-default">
+	  	<div class="panel-body">
+				<% if @subtrips && @subtrips.any? %>
 
-			<%= render @subtrips %>	
+					<%= render @subtrips %>	
 
-		<% elsif @search_subtrip && @search_subtrip.errors.any? %>
-			<%= error_messages_for(@search_subtrip) %>
-		<% else %>
-			<p>No record with this condition. please try again.</p>
-		<% end %>
+				<% elsif @search_subtrip && @search_subtrip.errors.any? %>
+					<%= error_messages_for(@search_subtrip) %>
+				<% else %>
+					<p>No record with this condition. please try again.</p>
+				<% end %>
+			</div>
+		<%= will_paginate @subtrips %>
+		</div>
 	</div>
-	<%= will_paginate @subtrips %>
 </div>

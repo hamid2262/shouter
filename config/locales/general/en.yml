@@ -10,6 +10,12 @@ en:
   from: From
   via: Via
   to: To 
+  per_passenger: per passenger
+  seats_left: seats left
+  years_old: years old
+  car_model: Car Model
+  today: Today
+  tomorrow: Tomorrow
   remove: Remove
   delete: Delete
   # flash messages

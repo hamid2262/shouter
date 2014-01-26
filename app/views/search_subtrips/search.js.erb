@@ -1,7 +1,7 @@
-$('#search_subtrips .content').append('<%= j render(@subtrips) %>');
+$('#search_subtrips .content .panel-body').append('<%= j render(@subtrips) %>');
 <% if @subtrips.next_page %>
   $('.pagination').replaceWith('<%= j will_paginate(@subtrips) %>');
 <% else %>
   $('.pagination').remove();
 <% end %>
-<% sleep 1 %>
+<% sleep 0.5 %>

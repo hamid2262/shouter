@@ -1,10 +1,10 @@
 <% if session[:temp].nil? || session[:temp] != subtrip.jday  %>
-	
-	<h4> <%= jalali_date subtrip.date_time %> <%= jalali_day subtrip.date_time %> </h4>
+	<h4 class="subtrips-date">  <%= jalali_day subtrip.date_time %> <%= jalali_date subtrip.date_time %></h4>
 		<%= render partial: 'subtrips/subtrip_search_raw', locals: {subtrip: subtrip} %>
 <% else %>
 	<% if (session[:temp] == subtrip.jday) %>	
 			<%= render partial: 'subtrips/subtrip_search_raw', locals: {subtrip: subtrip} %> 
 	<% end %>
 <% end %>
+
 <% session[:temp] = subtrip.jday %>
