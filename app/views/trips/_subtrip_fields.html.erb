@@ -1,37 +1,44 @@
-  <fieldset class="col-sm-12 1col-sm-offset-3">
-  <!-- At -->
-      <div class="col-sm-3">
-         <%= t('.at') %>  
-      </div> 
-      <div class="col-sm-9">
-        <%= f.select :jminute, options_for_minute %> : 
-        <%= f.select :jhour, options_for_hour, {:include_blank => true},{class: "required"}  %>
-      </div>
+<fieldset class="col-sm-12 1col-sm-offset-3">
+<!-- At -->
+<!--   <div class="fields">
+    <div class="col-sm-3">
+       <%#= t('.at') %>  
+    </div> 
+  </div> -->
+<!-- On -->
+  <div class="datetime">
+    <div class="col-sm-2">
+      <%= t('.on') %>  
+    </div> 
+    <div class="col-sm-6">
+      <%= f.select :jday, options_for_day %> 
+      <%= f.select :jmonth, options_for_month %>
+      <%= f.select :jyear, options_for_year %> 
+    </div>
 
-  <!-- On -->
-      <div class="col-sm-3">
-        <%= t('.on') %>  
-      </div> 
-      <div class="col-sm-9">
-        <%= f.select :jday, options_for_day %> 
-        <%= f.select :jmonth, options_for_month %>
-        <%= f.select :jyear, options_for_year %> 
-      </div>
+    <div class="col-sm-3">
+      <%= f.select :jminute, options_for_minute %> : 
+      <%= f.select :jhour, options_for_hour, {:include_blank => true},{class: "required"}  %>
+    </div>
 
-  <!-- Via -->
-      <div class="col-sm-3">
-        <%= t('.city') %>  
-      </div> 
-      <div class="col-sm-9 states_cities">
-        <div class="states">
-          <%= collection_select :temp, :state_id, State.order(:local_name), :id, :local_name,  {:prompt=>true} ,{ class: 'my-states'} %>        
-        </div>
-        <div class="cities">
-          <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'required'} %>     <!-- select2_input -->        
-        </div>
-        <%= f.hidden_field :_destroy %>
-        <div class="remove_fields_div">
-          <%= link_to t(".remove"), "#", class: "remove_fields" %>            
-        </div>
+  </div>
+
+<!-- Via -->
+  <div class="">
+    <div class="col-sm-2">
+      <%= t('.city') %>  
+    </div> 
+    <div class="col-sm-10 states_cities">
+      <div class="states">
+        <%= collection_select :temp, :state_id, State.order(:local_name), :id, :local_name,  {:prompt=>true} ,{ class: 'my-states'} %>        
       </div>
+      <div class="cities">
+        <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'required'} %>     <!-- select2_input -->        
+      </div>
+      <%= f.hidden_field :_destroy %>
+      <div class="remove_fields_div col-sm-1">
+        <%= link_to t(".remove"), "#", class: "remove_fields" %>            
+      </div>
+    </div>
+  </div>      
 </fieldset>

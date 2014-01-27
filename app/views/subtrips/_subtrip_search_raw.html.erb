@@ -22,8 +22,9 @@
 
 		<div class="description col-xs-5">		
 			<h3 class="time">
-				<%= subtrip.date_time.to_s(:time) %> &nbsp; - &nbsp; 
-				<%= jdate_humanize(subtrip.date_time, params[:locale]) %>
+				<%= subtrip.date_time.to_s(:time) %> 
+				<%= am_pm subtrip.date_time %> &nbsp; 
+				<small><%= jdate_humanize(subtrip.date_time, params[:locale]) %></small>
 			</h3> 
 			<h3 class="fromto">
 				<span class="from"><%= subtrip.origin.local_name %> </span>

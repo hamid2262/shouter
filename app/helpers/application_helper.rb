@@ -116,6 +116,14 @@ module ApplicationHelper
 	 	message.html_safe
 	end
   
+	def am_pm time
+		if time.hour >= 12
+      t('time.pm')
+		else
+			t('time.am')
+		end
+	end
+
   def jdate_humanize date_time, locale
   	if date_time.to_date == Date.today
   		t "today"

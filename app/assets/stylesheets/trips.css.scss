@@ -27,7 +27,10 @@
     fieldset{
     	border: dotted 1px #AEAEB6;
 			padding: 7px 19px;
-			margin-bottom: 3px;   
+			margin-bottom: 3px;  
+			.datetime {
+				height: 31px;
+			}
 			.remove_fields_div{
 				float: left;
 			} 	

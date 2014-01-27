@@ -9,11 +9,11 @@ jQuery ->
     event.preventDefault()
    
   $('form').on 'click', '.add_fields', (event) ->
-  	if $('fieldset:visible').length < 6
-	    time = new Date().getTime()
-	    regexp = new RegExp($(this).data('id'), 'g')
-	    $(this).before($(this).data('fields').replace(regexp, time))            
-    event.preventDefault()
+    if $('fieldset:visible').length < 5
+      time = new Date().getTime()
+      regexp = new RegExp($(this).data('id'), 'g')
+      $(this).before($(this).data('fields').replace(regexp, time))
+      event.preventDefault()
 
     # hide remove link from last and first on change
     $('.trip-route fieldset').find('.remove_fields').css( "display", "inline" )
