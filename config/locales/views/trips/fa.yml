@@ -13,5 +13,5 @@ fa:
     subtrip_fields:
       at: در ساعت
       city: از شهر
-      on: تاریخ
+      on_at: تاریخ و ساعت
       remove: حذف

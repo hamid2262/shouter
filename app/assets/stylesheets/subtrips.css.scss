@@ -6,3 +6,34 @@
 	margin-top: 0;
 	display: inline;
 }
+
+.car_blueprint{
+	background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/car_blueprints/4.gif') no-repeat;
+	position: relative;
+	min-height: 454px;
+	.person{
+		position: absolute;
+		border: 1px solid #B4B4B4;
+		padding: 1px;		
+	}
+	.driver{
+		top: 121px;
+		left: 39px;
+	}
+	.passenger-1{
+		top: 121px;
+		left: 102px;
+	}
+	.passenger-2{
+		top: 192px;
+		left: 111px;
+	}
+	.passenger-3{
+		top: 192px;
+		left: 69px;
+	}
+	.passenger-4{
+		top: 192px;
+		left: 27px;
+	}
+}

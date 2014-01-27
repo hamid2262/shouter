@@ -1,25 +1,7 @@
 <div class="col-sm-7">
-	<div class="panel panel-default ">
-		<div class="panel-heading">
-			<h2>
-				<%= @subtrip.destination.name %>
-				<span class="arrow-ie">&larr;</span> 
-				<%= @subtrip.origin.name %>
-				<% if @subtrip.price %>
-					<strong class="pull-<%= lang_other_side  %>">
-						<%= t 'currency', amount: @subtrip.price %>
-					</strong>
-				<% end %>
-			</h2>
-		</div>
+	<%= render 'subtrips/show/subtrip_overview' %>
+</div>
 
-	  <div class="panel-body">
-	  	<p></p>
-	  </div>
-		<%= render 'subtrips/show/route_overview' %>
-	  <div class="panel-body">
-
-	  </div>	
-	</div>
+<div class="col-sm-5">
 	<%= render 'seats_form' %>
 </div>

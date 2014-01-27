@@ -13,5 +13,5 @@ en:
     subtrip_fields:
       at: At
       city: City
-      'on': 'On'
+      on_at: Date and Time
       remove: Remove
