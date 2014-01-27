@@ -10,6 +10,12 @@ fa:
   from: مبدا حرکت از 
   via: گذر از 
   to: به مقصد
+  date: تاریخ
+  date_time: تاریخ و زمان سفر
+  path: مسیر
+  price: قیمت
+  distance: مسافت
+  km: ' %{amount} کیلومتر'
   per_passenger: هر نفر
   seats_left: صندلی خالی
   years_old: ساله

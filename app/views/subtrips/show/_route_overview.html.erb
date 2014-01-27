@@ -1,0 +1,47 @@
+<table class="table orogin-destination">
+  <tbody>
+  	<tr>
+  		<th><%= t 'path' %></th>
+  		<th><%= t 'from' %></th>
+  		<td><%= print_cities_name(@subtrip.trip.first_city, @subtrip) %></td>
+  	</tr>
+
+		<% @subtrip.trip.via_cities_obj.each do |s| %>
+	  	<tr>
+	  		<th></th>
+	  		<th><%= t 'via' %></th>
+	  		<td><%= print_cities_name(s, @subtrip) %> </td>
+	  	</tr>
+		<% end %>
+  	<tr>
+  		<th></th>
+  		<th><%= t 'to' %></th>
+  		<td><%= print_last_city_name(@subtrip.trip.last_city, @subtrip) %></td>
+  	</tr>
+
+  	<tr>
+  		<th><%= t 'date_time'  %></th>
+  		<th><%= t 'date'  %></th>
+  		<td><%= jalali_date(@subtrip.date_time) %></td>
+  	</tr>
+  	
+  	<tr>
+  		<th></th>
+  		<th><%= t 'at' %></th>
+  		<td><%= jalali_time(@subtrip.date_time) %></td>
+  	</tr>
+  	<tr>
+  		<th><%= t 'price' %></th>
+  		<th><%= t 'currency', amount: @subtrip.price %></th>
+  		<th></th>
+  	</tr>  	
+ 		<tr>
+  		<th><%= t 'distance' %></th>
+  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>
+  		<th>
+  			<%=  %>
+
+  		</th>
+  	</tr>  	
+  </tbody>
+</table>

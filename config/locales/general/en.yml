@@ -9,7 +9,13 @@ en:
   at: At
   from: From
   via: Via
-  to: To 
+  to: To
+  date: On 
+  date_time: Date and time
+  path: Path
+  price: Price
+  distance: Distance
+  km: 'Kilometer %{amount}'
   per_passenger: per passenger
   seats_left: seats left
   years_old: years old
