@@ -27,39 +27,82 @@
 			padding: 5px;
 		}
 	}
-	.blueprint_car{
-		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_car.gif') no-repeat;
-		position: relative;
-		min-height: 313px;
-		.person{
-			position: absolute;
-			border: 1px solid #B4B4B4;
-			padding: 1px;		
-		}
-		.driver{
-			top: 121px;
-			left: 39px;
-		}
-		.passenger-1{
-			top: 121px;
-			left: 102px;
-		}
-		.passenger-2{
-			top: 192px;
-			left: 111px;
-		}
-		.passenger-3{
-			top: 192px;
-			left: 69px;
-		}
-		.passenger-4{
-			top: 192px;
-			left: 27px;
-		}
-	}
 
 	.blueprints{
 		padding: 0;
+
+		.blueprint_car{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_car.gif') no-repeat;
+			position: relative;
+			min-height: 313px;
+			.person{
+				position: absolute;
+				border: 1px solid #B4B4B4;
+				padding: 1px;		
+			}
+			.driver{
+				top: 121px;
+				left: 39px;
+			}
+			.passenger-1{
+				top: 121px;
+				left: 102px;
+			}
+			.passenger-2{
+				top: 192px;
+				left: 111px;
+			}
+			.passenger-3{
+				top: 192px;
+				left: 69px;
+			}
+			.passenger-4{
+				top: 192px;
+				left: 27px;
+			}
+		}
+
+		.blueprint_van{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_van.gif') no-repeat;
+			position: relative;
+			min-height: 293px;
+			min-width: 168px;
+			.person{
+				position: absolute;
+				border: 1px solid #B4B4B4;
+				padding: 1px;		
+			}
+			.driver{
+				top: 76px;
+				left: 34px;
+			}
+			.passenger-1{
+				top: 76px;
+				left: 104px;
+			}
+			.passenger-2,.passenger-3,.passenger-4{
+				top: 126px;
+			}
+			.passenger-5,.passenger-6,.passenger-7{
+				top: 179px;
+			}
+			.passenger-8,.passenger-9,.passenger-10{
+				top: 232px;
+			}
+
+			.passenger-2,.passenger-5,.passenger-8{
+				left: 111px;
+			}
+			.passenger-3,.passenger-6,.passenger-9{
+				left: 61px;
+			}
+			.passenger-4,.passenger-7,.passenger-10{
+				left: 20px;
+			}
+
+
+		}		
+
 		.blueprint_bus{
 			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_bus.gif') no-repeat;
 			position: relative;
@@ -87,9 +130,6 @@
 			.passenger-4,.passenger-8,.passenger-12,.passenger-16,.passenger-20,.passenger-28,.passenger-32,.passenger-36,.passenger-40,.passenger-44,.passenger-48,.passenger-52{
 				left: 146px;
 			}
-
-
-
 			.passenger-1,.passenger-2,.passenger-3,.passenger-4 {
 				top: 106px;
 			}
