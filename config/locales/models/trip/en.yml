@@ -29,3 +29,4 @@ en:
     submit:
       trip:
         create: "Create %{model}"
+        update: Submit prices

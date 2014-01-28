@@ -31,3 +31,4 @@ fa:
     submit:
       trip:
         create: "ثبت سفر"
+        update: "ثبت قیمت سفرها"
