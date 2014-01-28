@@ -62,6 +62,55 @@
 			}
 		}
 
+		.blueprint_minibus{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_minibus.gif') no-repeat;
+			position: relative;
+			min-height: 515px;
+			min-width: 168px;
+			.person{
+				position: absolute;
+				border: 1px solid #B4B4B4;
+				padding: 1px;		
+			}
+			.driver{
+				top: 124px;
+				left: 30px;
+			}
+			.passenger-1{
+				top: 123px;
+				left: 133px;
+			}
+			.passenger-2,.passenger-6,.passenger-10,.passenger-14,.passenger-18{
+				left: 150px;
+			}
+			.passenger-3,.passenger-7,.passenger-11,.passenger-15,.passenger-19{
+				left: 109px;
+			}
+			.passenger-4,.passenger-8,.passenger-12,.passenger-16,.passenger-20{
+				left: 51px;
+			}
+			.passenger-5,.passenger-9,.passenger-13,.passenger-17{
+				left: 11px;
+			}
+
+			.passenger-5,.passenger-2,.passenger-3,.passenger-4 {
+				top: 183px;
+			}
+			.passenger-9,.passenger-6,.passenger-7,.passenger-8 {
+				top: 236px;
+			}
+			.passenger-13,.passenger-10,.passenger-11,.passenger-12 {
+				top: 291px;
+			}
+			.passenger-17,.passenger-14,.passenger-15,.passenger-16 {
+				top: 346px;
+			}
+			.passenger-18,.passenger-19,.passenger-20 {
+				top: 401px;
+			}
+
+		}
+
 		.blueprint_van{
 			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/blueprints/blueprint_van.gif') no-repeat;
 			position: relative;
@@ -79,7 +128,7 @@
 			.passenger-1{
 				top: 76px;
 				left: 104px;
-			}
+			}			
 			.passenger-2,.passenger-3,.passenger-4{
 				top: 126px;
 			}

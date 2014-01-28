@@ -29,7 +29,7 @@ class Subtrip < ActiveRecord::Base
       "van"
     when 10..20 
       "minibus"
-    when 20..60 
+    when 21..60 
       "bus"
     end
   end
