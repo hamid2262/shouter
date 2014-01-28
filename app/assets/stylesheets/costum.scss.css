@@ -119,6 +119,10 @@ input[type = email]  {
   /*text-align: right;*/
   direction: ltr;
 }
+.stars{
+  background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/sprite_rating_stars.png');
+} 
+
 
 .error{
     color: #911;

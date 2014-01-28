@@ -1,0 +1,17 @@
+en:
+  subtrips:
+    show:
+      driver_overview:
+        city: City
+        last_activity: Last activity
+        name: Name
+        no_comment: There is no comment
+        num_of_comment: Number Of Comment
+        num_of_trips: Number of trips
+        overview: Driver Overview
+        url: Url in Hamsafaryab
+      seats_status:
+        number_of_free_seats: 'Number of available  seats:'
+        number_of_seats: 'Seats total number:'
+        number_of_taken_seats: 'Number of taken seats:'
+        seats_status: Seats Status

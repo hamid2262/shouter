@@ -1,0 +1,17 @@
+fa:
+  subtrips:
+    show:
+      driver_overview:
+        city: شهر
+        last_activity: آخریت فعالیت
+        name: نام کامل
+        no_comment: هیچ نظری ثبت نشده است.
+        num_of_comment: تعداد نظرات
+        num_of_trips: تعداد سفرها تاکنون
+        overview: مشخصات راننده
+        url: آدرس در همسفریاب
+      seats_status:
+        number_of_free_seats: 'تعداد صندلی های خالی:'
+        number_of_seats: 'تعداد کل صندلی ها:'
+        number_of_taken_seats: 'تعداد صندلیهای گرفته شده:'
+        seats_status: وضعیت صندلی ها

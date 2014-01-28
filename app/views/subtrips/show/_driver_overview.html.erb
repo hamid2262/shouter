@@ -1,0 +1,46 @@
+<div class="driver_overview">
+	<div class="panel panel-default clear">
+	  <div class="panel-heading">
+	  	<%= link_to(gravatar(@subtrip.trip.driver, 90, "img-responsive img-thumbnail pull-#{lang_other_side}",:square), profile_url(@subtrip.trip.driver) )%>
+	  	<h2> <%=t  '.overview'  %> </h2>
+	  </div>
+		<div class="panel-body">
+			<div class="meta">
+				<span class="stars" style="background-position:1569px 0px;"></span>
+				<p class="score">(5/5)</p> 
+			</div>
+		</div>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th><%= t(".name") %></th>
+					<th><%= link_to(@subtrip.trip.driver.name , profile_url(@subtrip.trip.driver) )%></th>
+				</tr>
+				<tr>
+					<th><%= t(".num_of_trips") %></th>
+					<th><%= @subtrip.trip.driver.trips.size %></th>
+				</tr>  	
+				<tr>
+					<th><%= t(".num_of_comment") %></th>
+					<th><%= t(".no_comment") %></th>
+				</tr>  				
+				<tr>
+					<th><%= t(".last_activity") %></th>
+					<th><%= resent_activity(@subtrip.trip.driver, "activity") %></th>
+				</tr>
+				<tr>
+					<th><%= t(".city") %></th>
+					<th><%= @subtrip.trip.driver.try(:city).try(:name) %></th>
+				</tr>
+				<% if @subtrip.trip.driver.slug_updated %>
+					<tr>
+						<th><%= t(".url") %></th>
+						<th><%= link_to_profile(@subtrip.trip.driver) %></th>
+					</tr>  				
+				<% end %>					  			  			
+			</tbody>
+		</table>
+		
+	</div>
+
+</div>

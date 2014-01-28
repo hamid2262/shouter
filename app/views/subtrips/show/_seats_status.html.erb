@@ -1,0 +1,30 @@
+<div class="seats_status">	
+	<div class="panel panel-default">
+	  <div class="panel-heading"><h4><%= t '.seats_status' %></h4></div>
+	  <div class="panel-body">
+	  	<div class="col-lg-6">
+		  	<table>
+		  		<tbody>
+			  		<tr>
+			  			<th><%= t '.number_of_seats' %> </th>
+			  			<th><%= @subtrip.seats.size  %>	</th>  			
+			  		</tr>
+			  		<tr>
+			  			<th><%= t '.number_of_free_seats' %> </th>
+			  			<th><%= @subtrip.seats.count(0) %>	</th>  			
+			  		</tr>
+			  		<tr>
+			  			<th><%= t '.number_of_taken_seats' %> </th>
+			  			<th><%= @subtrip.number_of_taken_seats %>	</th>  			
+			  		</tr>
+
+		  		</tbody>
+		  	</table>
+	  	</div>
+			<div class="col-lg-6 blueprints">
+				<%= render 'subtrips/show/seats_order' %>
+			</div>
+		
+	  </div>
+	</div>
+</div>

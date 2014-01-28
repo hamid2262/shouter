@@ -17,6 +17,23 @@ class Subtrip < ActiveRecord::Base
   before_create :set_seats
   before_create :set_date_time
  
+  def number_of_taken_seats
+    self.seats.count(0)
+  end
+
+  def vehicle_type
+    case self.seats.size
+    when 1..4 
+      "car"
+    when 5..9 
+      "van"
+    when 10..20 
+      "minibus"
+    when 20..60 
+      "bus"
+    end
+  end
+
   def find_conflict_subtrips
   	origin = self.origin_id
     destination = self.destination_id

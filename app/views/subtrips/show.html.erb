@@ -1,7 +1,16 @@
-<div class="col-sm-7">
-	<%= render 'subtrips/show/subtrip_overview' %>
-</div>
+<div class="subtrip_single">
+	<div class="col-sm-7">
+		<%= render 'subtrips/show/subtrip_overview' %>
+	</div>
 
-<div class="col-sm-5">
-	<%= render 'seats_form' %>
+	<div class="col-sm-5">
+		<%= render 'subtrips/show/driver_overview' %>
+		<%= render 'subtrips/show/seats_status' %>
+		<%= render 'subtrips/show/vehicle_overview' %>
+	</div>
+
+	<div class="col-sm-7">
+		<%= render 'subtrips/show/gmap' %>
+	</div>
+
 </div>
