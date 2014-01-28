@@ -5,6 +5,7 @@ class TripsController < ApplicationController
 
   before_action :set_user, only: [:show, :edit]
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
+  before_action :set_max_vehicle_seats, only: [:new, :show]
   before_filter :authenticate_user!
   def index
     if current_user.is_admin?
@@ -25,7 +26,6 @@ class TripsController < ApplicationController
   end
 
   def new
-    @max_vehicle_seats = 8
     @trip = Trip.new
     @trip.subtrips.build
     @trip.subtrips.build
@@ -77,6 +77,10 @@ class TripsController < ApplicationController
 
     def set_user
       @user = @trip.driver
+    end
+
+    def set_max_vehicle_seats
+      @max_vehicle_seats = 50
     end
     # def main_subtrip_params
     #   params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 

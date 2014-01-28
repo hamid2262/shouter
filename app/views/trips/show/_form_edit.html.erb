@@ -13,7 +13,7 @@
   <div class="form-group">
     <%= f.label :total_available_seats, class: "col-sm-3 control-label" %>
     <div class="col-sm-9">
-      <%= f.input :total_available_seats, collection: 1..6, label: false, input_html:{ class: "form-control"} %>
+      <strong><%= f.object.total_available_seats %></strong> 
     </div>
   </div>
 
