@@ -133,6 +133,10 @@ module ApplicationHelper
 		end
 	end
 
+	def currency price
+		number_to_currency(price, delimiter: ",", format: "%n")
+	end
+
   def jdate_humanize date_time, locale
   	if date_time.to_date == Date.today
   		t "today"

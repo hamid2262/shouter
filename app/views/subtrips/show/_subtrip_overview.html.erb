@@ -6,7 +6,7 @@
 			<%= @subtrip.origin.name %>
 			<% if @subtrip.price %>
 				<strong class="pull-<%= lang_other_side  %>">
-					<%= t 'currency', amount: @subtrip.price %>
+					<%= t 'currency', amount: currency(@subtrip.price) %>
 				</strong>
 			<% end %>
 		</h2>

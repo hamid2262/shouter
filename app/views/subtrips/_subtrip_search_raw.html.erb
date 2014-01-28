@@ -42,7 +42,8 @@
 		<div class="offer col-xs-3">
 			<div class="price">
 				<strong>
-					<%= t 'currency', amount: subtrip.price %>
+				<%#= number_to_currency(1234567,  separator: "٬", format: "%n") %> <br>
+					<%= t 'currency', amount: currency(subtrip.price) %>
 				</strong>
 				<span class="price-unit"><%= t('per_passenger') %></span>
 			</div>
@@ -55,4 +56,3 @@
 		
 	</div>
 </a>
-
