@@ -6,7 +6,7 @@
 	<div class="col-sm-5">
 		<%= render 'subtrips/show/driver_overview' %>
 		<%= render 'subtrips/show/seats_status' %>
-		<%= render 'subtrips/show/vehicle_overview' %>
+		<%= render partial: 'vehicles/show', locals: {user: @subtrip.trip.driver} %>
 	</div>
 
 	<div class="col-sm-7">

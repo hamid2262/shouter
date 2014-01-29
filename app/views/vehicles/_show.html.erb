@@ -1,32 +1,37 @@
-<div class="panel panel-default clear">
-  <div class="panel-heading"><%= t '.car_details' %></div>
-  <div class="panel-body">
-    <% if current_user %>
-      <% if user.vehicle.present? %>
-        <form class="form-horizontal" role="form">
-          <%=  user_form_control_static Vehicle.human_attribute_name("color"), user.vehicle.color %>
-          <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.vehicle_brand.name %>
-          <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_model"), user.vehicle.vehicle_model.name %>
-          <%=  user_form_control_static Vehicle.human_attribute_name("number_plate"), user.vehicle.number_plate %>
-          <%=  user_form_control_static Vehicle.human_attribute_name("air_condition"), user.vehicle.air_condition %>
-          <%=  user_form_control_static Vehicle.human_attribute_name("year"), user.vehicle.year %>
-        </form>
+<div class="vehicle_show">
+  <div class="panel panel-default clear">
+    <div class="panel-heading"><h4><%= t '.car_details' %></h4></div>
+    <div class="panel-body">
+      <% if current_user %>
+        <% if user.vehicle.present? %>
+          <div class="col-lg-6">
+            <form class="form-horizontal" role="form">
+              <%=  user_form_control_static Vehicle.human_attribute_name("color"), user.vehicle.color %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.vehicle_brand.name %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_model"), user.vehicle.vehicle_model.name %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("number_plate"), user.vehicle.number_plate %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("air_condition"), user.vehicle.air_condition %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("year"), user.vehicle.year %>
+            </form>          
+            <% if user == current_user %>
+              <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
+            <% end %>          
+          </div>
 
-      
-      <%= link_to (image_tag user.vehicle.image.url(:small)), user.vehicle.image.url(:normal) %> <br>
-      <% if user == current_user %>
-        <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
-      <% end %>
+          <div class="col-lg-6">
+            <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %> <br>
+            
+          </div>      
+        <% else %>
+          <p><%= t('.there_is_no_car_registered.') %></p>
+          <% if user == current_user %>
+            <p><%= link_to t('.enter_car_detail_btn'), new_user_vehicles_path(user), class: "btn btn-warning" %></p>    
+          <% end %>
+        <% end %>  <!-- if user.vehicle.present? -->
 
-    <% else %>
-      <p><%= t('.there_is_no_car_registered.') %></p>
-      <% if user == current_user %>
-        <p><%= link_to t('.enter_car_detail_btn'), new_user_vehicles_path(user), class: "btn btn-warning" %></p>    
-      <% end %>
-    <% end %>  <!-- if user.vehicle.present? -->
-
-  <% else %>
-    <%= force_to_sign_in_message %>
-  <% end %> <!-- if current_user -->
-</div>
+      <% else %>
+        <%= force_to_sign_in_message %>
+      <% end %> <!-- if current_user -->
+    </div>
+  </div>  
 </div>
