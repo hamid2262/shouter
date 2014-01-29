@@ -24,6 +24,8 @@ class Ability
         can [:show, :index, :edit, :update, :destroy], [Trip] do |t|
             user == t.driver
         end        
+
+        can [:new, :create], Booking
     else
 
     end

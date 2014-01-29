@@ -1,12 +1,19 @@
 <%= simple_form_for(@booking) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :passenger %>
-    <%= f.input :accaptance_status %>
-  </div>
+	<div class="col-xs-6">
+	  <div class="form-inputs">
+	    <%= f.association :passenger %>
+	    <%= f.input :accaptance_status %>
+	  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+	  <div class="form-actions">
+	    <%= f.button :submit %>
+	  </div>
+	 </div>
+		<div class="col-xs-6 blueprints">
+			<%= render 'bookings/new/seats_order' %>
+		</div>	 
+	<% end %>
+
+

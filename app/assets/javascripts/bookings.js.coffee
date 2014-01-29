@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+jQuery ->
+	$('span.number').click ->
+		# console.log($(this).html())
+		$(this).toggleClass('number_on_click')
+		if $(this).hasClass('number_on_click')
+			$(".seats_nums").append("<div>hello world</div>")
+		else
+			console.log "asd"

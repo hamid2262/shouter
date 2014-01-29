@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
   
@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    @subtrip = Subtrip.find(params[:trip])
     @booking = Booking.new
   end
 

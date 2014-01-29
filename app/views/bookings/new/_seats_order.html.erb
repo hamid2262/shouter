@@ -1,0 +1,22 @@
+<div class="blueprint_<%= @subtrip.vehicle_type %>">
+	<%#= form_tag bookings_path do %>
+  <%= link_to gravatar(@subtrip.trip.driver, 43, "img-circle person driver"), profile_url(@subtrip.trip.driver) %> 
+	<% @subtrip.seats.each_with_index do |id, index| %>
+		<%#= check_for_seat_state(id, index) %>
+		<% if id == 0 %>
+			<span class="number person passenger-<%= index+1 %>"><%= index+1 %>	<%= check_box_tag 'rock', 'rock music' %></span>
+			<%= image_tag( IMAGES_PATH+"blueprints/seat_free.gif", size: "43x43", class: "img-circle person passenger-#{index+1}" ) %>
+		<% elsif id == -1 %>
+<!-- TODO for unavailable seats -->
+		<% else %>
+			<% user = User.find_by(id: id) %>
+  		<%= link_to gravatar(user, 43, "img-circle person passenger-#{index+1}"), profile_url(user) %> 
+		<% end %>
+	<% end %> <!-- Form End -->
+		
+		<%#= submit_tag 'Save' %>
+	<%# end -%>		
+</div>
+<div class="seats_nums">
+	
+</div>
