@@ -53,7 +53,7 @@
 	  		<th><%= t 'distance' %></th>
 	  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>
 	  		<th>
-	  			<%= link_to "Book this trip", new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning" %>
+	  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning" %>
 <%#= form_tag(new_booking_path, method: :get) do -%>
   <%#= submit_tag "Book this trip", class: "btn btn-lg btn-warning"  %>
 <%# end -%>

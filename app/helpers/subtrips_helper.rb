@@ -23,26 +23,26 @@ module SubtripsHelper
 	def check_for_seat_state id, index
 		result = case id 
 		when -1
-			"#{index+1}   =>  unavailable 
-				<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"-1\" />
-			"
+			# "#{index+1}   =>  #{t('.taken')} 
+			# 	<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"-1\" />
+			# "
 		when  0
-			"#{index+1} => available 
+			" <th> #{index+1} </th>   
 			<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"F\" />
-			<input type=\"checkbox\" name=\"seat_numbers[#{index}]\" value=\"T\" />	
+			<th> <input type=\"checkbox\" id=\"seat_numbers_#{index}\" name=\"seat_numbers[#{index}]\" value=\"T\" />	</th>
 			"
 		when  current_user.id
-			"#{index+1} => Your seat 
-				<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"F\" />
-				<input type=\"checkbox\" name=\"seat_numbers[#{index}]\" value=\"T\" checked=\"checked\" />	
-			"
+			# "#{index+1} => Your seat 
+			# 	<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"F\" />
+			# 	<input type=\"checkbox\" name=\"seat_numbers[#{index}]\" value=\"T\" checked=\"checked\" />	
+			# "
 		else
-			"#{index+1}   =>  taken  #{find_user_obj(id).name} 
-				<input type=\"hidden\"   name=\"seat_numbers[#{index}]\" value=\"#{find_user_obj(id).id}\" />
-			"
+			# "#{index+1}   =>  taken  #{find_user_obj(id).name} 
+			# 	<input type=\"hidden\" name=\"seat_numbers[#{index}]\" value=\"#{find_user_obj(id).id}\" />
+			# "
 		end
 
-		"<li> #{result} </li>".html_safe
+		"#{result}".html_safe
 	end
 	
 end

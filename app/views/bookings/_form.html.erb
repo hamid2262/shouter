@@ -1,19 +1,27 @@
-<%= simple_form_for(@booking) do |f| %>
-  <%= f.error_notification %>
+<%= form_tag bookings_path do %>
+<!-- Table -->
+  <table class="table table-hover table-bordered">
+  	<thead>
+  		<th><%= t '.seat_number' %></th>
+  		<th><%= t '.select' %></th>
+  		<th><%= t '.seat_number' %></th>
+  		<th><%= t '.select' %></th>
+  	</thead>
+  	<tbody>
+			<% @subtrip.seats.each_with_index do |id, index| %>
+				<% if index.even? %>
+					<tr><%= check_for_seat_state(id, index) %>
+				<% else %>
+					<%= check_for_seat_state(id, index) %></tr>					
+				<% end %>
+			<% end %> <!-- Form End -->
+  	</tbody>
+  </table>
+	<div class="panel-body">
+		<%= hidden_field_tag 'subtrip_id', @subtrip.id %>
+		<%= submit_tag t('.register_booking'), class: "btn btn-warning" %>
+	<%= link_to t('.back_to_trip'), @subtrip, class: "btn btn-default" %>
 
-	<div class="col-xs-6">
-	  <div class="form-inputs">
-	    <%= f.association :passenger %>
-	    <%= f.input :accaptance_status %>
-	  </div>
+  </div>
 
-	  <div class="form-actions">
-	    <%= f.button :submit %>
-	  </div>
-	 </div>
-		<div class="col-xs-6 blueprints">
-			<%= render 'bookings/new/seats_order' %>
-		</div>	 
-	<% end %>
-
-
+<% end -%>

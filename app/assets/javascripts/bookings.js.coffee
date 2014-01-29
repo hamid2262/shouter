@@ -1,5 +1,5 @@
 jQuery ->
-	$('span.number').click ->
+	$('1span.number').click ->
 		# console.log($(this).html())
 		$(this).toggleClass('number_on_click')
 		if $(this).hasClass('number_on_click')

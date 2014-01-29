@@ -1,0 +1,13 @@
+fa:
+  bookings:
+    form:
+      back_to_trip: بازگشت به صفحه سفر
+      free: خالی
+      register_booking: ثبت رزرو سفر
+      seat_number: شماره صندلی
+      select: انتخاب
+      taken: گرفته شده
+      unavailable: خارج از دسترس
+    new:
+      booking_message: لطفا از لیست صندلی های خالی زیر، صندلی یا صندلیهای مورد نظر
+        خود را انتخاب کنید و سپس ثبت کنید.

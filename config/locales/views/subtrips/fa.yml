@@ -16,3 +16,5 @@ fa:
         number_of_seats: 'تعداد کل صندلی ها:'
         number_of_taken_seats: 'تعداد صندلیهای گرفته شده:'
         seats_status: وضعیت صندلی ها
+      subtrip_overview:
+        book_trip: رزرو سفر

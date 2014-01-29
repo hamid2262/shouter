@@ -1,0 +1,13 @@
+en:
+  bookings:
+    form:
+      back_to_trip: Back to trip
+      free: Free
+      register_booking: Register Booking
+      seat_number: Seat Number
+      select: Select
+      taken: Taken
+      unavailable: Unavailable
+    new:
+      booking_message: Please select your desired seats from free seat's list below
+        and then press Register Your Booking.

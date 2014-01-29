@@ -28,7 +28,6 @@ class BookingsController < ApplicationController
   # POST /bookings
   # POST /bookings.json
   def create
-    
     @subtrip = Subtrip.find(params[:subtrip_id])
 
     new_seat_array = Booking.create_new_seats_array(params, current_user)
@@ -44,7 +43,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @booking, notice: 'Booking was successfully created.' }
+        format.html { redirect_to @subtrip, notice: 'Booking was successfully created.' }
         format.json { render action: 'show', status: :created, location: @booking }
       else
         format.html { render action: 'new' }

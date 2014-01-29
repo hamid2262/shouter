@@ -16,3 +16,5 @@ en:
         number_of_seats: 'Seats total number:'
         number_of_taken_seats: 'Number of taken seats:'
         seats_status: Seats Status
+      subtrip_overview:
+        book_trip: Book this trip
