@@ -9,6 +9,7 @@ fa:
         num_of_comment: تعداد نظرات
         num_of_trips: تعداد سفرها تاکنون
         overview: مشخصات راننده
+        trip_created_time: زمان ثبت این سفر
         url: آدرس در همسفریاب
       seats_status:
         number_of_free_seats: 'تعداد صندلی های خالی:'

@@ -28,6 +28,12 @@
 					<th><%= t(".last_activity") %></th>
 					<th><%= resent_activity(@subtrip.trip.driver, "activity") %></th>
 				</tr>
+				
+				<tr>
+					<th><%= t(".trip_created_time") %></th>
+					<th><%= obj_created_at @subtrip %></th>
+				</tr>
+
 				<tr>
 					<th><%= t(".city") %></th>
 					<th><%= @subtrip.trip.driver.try(:city).try(:name) %></th>

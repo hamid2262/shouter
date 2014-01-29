@@ -211,4 +211,10 @@ module ApplicationHelper
   	end
   end
 
+  def obj_created_at obj, klass="activity", pretext = ""
+		"<small class=\"text-muted #{klass}\">
+				#{pretext} #{time_ago_in_words(obj.created_at)} #{t("ago")}
+		</small>".html_safe
+  end
+
 end

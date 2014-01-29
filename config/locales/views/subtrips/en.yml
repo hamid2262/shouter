@@ -9,6 +9,7 @@ en:
         num_of_comment: Number Of Comment
         num_of_trips: Number of trips
         overview: Driver Overview
+        trip_created_time: Trip registration time
         url: Url in Hamsafaryab
       seats_status:
         number_of_free_seats: 'Number of available  seats:'
