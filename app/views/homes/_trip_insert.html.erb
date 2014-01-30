@@ -7,14 +7,20 @@
 
 		<p><%= t('.description') %></p>
 	</div>
+
 	<div class="inner">
+		<div class="row">
+			<div class="col-xs-12">
+    		<% t('.guide', register: link_to(t('sign_up'), new_user_registration_path) ).each_line do |line| %>
+		      <p class="text-warning"><%= line.html_safe %></p>
+		    <% end %>							
+			</div>
+			</div>
 
-    <% t('.guide', register: link_to(t('sign_up'), new_user_registration_path) ).each_line do |line| %>
-      <p class="text-warning"><%= line.html_safe %></p>
-    <% end %>
-
-	  <div class="col-sm-6 col-sm-offset-6">
-			<%= link_to t('.register'), new_trip_path , class: "btn btn-warning btn-lg btn-block" %>
+		<div class="row">
+		  <div class="col-sm-6 col-sm-offset-6">
+				<%= link_to t('.register'), new_trip_path , class: "btn btn-warning btn-lg btn-block" %>
+			</div>				
 		</div>	
 
 	</div>			

@@ -3,10 +3,10 @@ en:
     show:
       welcome_message: Welcome to Hamsafaryab!
     trip_insert:
-      description: 'If you are going to have a trip and you have free seats in your
-        car. For sharing those seats with other people who have the same destination as
-        you do, Please insert your trip information.'
-      for_driver: '-As Car Ownner'
+      description: If you are going to have a trip and you have free seats in your
+        car. For sharing those seats with other people who have the same destination
+        as you do, Please insert your trip information.
+      for_driver: -As Car Ownner
       guide: 'Registering trip needs to sign in
 
         Please sign in if you already have an account
@@ -17,6 +17,7 @@ en:
       register: Register Trip
       title: Insert your Trip Information
     trip_search:
+      all_trips: All Trips
       description: If you are looking for a vehicle to get to your dastination, You
         can find it in here.
       for_passenger: '- As Passenger'

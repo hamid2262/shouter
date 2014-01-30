@@ -16,26 +16,37 @@
 			<% else %>
 				<%= render partial: 'search_form_without_autocomplete', locals:{f: f} %>
 			<% end %>		
-			<!-- DatePicker -->
-			<div class="form-group  date-select col-sm-6">
-		    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
-		    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
-		    <%= f.select :jyear, 1392..1393,{}, {class: "datepicker"} %> 
+
+			<div class="row">
+				<!-- DatePicker -->
+				<div class="form-group  date-select col-sm-6">
+			    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
+			    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
+			    <%= f.select :jyear, 1392..1393,{}, {class: "datepicker"} %> 
+				</div>
+
+				<!-- Form Mode Change Links -->
+
+				<div class="mode-selector col-sm-6">
+				 <% if session['search_mode'] == 'autocomplete' %>
+				    <%= link_to  t("search_subtrips.form.mode.select.selector"), choose_search_mode_search_subtrips_path(search_mode: 'select') %>
+				 <% else %>
+				    <%= link_to  t("search_subtrips.form.mode.autocomplete.selector"), choose_search_mode_search_subtrips_path(search_mode: 'autocomplete') %> 
+				 <% end %>
+				</div>
 			</div>
 
 			<!-- Submit -->
-		  <div class="col-sm-6">
-					<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-warning btn-lg btn-block" %>
-			</div>		
-
-			<!-- Form Mode Change Links -->
-			<div class="mode-selector">
-			 <% if session['search_mode'] == 'autocomplete' %>
-			    <%= link_to  t("search_subtrips.form.mode.autocomplete.selector"), choose_search_mode_search_subtrips_path(search_mode: 'select') %>
-			 <% else %>
-			    <%= link_to  t("search_subtrips.form.mode.select.selector"), choose_search_mode_search_subtrips_path(search_mode: 'autocomplete') %> 
-			 <% end %>
+			<div class="row">
+			  <div class="col-sm-6">
+						<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-warning btn-lg btn-block" %>
+				</div>		
+			  <div class="col-sm-6">
+			  	<%= link_to t('.all_trips'), search_search_subtrips_path, class: "btn btn-warning btn-lg btn-block" %>
+						<%#= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-warning btn-lg btn-block" %>
+				</div>						
 			</div>
+
 		<% end %>		
 	</div>			
 </div>
