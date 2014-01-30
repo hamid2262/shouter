@@ -27,7 +27,9 @@
 					<h3><%= t '.no_trip_registered' %></h3>
 				<% end %>
 			</div>
-		<%= will_paginate @subtrips %>
+			<% if @subtrips.try(:any?) %>
+				<%= will_paginate @subtrips %>
+			<% end %>	
 		</div>
 	</div>
 </div>
