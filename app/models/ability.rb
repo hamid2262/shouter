@@ -25,7 +25,7 @@ class Ability
             user == t.driver
         end        
 
-        # can [:new, :create], Booking
+        can [:new, :create], Booking
     else
 
     end

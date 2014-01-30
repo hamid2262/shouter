@@ -44,10 +44,9 @@ class Subtrip < ActiveRecord::Base
     inbetween_subtrip  = find_inbetween_origin_and_destination_conflict_subtrips origin, destination, subtrips
 
     all_conflict_subtrips = (inbetween_subtrip + before_subtrip + after_subtrip).uniq
-
   end
 
-  def  find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
+  def find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
     before_and_itself_cities = self.trip.before_and_itself_cities origin
     after_cities = self.trip.after_cities origin
     subtrips.where(origin_id: before_and_itself_cities, destination_id: after_cities) 	

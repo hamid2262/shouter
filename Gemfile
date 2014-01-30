@@ -16,6 +16,8 @@ gem 'awesome_print'
 gem 'newrelic_rpm'
 gem 'exception_notification'
 gem 'will_paginate'
+
+gem 'twilio-ruby'
 group :production do
 	gem 'rails_12factor'
 end

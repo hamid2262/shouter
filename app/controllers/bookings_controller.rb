@@ -29,17 +29,10 @@ class BookingsController < ApplicationController
   # POST /bookings.json
   def create
     @subtrip = Subtrip.find(params[:subtrip_id])
+    @booking = @subtrip.bookings.build
+    @booking.passenger = current_user
 
-    new_seat_array = Booking.create_new_seats_array(params, current_user)
-
-    @all_conflicts = @subtrip.find_conflict_subtrips 
-
-    @all_conflicts.each do |s|
-      s.seats = new_seat_array
-      s.save
-    end
-
-    @booking = @subtrip.bookings.build(user_id: current_user.id)
+    @booking.get_all_conflict_seats params[:seat_numbers]
 
     respond_to do |format|
       if @booking.save
@@ -85,5 +78,8 @@ class BookingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
       params.require(:booking).permit(:passenger_id, :accaptance_status)
+    end
+    def subtrip_params
+      params.require(:subtrip).permit(:seats)
     end
 end

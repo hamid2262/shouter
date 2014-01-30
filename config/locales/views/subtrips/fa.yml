@@ -3,7 +3,7 @@ fa:
     show:
       driver_overview:
         city: شهر
-        last_activity: آخریت فعالیت
+        last_activity: آخرین فعالیت
         name: نام کامل
         no_comment: هیچ نظری ثبت نشده است.
         num_of_comment: تعداد نظرات

@@ -6,7 +6,7 @@ module SubtripsHelper
 	
 	def print_cities_name s, current_s
 		if (s.origin == current_s.origin) || (s.origin == current_s.destination)
-			"<b class=\"text-danger\"><h3>#{s.origin.local_name} </h3> #{s.date_time.to_s(:time)} #{am_pm s.date_time} </b>".html_safe			
+			"<strong class=\"text-danger\"><h3>#{s.origin.local_name} </h3> #{s.date_time.to_s(:time)} #{am_pm s.date_time} </strong>".html_safe			
 		else
 			"#{s.origin.local_name}  <b>#{s.date_time.to_s(:time)}</b>".html_safe		
 		end
