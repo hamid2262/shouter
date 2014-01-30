@@ -8,6 +8,11 @@ class ProfilesController < ApplicationController
 		user = User.find_by!(slug: params[:id])
 		@profile = Profile.new(user)
     @followed_users = user.followed_users.order(updated_at: :desc)
+    
+    @bookings_count = @profile.bookings_count
+    @trips_count = @profile.trips_count
+    @booking_canceled_count = @profile.booking_canceled_count
+    @trip_canceled_count = @profile.trip_canceled_count
 
 		# @followed_users = @profile.followed_users
 		@random_users = @profile.random_users

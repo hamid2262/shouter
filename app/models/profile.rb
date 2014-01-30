@@ -12,6 +12,24 @@ class Profile
   	@user
   end
 
+  def bookings_count
+  	@user.bookings.size
+  end
+
+  def trips_count
+  	@user.trips.size
+  end
+
+  def booking_canceled_count
+  	# @user.bookings.where(cancel: true).size
+  	0
+  end
+
+  def trip_canceled_count
+  	# @user.trips.where(cancel: true).count
+  	0
+  end
+
 	def timeline
 		@shouts = Shout.where(user_id: shout_user_ids)
 	end

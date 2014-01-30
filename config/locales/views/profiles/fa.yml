@@ -7,8 +7,12 @@ fa:
         contact_details: اطلاعات تماس
         personal_profile: مشخصات فردی
       user_overview:
+        booking_canceled_count: تعداد رزروهای لغوکرده به عنوان مسافر
+        bookings_count: تعداد سفرهای رزرو کرده به عنوان مسافر
         last_activity: آخریت فعالیت
         last_login_location: آخرین اتصال از
         overview: در یک نگاه
+        trip_canceled_count: تعداد سفرهای لغو کرده به عنوان راننده
+        trips_count: تعداد سفرهای ثبت کرده به عنوان راننده
         url: آدرس در همسفریاب
     unfollow: دنبال میکنید

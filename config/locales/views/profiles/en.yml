@@ -7,8 +7,12 @@ en:
         contact_details: Contact Details
         personal_profile: Personal Profile
       user_overview:
+        booking_canceled_count: Number of canceled bokkings
+        bookings_count: Total number of bookings
         last_activity: Last Activity
         last_login_location: Last login Location
         overview: Overview
+        trip_canceled_count: Number of canceled trips
+        trips_count: Total registered trips
         url: Url in Hamsafaryab
     unfollow: Following

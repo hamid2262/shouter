@@ -7,8 +7,12 @@
 		<form class="form-horizontal" role="form">
 
 			<% if current_user %>
-				<%=  user_form_control_static t(".last_activity"), resent_activity(@profile.user, "activity"),"col-sm-4","col-sm-8" %>
-				<%=  user_form_control_static t(".last_login_location"), @profile.user.last_login_location,"col-sm-4","col-sm-8" %>
+				<%=  user_form_control_static t(".last_activity"), resent_activity(@profile.user, "activity"),"col-sm-5","col-sm-7" %>
+				<%=  user_form_control_static t(".last_login_location"), @profile.user.last_login_location,"col-sm-5","col-sm-7" %>
+				<%=  user_form_control_static t(".trips_count"), @trips_count,"col-sm-5","col-sm-7" %>
+				<%=  user_form_control_static t(".bookings_count"), @bookings_count,"col-sm-5","col-sm-7" %>
+				<%=  user_form_control_static t(".trip_canceled_count"), @trip_canceled_count,"col-sm-5","col-sm-7" %>
+				<%=  user_form_control_static t(".booking_canceled_count"), @booking_canceled_count,"col-sm-5","col-sm-7" %>
 
 				<% if @profile.user.slug_updated %>
 					<%=  user_form_control_static t(".url"), link_to_profile(@profile.user) %>
