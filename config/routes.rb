@@ -22,7 +22,7 @@ Shouter::Application.routes.draw do
     resources :photo_shouts, only: [:create, :destroy]
     resources :hashtags, only: [:show]
     
-    root 'homes#show'
+    root 'search_subtrips#search'
 
     devise_for :users, :controllers => { registrations: 'users' }
     devise_scope :user do
