@@ -51,44 +51,18 @@ body{
         border-bottom: 2px solid #91a022;
         margin-bottom: 15px;
     }
-
-}
- 
-.top_navbar .navbar-brand{
-    padding-bottom: 0;
-    padding-top: 0;   
 }
  
 #siteLogo{
 	margin: 25px 15px 15px;
   width: 256px;
   height: 55px;
-
 }
+
 #siteLogo #logo, #siteLogo #slogan{
   text-indent: -7272px ;
     width: 256px;
   height: 55px;
-}
-
-.navbar{
-  background-color: transparent;
-  border-color: transparent;
-}
-
-/* --- popup sign in form */
-#popup_signin_button{
-  background-color: #fff !important;
-}
-
-ul#signin-dropdown{
-  right: -16px;
-  padding: 10px 26px 0 !important;
-  width: 270px;
-  border-radius: 0 0 6px 6px;
-}
-#signin-dropdown .form-group{
-  margin-bottom: 6px !important;
 }
 
 #siteContent{
@@ -105,11 +79,7 @@ ul#signin-dropdown{
 	padding-right: 0;
 }
 
-.top_navbar .link a{
-	padding-bottom: 0;
-	padding-top: 5px;
 
-}
 .panel-heading{
   overflow: hidden;
 }

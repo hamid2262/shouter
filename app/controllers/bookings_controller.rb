@@ -36,7 +36,7 @@ class BookingsController < ApplicationController
 
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to @subtrip, notice: 'Booking was successfully created.' }
+        format.html { redirect_to @subtrip, notice: t(:booking_created_message) }
         format.json { render action: 'show', status: :created, location: @booking }
       else
         format.html { render action: 'new' }
@@ -50,7 +50,7 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
+        format.html { redirect_to @booking, notice: t(:booking_updated_message) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

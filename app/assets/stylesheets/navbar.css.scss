@@ -1,0 +1,50 @@
+.top_navbar {
+		.navbar-brand{
+	    padding-bottom: 0;
+	    padding-top: 0;   
+	  }
+    .link a{
+			padding-bottom: 0;
+			padding-left: 5px;
+			margin-top: -5px;
+			background: none;
+		}
+		.name{
+			padding-right: 0;
+		}
+		.home{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') 34px 1px;;
+			height: 35px;
+			width: 35px;
+			margin-top: 7px;
+			opacity: .6;
+			&:hover {
+				background-position-x: 2px;
+			}
+		}
+		#profile_menu{
+			#title{
+				background-color: #F7F7F7;					
+			}
+		}
+}
+
+.navbar{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+/* --- popup sign in form */
+#popup_signin_button{
+  background-color: #fff !important;
+}
+
+ul#signin-dropdown{
+  right: -16px;
+  padding: 10px 26px 0 !important;
+  width: 270px;
+  border-radius: 0 0 6px 6px;
+}
+#signin-dropdown .form-group{
+  margin-bottom: 6px !important;
+}

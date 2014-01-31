@@ -2,6 +2,8 @@ en:
   users:
     account_setting: Acount Settings
     contact_details: Contact Details
+    page_url: Page Url
+    personal_profile: Personal Profile
     edit:
       account_settings:
         new_password: New Password
@@ -11,15 +13,12 @@ en:
       personal_profile:
         please wait: Submitting. Please wait...
       title: '''s Profile Edit'
-    page_url: Page Url
-    personal_profile: Personal Profile
     show:
       account_setting:
         goto_change_account_settings: Go to change Password Page
       contact_details:
         goto_change_contact_details: Go to change contact details Page
       page_url:
-        change_url_message: 'Caution: You can change your profile url only one time'
         goto_change_page_url: Go to Change Page Url Page
       personal_profile:
         goto_change_personal_profile: Go to Change Personal Profile Page

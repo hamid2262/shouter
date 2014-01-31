@@ -2,8 +2,14 @@
 en:
   navbar:
     profile:
-      edit: Edit Profile    
-      show: Show Profile
+      title: Profile
+      header: Your Profile
+      personal_profile: Personal Profile    
+      contact_details: Contact Details
+      account_settings: Account Settings
+      page_url: Your Internet Address
+      eidt: Edit
+      edit_profile: Edit Profile
     session:
       sign_out: Sign Out
       sign_in: Sign In

@@ -27,6 +27,7 @@ Shouter::Application.routes.draw do
     devise_for :users, :controllers => { registrations: 'users' }
     devise_scope :user do
       resources :users, only: [:show, :index] do
+        get 'refresh' => 'users#refresh'
         resource :vehicles, only: [ :new, :create,:edit, :update ]
         post 'follow' => 'following_relationships#create' 
         delete 'follow' => 'following_relationships#destroy' 
@@ -34,8 +35,8 @@ Shouter::Application.routes.draw do
     end
     
     get 'upgrade_cities' => 'cities#upgrade'
-
   end
+    
 
   get '*id/:locale' => 'profiles#show'
   get '*id', to: redirect("/%{id}/#{I18n.default_locale}")

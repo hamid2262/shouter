@@ -11,6 +11,8 @@ fa:
  
   devise:
     failure:
+      user:
+        not_found_in_database:  'ایمیل یا رمز عبور غیر معتبر.'
       already_authenticated: 'وارد سیستم هستید.'
       unauthenticated: 'پیش از ادامه باید وارد شوید یا ثبت نام کنید.'
       unconfirmed: 'باید حسابتان را قبل از ادامه تایید کنید.'

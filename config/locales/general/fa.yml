@@ -39,3 +39,5 @@ fa:
   image_updated_message: تصویر با موفقیت به روز رسانی شد
   profile_updated_message: پروفایل با موفقبت به روزرسانی شد   
   
+  booking_created_message: رزرو شما با موفقت ثبت شد
+  booking_updated_message: رزرو شما با موفقیت بروزرسانی شد

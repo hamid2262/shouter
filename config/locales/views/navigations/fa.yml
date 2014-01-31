@@ -2,8 +2,14 @@
 fa:
   navbar:
     profile:
-      show: مشاهده پروفایل
-      edit: ویرایش پروفایل
+      title: پروفایل
+      header: پروفایل شما
+      personal_profile: اطلاعات شخصی    
+      contact_details: اطلاعات تماس
+      account_settings: اطلاعات حساب کاربری
+      page_url: آدرس اینترنتی شما
+      edit: ویرایش
+      edit_profile: ویرایش پروفایل
     session:
       sign_out: خروج
       sign_in: ورود

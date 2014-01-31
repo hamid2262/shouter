@@ -8,5 +8,8 @@ module UsersHelper
 		end
 	end
 
-end
+	def profile_tab_addr tab
+    link_to t("navbar.profile.#{tab}"), user_refresh_path(user_id: current_user.id, profile_tab: "#{tab.to_s}")
+	end
 
+end

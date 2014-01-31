@@ -41,3 +41,6 @@ en:
   image_updated_message: Image was successfully updated.
   profile_updated_message: "Profile was successfully updated."    
 
+  booking_created_message: Booking was successfully created.
+  booking_updated_message: Booking was successfully updated.
+  

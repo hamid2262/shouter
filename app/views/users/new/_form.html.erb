@@ -12,7 +12,6 @@
 		
 	<%= f.input :gender, collection: [['Male','m'],['Female','f']], prompt: "Select Gender", label: false %>
 
-  <%= f.button :submit, "Sign up", class: "btn btn-lg btn-primary btn-block " %>
+  <%= f.button :submit, "Sign up", class: "btn btn-lg btn-warning btn-block " %>
     <%= link_to "Sign in", new_session_path(resource_name), class: "btn btn-link" %>
-
 <% end %>

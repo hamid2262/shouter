@@ -1,0 +1,25 @@
+
+<li id="profile_menu" class="dropdown">
+	<a id="title" href="#" class="dropdown-toggle" data-toggle="dropdown">
+		<%= t("navbar.profile.title") %> <b class="caret"></b>
+	</a>
+	<ul class="dropdown-menu">
+		<li role="presentation" class="dropdown-header"><%= t("navbar.profile.header") %></li>
+
+		<li><%= profile_tab_addr :personal_profile %></li>
+		<li><%= profile_tab_addr :contact_details %></li>
+		<li><%= profile_tab_addr :account_settings %></li>
+		<li><%= profile_tab_addr :page_url %></li>
+
+	  <li class="divider"></li>
+		<li role="presentation" class="dropdown-header"><%= t("navbar.profile.edit") %></li>
+		<li><%= link_to t("navbar.profile.edit_profile"), edit_user_registration_path %></li>
+	  <li class="divider"></li>
+<!-- 	  <li><a href="#">Separated link</a></li>
+	  <li class="divider"></li> -->
+		<li><%= link_to t("navbar.session.sign_out"), destroy_user_session_path, method: :delete %>  </li>
+	</ul>
+</li>
+
+<li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), profile_url(current_user) %>  </li>
+<li><%= link_to current_user.name, dashboard_path, class: "name" %>  </li>

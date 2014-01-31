@@ -27,8 +27,7 @@ $(function() {
   // in user update profile when form has validation error, must go to tab that has error
   var t = $('p.tab').text();
   t = $('ul.nav a[href="#' + $.trim(t) + '"]');
-  t && t.tab('show');  
-
+  t && t.tab('show'); 
 });
 
 

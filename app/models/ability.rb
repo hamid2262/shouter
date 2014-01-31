@@ -7,7 +7,7 @@ class Ability
         can :manage, :all
     elsif user.try(:email)
         can :show, User
-        can [:edit, :update], User do |u|
+        can [:edit, :update, :refresh], User do |u|
             user == u
         end
 

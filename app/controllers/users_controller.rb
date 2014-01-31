@@ -2,7 +2,7 @@ class UsersController < Devise::RegistrationsController
 
   # layout 'application_user', only: [:show]
   
-  load_and_authorize_resource only: [:index, :show, :update, :edit, :destroy]
+  load_and_authorize_resource only: [:index, :show, :update, :edit, :destroy, :refresh]
 
   before_action :require_login, only: [:index, :show, :update, :edit]
 
@@ -55,6 +55,10 @@ class UsersController < Devise::RegistrationsController
     end  
   end
 
+  def refresh
+    redirect_to user_path(current_user)+'#'+params[:profile_tab]
+    # or redirect_to :back (better IMO) 
+  end
 private
 
   def check_for_cover_or_avatar_update?
