@@ -39,9 +39,9 @@ class UsersController < Devise::RegistrationsController
 
     if successfully_updated
       if check_for_cover_or_avatar_update?
-        redirect_to profile_url(current_user) , notice: "Image was successfully updated."
+        redirect_to_profile_with_flash(current_user, t(:image_updated_message) )
       else
-        redirect_to user_path(current_user)+'#'+params[:user][:tab] , notice: "Profile was successfully updated."        
+        redirect_to user_path(current_user)+'#'+params[:user][:tab] , notice: t(:profile_updated_message)    
       end
     else
       render action: 'edit', locals: {tab: params[:user][:tab]}

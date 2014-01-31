@@ -18,7 +18,7 @@ class Subtrip < ActiveRecord::Base
   before_create :set_date_time
  
   def number_of_taken_seats
-    self.seats.count(0)
+    self.seats.size - ( self.seats.count(0) + self.seats.count(-1) )
   end
 
   def vehicle_type

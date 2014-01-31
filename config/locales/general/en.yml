@@ -37,3 +37,7 @@ en:
   trip_create_message: Trip was successfully created 
   trip_update_message: Trip was successfully updated
   trip_delete_message: Trip was successfully deleted
+
+  image_updated_message: Image was successfully updated.
+  profile_updated_message: "Profile was successfully updated."    
+

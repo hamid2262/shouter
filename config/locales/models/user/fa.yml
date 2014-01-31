@@ -21,7 +21,7 @@ fa:
         last_sign_in_at: آخرین ورود در 
         password: رمز عبور
         password_confirmation: تایید رمز عبور
-        current_password: رمز عبور فعلی      
+        current_password: رمز عبور قبلی      
     errors:
       template:
         header:

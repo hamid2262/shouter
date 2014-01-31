@@ -50,7 +50,8 @@
 
 			<div class="avalability">
 				<strong><%= subtrip.seats.count(0) %> </strong>
-				<span><%= t('seats_left') %></span>
+				<span><%= t('seats_left') %> <%= t('.from') %> <%= subtrip.seats.size %></span>
+
 			</div>
 		</div>
 		

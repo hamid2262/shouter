@@ -11,7 +11,7 @@
 	 	}			) do |f| %>
 
 			<%= f.input :gender, collection: [[t('gender.male'),'m'],[t('gender.female'),'f']], prompt: "Select Gender" %>
-			<%= f.input :username %>
+			<%#= f.input :username %>
 			<%= f.input :firstname %>
 			<%= f.input :lastname %>
 			<%= f.input :age, collection: 13..90 %>
@@ -23,7 +23,7 @@
 			<%= f.input :cover, as: :file %>
 
 			<%= f.hidden_field :tab, value: "personal_profile" %>	
-			
-			<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>
+
+			<%= f.button :submit, :disable_with => t('.please wait'), class: 'btn btn-primary col-sm-offset-3 please_wait' %>
   
 	<% end %>

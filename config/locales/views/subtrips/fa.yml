@@ -18,3 +18,5 @@ fa:
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر
+    subtrip_search_raw:
+      from: از

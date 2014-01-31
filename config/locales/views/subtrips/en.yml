@@ -18,3 +18,5 @@ en:
         seats_status: Seats Status
       subtrip_overview:
         book_trip: Book this trip
+    subtrip_search_raw:
+      from: from
