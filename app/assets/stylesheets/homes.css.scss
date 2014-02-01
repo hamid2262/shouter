@@ -56,4 +56,17 @@ $green: #b5c023;
     	padding: 15px;
     }
 	}
+
+	#sample_trips{
+		.subtrip-row{
+			border-bottom: 2px solid #E2E2E2;
+			padding-top: 5px;
+			&:hover {
+				background: rgba(181, 192, 35, 0.22);			
+			}
+		}
+		.time{
+			margin-top: 5px;
+		}
+	}
 }

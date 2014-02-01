@@ -1,0 +1,35 @@
+<div class="row subtrip-row">
+	<a href="<%= subtrip_path(subtrip.id) %>" >
+		<div class="col-xs-4">
+			<h4 class="fromto">
+				<span class="from"><%= subtrip.origin.local_name %> </span>
+				<span class="arrow-ie">&larr;</span>  
+				<span class="to"><%= subtrip.destination.local_name %></span>
+			</h4>
+		</div>
+
+		<div class="col-xs-3">
+			<div class="time">
+				<%= subtrip.date_time.to_s(:time_ampm) %>  <br>
+				<small>
+					<%= jdate_humanize(subtrip.date_time, params[:locale]) %>
+				</small>
+			</div>
+		</div>
+
+		<div class="col-xs-3">
+			<div class="price">
+				<strong>
+					<%= t 'currency', amount: currency(subtrip.price) %>
+				</strong> <br>
+				<span class="price-unit"><%= t('per_passenger') %></span>
+			</div>
+		</div>
+
+		<div class="col-xs-2">
+			<div class="user-info ">
+					<%= gravatar(subtrip.trip.driver, 42, "img-thumbnail") %>	
+			</div>
+		</div>
+	</a>
+</div>

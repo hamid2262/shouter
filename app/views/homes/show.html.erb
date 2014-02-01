@@ -1,11 +1,24 @@
 <div id="home">
-	<div id="search_form" class="col-md-6">
-		<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
-		<%= render partial: 'trip_search' %>	
+	<div class="col-md-6">
+		<div id="search_form" >
+			<% unless (request.location.country_code == 'IR')  %>
+				<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
+			<% end %>
+			<%= render partial: 'trip_search' %>	
+	  </div>
+	  <br>
+		<div id="insert_trip" >
+				<%= image_tag(IMAGES_PATH+"passenger_man.png", class: "passenger passenger_man")	%>
+			<%= render 'trip_insert' %>	
+		</div>
+	</div>	
+
+	<div class="col-md-6">
+		<div id="sample_trips">
+  		<% if @subtrips && @subtrips.any? %>
+				<%= render 'sample_subtrips'%>	
+			<% end %>
+		</div>
 	</div>
 
-	<div id="insert_trip" class="col-md-6">
-			<%= image_tag(IMAGES_PATH+"passenger_man.png", class: "passenger passenger_man")	%>
-		<%= render 'trip_insert' %>	
-	</div>
 </div>

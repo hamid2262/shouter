@@ -4,7 +4,11 @@ class HomesController < ApplicationController
 
   def show
     redirect_to dashboard_path if current_user
+
 		@search_subtrip = SearchSubtrip.new
+
+		@subtrips = Home.newtrips.limit(7)
+
   end
 
 end

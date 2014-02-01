@@ -1,0 +1,20 @@
+<div class="frame">
+	<div class="title">
+		<h4>
+			<strong class="lead"><%= t('.nearest_ride_sharings') %></strong> 
+		</h4>
+	</div>
+
+	<div class="inner">
+		<% @subtrips.each do |subtrip| %>
+			<%= render partial: 'sample_subtrips_row', locals: {subtrip: subtrip} %>
+		<% end %>
+
+		<div class="row">
+		  <div class="col-sm-12">
+				<%= link_to t('.rest_of_trips'), search_search_subtrips_path, class: "btn btn-warning btn-lg btn-block" %>
+			</div>				
+		</div>	
+
+	</div>			
+</div>

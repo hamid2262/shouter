@@ -1,5 +1,8 @@
 en:
   homes:
+    sample_subtrips:
+      nearest_ride_sharings: Nearest Ride Sharings
+      rest_of_trips: More Trips
     show:
       welcome_message: Welcome to Hamsafaryab!
     trip_insert:

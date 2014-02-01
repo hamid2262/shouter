@@ -1,5 +1,8 @@
 fa:
   homes:
+    sample_subtrips:
+      nearest_ride_sharings: نزدیکترین سفرها
+      rest_of_trips: ادامه سفرها
     show:
       welcome_message: به همسفریاب خوش آمدید
     trip_insert:
