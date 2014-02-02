@@ -1,7 +1,7 @@
 fa:
   homes:
     sample_subtrips:
-      nearest_ride_sharings: نزدیکترین سفرها
+      nearest_ride_sharings:  سفرهای در حال عزیمت در ساعات آینده
       rest_of_trips: ادامه سفرها
     show:
       welcome_message: به همسفریاب خوش آمدید

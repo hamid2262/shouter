@@ -9,6 +9,9 @@
 
 .blueprints{
 	padding: 0;
+	.waiting{
+		opacity: 0.6;
+	}
 	.number{
 		border: 0 !important;
 		z-index: 10;

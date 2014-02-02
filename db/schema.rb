@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140115231626) do
+ActiveRecord::Schema.define(version: 20140201170831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,9 +19,9 @@ ActiveRecord::Schema.define(version: 20140115231626) do
   create_table "bookings", force: true do |t|
     t.integer  "user_id"
     t.integer  "subtrip_id"
-    t.boolean  "accaptance_status", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "accaptance_status", default: 0
   end
 
   add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree
@@ -163,6 +163,17 @@ ActiveRecord::Schema.define(version: 20140115231626) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "vehicle_brand_translations", force: true do |t|
+    t.integer  "vehicle_brand_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "vehicle_brand_translations", ["locale"], name: "index_vehicle_brand_translations_on_locale", using: :btree
+  add_index "vehicle_brand_translations", ["vehicle_brand_id"], name: "index_vehicle_brand_translations_on_vehicle_brand_id", using: :btree
 
   create_table "vehicle_brands", force: true do |t|
     t.string   "name"
