@@ -1,0 +1,10 @@
+<%= @booking.passenger.name %>  <br>
+from: <%= @booking.subtrip.origin.name %> <br>
+to : <%= @booking.subtrip.destination.name %> <br>
+date: <%= @booking.subtrip.date_time %> <br>
+<%= @booking.accaptance_status %>
+<% if @booking.accaptance_status == 1 %>
+	<p>The trip has been accepted</p>
+<% else %>
+	<p>The trip canceled</p>
+<% end %>

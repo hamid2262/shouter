@@ -24,6 +24,8 @@ fa:
   tomorrow: فردا
   remove: حذف
   # flash messages   
+  require_login: برای ادامه، باید وارد سایت شوید
+  
   following_message: 'شما  "%{name}" را دنبال میکنید'
   unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
   sign_up: ثبت نام

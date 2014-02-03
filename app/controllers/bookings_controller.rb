@@ -1,9 +1,9 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:booking_acceptance]
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
-  
+  skip_authorization_check only: [:booking_acceptance]
   # GET /bookings
   # GET /bookings.json
   def index
@@ -25,17 +25,39 @@ class BookingsController < ApplicationController
   def edit
   end
 
+  def booking_acceptance
+    @booking = Booking.find(params[:booking_id])
+    hashed_code = params[:accept_status]
+    if @booking.booking_id_check(hashed_code)
+      if  @booking.booking_id_check(hashed_code) == 1
+        if @booking.update_attributes(accaptance_status: 1)
+          # redirect_to(@booking.subtrip, notice: "user successfully booked the trip.")
+        end
+      elsif  @booking.booking_id_check(hashed_code) == -1
+        if @booking.update_attributes(accaptance_status: -1)
+          @data = @booking.update_all_bookings
+          # return false
+          # redirect_to(@booking.subtrip, notice: "user successfully rejected from the trip reservation.")
+        end
+
+      end
+    else
+      # error message and redirect to root path 
+    end
+    # give deletation message and redirect to reservation page
+  end
+
   # POST /bookings
   # POST /bookings.json
   def create
     @subtrip = Subtrip.find(params[:subtrip_id])
     @booking = @subtrip.bookings.build
     @booking.passenger = current_user
-
-    @booking.get_all_conflict_seats params[:seat_numbers]
+    @booking.take_all_conflict_seats params[:seat_numbers]
 
     respond_to do |format|
       if @booking.save
+        UserMailer.booking_request_to_driver(@booking).deliver
         format.html { redirect_to @subtrip, notice: t(:booking_created_message) }
         format.json { render action: 'show', status: :created, location: @booking }
       else

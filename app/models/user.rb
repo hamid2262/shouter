@@ -127,7 +127,7 @@ class User < ActiveRecord::Base
   def last_login_location
     return 'no data' if (self.email == "hamid2262@yahoo.com") or (self.last_sign_in_ip == '93.131.104.148')
     country = self.last_login_country if self.last_login_country.present?
-    city =  ', '+ self.last_login_city if self.last_login_city.present?
+    city =  ', '+ self.try(:last_login_city) if self.try(:last_login_city).present?
     if  country && city
       city + ', ' + country
     elsif city

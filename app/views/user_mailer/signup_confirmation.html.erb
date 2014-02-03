@@ -1,0 +1,12 @@
+Hello <%= @user.name %>,
+<p>Welcome to <%#= link_to "hamsafaryab.com"%></p>
+<p>We are glad that you joined to hamsafaryab</p>
+Now you can see your profile in this link below
+<%#= link_to "Your Profile", @user %>
+<%=  %>
+<a href="<%= url_for(controller: 'users',
+						 action:'show', 
+						 id: @user.id,
+						 locale: 'fa',
+						 host: 'localhost:3000') %>">sdfg</a>
+<p>HamsafarYab's team</p>

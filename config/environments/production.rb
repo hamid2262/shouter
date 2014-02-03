@@ -114,6 +114,4 @@ Shouter::Application.configure do
       :exception_recipients => %w{hamsafaryab@gmail.com}
     }
 
-  # config.action_mailer.delivery_method = :letter_opener
-
 end

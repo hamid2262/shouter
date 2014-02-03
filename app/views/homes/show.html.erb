@@ -1,7 +1,7 @@
 <div id="home">
 	<div class="col-md-6">
 		<div id="search_form" >
-			<% unless (request.location.country_code == 'IR')  %>
+			<% unless (request.try(:location).try(:country_code) == 'IR')  %>
 				<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
 			<% end %>
 			<%= render partial: 'trip_search' %>	

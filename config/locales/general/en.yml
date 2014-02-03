@@ -1,5 +1,5 @@
 en:
-  hamsafaryab: HamsafarYab
+  hamsafaryab: HamsafarYab - همسفریاب
   slogan: Rideshare and carpool with friendly people.
   no_data: No data
   gender:
@@ -25,6 +25,8 @@ en:
   remove: Remove
   delete: Delete
   # flash messages
+  require_login: "You must be logged in to access this section"
+  
   following_message: Now you are following %{name}.
   unfollowed_message: You unfollowed %{name}.
   sign_up: Sign Up

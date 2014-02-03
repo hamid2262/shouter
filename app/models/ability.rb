@@ -5,7 +5,7 @@ class Ability
     user ||= User.new 
     if user.admin?
         can :manage, :all
-    elsif user.try(:email)
+    elsif user.try(:email) != ""
         can :show, User
         can [:edit, :update, :refresh], User do |u|
             user == u
@@ -26,8 +26,12 @@ class Ability
         end        
 
         can [:new, :create], Booking
-    else
+        can :booking_acceptance, Booking
 
+    else
+        can :show, User
+        can [:new], Trip
+        can :booking_acceptance, Booking
     end
     
     # The first argument to `can` is the action you are giving the user 

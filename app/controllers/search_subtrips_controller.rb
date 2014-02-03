@@ -14,7 +14,6 @@ class SearchSubtripsController < ApplicationController
 				@subtrips = @search_subtrip.subtrips(3).page(params[:page]).per_page(10) if @search_subtrip
 			end			
 		end
-
 	end
 
 	def choose_search_mode
@@ -25,7 +24,6 @@ class SearchSubtripsController < ApplicationController
 		else
 			redirect_to root_path
 		end
-			
 	end
 
 	private

@@ -18,28 +18,110 @@ class Booking < ActiveRecord::Base
     new_seats_array
   end
 
-  def get_all_conflict_seats seat_numbers
+  def update_all_bookings
+    all_crossed_subtrips = self.subtrip.find_conflict_subtrips 
+
+    seat_numbers = self.find_seat_numbers self.subtrip, self
+
+    all_crossed_subtrips.each do |subtrip|
+      seats = create_replacing_seats_array_for_delete(subtrip)
+      save_new_seats_array(seats, subtrip)
+    end
+    
+    if check_if_subtrips_dirty_after_delete(seat_numbers)
+      subs = subtrips_of_trip self
+      subs.each do |subtrip|
+        subtrip.bookings.where("accaptance_status  > -1").each do |b|
+          seats_indexes = b.subtrip.seats.each_index.select{|i| b.subtrip.seats[i] == b.passenger.id}
+          
+          # seat_numbers = find_seat_numbers b.subtrip, b
+          
+          all_crossed_subtrips = b.subtrip.find_conflict_subtrips 
+
+          all_crossed_subtrips.each do |s|
+            seats_indexes.each do |i|
+              s.seats[i] = b.passenger.id
+            end
+            save_new_seats_array(s.seats, s)
+          end
+
+        end
+      end
+    end
+    
+    # if there is other reservations in same seats?
+      # clear all reflectet subtrips for those seats
+      # reregister other bookings
+  end
+
+  def check_if_subtrips_dirty_after_delete seat_numbers
+    flag = false
+    subs = subtrips_of_trip self
+    seat_numbers.each do |s_index|
+      subs.each do |subtrip|
+        if subtrip.seats[s_index] != 0
+          flag = true
+        end
+      end
+    end 
+    flag
+  end
+
+  def subtrips_of_trip booking
+    Subtrip.find(booking.subtrip.id).trip.subtrips
+  end
+
+  def find_seat_numbers subtrip, booking
+    subtrip.seats.each_index.select{|i| subtrip.seats[i] == booking.passenger.id}
+  end
+
+  def booking_id_check hashed_code
+    if hashed_code     ==  Digest::MD5.hexdigest("yes#{self.id}")
+      self.accaptance_status = 1
+      self.save
+      1
+    elsif  hashed_code ==  Digest::MD5.hexdigest("no#{self.id}")
+      self.accaptance_status = -1
+      self.save
+      -1
+    else
+      false
+    end
+  end
+
+  def take_all_conflict_seats seat_numbers
     all_crossed_subtrips = self.subtrip.find_conflict_subtrips 
 
     all_crossed_subtrips.each do |subtrip|
-      updated_seats(subtrip, seat_numbers, self.passenger) 
+      seats = create_replacing_seats_array_for_insert(subtrip, seat_numbers, self.passenger.id) 
+      save_new_seats_array(seats, subtrip)
     end
   end
 
   private
+    def save_new_seats_array(seats, subtrip)
+        subtrip.seats = []
+        seats.each do |single|
+          subtrip.seats << single
+        end
+        subtrip.save    
+    end
 
-    def updated_seats subtrip, seat_numbers, passenger
+    def create_replacing_seats_array_for_delete subtrip, num = 0
+        seats = subtrip.seats
+        seats.collect! { |element|
+         (element == self.passenger.id) ? num : element
+        }
+    end
+
+    def create_replacing_seats_array_for_insert subtrip, seat_numbers, passenger_id
       seats = subtrip.seats
       seat_numbers.each do |k,v|
         if v == 'T'
-          seats[k.to_i] = passenger.id
+          seats[k.to_i] = passenger_id
         end
       end
-      subtrip.seats = []
-      seats.each do |single|
-        subtrip.seats << single
-      end
-      subtrip.save
+      seats
     end
 
 end
