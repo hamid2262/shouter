@@ -12,6 +12,7 @@ class UserMailer < ActionMailer::Base
   end
 
   def booking_request_to_driver(booking)
+    @host = 'hamsafaryab.com'
     @booking = booking
     @passenger = @booking.passenger
     @driver = @booking.subtrip.trip.driver
