@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140201170831) do
     t.integer  "subtrip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "accaptance_status", default: 0
+    t.integer  "acceptance_status", default: 0
   end
 
   add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree

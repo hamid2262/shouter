@@ -2,8 +2,8 @@
 
 one:
   passenger_id: 
-  accaptance_status: false
+  acceptance_status: false
 
 two:
   passenger_id: 
-  accaptance_status: false
+  acceptance_status: false

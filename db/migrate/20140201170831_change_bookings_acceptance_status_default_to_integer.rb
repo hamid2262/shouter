@@ -1,10 +1,10 @@
 class ChangeBookingsAcceptanceStatusDefaultToInteger < ActiveRecord::Migration
   def up
   	remove_column :bookings, :accaptance_status
-  	add_column :bookings, :accaptance_status, :integer, default: 0  	
+  	add_column :bookings, :acceptance_status, :integer, default: 0  	
   end
   def down
-  	remove_column :bookings, :accaptance_status
+  	remove_column :bookings, :acceptance_status
   	add_column :bookings, :accaptance_status, :boolean, default: false
   end
 end

@@ -30,11 +30,11 @@ class BookingsController < ApplicationController
     hashed_code = params[:accept_status]
     if @booking.booking_id_check(hashed_code)
       if  @booking.booking_id_check(hashed_code) == 1
-        if @booking.update_attributes(accaptance_status: 1)
+        if @booking.update_attributes(acceptance_status: 1)
           # redirect_to(@booking.subtrip, notice: "user successfully booked the trip.")
         end
       elsif  @booking.booking_id_check(hashed_code) == -1
-        if @booking.update_attributes(accaptance_status: -1)
+        if @booking.update_attributes(acceptance_status: -1)
           @data = @booking.update_all_bookings
           # return false
           # redirect_to(@booking.subtrip, notice: "user successfully rejected from the trip reservation.")
@@ -99,7 +99,7 @@ class BookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def booking_params
-      params.require(:booking).permit(:passenger_id, :accaptance_status)
+      params.require(:booking).permit(:passenger_id, :acceptance_status)
     end
     def subtrip_params
       params.require(:subtrip).permit(:seats)

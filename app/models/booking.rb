@@ -31,7 +31,7 @@ class Booking < ActiveRecord::Base
     if check_if_subtrips_dirty_after_delete(seat_numbers)
       subs = subtrips_of_trip self
       subs.each do |subtrip|
-        subtrip.bookings.where("accaptance_status  > -1").each do |b|
+        subtrip.bookings.where("acceptance_status  > -1").each do |b|
           seats_indexes = b.subtrip.seats.each_index.select{|i| b.subtrip.seats[i] == b.passenger.id}
           
           # seat_numbers = find_seat_numbers b.subtrip, b
@@ -77,11 +77,11 @@ class Booking < ActiveRecord::Base
 
   def booking_id_check hashed_code
     if hashed_code     ==  Digest::MD5.hexdigest("yes#{self.id}")
-      self.accaptance_status = 1
+      self.acceptance_status = 1
       self.save
       1
     elsif  hashed_code ==  Digest::MD5.hexdigest("no#{self.id}")
-      self.accaptance_status = -1
+      self.acceptance_status = -1
       self.save
       -1
     else
