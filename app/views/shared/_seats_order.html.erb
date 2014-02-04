@@ -1,7 +1,7 @@
-<div class="blueprint_<%= @subtrip.vehicle_type %>">
+<div class="blueprint_<%= subtrip.vehicle_type %>">
 	<%#= form_tag bookings_path do %>
-  <%= link_to gravatar(@subtrip.trip.driver, 43, "img-circle person driver"), profile_url(@subtrip.trip.driver) %> 
-	<% @subtrip.seats.each_with_index do |id, index| %>
+  <%= link_to gravatar(subtrip.trip.driver, 43, "img-circle person driver"), profile_url(subtrip.trip.driver) %> 
+	<% subtrip.seats.each_with_index do |id, index| %>
 		<%#= check_for_seat_state(id, index) %>
 		<% if id == 0 %>
 			<%= image_tag( IMAGES_PATH+"blueprints/seat_free_#{params[:locale]}.gif", size: "43x43", class: "img-circle person passenger-#{index+1}" ) %>
@@ -10,16 +10,16 @@
 		<% else %>
 			<!-- -- -->
 			<% user = User.find_by(id: id) %>
-			<% booking = user.bookings.where(subtrip_id: @subtrip.id).first %>
+			<% booking = user.bookings.where(subtrip_id: subtrip.id).last %>
   		<!-- -- -->
   		<%= link_to gravatar(user, 43, "img-circle person passenger-#{index+1}"), profile_url(user) %> 
-  		<% if booking.try(:acceptance_status) == 0 %>
+  		<% if booking.acceptance_status == 0 %>
   			<%= image_tag( IMAGES_PATH+"blueprints/waiting_#{params[:locale]}.gif", size: "43x43", class: "waiting img-circle person passenger-#{index+1}" ) %>
   		<% end %>
 		<% end %>
 	<% end %> <!-- Form End -->
 		
-		<%#= hidden_field_tag 'subtrip_id', @subtrip.id %>
+		<%#= hidden_field_tag 'subtrip_id', subtrip.id %>
 		<%#= submit_tag 'Save' %>
 	<%# end -%>		
 </div>

@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
   default from: "hamsafaryab@gmail.com"
-
+  before_action :set_environment
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
@@ -12,7 +12,6 @@ class UserMailer < ActionMailer::Base
   end
 
   def booking_request_to_driver(booking)
-    @host = 'hamsafaryab.com'
     @booking = booking
     @passenger = @booking.passenger
     @driver = @booking.subtrip.trip.driver
@@ -51,6 +50,14 @@ private
   def acceptance answer
     Digest::MD5.hexdigest("#{answer}#{@booking.id}")
     # Digest::MD5.hexdigest("#{answer}#{29}")
+  end
+
+  def set_environment
+    if Rails.env.production?
+      @host = 'hamsafaryab.com'
+    else
+      @host = 'localhost:3000'
+    end
   end
 end
  

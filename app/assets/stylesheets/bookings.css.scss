@@ -1,3 +1,16 @@
 // Place all the styles related to the bookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.booking_acceptance{
+	.message{
+		padding: 10px;
+	}
+	.message.accept{}
+	.message.reject{
+		background-color: #EE4444;
+	}
+	.message.already_replied{
+		background-color: #920000;	
+	}
+}

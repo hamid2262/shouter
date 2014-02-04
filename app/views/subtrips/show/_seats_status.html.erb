@@ -22,7 +22,7 @@
 		  	</table>
 	  	</div>
 			<div class="col-lg-6 blueprints">
-				<%= render 'subtrips/show/seats_order' %>
+				<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
 			</div>
 		
 	  </div>

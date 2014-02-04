@@ -27,7 +27,13 @@ class BookingsController < ApplicationController
 
   def booking_acceptance
     @booking = Booking.find(params[:booking_id])
+    @subtrip = @booking.subtrip
+    unless @booking.acceptance_status == 0
+      @already_replied = 1
+      return false 
+    end
     hashed_code = params[:accept_status]
+
     if @booking.booking_id_check(hashed_code)
       if  @booking.booking_id_check(hashed_code) == 1
         if @booking.update_attributes(acceptance_status: 1)
@@ -39,12 +45,13 @@ class BookingsController < ApplicationController
           # return false
           # redirect_to(@booking.subtrip, notice: "user successfully rejected from the trip reservation.")
         end
-
-      end
+      end #@booking.booking_id_check(hashed_code) == -1
     else
-      # error message and redirect to root path 
-    end
+      redirect_to root_path, notice: 'you are not authorized to access this page'
+    end #@booking.booking_id_check(hashed_code)
     # give deletation message and redirect to reservation page
+    @booking = Booking.find(params[:booking_id])
+    @subtrip = @booking.subtrip
   end
 
   # POST /bookings

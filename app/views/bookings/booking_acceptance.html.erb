@@ -1,9 +1,56 @@
-<%= @booking.passenger.name %>  <br>
-from: <%= @booking.subtrip.origin.name %> <br>
-to : <%= @booking.subtrip.destination.name %> <br>
-date: <%= @booking.subtrip.date_time %> <br>
-<% if @booking.acceptance_status == 1 %>
-	<p>The trip has been accepted</p>
-<% else %>
-	<p>The trip canceled</p>
-<% end %>
+<div class="booking_acceptance">	
+	<div class="panel panel-default">
+	  <div class="panel-heading"><h4><%= t '.title' %></h4></div>
+	  <div class="panel-body">
+	  	<div class="col-lg-6">
+		  	<table>
+		  		<tbody>
+	  				<% if @already_replied %>
+		  				<h4 class="bg-primary message already_replied">
+		  					<%= t '.passenger_booking_already_replied_message' %>
+		  				</h4>	 					  			
+	  				<% elsif @booking.acceptance_status == 1 %>
+		  				<h4 class="bg-primary message accept"><%= t '.passenger_booking_accept_message' %>
+		  				</h4>	  					
+	  				<% elsif @booking.acceptance_status == -1 %>
+		  				<h4 class="bg-primary message reject"><%= t '.passenger_booking_reject_message' %>
+		  				</h4>	  					
+	  				<% end %>
+			  		<tr>
+			  			<th><%= t '.number_of_passenger' %> </th>
+			  			<th><%= @booking.passenger.name %> 	</th>  			
+			  		</tr>
+			  		<tr>
+			  			<th><%= t 'from' %> </th>
+			  			<th><%= @booking.subtrip.origin.name %>	</th>  			
+			  		</tr>
+			  		<tr>
+			  			<th><%= t 'to' %> </th>
+			  			<th><%= @booking.subtrip.destination.name %></th> 
+			  		</tr>
+
+				  	<tr>
+				  		<th><%= t 'mydate'  %></th>
+				  		<td><%= jalali_date(@subtrip.date_time) %></td>
+				  	</tr>
+				  	
+				  	<tr>
+				  		<th><%= t 'at' %></th>
+				  		<td><%= jalali_time(@subtrip.date_time) %></td>
+				  	</tr>
+
+				  	<tr>
+				  		<th><%= t 'price' %></th>
+				  		<th><%= t 'currency', amount: @subtrip.price %></th>
+				  	</tr>  
+
+		  		</tbody>
+		  	</table>
+	  	</div>
+			<div class="col-lg-6 blueprints">
+				<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
+			</div>
+		
+	  </div>
+	</div>
+</div>

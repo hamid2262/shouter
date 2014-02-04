@@ -1,5 +1,12 @@
 fa:
   bookings:
+    booking_acceptance:
+      number_of_passenger: نام مسافر
+      passenger_booking_accept_message: مسافر برای این سفر تایید شد
+      passenger_booking_already_replied_message: شما قبلا به این درخواست پاسخ داده
+        اید
+      passenger_booking_reject_message: درخواست رزرو مسافر رد شد
+      title: پاسخ به درخواست مسافر
     form:
       back_to_trip: بازگشت به صفحه سفر
       free: خالی

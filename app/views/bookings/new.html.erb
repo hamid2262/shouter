@@ -6,11 +6,9 @@
 				<%= render 'form' %>	
 			</div>
 			<div class="col-xs-5 blueprints">
-				<%= render 'bookings/new/seats_order' %>
+				<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
 			</div>	 
 		</div>
 	</div>	
-
-
 </div>
 

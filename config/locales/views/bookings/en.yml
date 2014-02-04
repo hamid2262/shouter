@@ -1,5 +1,12 @@
 en:
   bookings:
+    booking_acceptance:
+      number_of_passenger: Name of passenger
+      passenger_booking_accept_message: Passenger has been accepted for this trip
+      passenger_booking_already_replied_message: You have already replied to this
+        booking request
+      passenger_booking_reject_message: The reservation rejected successfuly.
+      title: Response to the trip request
     form:
       back_to_trip: Back to trip
       free: Free
