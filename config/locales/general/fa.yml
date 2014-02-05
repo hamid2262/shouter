@@ -5,6 +5,9 @@ fa:
   hi: سلام
   sign: تیم همسفریاب
   name_of_passenger: نام مسافر
+  name_of_driver: نام راننده
+  contact_number: شماره تماس
+  email: پست الکترونیکی
   number_of_requested_seats: تعداد صندلی های درخواست شده
   gender:
     male: آقا

@@ -28,7 +28,7 @@
 		</tr>
 		<tr>
 			<th style="text-align: left;width: 234px;"><%= t 'price' %></th>
-			<td style="text-align: left;width: 234px;"><%= @subtrip.price %></td>
+			<td style="text-align: left;width: 234px;"><%= t('currency', amount: @subtrip.price ) %></td>
 		</tr>
 	</tbody>
 </table>

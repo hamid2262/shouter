@@ -1,0 +1,12 @@
+<%= t 'hi' %> <%= @passenger.name %>, <br> <br>
+<%= t '.line1' %> <br>
+<br>
+
+<%= render 'trip_details' %>
+
+<%# accept = url_for(controller: 'bookings', action:'show', id: @booking.id,	 locale: 'fa', host: @host)  %>
+<% @subtrip_url = url_for(controller: 'search_subtrips', action:'search',	 locale: 'fa', host: @host)  %>
+
+<h3><%= link_to t(".go_to_search_subtrips"), @subtrip_url %></h3>
+
+<p><%= link_to t("sign"), 'http://'+ @host + '/fa' %></p>

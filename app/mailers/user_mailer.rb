@@ -17,12 +17,28 @@ class UserMailer < ActionMailer::Base
     mail to: @driver.email, subject: t('.subject')
   end
 
+  def booking_positive_response_to_passenger(booking)
+    @booking = booking
+
+    set_booking_parameters
+
+    mail to: @passenger.email, subject: t('.subject')    
+  end
+
+  def booking_negative_response_to_passenger booking
+    @booking = booking
+
+    set_booking_parameters
+
+    mail to: @passenger.email, subject: t('.subject')        
+  end
+
 private
   def set_booking_parameters
     @passenger = @booking.passenger
     @driver = @booking.subtrip.trip.driver
     @subtrip = @booking.subtrip
-    @name_of_requested_seats = Subtrip.name_of_requested_seats(@subtrip.id, @passenger.id)
+    @number_of_requested_seats = Subtrip.number_of_requested_seats(@subtrip.id, @passenger.id)
     @jalali_day = jalali_day @subtrip.date_time
     @jalali_day_num =  jalali_day_num @subtrip.date_time
     @jalali_month = jalali_month @subtrip.date_time

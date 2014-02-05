@@ -3,11 +3,20 @@ en:
     signup_confirmation:
       subject: "Signup Confirmation"
     booking_request_to_driver:
-      passenger_detail: Passenger Details
       subject: "Booking Confirmation" 
+      passenger_detail: Passenger Details
       line1: "A passenger has requested a reservation for your trip. the reservation details are:"
       line2: If you accept the request, your contact number will be sent to passenger.
       line3: For acceptance of this reservation please click on accept button or reject
+    booking_positive_response_to_passenger: 
+      subject: Your ride sharing acceptance reply
+      driver_details: Driver Details
+      line1: Your trip has been accepted by the driver. Detail of the trip and driver profile are
+      go_to_subtrip: Go to trip page
+    booking_negative_response_to_passenger:
+      subject: your requested trip has been rejected
+      line1: Your requested trip has been rejected. Detail of your trip was
+      go_to_search_subtrips: Go to search trips page
     trip_details: 
       title: Trip Details
       

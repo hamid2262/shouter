@@ -15,7 +15,7 @@
 			</td>
 		</tr>
 			<th style="text-align: left;width: 234px;"><%= t 'number_of_requested_seats' %></th>
-			<td style="text-align: left;width: 234px;"><%= @name_of_requested_seats %>	</td>
+			<td style="text-align: left;width: 234px;"><%= @number_of_requested_seats %>	</td>
 		</tr>
 	</tbody>
 </table>
@@ -44,4 +44,4 @@
 						 locale: 'fa',
 						 host: @host) %>">
 </a>
-<p><%= link_to t("sign"), @reject_url %></p>
+<p><%= link_to t("sign"), 'http://'+ @host + '/fa' %></p>

@@ -37,13 +37,12 @@ class BookingsController < ApplicationController
     if @booking.booking_id_check(hashed_code)
       if  @booking.booking_id_check(hashed_code) == 1
         if @booking.update_attributes(acceptance_status: 1)
-          # redirect_to(@booking.subtrip, notice: "user successfully booked the trip.")
+          UserMailer.booking_positive_response_to_passenger(@booking).deliver
         end
       elsif  @booking.booking_id_check(hashed_code) == -1
         if @booking.update_attributes(acceptance_status: -1)
-          @data = @booking.update_all_bookings
-          # return false
-          # redirect_to(@booking.subtrip, notice: "user successfully rejected from the trip reservation.")
+          @booking.update_all_bookings
+          UserMailer.booking_negative_response_to_passenger(@booking).deliver
         end
       end #@booking.booking_id_check(hashed_code) == -1
     else
