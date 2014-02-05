@@ -1,11 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "hamsafaryab@gmail.com"
   before_action :set_environment
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.user_mailer.signup_confirmation.subject
-  #
+
   def signup_confirmation(user)
     @user = user
     mail to: user.email, subject: "Signup Confirmation"
@@ -13,23 +9,30 @@ class UserMailer < ActionMailer::Base
 
   def booking_request_to_driver(booking)
     @booking = booking
+
+    set_booking_parameters
+
+    @accept = acceptance 'yes'
+    @reject = acceptance 'no'
+    mail to: @driver.email, subject: t('.subject')
+  end
+
+private
+  def set_booking_parameters
     @passenger = @booking.passenger
     @driver = @booking.subtrip.trip.driver
     @subtrip = @booking.subtrip
-
+    @name_of_requested_seats = Subtrip.name_of_requested_seats(@subtrip.id, @passenger.id)
     @jalali_day = jalali_day @subtrip.date_time
     @jalali_day_num =  jalali_day_num @subtrip.date_time
     @jalali_month = jalali_month @subtrip.date_time
     @jalali_time = jalali_time @subtrip.date_time
-
-    @accept = acceptance 'yes'
-    @reject = acceptance 'no'
-    mail to: @driver.email, subject: "Booking Confirmation"
+    @am_pm = am_pm @subtrip  
   end
 
-
-
-private
+  def am_pm s
+    s.date_time 
+  end
 
   def jalali_day_num s
     JalaliDate.new(s).strftime("%b")
@@ -59,5 +62,7 @@ private
       @host = 'localhost:3000'
     end
   end
+
+
 end
  

@@ -17,8 +17,12 @@
 		  				</h4>	  					
 	  				<% end %>
 			  		<tr>
-			  			<th><%= t '.number_of_passenger' %> </th>
+			  			<th><%= t 'name_of_passenger' %> </th>
 			  			<th><%= @booking.passenger.name %> 	</th>  			
+			  		</tr>
+			  		<tr>
+			  			<th><%= t 'number_of_requested_seats' %> </th>
+			  			<th><%= @booking.subtrip.seats.count(@booking.passenger.id) %> 	</th>  			
 			  		</tr>
 			  		<tr>
 			  			<th><%= t 'from' %> </th>

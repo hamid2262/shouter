@@ -2,11 +2,16 @@ fa:
   hamsafaryab: همسفریاب
   slogan: یابنده همسفر و مسافر در سفرهای بین شهری
   no_data: ثبت نشده
+  hi: سلام
+  sign: تیم همسفریاب
+  name_of_passenger: نام مسافر
+  number_of_requested_seats: تعداد صندلی های درخواست شده
   gender:
     male: آقا
     female: خانم
   city: شهر
   at: در ساعت
+  day: روز
   from: مبدا حرکت از 
   via: گذر از 
   to: به مقصد
@@ -23,6 +28,8 @@ fa:
   today: امروز
   tomorrow: فردا
   remove: حذف
+  accept: قبول درخواست
+  reject: رد درخواست
   # flash messages   
   require_login: برای ادامه، باید وارد سایت شوید
   

@@ -2,11 +2,17 @@ en:
   hamsafaryab: HamsafarYab - همسفریاب
   slogan: Rideshare and carpool with friendly people.
   no_data: No data
+  hi: Hello
+  sign: HamsafarYab's team
+  name_of_passenger: "Passenger's Name"
+  number_of_requested_seats: Number of requested seats
+  name_of_driver: "Drivers' Name"
   gender:
     male: Male
     female: Female
   city: City
   at: At
+  day: Weekday
   from: From
   via: Via
   to: To
@@ -24,6 +30,8 @@ en:
   tomorrow: Tomorrow
   remove: Remove
   delete: Delete
+  accept: Accept 
+  reject: Reject 
   # flash messages
   require_login: "You must be logged in to access this section"
   

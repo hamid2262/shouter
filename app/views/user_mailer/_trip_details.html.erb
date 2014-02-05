@@ -1,0 +1,35 @@
+<hr>
+<br>
+<h3><%= t '.title' %></h3>
+<table>
+	<tbody>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'from' %></th>
+			<td style="text-align: left;width: 234px;"><%= @subtrip.origin.name %></td>
+		</tr>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'to' %></th>
+			<td style="text-align: left;width: 234px;"><%= @subtrip.destination.name %></td>
+		</tr>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'day' %></th>
+			<td style="text-align: left;width: 234px;"><%= @jalali_day %></td>
+		</tr>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'mydate' %></th>
+			<td style="text-align: left;width: 234px;">
+				<%= @jalali_month %>
+				<%= @jalali_day_num %> 
+			</td>
+		</tr>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'at' %></th>
+			<td style="text-align: left;width: 234px;"><%= @jalali_time %></td>
+		</tr>
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'price' %></th>
+			<td style="text-align: left;width: 234px;"><%= @subtrip.price %></td>
+		</tr>
+	</tbody>
+</table>
+<hr>

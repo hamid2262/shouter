@@ -1,0 +1,13 @@
+en:
+  user_mailer:
+    signup_confirmation:
+      subject: "Signup Confirmation"
+    booking_request_to_driver:
+      passenger_detail: Passenger Details
+      subject: "Booking Confirmation" 
+      line1: "A passenger has requested a reservation for your trip. the reservation details are:"
+      line2: If you accept the request, your contact number will be sent to passenger.
+      line3: For acceptance of this reservation please click on accept button or reject
+    trip_details: 
+      title: Trip Details
+      

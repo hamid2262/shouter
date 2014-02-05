@@ -1,56 +1,47 @@
-Hello <%= @driver.name %>, <%#= @passenger.inspect %>
-<p><%= link_to @passenger.name, url_for(	host: @host,
+<%= t 'hi' %> <%= @driver.name %>, <br> <br>
+<%= t '.line1' %> <br>
+<br>
+<h3><%= t '.passenger_detail' %></h3>
+<table>
+	<tbody> 
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'name_of_passenger' %></th>
+			<td style="text-align: left;width: 234px;">
+				<%= link_to @passenger.name, url_for(	host: @host,
 																			controller: 'profiles', 
 																			action: 'show', 
 																			id: @passenger.slug, 
 																			locale: 'fa') %>
-      
- has requested a reservation. the reservation details are:</p>
-<table>
-	<tbody>
-		<tr>
-			<th>Origin:</th>
-			<td><%= @subtrip.origin.name %></td>
-		</tr>
-		<tr>
-			<th>Destination:</th>
-			<td><%= @subtrip.destination.name %></td>
-		</tr>
-		<tr>
-			<th>Day:</th>
-			<td><%= @jalali_day %></td>
-		</tr>
-		<tr>
-			<th>Date:</th>
-			<td>
-				<%= @jalali_month %>
-				<%= @jalali_day_num %> 
 			</td>
 		</tr>
-		<tr>
-			<th>Time:</th>
-			<td><%= @jalali_time %></td>
-		</tr>
-		<tr>
-			<th>Price:</th>
-			<td><%= @subtrip.price %></td>
+			<th style="text-align: left;width: 234px;"><%= t 'number_of_requested_seats' %></th>
+			<td style="text-align: left;width: 234px;"><%= @name_of_requested_seats %>	</td>
 		</tr>
 	</tbody>
 </table>
 
-<p>For acceptance of this reservation please click on accept button or reject</p>
+<%= render 'trip_details' %>
+
+<p><%= t '.line2' %></p>
+<p><%= t '.line3' %></p>
+
 
 <%# accept = url_for(controller: 'bookings', action:'show', id: @booking.id,	 locale: 'fa', host: @host)  %>
 <% @accept_url = url_for(controller: 'bookings', action:'booking_acceptance', booking_id: @booking.id,	 locale: 'fa', host: @host, accept_status: @accept)  %>
 <% @reject_url = url_for(controller: 'bookings', action:'booking_acceptance', booking_id: @booking.id,	 locale: 'fa', host: @host, accept_status: @reject)  %>
-
-<%= link_to "Accept", @accept_url %> <br>
-<%= link_to "Reject", @reject_url %>
-
+<br>
+<table>
+	<tbody>
+		<tr>
+			<th class="buttons" style="text-align: left;width: 234px;"><h3><%= link_to t("accept"), @accept_url %></h3></th>
+			<th class="buttons" style="text-align: left;width: 234px;"><h3><%= link_to t("reject"), @reject_url %></h3></th>
+		</tr>
+	</tbody>
+</table>
 <a href="<%#= url_for(controller: 'users',
 						 action:'show', 
 						 id: @booking.id,
 						 locale: 'fa',
 						 host: @host) %>">
 </a>
-<p>HamsafarYab's team</p>
+<p><%= link_to t("sign"), @reject_url %></p>
