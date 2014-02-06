@@ -2,7 +2,7 @@
 	<div class="col-md-6">
 		<div id="search_form" >
 			<% unless (request.try(:location).try(:country_code) == 'IR')  %>
-				<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
+				<%#= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
 			<% end %>
 			<%= render partial: 'trip_search' %>	
 	  </div>
@@ -14,6 +14,9 @@
 	</div>	
 
 	<div class="col-md-6">
+		<div id="spacial_events">
+			<%= render 'spacial_events'%>	
+		</div>
 		<div id="sample_trips">
   		<% if @subtrips && @subtrips.any? %>
 				<%= render 'sample_subtrips'%>	

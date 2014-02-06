@@ -1,36 +1,40 @@
 .top_navbar {
-		.navbar-brand{
-	    padding-bottom: 0;
-	    padding-top: 0;   
-	  }
-    .link a{
-			padding-bottom: 0;
-			padding-right: 5px;
-			margin-top: -5px;
-			background: none;
+	.navbar-brand{
+    padding-bottom: 0;
+    padding-top: 0;   
+  }
+  .link a{
+		padding-bottom: 0;
+		padding-right: 5px;
+		margin-top: -5px;
+		background: none;
+	}
+	.name{
+		padding-left: 0;
+	}
+	.home{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') 34px 1px;;
+		height: 35px;
+		width: 35px;
+		margin-top: 7px;
+		opacity: .6;
+		&:hover {
+			background-position-x: 2px;
 		}
-		.name{
-			padding-left: 0;
+	}
+	#profile_menu, #my_trips_menu{
+		#title{
+			background-color: transparent;					
+		&:focus {
+			background-color: #eee;	
 		}
-		.home{
-			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') 34px 1px;;
-			height: 35px;
-			width: 35px;
-			margin-top: 7px;
-			opacity: .6;
-			&:hover {
-				background-position-x: 2px;
-			}
 		}
-		#profile_menu, #my_trips_menu{
-			#title{
-				background-color: transparent;					
-			&:focus {
-				background-color: #eee;	
-			}
-			}
-			
-		}
+		
+	}
+	.special_events{
+		color: red !important;
+		font-weight: bold ;
+	}	
 }
 
 .navbar{

@@ -2,6 +2,7 @@ Shouter::Application.routes.draw do
     # resources :profiles , only: [:show] 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     resource  :search_subtrips, only: [] do
+      get 'special_events' => 'search_subtrips#special_events'
       get 'search' => 'search_subtrips#search'
       get 'choose_search_mode' => 'search_subtrips#choose_search_mode'
     end

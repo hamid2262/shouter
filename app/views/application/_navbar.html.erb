@@ -27,6 +27,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
+
         <li><%= link_to t("navbar.trip.insert"), new_trip_path %></li>
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 
@@ -35,7 +36,12 @@
         <% else %>
           <li><%= link_to_unless_current t("navbar.language.farsi"), locale: "fa" %></li>
         <% end %>
+      </ul>     
+
+      <ul class="nav navbar-nav navbar-left ">
+        <li><%= link_to ' صفحه ویژه: سفرها به مقصد کرمان ', special_events_search_subtrips_path, class: "special_events" %></li>
       </ul>
+
     </div><!--/.nav-collapse -->
   </div>
 </div>
