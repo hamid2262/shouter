@@ -1,9 +1,17 @@
 # navbar
 fa:
+  application:
+    nav:
+      my_trips:
+        label: سفرهای من
+        booked_trips: سقرهای رزرو کرده
+        registered_trips: سقرهای ثبت کرده
+        as_passenger: با عنوان مسافر
+        as_driver:  با عنوان راننده
   navbar:
     profile:
       title: پروفایل
-      header: پروفایل شما
+      header: پروفایل من
       personal_profile: اطلاعات شخصی    
       contact_details: اطلاعات تماس
       account_settings: اطلاعات حساب کاربری

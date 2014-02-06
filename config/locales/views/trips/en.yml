@@ -4,12 +4,16 @@ en:
       add_stopover: Add Stopover
       route: Route
       title: New trip form
-    show:
+    show_edit:
       form_edit:
         delete: Delete All
-      show:
+      form_show:
+        all_trips: All Trips
+        edit_trip: Edit this Trip
+      head:
+        title: Trip Description
+      trip_summary:
         description: This trip starts on %{date}
-      title: Trip Description
     subtrip_fields:
       at: At
       city: City

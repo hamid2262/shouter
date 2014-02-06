@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    @bookings = current_user.bookings     
   end
 
   # GET /bookings/1
@@ -46,7 +46,7 @@ class BookingsController < ApplicationController
         end
       end #@booking.booking_id_check(hashed_code) == -1
     else
-      redirect_to root_path, notice: 'you are not authorized to access this page'
+      redirect_to root_path, notice: t('unauthorized_pages_message') 
     end #@booking.booking_id_check(hashed_code)
     # give deletation message and redirect to reservation page
     @booking = Booking.find(params[:booking_id])

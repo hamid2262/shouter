@@ -1,15 +1,9 @@
-<div id="user_show" class="user_profile">
+<div id="trip_show" class="">
 	<div class="col-md-8">
 		<div class="panel panel-default">
-			<div class="panel-heading">
-		    <h3 class="panel-title col-xs-8">
-		    	<%= t('.title') %>
-		    </h3>
-				<div class="pull-left">
-					<%= gravatar @user, 85, "img-thumbnail", :square %>
-				</div>		    	   
-		  </div>
-			<%= render 'trips/show/show' %>
+			<%= render partial: 'trips/show_edit/head', locals: {user: @trip.driver} %>
+			<%= render 'trips/show_edit/trip_summary' %>
+  		<%= render 'trips/show_edit/form_show' %>
 		</div>
 	</div>
 </div>

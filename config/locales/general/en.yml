@@ -37,7 +37,7 @@ en:
   reject: Reject 
   # flash messages
   require_login: "You must be logged in to access this section"
-  
+  unauthorized_pages_message: 'you are not authorized to access this page'
   following_message: Now you are following %{name}.
   unfollowed_message: You unfollowed %{name}.
   sign_up: Sign Up
@@ -57,3 +57,10 @@ en:
   booking_created_message: Booking was successfully created.
   booking_updated_message: Booking was successfully updated.
   
+  # cancan
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."

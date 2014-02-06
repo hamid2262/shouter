@@ -35,7 +35,8 @@ fa:
   reject: رد درخواست
   # flash messages   
   require_login: برای ادامه، باید وارد سایت شوید
-  
+  unauthorized_pages_message: شما اجازه دسترسی به این صفحه را ندارید
+    
   following_message: 'شما  "%{name}" را دنبال میکنید'
   unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
   sign_up: ثبت نام
@@ -53,3 +54,12 @@ fa:
   
   booking_created_message: رزرو شما با موفقت ثبت شد
   booking_updated_message: رزرو شما با موفقیت بروزرسانی شد
+  
+  
+  # cancan
+  unauthorized:
+    manage:
+      all: اجازه دسترسی به قسمت را ندارید 
+      user: "Not allowed to manage other user accounts."
+    update:
+      project: "Not allowed to update this project."

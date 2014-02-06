@@ -38,7 +38,14 @@
 	}
 }
 
-#user_show{
+#trip_show, #trip_edit{
+	.panel-heading{
+		padding: 2px;
+		h3{
+			margin-top: 30px;
+			font-size: 1.5em;			
+		}
+	}
 	.route_table, .subtrips_edit_field{
 		background: #efefef;
 		border-radius: 5px;		

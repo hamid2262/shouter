@@ -4,12 +4,16 @@ fa:
       add_stopover: اضافه کردن شهر عبوری
       route: مسیر حرکت
       title: فرم ورود مشخصات سفر
-    show:
+    show_edit:
       form_edit:
         delete: حذف همه سفر
-      show:
+      form_show:
+        all_trips: همه سفرها
+        edit_trip: ویرایش این سفر
+      head:
+        title: جزییات سفر
+      trip_summary:
         description: این سفر در تاریخ %{date} است.
-      title: جزییات سفر
     subtrip_fields:
       at: در ساعت
       city: از شهر

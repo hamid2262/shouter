@@ -1,9 +1,18 @@
 # navbar
 en:
+  application:
+    nav:
+      my_trips:
+        label: My Trips
+        booked_trips: Booked Trips 
+        registered_trips: Inserted Trips
+        as_passenger: As Passenger 
+        as_driver: As Driver
+                
   navbar:
     profile:
       title: Profile
-      header: Your Profile
+      header: My Profile
       personal_profile: Personal Profile    
       contact_details: Contact Details
       account_settings: Account Settings

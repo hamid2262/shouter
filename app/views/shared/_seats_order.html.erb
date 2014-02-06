@@ -13,7 +13,7 @@
 			<% booking = user.bookings.where(subtrip_id: subtrip.id).last %>
   		<!-- -- -->
   		<%= link_to gravatar(user, 43, "img-circle person passenger-#{index+1}"), profile_url(user) %> 
-  		<% if booking.try(:acceptance_status) == 0 %>
+  		<% if booking && booking.acceptance_status == 0 %> <!--  -->
   			<%= image_tag( IMAGES_PATH+"blueprints/waiting_#{params[:locale]}.gif", size: "43x43", class: "waiting img-circle person passenger-#{index+1}" ) %>
   		<% end %>
 		<% end %>

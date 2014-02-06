@@ -20,12 +20,12 @@ class Ability
             user == s.follower
         end
 
-        can [:create, :new], Trip
-        can [:show, :index, :edit, :update, :destroy], [Trip] do |t|
+        can [:create, :new, :index], Trip
+        can [:show, :edit, :update, :destroy], Trip do |t|
             user == t.driver
         end        
 
-        can [:new, :create], Booking
+        can [:new, :create, :index], Booking
         can :booking_acceptance, Booking
 
     else

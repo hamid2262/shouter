@@ -5,12 +5,12 @@
 	  }
     .link a{
 			padding-bottom: 0;
-			padding-left: 5px;
+			padding-right: 5px;
 			margin-top: -5px;
 			background: none;
 		}
 		.name{
-			padding-right: 0;
+			padding-left: 0;
 		}
 		.home{
 			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') 34px 1px;;
@@ -22,10 +22,14 @@
 				background-position-x: 2px;
 			}
 		}
-		#profile_menu{
+		#profile_menu, #my_trips_menu{
 			#title{
-				background-color: #F7F7F7;					
+				background-color: transparent;					
+			&:focus {
+				background-color: #eee;	
 			}
+			}
+			
 		}
 }
 

@@ -1,0 +1,33 @@
+<div class="panel-body subtrips_edit_field">
+  <%= simple_form_for(@trip,
+    html: { method: :put, class: 'form-horizontal' } ) do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.simple_fields_for :subtrips do |b| %>
+        <% next if b.object.origin == b.object.destination %>
+      	<%= render 'trips/show_edit/subtrip_fields_show', f: b %>
+    <% end %>
+    
+    <hr>
+    
+    <div class="form-group">
+      <%= f.label :total_available_seats, class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <strong><%= f.object.total_available_seats %></strong> 
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :detail,class: "col-sm-3 control-label" %>
+      <div class="col-sm-9">
+        <strong><%= f.object.detail %></strong>
+      </div>
+    </div>
+
+    <% if can? :edit, @trip %>
+      <%= link_to t('.all_trips'), trips_path, class: "pull-left btn btn-link" %>
+      <%= link_to t('.edit_trip'), edit_trip_path(@trip), class: "pull-left btn btn-link" %>
+    <% end %>  <!-- if can?    -->    
+  <% end %>  <!-- simple_form_for -->
+</div>

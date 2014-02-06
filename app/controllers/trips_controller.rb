@@ -8,11 +8,7 @@ class TripsController < ApplicationController
   before_action :set_max_vehicle_seats, only: [:new, :show]
   before_filter :authenticate_user!
   def index
-    if current_user.is_admin?
-      @trips = Trip.all
-    else
-      @trips = current_user.trips      
-    end
+    @trips = current_user.trips      
   end
 
   def show
@@ -40,7 +36,7 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
-        format.html { redirect_to @trip, notice: t(:trip_create_message) }
+        format.html { redirect_to edit_trip_path(@trip.id), notice: t(:trip_create_message) }
         format.json { render action: 'show', status: :created, location: @trip }
       else
         @max_vehicle_seats = 8
