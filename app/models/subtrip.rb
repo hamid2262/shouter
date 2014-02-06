@@ -38,6 +38,20 @@ class Subtrip < ActiveRecord::Base
     end
   end
 
+  # used in seats_order
+  def is_waiting_for? user_id
+    flag = true
+    con_subs = self.find_conflict_subtrips  
+    con_subs.each do |con_sub|
+      if  b=con_sub.bookings.where(user_id: user_id).last
+        if b.acceptance_status != 0
+          flag = false
+        end
+      end
+    end
+    flag
+  end
+
   def find_conflict_subtrips
   	origin = self.origin_id
     destination = self.destination_id
