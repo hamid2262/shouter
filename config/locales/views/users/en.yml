@@ -2,8 +2,6 @@ en:
   users:
     account_setting: Acount Settings
     contact_details: Contact Details
-    page_url: Page Url
-    personal_profile: Personal Profile
     edit:
       account_settings:
         new_password: New Password
@@ -13,6 +11,15 @@ en:
       personal_profile:
         please wait: Submitting. Please wait...
       title: '''s Profile Edit'
+    new:
+      form:
+        password_confirmation: Password Confirmation
+        select_gender: Select Gender
+        sign_in: Sign in
+        sign_up: Sign up
+        title: Sign up form
+    page_url: Page Url
+    personal_profile: Personal Profile
     show:
       account_setting:
         goto_change_account_settings: Go to change Password Page
