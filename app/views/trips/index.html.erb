@@ -1,31 +1,39 @@
-<h1>Listing trips</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Total available seats</th>
-      <th>Detail</th>
-      <th>Driver</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trips.each do |trip| %>
-      <tr>
-        <td><%= trip.total_available_seats %></td>
-        <td><%= trip.detail %></td>
-        <td><%= trip.driver.name %></td>
-        <td><%= link_to 'Show', trip %></td>
-        <td><%= link_to 'Edit', edit_trip_path(trip) %></td>
-        <td><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Trip', new_trip_path %>
+<div id="trips_index">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title">List of Registered Trips</h3>
+    </div>
+    <div class="panel-body">
+      Panel content
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Total available seats</th>
+            <th>Path</th>
+            <th>Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @trips.each do |trip| %>
+            <tr>
+              <td><%= jdate_humanize(trip.subtrips.first.date_time, params[:locale]) %></td>
+              <td>
+                <% trip.path_list.each do |s| %>
+                  <%= s.origin.name %> 
+                  <%= ', ' unless s == trip.path_list.last %>
+                <% end %>
+              </td>
+              <td><%= trip.driver.name %></td>
+              <td>
+                <%= render partial: 'trips/index/action_nav', locals: {trip: trip} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

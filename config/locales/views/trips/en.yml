@@ -8,7 +8,7 @@ en:
       form_edit:
         delete: Delete All
       form_show:
-        all_trips: All Trips
+        all_trips: All of my trips
         edit_trip: Edit this Trip
       head:
         title: Trip Description

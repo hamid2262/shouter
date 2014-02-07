@@ -51,3 +51,11 @@
 		border-radius: 5px;		
 	}
 }
+
+#trips_index{
+	.dropdown-menu{
+		right: auto;
+		left: 0;
+		min-width: 110px;
+	}
+}

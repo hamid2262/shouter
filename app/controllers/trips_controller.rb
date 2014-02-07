@@ -8,7 +8,7 @@ class TripsController < ApplicationController
   before_action :set_max_vehicle_seats, only: [:new, :show]
   before_filter :authenticate_user!
   def index
-    @trips = current_user.trips      
+    @trips = current_user.trips.order(updated_at: :desc)     
   end
 
   def show

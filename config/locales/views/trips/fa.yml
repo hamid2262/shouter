@@ -8,7 +8,7 @@ fa:
       form_edit:
         delete: حذف همه سفر
       form_show:
-        all_trips: همه سفرها
+        all_trips: همه سفرهای من
         edit_trip: ویرایش این سفر
       head:
         title: جزییات سفر

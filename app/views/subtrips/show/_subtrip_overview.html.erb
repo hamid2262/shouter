@@ -50,6 +50,13 @@
 		  		<th><%= t 'currency', amount: @subtrip.price %></th>
 		  		<th> </th>
 		  	</tr>  	
+
+		  	<tr>
+		  		<th><%= t 'details' %></th>
+		  		<th><%= @subtrip.trip.detail %></th>
+		  		<th> </th>
+		  	</tr>  	
+
 		 		<tr>
 		  		<th><%= t 'distance' %></th>
 		  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>

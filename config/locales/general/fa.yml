@@ -22,6 +22,7 @@ fa:
   date_time: تاریخ و زمان سفر
   path: مسیر
   price: قیمت
+  details: توضیحات
   distance: مسافت
   km: ' %{amount} کیلومتر'
   per_passenger: هر نفر

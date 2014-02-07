@@ -21,8 +21,11 @@ class Ability
         end
 
         can [:create, :new, :index], Trip
-        can [:show, :edit, :update, :destroy], Trip do |t|
+        can [:show], Trip do |t|
             user == t.driver
+        end        
+        can [:edit, :update, :destroy], Trip do |t|
+            (user == t.driver) && (t.subtrips.first.date_time > DateTime.now)
         end        
 
         can [:new, :create, :index], Booking
