@@ -11,7 +11,7 @@ class UsersController < Devise::RegistrationsController
     if params[:search]
       @users = @users.order( params[:search]+ " DESC" )
     else
-      @users = @users.order(:id)
+      @users = @users.order(id: :desc)
     end
   end
 
