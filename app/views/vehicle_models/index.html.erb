@@ -20,7 +20,7 @@
         <td><%= vehicle_model.name %></td>
         <td><%= vehicle_model.seats_number %></td>
         <td><%= vehicle_model.default_image %></td>
-        <td><%= vehicle_model.vehicle_brand %></td>
+        <td><%= vehicle_model.vehicle_brand.name %></td>
         <td><%= vehicle_model.up_view_image %></td>
         <td><%= link_to 'Show', vehicle_model %></td>
         <td><%= link_to 'Edit', edit_vehicle_model_path(vehicle_model) %></td>

@@ -7,10 +7,10 @@
           <div class="col-lg-6">
             <form class="form-horizontal" role="form">
               <%=  user_form_control_static Vehicle.human_attribute_name("color"), user.vehicle.color %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.vehicle_brand.name %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_model"), user.vehicle.vehicle_model.name %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("number_plate"), user.vehicle.number_plate %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("air_condition"), user.vehicle.air_condition %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name) %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_model"), user.vehicle.try(:vehicle_model).try(:name) %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("number_plate"), user.vehicle.try(:number_plate) %>
+              <%=  user_form_control_static Vehicle.human_attribute_name("air_condition"), user.vehicle.try(:air_condition) %>
               <%=  user_form_control_static Vehicle.human_attribute_name("year"), user.vehicle.year %>
             </form>          
             <% if user == current_user %>
