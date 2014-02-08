@@ -17,7 +17,6 @@ class PhotoShout < ActiveRecord::Base
           image.instance.image_content_type =~ %r(image)
   end
 
-
 end
 
 

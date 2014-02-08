@@ -35,9 +35,13 @@ fa:
   remove: حذف
   accept: قبول درخواست
   reject: رد درخواست
+  post: ارسال
+  sending: در حال ارسال...
   # flash messages   
   require_login: برای ادامه، باید وارد سایت شوید
   unauthorized_pages_message: شما اجازه دسترسی به این صفحه را ندارید
+
+  delete_confirmation: "آیا مطمین هستید که می خواهید این را حذف کنید؟"
     
   following_message: 'شما  "%{name}" را دنبال میکنید'
   unfollowed_message:  شما ارتباطتان را با   %{name} قطع کردید.
@@ -56,6 +60,9 @@ fa:
   
   booking_created_message: رزرو شما با موفقت ثبت شد
   booking_updated_message: رزرو شما با موفقیت بروزرسانی شد
+  
+  shout_created_message: پست شما با موفقت ثبت شد
+  shout_deleted_message:  پست شما با موفقیت پاک شد
   
   
   # cancan

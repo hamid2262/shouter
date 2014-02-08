@@ -20,3 +20,13 @@
 .shout.hover{
 	background: #f7f7f7;
 }
+
+textarea.post_field{
+  resize: vertical;
+  &:active {
+    height: auto;   
+  }
+  &:focus {
+    min-height: 150px;
+  }	
+}

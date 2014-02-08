@@ -14,7 +14,7 @@ class ShoutsController < ApplicationController
 		shout = current_user.shouts.find_by(content_id: params[:id])
 		shout.content.destroy
 		shout.destroy
-		flash[:notice] = "deleted successfully!"
+		flash[:notice] = t(:shout_deleted_message)
 		redirect_to dashboard_path	
 		return false	
 	end
@@ -23,7 +23,7 @@ class ShoutsController < ApplicationController
 
   def massage obj
   	if obj.valid?
-  		flash[:notice] = "successfully shouted!"
+  		flash[:notice] = t(:shout_created_message)
   	else
 	  	flash[:alert] = obj.errors.full_messages.first || "Could not shout"		
 	  end

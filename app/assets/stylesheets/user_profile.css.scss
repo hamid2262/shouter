@@ -26,8 +26,9 @@ h2{
 	}	
 	.cover_upload_form, .avatar_upload_form{
 		#user_cover, #user_avatar{
-	 		background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/upload.png');
-  		background-position: -2px 0;
+	 		background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/upload_bordered.png');
+  		// background-position: -2px 0;
+  		background-repeat: no-repeat;
 	    height: 30px;
 	    width: 33px;
 			text-indent: 40px;	

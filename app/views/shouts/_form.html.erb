@@ -1,14 +1,7 @@
-<% @dashboard.new_text_shout.errors.full_messages.each do |msg| %>
-	<li><%= msg %> </li>
-<% end %>
-</ul>
-<%= simple_form_for @dashboard.new_text_shout do |f| -%>
-<%= f.input :body, as: :text, input_html: {  class: "form-control"} , placeholder: 'Shout content here', label: false %>
-<%= f.button :submit, label: "Shout!" %>
-
-<% end %>
-
-<%= simple_form_for @dashboard.new_photo_shout do |f| -%>
-  <%= f.input  :image %>
-  <%= f.button :submit, label: "Upload"  %>
-<% end %>
+<div class="post_trip_history">
+	<%= simple_form_for @dashboard.new_photo_shout do |f| -%>
+		<%= f.input :body, as: :text, input_html: {  class: "form-control post_field"}, placeholder: t('.shout_body'), label: false %>
+	  <%= f.input  :image, label: false, input_html: {class: "upload_image_btn"} %>
+	  <%= f.submit t("post"), :disable_with => t('sending'), class: "btn btn-warning pull-left" %>
+	<% end %>
+</div>

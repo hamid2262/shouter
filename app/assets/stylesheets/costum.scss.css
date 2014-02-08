@@ -79,6 +79,14 @@ body{
 	padding-right: 0;
 }
 
+.upload_image_btn{
+  background-image: url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/upload.png");
+  height: 30px;
+  width: 34px;
+  text-indent: 40px;
+  z-index: 20;
+  background-repeat: no-repeat;
+}
 
 .panel-heading{
   overflow: hidden;
