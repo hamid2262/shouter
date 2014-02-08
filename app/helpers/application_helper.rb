@@ -35,7 +35,7 @@ module ApplicationHelper
       :locals => {:object => object})
   end
 	
-  def user_form_control_static title, field_value, klass1="col-sm-3", klass2="col-sm-9"
+  def user_form_control_static title, field_value, klass1="col-xs-3", klass2="col-xs-9"
     field_value = t('no_data') if field_value.blank?
     html = <<-HTML
       <div class="form-group">

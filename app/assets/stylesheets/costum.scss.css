@@ -80,6 +80,14 @@ body{
 	padding-right: 0;
 }
 
+.right{
+  right: 4px;
+}
+
+.left{
+  left: 4px;
+}
+
 .content{
 	padding-left: 0;
 	padding-right: 0;
