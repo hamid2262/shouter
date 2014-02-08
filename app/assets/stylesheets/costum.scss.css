@@ -57,6 +57,12 @@ body{
 	margin: 25px 15px 15px;
   width: 256px;
   height: 55px;
+
+}
+
+.invisible{
+    position: absolute;
+    top: -1000px;
 }
 
 #siteLogo #logo, #siteLogo #slogan{

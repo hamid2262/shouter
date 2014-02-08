@@ -1,6 +1,7 @@
 <div class="subtrip_single">
 	<div class="col-sm-7">
 		<%= render 'subtrips/show/subtrip_overview' %>
+		<%= render 'subtrips/show/gmap' %>
 	</div>
 
 	<div class="col-sm-5">
@@ -8,9 +9,4 @@
 		<%= render 'subtrips/show/seats_status' %>
 		<%= render partial: 'vehicles/show', locals: {user: @subtrip.trip.driver} %>
 	</div>
-
-	<div class="col-sm-7">
-		<%= render 'subtrips/show/gmap' %>
-	</div>
-
 </div>
