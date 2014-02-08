@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
     default_url:  "#{IMAGES_PATH}default_cover.png"
   after_create :send_admin_mail
 
-  # SLUG_REGEX =           
+  # SLUG_REGEX =         
   validates :slug, uniqueness: { case_sensitive: false }, 
                     length: { in: 8..39},
                     format: { with: /\A[a-zA-Z][a-zA-Z0-9_-]+\z/i, message: "must be include letter and number and - , _ "  }, on: :update,
@@ -46,9 +46,10 @@ class User < ActiveRecord::Base
   validates :gender,    presence: true, inclusion: { in: ['f','m'], message: "Please select gender" }
   validates :age,       inclusion:{ in: 0..99 }, allow_blank: true
   # validates :city_id,   presence: true
-  validates :tel,       length:{ in: 7..32 }, allow_blank: true
-  validates :mobile,    length:{ in: 7..32 }, allow_blank: true
-  validates :post_code, length:{ in: 5..15 }, allow_blank: true
+  validates :tel,       length:{ in: 7..20  }, allow_blank: true
+  validates :mobile,    length:{ in: 7..20  }, allow_blank: true
+  validates :address,   length:{ in: 4..250 }, allow_blank: true
+  validates :post_code, length:{ in: 5..15  }, allow_blank: true
 
   validates_attachment :avatar, :size => { in: 0..1.megabytes }
   validates_attachment :cover,  :size => { in: 0..2.megabytes }
