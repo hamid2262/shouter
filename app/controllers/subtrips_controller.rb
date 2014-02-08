@@ -1,15 +1,12 @@
 class SubtripsController < ApplicationController
-  before_action :set_subtrip, only: [:show]
-  
 	skip_authorization_check	
 
   def show
+    @subtrip = Subtrip.find(params[:id])
+  	@hash = Gmaps4rails.build_markers(@subtrip.trip.path_list) do |subtrip, marker|
+		  marker.lat subtrip.origin.latitude
+		  marker.lng subtrip.origin.longitude
+		  marker.infowindow render_to_string(:partial => "subtrips/show/data_for_gmaps", :locals => { subtrip: subtrip})
+		end
   end
-
-  
-  private
-    def set_subtrip
-	    @subtrip = Subtrip.find(params[:id])
-    end
-  
 end

@@ -11,6 +11,8 @@ en:
         overview: Driver Overview
         trip_created_time: Trip registration time
         url: Url in Hamsafaryab
+      gmap:
+        trip_path: Trip Route
       seats_status:
         number_of_free_seats: 'Number of available  seats:'
         number_of_seats: 'Seats total number:'

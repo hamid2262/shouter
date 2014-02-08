@@ -2,9 +2,9 @@
 	<div class="panel panel-default ">
 		<div class="panel-heading">
 			<h2>
-				<%= @subtrip.destination.name %>
+				<%= @subtrip.destination.local_name %>
 				<span class="arrow-ie">&larr;</span> 
-				<%= @subtrip.origin.name %>
+				<%= @subtrip.origin.local_name %>
 				<% if @subtrip.price %>
 					<strong class="pull-<%= lang_other_side  %>">
 						<%= t 'currency', amount: currency(@subtrip.price) %>
@@ -51,21 +51,29 @@
 		  		<th> </th>
 		  	</tr>  	
 
-		  	<tr>
-		  		<th><%= t 'details' %></th>
-		  		<th><%= @subtrip.trip.detail %></th>
-		  		<th> </th>
-		  	</tr>  	
-
 		 		<tr>
 		  		<th><%= t 'distance' %></th>
 		  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>
+		  	</tr> 
+		  </tbody>
+		</table>
+
+		<table class="table table-details">
+			<tbody>		  	
+		  	<tr>
+		  		<th class="col-xs-3"><%= t 'details' %></th>
+		  		<th><%= @subtrip.trip.detail %></th>
+		  	</tr>  
+
+		 		<tr>
+		  		<th></th>
 		  		<th>
 						<% unless @subtrip.trip.driver == current_user %>
-			  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning" %>
+			  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>
 						<% end %>
 		  		</th>
-		  	</tr>  	
+		  	</tr> 
+
 		  </tbody>
 		</table>
 	</div>

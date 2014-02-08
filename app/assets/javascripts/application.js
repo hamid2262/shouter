@@ -5,6 +5,8 @@
 // require turbolinks
 //= require bootstrap
 //= require select2
+//= require underscore
+//= require gmaps/google
 //= require_tree .
 
 $(function() {

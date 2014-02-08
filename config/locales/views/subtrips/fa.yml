@@ -11,6 +11,8 @@ fa:
         overview: مشخصات راننده
         trip_created_time: زمان ثبت این سفر
         url: آدرس در همسفریاب
+      gmap:
+        trip_path: مسیر حرکت بر روی نقشه
       seats_status:
         number_of_free_seats: 'تعداد صندلی های خالی:'
         number_of_seats: 'تعداد کل صندلی ها:'
