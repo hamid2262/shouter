@@ -21,6 +21,14 @@ class Subtrip < ActiveRecord::Base
     self.seats.size - ( self.seats.count(0) + self.seats.count(-1) )
   end
 
+  def number_of_total_seats
+    self.seats.size + self.seats.count(-1)
+  end
+
+  def free_seats
+    self.seats.count(0)    
+  end
+
   def self.number_of_requested_seats subtrip_id, passenger_id
     Subtrip.find(subtrip_id).seats.count passenger_id
   end

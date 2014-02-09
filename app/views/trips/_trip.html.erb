@@ -8,6 +8,7 @@
 					<th><%= t('to') %></th>
 					<th><%= t('at') %></th>
 					<th><%= t('price') %></th>
+					<th><%= t('seats_left') %></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -18,4 +19,7 @@
 			</tbody>
 		</table>
 	</div>
+	<% unless trip.detail.blank? %>
+		<p><strong><%= t "details" %>:</strong> <%= trip.detail %></p>
+	<% end %>
 </div>
