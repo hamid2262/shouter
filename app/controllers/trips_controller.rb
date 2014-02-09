@@ -62,6 +62,7 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
+    @shout = Shout.where(content_type: 'Trip', content_id: @trip.id).delete_all
     respond_to do |format|
       format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
       format.json { head :no_content }
