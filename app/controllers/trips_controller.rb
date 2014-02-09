@@ -36,6 +36,8 @@ class TripsController < ApplicationController
 
     respond_to do |format|
       if @trip.save
+        @trip.shouts.create!(user_id: current_user.id)
+    
         format.html { redirect_to edit_trip_path(@trip.id), notice: t(:trip_create_message) }
         format.json { render action: 'show', status: :created, location: @trip }
       else

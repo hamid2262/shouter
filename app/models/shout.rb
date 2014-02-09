@@ -13,4 +13,8 @@ class Shout < ActiveRecord::Base
   	where(content_type: 'PhotoShout')	
   end
 
+  def self.trip_shouts
+  	where(content_type: 'Trip')	
+  end
+
 end

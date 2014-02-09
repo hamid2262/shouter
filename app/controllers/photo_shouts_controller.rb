@@ -10,7 +10,7 @@ class PhotoShoutsController < ShoutsController
   end
 
   def photo_shout_params
-    params.fetch(:photo_shout, {}).permit(:image)
+    params.fetch(:photo_shout, {}).permit(:image, :body)
   end
   
 end

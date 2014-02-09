@@ -19,3 +19,5 @@ en:
       city: City
       on_at: Date and Time
       remove: Remove
+    trip:
+      line1: 'Date of the trip is on: '

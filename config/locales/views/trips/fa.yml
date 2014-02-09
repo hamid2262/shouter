@@ -19,3 +19,5 @@ fa:
       city: از شهر
       on_at: تاریخ و ساعت
       remove: حذف
+    trip:
+      line1: 'تاریخ سفر: '

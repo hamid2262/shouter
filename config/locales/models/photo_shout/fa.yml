@@ -1,0 +1,7 @@
+fa:
+  activerecord:
+    models:
+      photo_shout: فریاد 
+    attributes:
+      photo_shout:
+        body: متن داستان سفر

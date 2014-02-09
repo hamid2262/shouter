@@ -1,5 +1,5 @@
 <div id="dashboard">
-	<div class="col-md-4">
+	<div class="col-md-4 hidden-xs">
 		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('.followed_users')} %>
 		<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users') } %>
 	</div>

@@ -1,6 +1,7 @@
 class Trip < ActiveRecord::Base
   belongs_to :driver, class_name: "User", foreign_key: "user_id"
   has_many   :subtrips , dependent: :destroy
+  has_many   :shouts, as: :content
   accepts_nested_attributes_for :subtrips, allow_destroy: true
 
   validates_associated :subtrips
@@ -11,8 +12,6 @@ class Trip < ActiveRecord::Base
   def jdate
     JalaliDate.new( self.subtrips.first.date_time ).strftime("%d %b %Y") 
   end
-
-
 
   def first_city
     path_list.first

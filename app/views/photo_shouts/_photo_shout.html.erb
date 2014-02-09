@@ -1,1 +1,7 @@
-<%= link_to image_tag(photo_shout.image.url(:shout)), photo_shout.image.url %>
+<% if photo_shout.body %>
+	<p><%= simple_format photo_shout.body %></p>
+<% end %>
+
+<% unless photo_shout.image.blank? %>
+	<p><%= link_to image_tag(photo_shout.image.url(:shout)), photo_shout.image.url %></p>
+<% end %>

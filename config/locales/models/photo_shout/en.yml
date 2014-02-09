@@ -1,0 +1,7 @@
+en:
+  activerecord:
+    models:
+      photo_shout: Photo Shout 
+    attributes:
+      photo_shout:
+        body:  Story

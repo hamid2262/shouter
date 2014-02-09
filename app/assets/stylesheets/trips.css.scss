@@ -59,3 +59,8 @@
 		min-width: 110px;
 	}
 }
+
+.trip_timeline .table-hover>tbody>tr:hover>td, 
+.trip_timeline .table-hover>tbody>tr:hover>th{
+	background-color: #e8f28f;
+}
