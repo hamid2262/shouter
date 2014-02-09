@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     default_url: lambda { |a| "#{IMAGES_PATH}#{a.instance.gender}_default_avatar.png"}
   has_attached_file :cover, 
     styles: lambda { |a| {:small => "370x140#", :large => "851x315#"} if a.instance.is_cover? },
-    default_url:  "#{IMAGES_PATH}default_cover.png"
+    default_url:  "#{IMAGES_PATH}default_cover.jpg"
   after_create :send_admin_mail
 
   # SLUG_REGEX =         
