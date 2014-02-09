@@ -2,9 +2,9 @@
 	<div class="panel panel-default ">
 		<div class="panel-heading">
 			<h2>
-				<%= @subtrip.destination.local_name %>
-				<span class="arrow-ie">&larr;</span> 
 				<%= @subtrip.origin.local_name %>
+				<span class="arrow-ie">&larr;</span> 
+				<%= @subtrip.destination.local_name %>
 				<% if @subtrip.price %>
 					<strong class="pull-<%= lang_other_side  %>">
 						<%= t 'currency', amount: currency(@subtrip.price) %>

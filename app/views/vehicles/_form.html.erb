@@ -17,8 +17,8 @@
 <%#= f.association :vehicle_model,
             :label_method => lambda { |vehicle_model| "#{vehicle_model.vehicle_brand.name} | #{vehicle_model.name}" } %>
 
-<%= f.button :submit , {class: 'btn btn-warning col-sm-3 col-sm-offset-7 required'}%>
-
+<%#= f.button :submit , {class: 'btn btn-warning col-sm-3 col-sm-offset-7 required'} %>
+<%= f.button :submit , :disable_with => t('sending'), class: 'btn btn-warning col-sm-3 col-sm-offset-7 required' %>
 
 <!-- hidden - - helps to the select box of cities -->
 <%= grouped_collection_select :test, :vehicle_model_id, VehicleBrand.order(:name), :vehicle_models, :name, :id, :name,{}, {:class => 'select-via-city visible-print'} %>     <!-- visible-print -->

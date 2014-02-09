@@ -19,3 +19,9 @@ en:
           one:   "1 error prohibited this %{model} from being saved"
           other: "%{count} errors prohibited this %{model} from being saved"
         body:    "There were problems with the following fields:"
+     
+  helpers:
+    submit:
+      vehicle:
+        create: Submit car details
+        update: Update car details
