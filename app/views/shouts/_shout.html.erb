@@ -4,7 +4,7 @@
 			<%= link_to gravatar(shout.user), profile_url(shout.user) %>
 			<%= link_to shout.user.name, profile_url(shout.user) %>
 			<div class="content">
-				<%= render shout.content %>
+				<%= render shout.try(:content) %>
 				<span class="meta">
 					<span class="text-muted"><%= time_ago_in_words(shout.created_at) %> <%=t("ago")  %></span>
 					<%# if can? :destroy, shout.content %>

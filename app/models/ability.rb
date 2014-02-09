@@ -21,7 +21,7 @@ class Ability
         end
 
         can [:create, :new, :index], Trip
-        can [:show], Trip do |t|
+        can [:show, :destroy], Trip do |t|
             user == t.driver
         end        
         can [:edit, :update, :destroy], Trip do |t|
