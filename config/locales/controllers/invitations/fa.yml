@@ -1,0 +1,4 @@
+fa:
+  invitations:
+    invite_acceptation:
+      invited_user_welcome_message: "سلام، شما توسط  %{name} دعوت شده اید. لطفا برای ادامه ثبت نام کنید."

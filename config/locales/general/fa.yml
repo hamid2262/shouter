@@ -63,7 +63,7 @@ fa:
   
   shout_created_message: پست شما با موفقت ثبت شد
   shout_deleted_message:  پست شما با موفقیت پاک شد
-  
+  invitation_send_message: "دعوتنامه با موفقیت به  %{email} ارسال شد.  "
   
   # cancan
   unauthorized:

@@ -30,11 +30,14 @@ class Ability
 
         can [:new, :create, :index], Booking
         can :booking_acceptance, Booking
+        
+        can [:show, :create], Invitation
 
     else
         can :show, User
         can [:new], Trip
         can :booking_acceptance, Booking
+        can :invite_acceptation, Invitation
     end
     
     # The first argument to `can` is the action you are giving the user 

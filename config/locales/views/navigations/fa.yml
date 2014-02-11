@@ -2,6 +2,9 @@
 fa:
   application:
     nav:
+      my_network:
+        label: شبکه من
+        invitation_sending: ارسال دعوتنامه
       my_trips:
         label: سفرهای من
         booked_trips: سقرهای رزرو کرده

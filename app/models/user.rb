@@ -29,15 +29,29 @@ class User < ActiveRecord::Base
   belongs_to :city
 
   has_many :shouts
+
   has_many :followed_user_relationships, 
-  					foreign_key: 'follower_id',
-  					class_name: 'FollowingRelationship'
+            foreign_key: 'follower_id',
+            class_name: 'FollowingRelationship'
   has_many :followed_users, through: :followed_user_relationships
 
   has_many :follower_relationships,
-  					foreign_key: 'followed_user_id',
-  					class_name: 'FollowingRelationship'
+            foreign_key: 'followed_user_id',
+            class_name: 'FollowingRelationship'
   has_many :followers, through: :follower_relationships
+
+
+# invitation
+  has_many :invited_user_relationships, 
+            foreign_key: 'inviter_id',
+            class_name: 'Invitation'
+  has_many :invited_users, through: :invited_user_relationships
+
+  has_one :inviter_relationship,
+            foreign_key: 'invited_user_id',
+            class_name: 'Invitation'
+  has_one :inviter, through: :inviter_relationship
+
 
   validates :firstname, length:   {maximum: 50}
   validates :lastname,  length:   {maximum: 50}

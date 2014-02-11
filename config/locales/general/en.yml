@@ -66,6 +66,8 @@ en:
 
   shout_created_message: Post successfully shoutes!
   shout_deleted_message: Post deleted! 
+
+  invitation_send_message: "Invitation has been sent"
       
   # cancan
   unauthorized:

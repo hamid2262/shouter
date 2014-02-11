@@ -8,8 +8,12 @@ fa:
       not_saved:
         one: '۱ خطا جلوی ذخیره %{resource} را گرفت:'
         other: '%{count} خطا جلوی ذخیره این %{resource} را گرفت:'
- 
+
   devise:
+    users:
+      user:
+        signed_up: 'خوش آمدید! با موفقیت ثبت نام کردید.'
+
     failure:
       user:
         not_found_in_database:  'ایمیل یا رمز عبور غیر معتبر.'

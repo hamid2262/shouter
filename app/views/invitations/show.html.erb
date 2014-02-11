@@ -1,0 +1,25 @@
+<div id="invitation">
+	<div id="invitation-panel" class="col-sm-8 col-sm-offset-2 col-md-7 col-lg-6 col-md-offset-3">
+		<div class="panel panel-default">
+		  <div class="panel-heading"><h4><%= t ".title" %></h4></div>
+		  <div class="panel-body">
+
+				<%= form_tag invitation_path, class: "form-horizontal" do %>
+
+					<div class="form-group">
+						<%= label_tag :email, t("email"),class: "col-sm-3 control-label" %>
+						<div class="col-sm-6">
+					  	<%= text_field_tag :email,"", class: "form-control email" %>
+					  </div>
+				 		<div class="col-sm-3">
+				 			<%= submit_tag t(".invite"), :disable_with => t('sending'), class: "btn btn-warning"%>
+				 		</div>
+					</div>
+				 
+				<% end %>
+
+		  </div>
+		</div>
+	</div>
+</div>
+

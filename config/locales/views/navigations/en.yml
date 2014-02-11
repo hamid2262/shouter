@@ -2,6 +2,9 @@
 en:
   application:
     nav:
+      my_network:
+        label: My Network   
+        invitation_sending: Send Invitation
       my_trips:
         label: My Trips
         booked_trips: Booked Trips 

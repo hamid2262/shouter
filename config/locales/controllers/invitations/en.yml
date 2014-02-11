@@ -1,0 +1,4 @@
+en:
+  invitations:
+    invite_acceptation:
+      invited_user_welcome_message: "You have been invited by %{name}, please sign up for  continie"

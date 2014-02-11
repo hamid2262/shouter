@@ -1,0 +1,13 @@
+<p><%= t 'hi' %>, </p>
+
+<p><%= t('.line1', inviter: @inviter.name) %></p>
+
+<% @accept_invite_url = url_for(controller: 'invitations', action:'invite_acceptation', inviter: @inviter.slug,	 locale: locale, host: @host)  %>
+
+<table>
+	<tbody>
+		<tr>
+			<th class="buttons" style="text-align: left;width: 234px;"><h3><%= link_to t(".accept_invite"), @accept_invite_url %></h3></th>
+		</tr>
+	</tbody>
+</table>

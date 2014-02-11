@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140209122128) do
+ActiveRecord::Schema.define(version: 20140210003332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20140209122128) do
 
   add_index "following_relationships", ["followed_user_id"], name: "index_following_relationships_on_followed_user_id", using: :btree
   add_index "following_relationships", ["follower_id"], name: "index_following_relationships_on_follower_id", using: :btree
+
+  create_table "invitations", force: true do |t|
+    t.integer  "inviter_id"
+    t.integer  "invited_user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invitations", ["invited_user_id"], name: "index_invitations_on_invited_user_id", using: :btree
+  add_index "invitations", ["inviter_id"], name: "index_invitations_on_inviter_id", using: :btree
 
   create_table "photo_shouts", force: true do |t|
     t.string   "image_file_name"

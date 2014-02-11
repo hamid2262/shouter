@@ -17,6 +17,7 @@
           <li><%= link_to  "", dashboard_path, class: "home" %></li>
           <%= render 'application/nav/profile' %>
           <%= render 'application/nav/my_trips' %>
+          <%= render 'application/nav/my_network' %>
           <li><%= link_to current_user.name, profile_url(current_user), class: "name" %>  </li>
           <li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), profile_url(current_user) %>  </li>
   			<% else %>

@@ -24,6 +24,34 @@ class UsersController < Devise::RegistrationsController
     @user = current_user
   end
 
+  def create
+    build_resource(sign_up_params)
+
+    if resource.save
+      yield resource if block_given?
+      if resource.active_for_authentication?
+        set_flash_message :notice, :signed_up if is_flashing_format?
+        sign_up(resource_name, resource)
+        respond_with resource, :location => after_sign_up_path_for(resource)
+      else
+        set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_flashing_format?
+        expire_data_after_sign_in!
+        respond_with resource, :location => after_inactive_sign_up_path_for(resource)
+      end
+      # my code 
+      unless session[:inviter].nil?
+        inviter = User.find(session[:inviter])
+        inviter.invited_users << resource
+        InvitationMailer.inform_inviter(resource, resource.inviter).deliver
+
+      end
+      # 
+    else
+      clean_up_passwords resource
+      respond_with resource
+    end
+  end
+
   def update
     # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password
     successfully_updated = if needs_password?(current_user, user_params)
@@ -91,5 +119,5 @@ private
     # user.email != params[:email] ||
       params[:password].present?
   end
-  
+
 end

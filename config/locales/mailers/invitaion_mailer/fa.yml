@@ -1,0 +1,11 @@
+fa:
+  invitation_mailer:
+    invite:
+      subject: دعوتنامه برای همسفریاب
+      line1: "%{inviter} شما را برای ثبت نام در همسفریاب دعوت کرده است."
+      accept_invite: قبول دعوت
+    inform_inviter:
+      subject: "قبول دعوتنامه شما"
+      line1: که شما او را به همسفریاب دعوت نموده بودید، در همسفریاب ثبت نام کرده است.
+      line2: با تشکر از دعوت شما
+      go_to_profile: "برو به پروفایل %{name}"

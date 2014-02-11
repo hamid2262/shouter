@@ -1,0 +1,11 @@
+en:
+  invitation_mailer:
+    invite:
+      subject: Invitation for Hamsafaryab
+      line1: invited you to sing-up in hamsafaryab
+      accept_invite: Accept invite
+    inform_inviter:
+      subject: "ّInvitation acceptance"    
+      line1: who you invited to hamsafaryab, just singned up in hamsafaryab successfully.
+      line2: Thank you for invitation
+      go_to_profile: "go to %{name}'s profile"      

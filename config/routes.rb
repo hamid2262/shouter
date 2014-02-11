@@ -11,6 +11,12 @@ Shouter::Application.routes.draw do
       get 'booking_acceptance', on: :collection
     end
 
+    resource  :invitation, only: [:show, :create] do
+      member do
+        get 'invite_acceptation'
+      end
+    end
+
     resources :trips
     resources :cities
     resources :states
