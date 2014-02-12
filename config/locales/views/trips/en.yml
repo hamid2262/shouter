@@ -4,6 +4,15 @@ en:
       add_stopover: Add Stopover
       route: Route
       title: New trip form
+    index:
+      action_nav:
+        cancel_trip: Cancel trip
+        edit_trip: Edit Trip
+        show_trip: show trip
+      line1: Please pay attention that the trips which have less than three hours
+        to departure time are not cancelable.
+      title: List of Registered Trips
+      total_available_seats: Total Available Seats
     show_edit:
       form_edit:
         delete: Delete All

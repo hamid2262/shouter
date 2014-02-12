@@ -1,14 +1,21 @@
 <ul class="nav navbar-nav navbar-left">
 	<li id="my_trips_menu" class="dropdown">
 		<a id="title" href="#" class="dropdown-toggle" data-toggle="dropdown">
-			<%= t(".action") %> <b class="caret"></b>
+			<%= t("action") %> <b class="caret"></b>
 		</a>
 		<ul class="dropdown-menu dropdown-menu-left">
-			<li><%= link_to 'Show', trip %></li>
-		  <li class="divider"></li>
-			<li><%= link_to 'Edit', edit_trip_path(trip) %></li>
-		  <li class="divider"></li>
-			<li><%= link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<li><%= link_to t('.show_trip'), trip %></li>
+
+  		<% if can? :edit, trip %>
+			  <li class="divider"></li>
+				<li><%= link_to t(".edit_trip"), edit_trip_path(trip) %></li>
+			<% end %>
+
+			<% if can? :destroy, trip %>
+			  <li class="divider"></li>
+				<li><%= link_to t(".cancel_trip"), trip, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<% end %>
+
 		</ul>
 	</li>
 </ul>  

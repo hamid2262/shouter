@@ -1,32 +1,38 @@
 <div id="trips_index">
   <div class="panel panel-success">
     <div class="panel-heading">
-      <h3 class="panel-title">List of Registered Trips</h3>
+      <h4><%= t ".title" %></h4>
     </div>
     <div class="panel-body">
-      Panel content
+      <%= t ".line1" %>
     </div>
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
-            <th>Total available seats</th>
-            <th>Path</th>
-            <th>Date</th>
+            <th><%= t "date_time" %></th>
+            <th><%= t "path" %></th>
+            <th><%= t ".total_available_seats" %></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @trips.each do |trip| %>
             <tr>
-              <td><%= jdate_humanize(trip.subtrips.first.date_time, params[:locale]) %></td>
+              <td>
+                  <%= trip.subtrips.first.date_time.to_s(:time) %> &nbsp;
+                  <%= am_pm trip.subtrips.first.date_time %>&nbsp;-&nbsp;
+                  <%= jdate_humanize(trip.subtrips.first.date_time, params[:locale])  %>
+              </td>
               <td>
                 <% trip.path_list.each do |s| %>
-                  <%= s.origin.name %> 
-                  <%= ', ' unless s == trip.path_list.last %>
+                  <%= s.origin.local_name %> 
+                  <% unless s == trip.path_list.last %>
+                    &larr;                    
+                  <% end %>
                 <% end %>
               </td>
-              <td><%= trip.driver.name %></td>
+              <td><%= trip.total_available_seats %></td>
               <td>
                 <%= render partial: 'trips/index/action_nav', locals: {trip: trip} %>
               </td>

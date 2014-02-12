@@ -4,6 +4,15 @@ fa:
       add_stopover: اضافه کردن شهر عبوری
       route: مسیر حرکت
       title: فرم ورود مشخصات سفر
+    index:
+      action_nav:
+        cancel_trip: حذف/ کنسل سفر
+        edit_trip: ویرایش سفر
+        show_trip: نمایش سفر
+      line1: توجه داشته باشید، سفرهایی که کمتر از سه ساعت مانده به زمان حرکتشان را
+        نمی توان کنسل نمود.
+      title: لیست سفرهای ثبت کرده
+      total_available_seats: تعداد صندلی های در دسترس
     show_edit:
       form_edit:
         delete: حذف همه سفر
