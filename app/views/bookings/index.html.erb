@@ -1,29 +1,53 @@
-<h1>Listing bookings</h1>
+<div id="bookings_index">
+  <div class="panel panel-default">
+    <div class="panel-heading"><h4><%= t ".title" %></h4></div>
+    <div class="panel-body">
+      <%= t ".line1" %>
+    </div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th><%= t "date_time" %></th>
+            <th><%= t "path" %></th>
+            <th><%= t ".number_of_seats" %></th>
+            <th><%= t ".acceptance_status" %></th>
+          </tr>
+        </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Passenger</th>
-      <th>Accaptance status</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @bookings.each do |booking| %>
-      <tr>
-        <td><%= booking.passenger %></td>
-        <td><%= booking.acceptance_status %></td>
-        <td><%= link_to 'Show', booking %></td>
-        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
-        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Booking', new_booking_path %>
+        <tbody>
+          <% @bookings.each do |booking| %>
+            <% if booking.subtrip %>
+              <tr>
+                <td>
+                  <%= booking.subtrip.date_time.to_s(:time) %> &nbsp;
+                  <%= am_pm booking.subtrip.date_time %>&nbsp;-&nbsp;
+                  <%= jdate_humanize(booking.subtrip.date_time, params[:locale])  %>
+                </td>
+                <td>
+                  <%= booking.subtrip.origin.local_name %>&larr;
+                  <%= booking.subtrip.destination.local_name %>
+                </td>
+                <td>
+                  <% booking.find_seat_numbers(booking.subtrip, booking).each do |s| %>
+                    <% if booking.find_seat_numbers(booking.subtrip, booking).last == s %>
+                      <%= s+1 %>
+                    <% else %>                      
+                      <%= s+1 %>,
+                    <% end %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= status_indicator booking.acceptance_status %>
+                </td>
+                <td>
+                  <%= render partial: 'bookings/index/action_nav', locals: {booking: booking} %>
+                </td>
+              </tr>              
+            <% end %> <!-- if -->
+          <% end %> <!-- each -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

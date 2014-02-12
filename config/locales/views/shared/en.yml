@@ -24,3 +24,6 @@ en:
       title: Errors prohibited this record from being saved 
       description: 'There were problems with the following fields:'
   
+  waiting: "waiting.."
+  accepted: Accepted
+  rejected: Rejected

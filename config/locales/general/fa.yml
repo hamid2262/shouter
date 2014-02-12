@@ -32,7 +32,10 @@ fa:
   car_model: مدل خودرو
   today: امروز
   tomorrow: فردا
+  
+  action: عملیات
   remove: حذف
+  show: نمایش
   accept: قبول درخواست
   reject: رد درخواست
   post: ارسال

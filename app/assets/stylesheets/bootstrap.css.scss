@@ -23,3 +23,8 @@ $navbar-height: 50px;
 
 @import "../../../vendor/assets/stylesheets/bootstrap2.scss";
 $navbar-height:                    150px;
+
+// make bootstrap menu dropdown on hover rather than click
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+    display: block;    
+}

@@ -33,7 +33,10 @@ en:
   car_model: Car Model
   today: Today
   tomorrow: Tomorrow
+  
+  action: Action
   remove: Remove
+  show: Show
   delete: Delete
   accept: Accept 
   reject: Reject

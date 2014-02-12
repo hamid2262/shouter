@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = current_user.bookings     
+    @bookings = current_user.bookings.order(created_at: :desc)
   end
 
   # GET /bookings/1
@@ -53,8 +53,6 @@ class BookingsController < ApplicationController
     @subtrip = @booking.subtrip
   end
 
-  # POST /bookings
-  # POST /bookings.json
   def create
     @subtrip = Subtrip.find(params[:subtrip_id])
     @booking = @subtrip.bookings.build
@@ -90,7 +88,8 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1
   # DELETE /bookings/1.json
   def destroy
-    @booking.destroy
+    @booking.update_all_bookings
+    @booking.destroy    
     respond_to do |format|
       format.html { redirect_to bookings_url }
       format.json { head :no_content }

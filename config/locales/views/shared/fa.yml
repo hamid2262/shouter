@@ -29,4 +29,7 @@ fa:
     error_messages:
       title: خطا مانع ثبت این رکورد در سیستم شده است
       description: 'خطا در فیلدهای زیر بوده است:'
-    
+
+  waiting: در حالت انتظار 
+  accepted: تایید شده
+  rejected: رد شده

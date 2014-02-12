@@ -1,0 +1,16 @@
+<ul class="nav navbar-nav navbar-left">
+	<li id="my_bookings_menu" class="dropdown">
+		<a id="title" href="#" class="dropdown-toggle" data-toggle="dropdown">
+			<%= t("action") %> <b class="caret"></b>
+		</a>
+		<ul class="dropdown-menu dropdown-menu-left">
+			<li><%= link_to t(".show_subtrip"), booking.subtrip %></li>
+			<% if can? :destroy, booking %>
+			  <li class="divider"></li>
+				<li><%= link_to t('.remove_booking'), booking, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+			<% end %>
+		</ul>
+	</li>
+</ul>  
+
+

@@ -29,6 +29,9 @@ class Ability
         end        
 
         can [:new, :create, :index], Booking
+        can [:destroy], Booking do |b|
+            (user == b.passenger) && (b.acceptance_status != -1) && (b.subtrip.date_time > DateTime.now + 3.hours)
+        end
         can :booking_acceptance, Booking
         
         can [:show, :create], Invitation

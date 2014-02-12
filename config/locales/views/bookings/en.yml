@@ -15,6 +15,15 @@ en:
       select: Select
       taken: Taken
       unavailable: Unavailable
+    index:
+      acceptance_status: Request Status
+      action_nav:
+        remove_booking: cancel booking
+        show_subtrip: Display Trip
+      line1: Please pay attention that the trips which have less than three hours
+        to departure time are not cancelable.
+      number_of_seats: Number of Seats
+      title: List of ِYour Registered Bookings
     new:
       booking_message: Please select your desired seats from free seat's list below
         and then press Register Your Booking.
