@@ -2,4 +2,5 @@ en:
   invitations:
     show:
       invite: Send Invitation
+      list_of_invited_users: List of members you who you invited them to Hamsafaryab
       title: Invitation From

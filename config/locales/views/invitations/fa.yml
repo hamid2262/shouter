@@ -2,4 +2,5 @@ fa:
   invitations:
     show:
       invite: ارسال دعوتنامه
+      list_of_invited_users: لیست عضوهایی که شما به همسفریاب دعوت کرده اید
       title: فرم ارسال دعوتنامه
