@@ -36,11 +36,16 @@ class Ability
         
         can [:show, :create], Invitation
 
+        can [:mynet, :info], Network
+        
     else
         can :show, User
         can [:new], Trip
         can :booking_acceptance, Booking
         can :invite_acceptation, Invitation
+
+        can [:info], Network
+
     end
     
     # The first argument to `can` is the action you are giving the user 
