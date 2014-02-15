@@ -18,7 +18,13 @@
           <%= javascript_include_tag :defaults %>
 
   <% if params[:locale] == 'fa' %>
-  	<%= javascript_include_tag "localization/messages_fa" %>  	
+  	<%= javascript_include_tag ASSETS_PATH+"localization/messages_fa.js" %>  	
+  <% end %>
+
+  <% unless params[:locale] == 'fa' %>
+    <style>
+      th {text-align: left;}
+    </style>
   <% end %>
 
   <%= csrf_meta_tags %>
