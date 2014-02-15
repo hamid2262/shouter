@@ -134,7 +134,7 @@ module ApplicationHelper
 	end
 
 	def currency price
-		number_to_currency(price, delimiter: ",", format: "%n")
+		number_to_currency(price, delimiter: ",", format: "%n",precision: 0)
 	end
 
   def jdate_humanize date_time, locale
