@@ -1,0 +1,48 @@
+
+<div id="network_show">
+  <div class="col-md-12">
+    <div class="centerize">
+    <% unless @network.current == current_user %>
+      <%= link_to "back", network_path(@network.current.inviter.slug), class: "up" %>
+    <% end %>
+      <%= link_to gravatar(@network.current, 30), network_url(@network.current.slug) %> <%= @network.current.name %>
+    </div>
+  </div>
+
+  <% di1 = @network.current.invited_users.size %>
+  <% @network.current.invited_users.each do |user| %>
+    <div class="col-md-<%= 12/di1 %>  ">
+      <div class="col-md-12 level">
+        <div class="centerize ">
+          <%= link_to gravatar(user, 30), network_url(user.slug) %> <%= user.name %> 
+        </div>
+      </div>
+
+      <% di2 = user.invited_users.size %>
+      <% user.invited_users.each do |user2| %>
+        <div class="col-md-<%= 12/di2 %>  ">
+          <div class="col-md-12 level">
+            <div class="centerize">
+              <%= link_to gravatar(user2, 30), network_url(user2.slug) %> <%= user2.name %> 
+            </div>
+          </div>
+
+          <% di3 = user2.invited_users.size %>
+          <% user2.invited_users.each do |user3| %>
+            <div class="col-md-<%= 12/di3 %>  ">
+              <div class="col-md-12 level">
+                <div class="centerize">
+                  <%= link_to gravatar(user3, 30), network_url(user3.slug) %> <%= user3.name %> 
+                </div>
+              </div>
+            </div><!-- di2 -->
+          <% end %> 
+
+        </div><!-- di2 -->
+      <% end %> 
+
+    </div> <!-- di1 -->
+  <% end %> 
+
+
+</div>

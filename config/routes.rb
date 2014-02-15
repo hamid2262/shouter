@@ -4,6 +4,7 @@ Shouter::Application.routes.draw do
 
     get "mynet" => "networks#mynet"
     get "info"  => "networks#info"
+    resources :networks#, only: [:show, :index]
 
     resource  :search_subtrips, only: [] do
       get 'special_events' => 'search_subtrips#special_events'

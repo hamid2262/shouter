@@ -9,7 +9,7 @@ en:
   followed_users: Followed Users by
   posts: Posts
   reviews: reviews        
-  currency: $ %{amount}
+  currency: Toman %{amount}
   no_post_message: There is no post to display.
   site_info:
     title: "Hamsafaryab"

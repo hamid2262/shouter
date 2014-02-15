@@ -1,12 +1,25 @@
-#mynet{
-	.person-block {
-		border-bottom: 1px solid #EEEBEB;
-
-		.single {
-			width: 58px;
-			border-bottom: 1px solid #1F1F1F;
-			font-size: 0.7em;
-			margin: 0 auto;
+#network_show{
+	.up{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png');
+		background-position-y: -34px;
+		background-position-x: -33.5px;
+		width: 35px;
+		height: 36px;
+		display: inline-block;
+		text-indent: -12199px;
+		&:hover{
+			background-position-x: 2px;
 		}
+	}
+	.centerize {
+		width: 40px;
+		font-size: 0.7em;
+		margin: 0 auto;
+	}
+	.level{
+		border-top: 1px solid;
+		margin: 13px 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 }

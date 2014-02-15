@@ -1,10 +1,9 @@
 class Network 
-
 	def initialize user
 		@user = user			
 	end
 
-	def me
+	def current
 		@user
 	end
 

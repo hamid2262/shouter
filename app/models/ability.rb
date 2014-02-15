@@ -36,8 +36,7 @@ class Ability
         
         can [:show, :create], Invitation
 
-        can [:mynet, :info], Network
-        
+        can [:info, :show], Network
     else
         can :show, User
         can [:new], Trip
