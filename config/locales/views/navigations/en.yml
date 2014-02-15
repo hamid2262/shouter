@@ -3,7 +3,8 @@ en:
   application:
     nav:
       my_network:
-        label: My Network   
+        label: Network
+        my_network: My Network   
         invitation_sending: Send Invitation
       my_trips:
         label: My Trips

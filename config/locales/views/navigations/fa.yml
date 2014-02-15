@@ -3,7 +3,8 @@ fa:
   application:
     nav:
       my_network:
-        label: شبکه من
+        label: شبکه 
+        my_network: شبکه من
         invitation_sending: ارسال دعوتنامه
       my_trips:
         label: سفرهای من

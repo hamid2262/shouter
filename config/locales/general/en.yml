@@ -26,6 +26,8 @@ en:
   price: Price
   details: Details
   distance: Distance
+  times: ' %{amount} times'
+  viewed_times: Viewes 
   km: 'Kilometer %{amount}'
   per_passenger: per passenger
   seats_left: seats left

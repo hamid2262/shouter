@@ -25,6 +25,8 @@ fa:
   price: قیمت
   details: توضیحات
   distance: مسافت
+  times: ' %{amount} بار'
+  viewed_times: تعداد بازدید
   km: ' %{amount} کیلومتر'
   per_passenger: هر نفر
   seats_left: صندلی خالی

@@ -55,6 +55,10 @@
 		  		<th><%= t 'distance' %></th>
 		  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>
 		  	</tr> 
+	 			<tr>
+		  		<th><%= t 'viewed_times' %></th>
+		  		<th><%= t 'times', amount: @subtrip.view %></th>
+		  	</tr> 
 		  </tbody>
 		</table>
 

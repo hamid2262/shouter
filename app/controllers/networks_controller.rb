@@ -4,7 +4,6 @@ class NetworksController < ApplicationController
 	before_action :authorize_user, only: [:show]
 
   def show
-
 		@network = Network.new(user)
   end
 
@@ -12,7 +11,6 @@ class NetworksController < ApplicationController
   end
 
   private
-
   	def authorize_user
 	  	unless [user, 
 	  					user.try(:inviter), 

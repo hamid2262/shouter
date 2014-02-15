@@ -1,5 +1,6 @@
 class SubtripsController < ApplicationController
 	skip_authorization_check	
+	after_action :increment_view
 
   def show
     @subtrip = Subtrip.find(params[:id])
@@ -8,5 +9,13 @@ class SubtripsController < ApplicationController
 		  marker.lng subtrip.origin.longitude
 		  marker.infowindow render_to_string(:partial => "subtrips/show/data_for_gmaps", :locals => { subtrip: subtrip})
 		end
+  end
+
+  private
+
+  def increment_view
+  	unless current_user && current_user.is_admin?
+    	@subtrip.update_attributes(view: (@subtrip.view + 1))
+    end
   end
 end

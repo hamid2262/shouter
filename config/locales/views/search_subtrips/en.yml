@@ -7,13 +7,13 @@ en:
         select: 
           selector: "Select Mode"
           placeholder:
-            origin: "Please select start city"
-            destination: "Please select destination"
+            origin: "Please select origin city"
+            destination: "Please select destination city"
         autocomplete: 
           selector: "Autocomplete Mode"
           placeholder:
-            origin: "Please insert start city"
-            destination: "Please insert destination"
+            origin: "Please enter origin city"
+            destination: "Please enter destination city"
     search:
       search_filters: Filter Your Search
       no_trip_registered: No record with this condition. please try again.
