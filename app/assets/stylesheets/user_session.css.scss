@@ -49,11 +49,19 @@
 }
 
 .users-list{
+  .panel-title{
+    text-align: right;
+  }
   .user-row-small{
     position: relative;
     border-bottom: #EEEEEE 1px solid;
     margin-bottom: 6px;
     padding-bottom: 2px;
+    height: 53px;
+    img{
+      right: 0;
+      position: absolute;
+    }
     .meta{
       position: absolute;
       left: 0;

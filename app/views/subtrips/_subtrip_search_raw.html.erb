@@ -7,10 +7,12 @@
 			</div>
 				<div class="user">
 					<h2 class="name">	<%= subtrip.trip.driver.name %> </h2>
-					<span class="old small text-muted">
-						<%= subtrip.trip.driver.try(:age) %> 
-						<%= t('years_old') %>
-					</span>
+					<% if subtrip.trip.driver.age %>
+						<span class="old small text-muted">
+							<%= subtrip.trip.driver.try(:age) %> 
+							<%= t('years_old') %>
+						</span>						
+					<% end %>
 				<!-- TODO Raiting -->					
 				</div>
 
