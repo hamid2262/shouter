@@ -24,11 +24,12 @@
           <li><%= link_to  "", root_path, class: "home" %></li>
           <%= render 'popup_signin' %>
           <li><%= link_to t("navbar.user.sign_up"), new_user_registration_path %></li>
+          <li><%= link_to t('about_network'), page_path('about_network') %></li>
+
   			<% end %>	
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
-
         <li><%= link_to t("navbar.trip.insert"), new_trip_path %></li>
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 

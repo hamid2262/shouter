@@ -6,7 +6,6 @@ class Ability
     if user.admin?
         can :manage, :all
     elsif user.try(:email) != ""
-        can :show, User
         can [:edit, :update, :refresh], User do |u|
             user == u
         end
@@ -20,7 +19,7 @@ class Ability
             user == s.follower
         end
 
-        can [:create, :new, :index], Trip
+        can [:create, :index], Trip
         can [:show], Trip do |t|
             user == t.driver
         end        
@@ -32,21 +31,18 @@ class Ability
         can [:destroy], Booking do |b|
             (user == b.passenger) && (b.acceptance_status != -1) && (b.subtrip.date_time > DateTime.now + 3.hours)
         end
-        can :booking_acceptance, Booking
         
         can [:show, :create], Invitation
 
-        can [:info, :show], Network
+        can [:show], Network
     else
-        can :show, User
-        can [:new], Trip
-        can :booking_acceptance, Booking
         can :invite_acceptation, Invitation
-
-        can [:info], Network
-
     end
-    
+
+    can :show, User
+    can :new, Trip
+    can :booking_acceptance, Booking
+    can :show, Page
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

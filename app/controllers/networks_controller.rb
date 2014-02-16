@@ -7,9 +7,6 @@ class NetworksController < ApplicationController
 		@network = Network.new(user)
   end
 
-  def info
-  end
-
   private
   	def authorize_user
 	  	unless [user, 

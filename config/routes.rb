@@ -1,10 +1,8 @@
 Shouter::Application.routes.draw do
+
     # resources :profiles , only: [:show] 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
 
-    get "mynet" => "networks#mynet"
-    get "info"  => "networks#info"
-    resources :networks#, only: [:show, :index]
 
     resource  :search_subtrips, only: [] do
       get 'special_events' => 'search_subtrips#special_events'
@@ -23,6 +21,8 @@ Shouter::Application.routes.draw do
       end
     end
 
+    resources :networks, only: [:show]
+    resources :pages
     resources :trips
     resources :cities
     resources :states
