@@ -6,4 +6,8 @@ class Home
     subtrips = subtrips.order(date_time: :desc)		
 	end
 
+	def self.spacial_events
+		SpacialEvent.where("end_date > ?", Date.today-1.day)
+	end
+
 end

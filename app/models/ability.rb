@@ -39,6 +39,7 @@ class Ability
         can :invite_acceptation, Invitation
     end
 
+    can :show, SpacialEvent
     can :show, User
     can :new, Trip
     can :booking_acceptance, Booking

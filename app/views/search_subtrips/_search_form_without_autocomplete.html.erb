@@ -1,6 +1,6 @@
 <!-- Origin -->
 <div class="origin_input col-sm-6 my-col-md-12 my-col-lg-7">
-    <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input required', placeholder: t("search_subtrips.form.mode.select.placeholder.origin") } %>
+    <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name, {:include_blank => true}, {:class => 'select2_input', placeholder: t("search_subtrips.form.mode.select.placeholder.origin") } %>
 	<div class="cycle select_mode <%= lang_other_side %>">
 	<%= f.select :origin_cycle,  @search_subtrip.cycle_range.map{|s| ["#{s} #{t("search_subtrips.form.km")}", s]}%>
 		<!-- <span class="glyphicon glyphicon-chevron-down"></span> -->

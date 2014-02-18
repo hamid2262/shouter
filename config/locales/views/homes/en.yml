@@ -5,6 +5,9 @@ en:
       rest_of_trips: More Trips
     show:
       welcome_message: Welcome to Hamsafaryab!
+    spacial_events:
+      button: Trip to %{des}
+      title: For %{title}
     trip_insert:
       description: If you are going to have a trip and you have free seats in your
         car. For sharing those seats with other people who have the same destination

@@ -1,10 +1,13 @@
 fa:
   homes:
     sample_subtrips:
-      nearest_ride_sharings:  سفرهای در حال عزیمت در ساعات آینده
+      nearest_ride_sharings: سفرهای در حال عزیمت در ساعات آینده
       rest_of_trips: ادامه سفرها
     show:
       welcome_message: به همسفریاب خوش آمدید
+    spacial_events:
+      button: سفر به %{des}
+      title: ویژه %{title}
     trip_insert:
       description: اگر با خودرو خود عازم سفر هستید، برای پیدا کردن همسفر برای صندلی
         های خالی خود، مشخصات سفر خود را ثبت کنید.

@@ -1,6 +1,6 @@
 <!-- Origin -->
 <div class="origin_input col-sm-6  my-col-md-12 my-col-lg-7">
-	<%= f.input :origin_name,:label => false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control", value: @search_subtrip.origin} %>					
+	<%= f.input :origin_name,:label => false, required: false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control", value: @search_subtrip.origin} %>					
 	<div class=" cycle autocomplete_mode <%= lang_other_side %>" style="border:0;">
 		<%= f.select :origin_cycle, @search_subtrip.cycle_range.map{|s| ["#{s} #{t("search_subtrips.form.km")}", s]}%>
 	</div>
@@ -8,7 +8,7 @@
 
 <!-- Destination -->
 <div class=" destination_input col-sm-6  my-col-md-12 my-col-lg-7">
-	<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control required", value: @search_subtrip.destination} %>
+	<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control", value: @search_subtrip.destination} %>
 	<div class=" cycle autocomplete_mode <%= lang_other_side %>"  style="border:0;">
 		<%= f.select :destination_cycle, @search_subtrip.cycle_range.map{|s| ["#{s} #{t("search_subtrips.form.km")} ", s]}%> 
 	</div>

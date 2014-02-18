@@ -8,7 +8,7 @@
 	</div>
 	<div class="inner">
 		<%= simple_form_for :search_subtrip, url: search_search_subtrips_path, method: :get, 
-    	:html => { :class => 'subtrip_search_form',role: "form" } do |f| %>
+    	html: { :class => 'subtrip_search_form',role: "form" } do |f| %>
 
 		<!-- Search From Select -->
 			<% if session['search_mode'] == 'autocomplete' %>

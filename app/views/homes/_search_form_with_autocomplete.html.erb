@@ -1,14 +1,14 @@
 <!-- Origin -->
 <div class="form-group">
 	<div class="origin_input ">
-		<%= f.input :origin_name,:label => false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control input-lg required"} %>					
+		<%= f.input :origin_name,:label => false, required: false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control input-lg"} %>					
 	</div>
 </div>
 
 <!-- Destination -->
 <div class="form-group">
 	<div class=" destination_input">
-		<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control required input-lg"} %>
+		<%= f.input :destination_name,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control requiredd input-lg"} %>
 	</div>
 </div>
 

@@ -9,12 +9,16 @@
   <!-- <a href="<%= special_events_search_subtrips_path %>"> -->
 			<%#= image_tag( "https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/special_events/tractor/tiaxtor.jpg", class: "img-responsive") %>
 	<!-- 	</a> -->
-
-		<div class="row">
-		  <div class="col-sm-12">
-				<%= link_to ' همه سفرها به کرمان، مخصوس هواداران تراکتورسازی تبریز', special_events_search_subtrips_path, class: "btn btn-warning btn-lg btn-block" %>
-			</div>				
-		</div>	
-
+		<% @spacial_events.each do |se| %>
+			<div class="row">
+			  <div class="col-sm-6">
+					<strong><%= t(".title",title: se.title) %></strong>	
+				</div>				
+			  <div class="col-sm-6">
+					<%= link_to t(".button",des: se.destination.local_name), spacial_event_path(se.permalink), class: "btn btn-warning btn-lg btn-block" %>
+				</div>				
+			</div>	
+			<br>	
+		<% end %>
 	</div>			
 </div>
