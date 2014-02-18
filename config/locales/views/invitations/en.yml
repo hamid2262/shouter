@@ -3,4 +3,5 @@ en:
     show:
       invite: Send Invitation
       list_of_invited_users: List of members you who you invited them to Hamsafaryab
+      send_invitation_link: 'Or you can invite your friend by sending this link:'
       title: Invitation From
