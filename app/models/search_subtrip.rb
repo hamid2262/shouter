@@ -13,6 +13,26 @@ class SearchSubtrip
 	validate :jday, :jday_validate
 	before_validation :check_for_cities_validation
 
+	def cycle_range
+		[5,10,25,50,100,200]
+	end
+
+	def origin
+		if origin_id
+			City.find(self.origin_id).local_name			
+		else
+			self.origin_name
+		end
+	end
+	
+	def destination
+		if destination_id
+			City.find(self.destination_id).local_name 			
+		else
+			self.destination_name
+		end
+	end	
+
 	def initialize attributes ={}
 			@jday ||= JalaliDate.new(Date.today).day 
 			@jmonth ||= JalaliDate.new(Date.today).month 

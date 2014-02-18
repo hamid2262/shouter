@@ -1,0 +1,8 @@
+<h1>Editing spacial_event</h1>
+
+<%= simple_form_for(@spacial_event, url: spacial_event_path(@spacial_event.permalink)) do |f| %>
+	<%= render partial: 'form', locals: {f: f} %>
+<% end %>
+
+<%= link_to 'Show', spacial_event_path(@spacial_event.permalink) %> |
+<%= link_to 'Back', spacial_events_path %>

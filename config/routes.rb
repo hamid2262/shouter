@@ -21,6 +21,10 @@ Shouter::Application.routes.draw do
       end
     end
 
+    resources :spacial_events do
+      get 'special_events1', on: :collection
+    end
+
     resources :networks, only: [:show]
     resources :pages
     resources :trips

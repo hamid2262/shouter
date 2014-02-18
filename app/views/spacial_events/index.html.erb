@@ -1,0 +1,43 @@
+<h1>Listing spacial_events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th>Permalink</th>
+      <th>Origin</th>
+      <th>Destination</th>
+      <th>Origin cycle</th>
+      <th>Destination cycle</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @spacial_events.each do |spacial_event| %>
+      <tr>
+        <td><%= spacial_event.title %></td>
+        <td><%= spacial_event.image %></td>
+        <td><%= spacial_event.permalink %></td>
+        <td><%= spacial_event.origin_id %></td>
+        <td><%= spacial_event.destination_id %></td>
+        <td><%= spacial_event.origin_cycle %></td>
+        <td><%= spacial_event.destination_cycle %></td>
+        <td><%= spacial_event.start_date %></td>
+        <td><%= spacial_event.end_date %></td>
+        <td><%= link_to 'Show', spacial_event_path(spacial_event.permalink) %></td>
+        <td><%= link_to 'Edit', edit_spacial_event_path(spacial_event.permalink) %></td>
+        <td><%= link_to 'Destroy', spacial_event_path(spacial_event.permalink), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Spacial event', new_spacial_event_path %>

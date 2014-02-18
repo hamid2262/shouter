@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140216005904) do
+ActiveRecord::Schema.define(version: 20140217010303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,25 @@ ActiveRecord::Schema.define(version: 20140216005904) do
 
   add_index "shouts", ["content_type", "content_id"], name: "index_shouts_on_content_type_and_content_id", using: :btree
   add_index "shouts", ["user_id"], name: "index_shouts_on_user_id", using: :btree
+
+  create_table "spacial_events", force: true do |t|
+    t.string   "title"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "permalink"
+    t.integer  "origin_id"
+    t.integer  "destination_id"
+    t.integer  "origin_cycle"
+    t.integer  "destination_cycle"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "spacial_events", ["permalink"], name: "index_spacial_events_on_permalink", using: :btree
 
   create_table "states", force: true do |t|
     t.string   "name"
