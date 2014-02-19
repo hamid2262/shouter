@@ -1,6 +1,6 @@
 <%#= request.remote_ip %>
 <%#= Geocoder.search("77.182.200.130").first.try(:latitude) %>
-<%= render partial: 'search_form', locals:{search_mode: @search_mode, search_subtrip: @search_subtrip  } %>
+<%= render partial: 'search_form', locals:{ search_subtrip: @search_subtrip  } %>
 
 <div id="search_subtrips">
 	<div class="sidebar col-sm-2">

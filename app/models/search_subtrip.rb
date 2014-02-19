@@ -6,8 +6,7 @@ class SearchSubtrip
   
 	attr_accessor :origin_id, :origin_name, :origin_lat, :origin_lng, :origin_cycle, 
 								:destination_id, :destination_name, :destination_lat, :destination_lng, :destination_cycle, 
-								:date, :jday, :jmonth, :jyear,
-								:autocomplete
+								:date, :jday, :jmonth, :jyear
 
 	validate :cities_cannot_be_blank
 	validate :jday, :jday_validate
@@ -73,9 +72,6 @@ class SearchSubtrip
 		if self.destination_lat.present? #&& self.origin_lat.present?
 			origin_ids = city_ids_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle)  if self.origin_lat.present?
 			destination_ids = city_ids_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle) 
-		elsif self.destination_id.present? #&& self.origin_id.present?			
-			origin_ids = cities_near_cityid(self.origin_id, origin_cycle).map { |d| d.id } if self.origin_id.present?
-			destination_ids = cities_near_cityid(self.destination_id, destination_cycle).map { |d| d.id }
 		end
 
 		start_date = JalaliDate.new(jyear.to_i,jmonth.to_i,jday.to_i).to_gregorian.beginning_of_day - 1.minute
@@ -122,32 +118,24 @@ class SearchSubtrip
 		end
 
 		def check_for_cities_validation
-			if self.autocomplete == "true"
-				if self.origin_lat.blank? && self.origin_name
-					if Geocoder.search(self.origin_name)[0].try(:latitude).present?
-						self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
-						self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
-						self.origin_name = Geocoder.search(self.origin_name)[0].address
-					end
+			if self.origin_lat.blank? && self.origin_name
+				if Geocoder.search(self.origin_name)[0].try(:latitude).present?
+					self.origin_lat = Geocoder.search(self.origin_name)[0].latitude
+					self.origin_lng = Geocoder.search(self.origin_name)[0].longitude
+					self.origin_name = Geocoder.search(self.origin_name)[0].address
 				end
-				if self.destination_lat.blank? && self.destination_name
-					if Geocoder.search(self.destination_name)[0].try(:latitude).present?  
-						self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
-						self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
-						self.destination_name = Geocoder.search(self.destination_name)[0].address
-					end
-				end				
 			end
+			if self.destination_lat.blank? && self.destination_name
+				if Geocoder.search(self.destination_name)[0].try(:latitude).present?  
+					self.destination_lat = Geocoder.search(self.destination_name)[0].latitude
+					self.destination_lng = Geocoder.search(self.destination_name)[0].longitude
+					self.destination_name = Geocoder.search(self.destination_name)[0].address
+				end
+			end				
 		end
 
 		def cities_cannot_be_blank
-			if @autocomplete == "true"
-				# errors.add(:origin_name, "can't be blank")	if @origin_name.blank?		
-				errors.add(:destination_name, "can't be blank")	if @destination_name.blank?		
-			else
-				# errors.add(:origin_id, "can't be blank")	if @origin_id.blank?		
-				errors.add(:destination_id, "can't be blank")	if @destination_id.blank?					
-			end
+  		errors.add(:destination_name, "can't be blank")	if @destination_name.blank?		
 		end
 
 end

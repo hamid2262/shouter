@@ -11,11 +11,7 @@
     	html: { :class => 'subtrip_search_form',role: "form" } do |f| %>
 
 		<!-- Search From Select -->
-			<% if session['search_mode'] == 'autocomplete' %>
-				<%= render partial: 'search_form_with_autocomplete', locals:{f: f} %>	
-			<% else %>
-				<%= render partial: 'search_form_without_autocomplete', locals:{f: f} %>
-			<% end %>		
+			<%= render partial: 'search_form_with_autocomplete', locals:{f: f} %>	
 
 			<div class="row">
 				<!-- DatePicker -->
@@ -23,16 +19,6 @@
 			    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
 			    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
 			    <%= f.select :jyear, 1392..1393,{}, {class: "datepicker"} %> 
-				</div>
-
-				<!-- Form Mode Change Links -->
-
-				<div class="mode-selector col-sm-6">
-				 <% if session['search_mode'] == 'autocomplete' %>
-				    <%= link_to  t("search_subtrips.form.mode.select.selector"), choose_search_mode_search_subtrips_path(search_mode: 'select') %>
-				 <% else %>
-				    <%= link_to  t("search_subtrips.form.mode.autocomplete.selector"), choose_search_mode_search_subtrips_path(search_mode: 'autocomplete') %> 
-				 <% end %>
 				</div>
 			</div>
 

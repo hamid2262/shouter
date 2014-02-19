@@ -1,6 +1,5 @@
 class SearchSubtripsController < ApplicationController
   skip_authorization_check
-	before_action :initial_search_mode
 	
 	def search
 		if params[:search_subtrip].nil?
@@ -14,27 +13,4 @@ class SearchSubtripsController < ApplicationController
 			end			
 		end
 	end
-
-	def choose_search_mode
-		session[:return_to] ||= request.referer
-		session['search_mode'] = params[:search_mode]
-		if session[:return_to]
-			redirect_to session.delete(:return_to)
-		else
-			redirect_to root_path
-		end
-	end
-
-	private
-
-		def initial_search_mode
-			if session[:search_mode].nil?
-				# if request.ip.try(:country_code) == 'IR'
-				# 	session['search_mode'] = 'select'
-				# else
-					session['search_mode'] = 'autocomplete'
-				# end
-			end
-		end
-
 end

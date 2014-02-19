@@ -1,8 +1,8 @@
 function initialize() {
 
   var options = {
-    types: ['(cities)'],
-    componentRestrictions: {country: "ir"}
+    types: ['(cities)']
+    // , componentRestrictions: {country: "ir"}
   };
 
   var origin = document.getElementById('search_subtrip_origin_name');

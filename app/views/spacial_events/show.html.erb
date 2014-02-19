@@ -7,7 +7,7 @@
 <%= image_tag( @spacial_event.image.url(:large), alt: @spacial_event.title ,size: "900x200") %>
   <%= link_to "ثبت سفر به مقصد کرمان", new_trip_path, class: "btn btn-lg btn-primary" %>
 </div>
-<%= render partial: 'search_subtrips/search_form', locals:{search_mode: 'autocomplete', search_subtrip: @search_subtrip  } %>
+<%= render partial: 'search_subtrips/search_form', locals:{search_subtrip: @search_subtrip  } %>
 
 <div id="search_subtrips">
   <div class="sidebar col-sm-2">
