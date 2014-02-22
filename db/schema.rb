@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140219012047) do
+ActiveRecord::Schema.define(version: 20140222194915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,28 +26,6 @@ ActiveRecord::Schema.define(version: 20140219012047) do
 
   add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
-
-  create_table "cities", force: true do |t|
-    t.integer  "state_id"
-    t.string   "name"
-    t.string   "local_name"
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "cities", ["latitude", "longitude"], name: "index_cities_on_latitude_and_longitude", using: :btree
-  add_index "cities", ["local_name"], name: "index_cities_on_local_name", using: :btree
-  add_index "cities", ["name"], name: "index_cities_on_name", using: :btree
-  add_index "cities", ["state_id"], name: "index_cities_on_state_id", using: :btree
-
-  create_table "countries", force: true do |t|
-    t.string   "name"
-    t.string   "local_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "following_relationships", force: true do |t|
     t.integer  "follower_id"
@@ -116,16 +94,6 @@ ActiveRecord::Schema.define(version: 20140219012047) do
   end
 
   add_index "spacial_events", ["permalink"], name: "index_spacial_events_on_permalink", using: :btree
-
-  create_table "states", force: true do |t|
-    t.string   "name"
-    t.string   "local_name"
-    t.integer  "country_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "states", ["country_id"], name: "index_states_on_country_id", using: :btree
 
   create_table "subtrips", force: true do |t|
     t.integer  "trip_id"

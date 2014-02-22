@@ -12,7 +12,6 @@
         <%= f.simple_fields_for :subtrips do |s| %>
           <%= render 'subtrip_fields', f: s %>
         <% end %>  <!--  f.simple_fields_for :subtrips do |s|  -->
-        <%= link_to_add_fields t(".add_stopover"), f, :subtrips %>
       </div> <!-- trip-route -->
 
       <!-- Total seats -->
@@ -38,7 +37,7 @@
       <!-- submit -->
       <div class="row">      
         <div class="col-sm-3 col-sm-offset-9">
-          <%= f.submit class: "add_fields btn btn-warning btn pull-left" %>
+          <%= f.submit class: "btn btn-warning btn pull-left" %>
         </div>
       </div>     
     <% end %>
@@ -46,6 +45,3 @@
   </div>  <!-- <div class="panel-body"> -->
 </div>
 </div>
-
-<!-- helps to the select box of cities -->
-<%= grouped_collection_select :test, :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'select-via-city form-control visible-print'} %>     

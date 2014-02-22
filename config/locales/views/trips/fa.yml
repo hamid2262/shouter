@@ -24,6 +24,7 @@ fa:
       trip_summary:
         description: این سفر در تاریخ %{date} است.
     subtrip_fields:
+      add_stopover: اضافه کردن شهر عبوری
       address_placeholder: نام شهر را بنویسید.
       at: در ساعت
       city: از شهر

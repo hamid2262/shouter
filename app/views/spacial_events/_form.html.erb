@@ -2,10 +2,7 @@
 
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :permalink %>
-    <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{ prompt: "Select origin city"}, {:class => 'required select2_input'} %>     
-
-    <%= f.grouped_collection_select :destination_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'required select2_input'} %>        
+    <%= f.input :permalink %>      
     <%= f.input :origin_cycle %>
     <%= f.input :destination_cycle %>
     <%= f.input :start_date %>

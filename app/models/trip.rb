@@ -71,7 +71,7 @@ class Trip < ActiveRecord::Base
     path_list
   end
 
-  # initialize other subtrips and fill destination cities id
+  # initialize other subtrips and fill destination cities 
   def subtrips_init 
     subtrips = self.subtrips.order(:date_time) 
     for i in 0..(subtrips.size-1)

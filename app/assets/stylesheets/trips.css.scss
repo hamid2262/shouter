@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.add_fields1{
+.add_fields{
 	display: none;
+	margin-top: -40px;
+	position: absolute;
+	right: 42%;
 }
 
 
 #new_trip_form{
-	// .states_cities div{
-	// 	float: right;
-	// }
 	.field_with_errors {
 		display: inline;
 		select{
@@ -21,6 +21,7 @@
 		margin-bottom: 5px;
 	}
 	.trip-route{
+		overflow: hidden;
 		margin-bottom: 5px;
 		background: none repeat scroll 0 0 #EFEFEF;
     border-radius: 5px;
@@ -33,6 +34,9 @@
     	border: dotted 1px #AEAEB6;
 			padding: 7px 19px;
 			margin-bottom: 3px;  
+			&:last-child{
+				margin-top: 31px;
+			}
 			.datetime {
 				height: 31px;
 			}
