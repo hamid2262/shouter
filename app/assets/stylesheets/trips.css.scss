@@ -2,10 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.add_fields1{
+	display: none;
+}
+
+
 #new_trip_form{
-	.states_cities div{
-		float: right;
-	}
+	// .states_cities div{
+	// 	float: right;
+	// }
 	.field_with_errors {
 		display: inline;
 		select{

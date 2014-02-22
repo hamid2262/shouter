@@ -25,8 +25,8 @@
                   <%= jdate_humanize(booking.subtrip.date_time, params[:locale])  %>
                 </td>
                 <td>
-                  <%= booking.subtrip.origin.local_name %>&larr;
-                  <%= booking.subtrip.destination.local_name %>
+                  <%= booking.subtrip.origin %>&larr;
+                  <%= booking.subtrip.destination %>
                 </td>
                 <td>
                   <% booking.find_seat_numbers(booking.subtrip, booking).each do |s| %>

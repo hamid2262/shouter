@@ -26,7 +26,7 @@
               </td>
               <td>
                 <% trip.path_list.each do |s| %>
-                  <%= s.origin.local_name %> 
+                  <%= s.origin %> 
                   <% unless s == trip.path_list.last %>
                     &larr;                    
                   <% end %>

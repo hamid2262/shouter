@@ -24,6 +24,7 @@ en:
       trip_summary:
         description: This trip starts on %{date}
     subtrip_fields:
+      address_placeholder: Enter the city name.
       at: At
       city: City
       on_at: Date and Time

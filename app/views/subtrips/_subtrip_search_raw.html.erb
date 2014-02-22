@@ -29,9 +29,9 @@
 				<small><%= jdate_humanize(subtrip.date_time, params[:locale]) %></small>
 			</h3> 
 			<h3 class="fromto">
-				<span class="from"><%= subtrip.origin.local_name %> </span>
+				<span class="from"><%= subtrip.origin %> </span>
 				<span class="arrow-ie">&larr;</span>  
-				<span class="to"><%= subtrip.destination.local_name %></span>
+				<span class="to"><%= subtrip.destination %></span>
 			</h3>
 			<h4 class="car">
 				<%= t 'car_model' %> 

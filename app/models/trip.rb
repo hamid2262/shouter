@@ -16,12 +16,12 @@ class Trip < ActiveRecord::Base
   def first_city
     path_list.first
   end
-
+ 
   def last_city
     path_list.last  
   end
 
-  def via_cities_obj
+  def via_cities
     path_list[1..-2]
   end
 
@@ -30,7 +30,7 @@ class Trip < ActiveRecord::Base
     j = cities_list.index(c2)
     cities_list[i..j]
   end
-
+ 
   def before_cities city
     i = cities_list.index(city)
     cities_list[0..i-1]
@@ -54,21 +54,21 @@ class Trip < ActiveRecord::Base
   def cities_list
     list = []
     path_list.each do |s|
-      list << s.origin_id
+      list << s.origin_address
     end
-    list << path_list.last.destination_id
+    list << path_list.last.destination_address
   end
 
   def path_list
     list = []
-    path_list_obj = []
+    path_list = []
     self.subtrips.each do |c|
-      unless list.include?(c.origin.name)
-        path_list_obj << c
-        list << c.origin.name
+      unless list.include?(c.origin)
+        path_list << c
+        list << c.origin
       end
     end
-    path_list_obj
+    path_list
   end
 
   # initialize other subtrips and fill destination cities id
@@ -76,9 +76,14 @@ class Trip < ActiveRecord::Base
     subtrips = self.subtrips.order(:date_time) 
     for i in 0..(subtrips.size-1)
       if subtrips[i+1]
-        subtrips[i].destination_id = subtrips[i+1].origin_id
+        subtrips[i].destination_address = subtrips[i+1].origin_address
+        subtrips[i].dlat = subtrips[i+1].olat
+        subtrips[i].dlng = subtrips[i+1].olng
         for j in (i+2)..(subtrips.size-1)
-            self.subtrips.build(origin_id: subtrips[i].origin_id, 
+            self.subtrips.build(olat: subtrips[i].olat, 
+                                olng: subtrips[i].olng, 
+                                origin_address: subtrips[i].origin_address, 
+
                                 price: subtrips[i].price, 
                                 date_time: subtrips[i].date_time, 
                                 jminute: subtrips[i].jminute, 
@@ -86,12 +91,17 @@ class Trip < ActiveRecord::Base
                                 jday: subtrips[i].jday, 
                                 jmonth: subtrips[i].jmonth, 
                                 jyear: subtrips[i].jyear, 
-                                destination_id: subtrips[j].origin_id
+
+                                dlat: subtrips[j].olat,
+                                dlng: subtrips[j].olng,
+                                destination_address: subtrips[j].origin_address
                                )
             self.save
         end
       else
-        subtrips[i].destination_id = subtrips[i].origin_id        
+        subtrips[i].dlat = subtrips[i].olat        
+        subtrips[i].dlng = subtrips[i].olng
+        subtrips[i].destination_address = subtrips[i].origin_address
       end
       subtrips[i].save
     end

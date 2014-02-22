@@ -18,11 +18,14 @@ class TripsController < ApplicationController
       @date = @trip.subtrips.first.date_time.to_s(:date)
     end
 
-    @via_cities = @trip.via_cities_obj
+    @via_cities = @trip.via_cities
   end
 
   def new
     @trip = Trip.new
+    @trip.subtrips.build
+    @trip.subtrips.build
+    @trip.subtrips.build
     @trip.subtrips.build
     @trip.subtrips.build
   end
@@ -31,7 +34,8 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
+    # array  = filter_empty_subtrips(trip_params)
+    @trip = Trip.new(filter_empty_subtrips(trip_params))
     @trip.driver = current_user
 
     respond_to do |format|
@@ -88,18 +92,17 @@ class TripsController < ApplicationController
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail,
-        subtrips_attributes: [:id, :origin_id, :price, :seats, :_destroy, 
+        subtrips_attributes: [:id, :price, :seats, :_destroy,
+                              :olat, :olng, :origin_address,
                               :jminute, :jhour, :jyear, :jmonth, :jday])
     end
 
-    # def vehicle_seats_number user
-    #   if user && user.vehicle.present?
-    #     user.vehicle.vehicle_model.seats_number
-    #   else
-    #     flash[:notice] = t(:enter_vehicle_detail_message)
-    #     session[:return_to] = new_trip_path
-    #     redirect_to new_user_vehicles_path(user)
-    #   end
-    # end
-
+    def filter_empty_subtrips(array)
+      array["subtrips_attributes"].each_with_index do |tp, index|
+        if tp[1]["origin_address"].blank?
+          array["subtrips_attributes"].delete "#{index}" 
+        end
+      end
+      array
+    end
 end

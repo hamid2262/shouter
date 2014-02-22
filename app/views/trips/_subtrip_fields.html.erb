@@ -1,10 +1,5 @@
 <fieldset class="col-sm-12 1col-sm-offset-3">
-<!-- At -->
-<!--   <div class="fields">
-    <div class="col-sm-3">
-       <%#= t('.at') %>  
-    </div> 
-  </div> -->
+  <%= link_to "Some Page", '#', class: "add_fields1" %> 
 <!-- On -->
   <div class="datetime">
     <div class="col-sm-2">
@@ -28,17 +23,16 @@
     <div class="col-sm-2">
       <%= t('.city') %>  
     </div> 
-    <div class="col-sm-10 states_cities">
-      <div class="states">
-        <%= collection_select :temp, :state_id, State.order(:local_name), :id, :local_name,  {:prompt=>true} ,{ class: 'my-states'} %>        
+    <div class="col-sm-9">
+      <div class="form-group">
+        <%= f.text_field :origin_address, class: "form-control col-sm-12",placeholder: t(".address_placeholder") %>
+          <%= f.hidden_field :olat, value: nil %>
+          <%= f.hidden_field :olng, value: nil %>
       </div>
-      <div class="cities">
-        <%= f.grouped_collection_select :origin_id, State.order(:local_name), :cities, :local_name, :id, :local_name,{}, {:class => 'required'} %>     <!-- select2_input -->        
-      </div>
-      <%= f.hidden_field :_destroy %>
-      <div class="remove_fields_div col-sm-1">
-        <%= link_to t(".remove"), "#", class: "remove_fields" %>            
-      </div>
+    </div>
+    <div class="remove_fields_div col-sm-1">
+      <%= link_to t(".remove"), "#", class: "remove_fields1" %>
     </div>
   </div>      
 </fieldset>
+

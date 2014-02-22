@@ -3,8 +3,8 @@
     <%#= am_pm f.object.date_time %>
     <%= jalali_time f.object.date_time %>
   </span>  
-  <span class="col-sm-3"><%= f.object.origin.name %> </span>
-  <span class="col-sm-3"><%= f.object.destination.name %> </span>
+  <span class="col-sm-3"><%= f.object.origin %> </span>
+  <span class="col-sm-3"><%= f.object.destination %> </span>
   <% if params[:locale] == 'en' %>
 		<span class="col-sm-2"><%= f.select :price, (0..100).step(1).map{|s| ["#{t('currency', amount: s)}", s]},{}, {class: "time_select"} %></span>
   <% else %>

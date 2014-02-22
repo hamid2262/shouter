@@ -4,8 +4,8 @@
     <%#= am_pm f.object.date_time %>
     <%= jalali_time f.object.date_time %>
   </span>  
-  <span class="col-sm-3"><%= f.object.origin.name %> </span>
-  <span class="col-sm-3"><%= f.object.destination.name %> </span>
+  <span class="col-sm-3"><%= f.object.origin %> </span>
+  <span class="col-sm-3"><%= f.object.destination %> </span>
 	<span class="col-sm-2"><%= t('currency', amount: f.object.price) %></span>  	
 
   <%#= f.hidden_field :_destroy %>

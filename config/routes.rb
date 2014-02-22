@@ -28,9 +28,9 @@ Shouter::Application.routes.draw do
     resources :networks, only: [:show]
     resources :pages
     resources :trips
-    resources :cities
-    resources :states
-    resources :countries
+    # resources :cities
+    # resources :states
+    # resources :countries
     resources :vehicle_brands
     resources :vehicle_models
     resource  :search, only: [:show]

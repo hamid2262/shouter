@@ -19,17 +19,17 @@
 			<tbody>
 				<tr>
 					<th><%= t 'from' %></th>
-					<td><%= @trip.first_city.origin.name %></td>
+					<td><%= @trip.first_city.origin %></td>
 					<td><%= @trip.first_city.date_time.to_s(:time) %></td>
 					<td>
 						<%= @trip.first_city.jyear %>-<%= @trip.first_city.jmonth %>-<%= @trip.first_city.jday %>
 					</td>
 				</tr>
 
-				<% @trip.via_cities_obj.each do |c| %>
+				<% @trip.via_cities.each do |c| %>
 					<tr>
 						<th><%= t 'via' %></th>
-						<td><%= c.origin.name%></td>
+						<td><%= c.origin%></td>
 						<td><%= c.date_time.to_s(:time) %></td>
 					<td>
 						<%= c.jyear %>-<%= c.jmonth %>-<%= c.jday %>
@@ -39,7 +39,7 @@
 
 				<tr>
 					<th><%= t 'to' %></th>
-					<td><%= @trip.last_city.destination.name %></td>
+					<td><%= @trip.last_city.destination %></td>
 					<td><%= @trip.subtrips.last.date_time.to_s(:time) %></td>
 					<td>
 						<%= @trip.subtrips.last.jyear %>-<%= @trip.subtrips.last.jmonth %>-<%= @trip.subtrips.last.jday %>

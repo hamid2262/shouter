@@ -4,8 +4,8 @@ class SearchSubtrip
   include ActiveModel::Conversion
   extend ActiveModel::Naming
   
-	attr_accessor :origin_id, :origin_name, :origin_lat, :origin_lng, :origin_cycle, 
-								:destination_id, :destination_name, :destination_lat, :destination_lng, :destination_cycle, 
+	attr_accessor :origin_address, :origin_name, :origin_lat, :origin_lng, :origin_cycle, 
+								:destination_address, :destination_name, :destination_lat, :destination_lng, :destination_cycle, 
 								:date, :jday, :jmonth, :jyear
 
 	validate :cities_cannot_be_blank
@@ -15,22 +15,6 @@ class SearchSubtrip
 	def cycle_range
 		[5,10,25,50,100,200]
 	end
-
-	def origin
-		if origin_id
-			City.find(self.origin_id).local_name			
-		else
-			self.origin_name
-		end
-	end
-	
-	def destination
-		if destination_id
-			City.find(self.destination_id).local_name 			
-		else
-			self.destination_name
-		end
-	end	
 
 	def initialize attributes ={}
 			@jday ||= JalaliDate.new(Date.today).day 
@@ -55,7 +39,7 @@ class SearchSubtrip
 	end
 
 	def newtrips
-    subtrips = Subtrip.where.not("origin_id = destination_id")
+    subtrips = Subtrip.where.not("origin_address = destination_address")
     subtrips = subtrips.where("date_time > ?", DateTime.now)
     subtrips = subtrips.order(date_time: :desc)		
 	end
@@ -69,34 +53,26 @@ class SearchSubtrip
   end
 
 	def subtrips days=0
-		if self.destination_lat.present? #&& self.origin_lat.present?
-			origin_ids = city_ids_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle)  if self.origin_lat.present?
-			destination_ids = city_ids_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle) 
-		end
+		# if self.destination_lat.present? #&& self.origin_lat.present?
+		# 	origin_ids = city_ids_near_latlng(self.origin_lat, self.origin_lng, self.origin_cycle)  if self.origin_lat.present?
+		# 	destination_ids = city_ids_near_latlng(self.destination_lat, self.destination_lng, self.destination_cycle) 
+		# end
 
 		start_date = JalaliDate.new(jyear.to_i,jmonth.to_i,jday.to_i).to_gregorian.beginning_of_day - 1.minute
 		end_date = start_date.end_of_day + days.days
 
-
-	  subtrips = Subtrip.where("destination_id IN (?)", destination_ids ) 
-	  subtrips = subtrips.where("origin_id IN (?)", origin_ids ) if origin_ids
-		subtrips.where("date_time > ?", start_date).where("date_time < ?", end_date)
+		subtrips = Subtrip.where("date_time > ?", start_date).where("date_time < ?", end_date)
+		subtrips = subtrips.near(self.destination_address, self.destination_cycle , :units => :km)
+	  subtrips = where_near_origin(subtrips,self.origin_address, self.origin_cycle) if self.origin_address
+    subtrips = subtrips.where.not("origin_address = destination_address")
 	end
 
+		def where_near_origin subtrips, address, cycle
+			lat,lng = Geocoder.coordinates address
+			subtrips.where("olat - ? < ?", lat, cycle.to_f/80).where("olng - ? < ?", lng, cycle.to_f/80)
+		end
+
 	private
-		def city_ids_near_latlng lat, lng, cycle
-			cities = City.near([lat,lng], 1 + cycle.to_f/1.609344 )
-			 origin_ids = cities.map{|c| c.id}
-		end
-
-		def cities_near_destination_latlng
-			City.near([destination_lat,destination_lng],1 + destination_cycle.to_f/1.609344 )
-		end
-
-		def cities_near_cityid city_id, cycle
-			city = City.find(city_id)
-			City.near(city, 1 + cycle.to_f/1.609344 )
-		end
 
 		def convert_jalali_to_gregorian date
 			date = date.split("/").reverse
@@ -135,7 +111,7 @@ class SearchSubtrip
 		end
 
 		def cities_cannot_be_blank
-  		errors.add(:destination_name, "can't be blank")	if @destination_name.blank?		
+  		errors.add(:destination_address, "can't be blank")	if @destination_address.blank?		
 		end
 
 end

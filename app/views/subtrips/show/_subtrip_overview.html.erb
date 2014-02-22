@@ -2,9 +2,9 @@
 	<div class="panel panel-default ">
 		<div class="panel-heading">
 			<h2>
-				<%= @subtrip.origin.local_name %>
+				<%= @subtrip.origin %>
 				<span class="arrow-ie">&larr;</span> 
-				<%= @subtrip.destination.local_name %>
+				<%= @subtrip.destination %>
 				<% if @subtrip.price %>
 					<strong class="pull-<%= lang_other_side  %>">
 						<%= t 'currency', amount: currency(@subtrip.price) %>
@@ -21,7 +21,7 @@
 		  		<td><%= print_cities_name(@subtrip.trip.first_city, @subtrip) %></td>
 		  	</tr>
 
-				<% @subtrip.trip.via_cities_obj.each do |s| %>
+				<% @subtrip.trip.via_cities.each do |s| %>
 			  	<tr>
 			  		<th></th>
 			  		<th><%= t 'via' %></th>
@@ -53,7 +53,7 @@
 
 		 		<tr>
 		  		<th><%= t 'distance' %></th>
-		  		<th><%= t 'km', amount: @subtrip.origin.distance_to(@subtrip.destination).round(0) %></th>
+		  		<th><%= t 'km', amount: @subtrip.distance_to([@subtrip.olat,@subtrip.olng]).round(0) %></th>
 		  	</tr> 
 	 			<tr>
 		  		<th><%= t 'viewed_times' %></th>

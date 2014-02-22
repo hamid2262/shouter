@@ -1,4 +1,7 @@
 class Subtrip < ActiveRecord::Base
+  # geocoded_by :origin_address, latitude: :olat, longitude: :olng
+  geocoded_by :destination_address, latitude: :dlat, longitude: :dlng
+
   belongs_to :trip
   belongs_to :origin, class_name: "City", foreign_key: "origin_id"
   belongs_to :destination, class_name: "City", foreign_key: "destination_id"
@@ -9,14 +12,29 @@ class Subtrip < ActiveRecord::Base
   validate  :jday,   :jday_validate
   validate  :jdate_must_not_be_past
 
-
-  validates :origin_id, presence: true
-  validates :jminute, presence: true
+  validates :origin_address, length: {minimum: 2}, allow_blank: true
+  
+  validates :jminute, presence: true, unless: 'origin_address.nil?'
   validates :jhour, presence: true
 
   before_create :set_seats
   before_create :set_date_time
+  before_save :split_address_to_city_state_country
  
+  def origin
+    city = self.origin_country unless self.origin_country.blank?
+    city = self.origin_state unless self.origin_state.blank?
+    city = self.origin_city unless self.origin_city.blank?
+    city 
+  end
+
+  def destination
+    city = self.destination_country unless self.destination_country.blank?
+    city = self.destination_state unless self.destination_state.blank?
+    city = self.destination_city unless self.destination_city.blank?    
+    city
+  end
+
   def number_of_taken_seats
     self.seats.size - ( self.seats.count(0) + self.seats.count(-1) )
   end
@@ -49,7 +67,7 @@ class Subtrip < ActiveRecord::Base
   # used in seats_order
   def is_waiting_for? user_id
     flag = true
-    con_subs = self.find_conflict_subtrips  
+    con_subs = self.find_conflict_subtrips
     con_subs.each do |con_sub|
       if  b=con_sub.bookings.where(user_id: user_id).last
         if b.acceptance_status != 0
@@ -61,32 +79,31 @@ class Subtrip < ActiveRecord::Base
   end
 
   def find_conflict_subtrips
-  	origin = self.origin_id
-    destination = self.destination_id
+  	origin = self.origin_address
+    destination = self.destination_address
     subtrips = self.trip.subtrips
 
     before_subtrip = find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
     after_subtrip  = find_before_and_after_destination_conflict_subtrips origin, destination, subtrips
     inbetween_subtrip  = find_inbetween_origin_and_destination_conflict_subtrips origin, destination, subtrips
-
     all_conflict_subtrips = (inbetween_subtrip + before_subtrip + after_subtrip).uniq
   end
 
   def find_before_and_after_origin_conflict_subtrips origin, destination, subtrips
     before_and_itself_cities = self.trip.before_and_itself_cities origin
     after_cities = self.trip.after_cities origin
-    subtrips.where(origin_id: before_and_itself_cities, destination_id: after_cities) 	
+    subtrips.where(origin_address: before_and_itself_cities, destination_address: after_cities) 	
   end
 
   def find_before_and_after_destination_conflict_subtrips origin, destination, subtrips
     before_cities = self.trip.before_cities destination
     after_and_itself_cities = self.trip.after_and_itself_cities destination
-    subtrips.where(origin_id: before_cities, destination_id: after_and_itself_cities)  	
+    subtrips.where(origin_address: before_cities, destination_address: after_and_itself_cities)  	
   end
 
   def find_inbetween_origin_and_destination_conflict_subtrips origin, destination, subtrips
     inbetween_cities = self.trip.inbetween_cities origin, destination    
-    subtrips.where(origin_id: inbetween_cities, destination_id: inbetween_cities)  	
+    subtrips.where(origin_address: inbetween_cities, destination_address: inbetween_cities)  	
   end
 
   private
@@ -120,5 +137,22 @@ class Subtrip < ActiveRecord::Base
       jdate = JalaliDate.new(self.jyear,self.jmonth,self.jday)  
       gdate = jdate.to_g
       self.date_time = gdate + self.jhour.hours + self.jminute.minutes
+    end
+
+    def split_address_to_city_state_country
+      if self.origin_address   
+        address = self.origin_address.split(',')
+        self.origin_country = address[-1]
+        self.origin_state = address[-2]
+        self.origin_city = address[-3]      
+      end
+
+      if self.destination_address
+        address = self.destination_address.split(',')
+        self.destination_country = address[-1]
+        self.destination_state = address[-2]
+        self.destination_city = address[-3]            
+      end
+
     end
 end

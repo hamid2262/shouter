@@ -5,8 +5,8 @@ class SubtripsController < ApplicationController
   def show
     @subtrip = Subtrip.find(params[:id])
   	@hash = Gmaps4rails.build_markers(@subtrip.trip.path_list) do |subtrip, marker|
-		  marker.lat subtrip.origin.latitude
-		  marker.lng subtrip.origin.longitude
+		  marker.lat subtrip.olat
+		  marker.lng subtrip.olng
 		  marker.infowindow render_to_string(:partial => "subtrips/show/data_for_gmaps", :locals => { subtrip: subtrip})
 		end
   end

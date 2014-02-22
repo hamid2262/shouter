@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217010303) do
+ActiveRecord::Schema.define(version: 20140219012047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,8 +129,6 @@ ActiveRecord::Schema.define(version: 20140217010303) do
 
   create_table "subtrips", force: true do |t|
     t.integer  "trip_id"
-    t.integer  "origin_id"
-    t.integer  "destination_id"
     t.datetime "date_time"
     t.integer  "jyear"
     t.integer  "jmonth"
@@ -138,15 +136,25 @@ ActiveRecord::Schema.define(version: 20140217010303) do
     t.integer  "jhour"
     t.integer  "jminute"
     t.integer  "price"
-    t.integer  "seats",          default: [], array: true
+    t.integer  "seats",                          default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "view",           default: 0
+    t.integer  "view",                           default: 0
+    t.float    "olat"
+    t.float    "olng"
+    t.string   "origin_city",         limit: 50
+    t.string   "origin_state",        limit: 50
+    t.string   "origin_country",      limit: 50
+    t.string   "origin_address"
+    t.float    "dlat"
+    t.float    "dlng"
+    t.string   "destination_city",    limit: 50
+    t.string   "destination_state",   limit: 50
+    t.string   "destination_country", limit: 50
+    t.string   "destination_address"
   end
 
-  add_index "subtrips", ["date_time", "origin_id", "destination_id"], name: "index_subtrips_on_date_time_and_origin_id_and_destination_id", using: :btree
-  add_index "subtrips", ["destination_id"], name: "index_subtrips_on_destination_id", using: :btree
-  add_index "subtrips", ["origin_id"], name: "index_subtrips_on_origin_id", using: :btree
+  add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng"], name: "index_subtrips_on_date_time_and_dlat_and_dlng_and_olat_and_olng", using: :btree
   add_index "subtrips", ["trip_id"], name: "index_subtrips_on_trip_id", using: :btree
 
   create_table "text_shouts", force: true do |t|
