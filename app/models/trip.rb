@@ -1,7 +1,9 @@
 class Trip < ActiveRecord::Base
-  belongs_to :driver, class_name: "User", foreign_key: "user_id"
   has_many   :subtrips , dependent: :destroy
   has_many   :shouts, as: :content
+  belongs_to :driver, class_name: "User", foreign_key: "user_id"
+  belongs_to :currency
+
   accepts_nested_attributes_for :subtrips, allow_destroy: true
 
   validates_associated :subtrips

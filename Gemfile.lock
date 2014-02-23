@@ -67,6 +67,9 @@ GEM
       activesupport (>= 3.0.4)
     execjs (2.0.2)
     geocoder (1.1.8)
+    globalize (4.0.0)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
     gmaps4rails (2.1.1)
     gravatar_image_tag (1.2.0)
     hike (1.2.3)
@@ -194,6 +197,7 @@ DEPENDENCIES
   devise
   exception_notification
   geocoder (~> 1.1.8)
+  globalize (~> 4.0.0)
   gmaps4rails
   gravatar_image_tag (~> 1.2.0)
   jalalidate (~> 0.3.3)

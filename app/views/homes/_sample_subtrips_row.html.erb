@@ -20,7 +20,7 @@
 		<div class="col-xs-3">
 			<div class="price">
 				<strong>
-					<%= t 'currency', amount: currency(subtrip.price) %>
+					<%= t 'currency', amount: currency(subtrip.price), unit: subtrip.trip.currency.try(:symbol) %>
 				</strong> <br>
 				<span class="price-unit"><%= t('per_passenger') %></span>
 			</div>

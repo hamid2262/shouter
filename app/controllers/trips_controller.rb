@@ -86,7 +86,7 @@ class TripsController < ApplicationController
     # end
 
     def trip_params
-      params.require(:trip).permit(:total_available_seats, :detail,
+      params.require(:trip).permit(:total_available_seats, :detail, :currency_id,
         subtrips_attributes: [:id, :price, :seats, :_destroy,
                               :olat, :olng, :origin_address,
                               :jminute, :jhour, :jyear, :jmonth, :jday])

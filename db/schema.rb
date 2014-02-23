@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222204536) do
+ActiveRecord::Schema.define(version: 20140223034957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(version: 20140222204536) do
 
   add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "currencies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "currency_translations", force: true do |t|
+    t.integer  "currency_id", null: false
+    t.string   "locale",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "currency_translations", ["currency_id"], name: "index_currency_translations_on_currency_id", using: :btree
+  add_index "currency_translations", ["locale"], name: "index_currency_translations_on_locale", using: :btree
 
   create_table "following_relationships", force: true do |t|
     t.integer  "follower_id"
@@ -145,6 +162,7 @@ ActiveRecord::Schema.define(version: 20140222204536) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "currency_id"
   end
 
   add_index "trips", ["user_id"], name: "index_trips_on_user_id", using: :btree

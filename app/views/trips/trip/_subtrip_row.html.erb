@@ -2,6 +2,6 @@
 	<th><%= link_to(subtrip.origin, subtrip_path(subtrip.id)) %></th>
 	<th><%= link_to(subtrip.destination, subtrip_path(subtrip.id)) %></th>
 	<td><%= link_to( jalali_time(subtrip.date_time), subtrip_path(subtrip.id)) %></td>
-	<th><%= link_to(t('currency', amount: subtrip.price), subtrip_path(subtrip.id)) %></th>
+	<th><%= link_to(t('currency', amount: subtrip.price, unit: subtrip.trip.currency.try(:symbol)), subtrip_path(subtrip.id)) %></th>
 	<th><%= link_to("#{subtrip.free_seats}/#{subtrip.number_of_total_seats}", subtrip_path(subtrip.id)) %></th>
 </tr>

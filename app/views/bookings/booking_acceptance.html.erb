@@ -45,7 +45,7 @@
 
 				  	<tr>
 				  		<th><%= t 'price' %></th>
-				  		<th><%= t 'currency', amount: @subtrip.price %></th>
+				  		<th><%= t 'currency', amount: @subtrip.price, unit: @subtrip.trip.currency.try(:symbol) %></th>
 				  	</tr>  
 
 		  		</tbody>

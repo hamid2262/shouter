@@ -5,12 +5,13 @@
   </span>  
   <span class="col-sm-3"><%= f.object.origin %> </span>
   <span class="col-sm-3"><%= f.object.destination %> </span>
-  <% if params[:locale] == 'en' %>
-		<span class="col-sm-2"><%= f.select :price, (0..100).step(1).map{|s| ["#{t('currency', amount: s)}", s]},{}, {class: "time_select"} %></span>
-  <% else %>
-		<span class="col-sm-2"><%= f.select :price, (0..100000).step(500).map{|s| ["#{t('currency', amount: s)}", s]},{}, {class: "time_select"} %></span>  	
-  <% end %>
 
+  <% if f.object.trip.currency_id == 1 %>
+    <%= f.select :price, (0..100000).step(500).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.name)}", s]},{}, {class: "time_select"} %>      
+  <% else %>
+     <%= f.select :price, (0..100).step(1).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{}, {class: "time_select"} %>
+ 
+  <% end %>
   <%#= f.hidden_field :_destroy %>
   <%#= link_to t('remove') , "#", class: "remove_fields col-sm-1 pull-left" %>  
 </fieldset>

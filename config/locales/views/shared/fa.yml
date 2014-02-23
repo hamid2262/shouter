@@ -15,7 +15,7 @@ fa:
   followed_users:  دنبال شونده های
   posts: پستها
   reviews: نظرات
-  currency: '%{amount} تومان '
+  currency: "%{amount} %{unit}"
   no_post_message: هیچ پستی برای نمایش وجود ندارد.
   site_info:
     title: "همسفریاب"

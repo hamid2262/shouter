@@ -7,7 +7,7 @@
 				<%= @subtrip.destination %>
 				<% if @subtrip.price %>
 					<strong class="pull-<%= lang_other_side  %>">
-						<%= t 'currency', amount: currency(@subtrip.price) %>
+						<%= t 'currency', amount: currency(@subtrip.price), unit: @subtrip.trip.currency.try(:symbol) %>
 					</strong>
 				<% end %>
 			</h2>
@@ -39,7 +39,7 @@
 		  		<th><%= t 'mydate'  %></th>
 		  		<td><%= jalali_date(@subtrip.date_time) %></td>
 		  	</tr>
-		  	
+
 		  	<tr>
 		  		<th></th>
 		  		<th><%= t 'at' %></th>
@@ -47,7 +47,7 @@
 		  	</tr>
 		  	<tr>
 		  		<th><%= t 'price' %></th>
-		  		<th><%= t 'currency', amount: @subtrip.price %></th>
+		  		<th><%= t 'currency', amount: @subtrip.price, unit: @subtrip.trip.currency.try(:symbol) %></th>
 		  		<th> </th>
 		  	</tr>  	
 

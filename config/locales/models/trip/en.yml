@@ -5,6 +5,7 @@ en:
     attributes:
       trip:
         total_available_seats: Total Seats
+        currency: Currency
         detail: Details
         driver: Driver
         subtrips: Routes

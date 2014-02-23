@@ -5,6 +5,7 @@ fa:
     attributes:
       trip:
         total_available_seats: تعداد صندلی های در دسترس
+        currency: واحد پولی
         detail: توضیحات
         driver: راننده
         subtrips: مسیر 
