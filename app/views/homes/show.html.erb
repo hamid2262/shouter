@@ -6,10 +6,11 @@
 			<% end %>
 			<%= render partial: 'trip_search' %>	
 	  </div>
-
-	  <div id="spacial_events">
-			<%= render 'spacial_events'%>	
-		</div>
+		<% if @spacial_events.any? %>
+		  <div id="spacial_events">
+				<%= render 'spacial_events'%>	
+			</div>			
+		<% end %>
 	</div>	
 
 	<div class="col-md-6">

@@ -149,8 +149,9 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 			}
 			.car{
 				font-size: 0.9em;
-				position: absolute;
-				bottom: -8px;
+				padding-bottom: 8px;
+				// position: absolute;
+				// bottom: -8px;
 				margin: 0;
 				color: #9B9B9B;
 				font-family: fantasy;
@@ -164,13 +165,20 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 				top: 0px;
 				right: 92px;			
 			}
+			.gravatar{
+				img{
+					float: right;
+				}
+			}
 			.old{
 				position: absolute;
 				top: 6px;
 				right: 91px;
 			}
 			.ratingSmall{
-				position: relative;
+				position: absolute;
+				right: 15px;
+				bottom: -25px;
 				width: 68px;
 				height: 20px;
 				display: inline-block;

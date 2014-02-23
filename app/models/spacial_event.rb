@@ -16,10 +16,12 @@ class SpacialEvent < ActiveRecord::Base
     search_subtrip = SearchSubtrip.new
     search_subtrip.origin_address = self.origin_address
     search_subtrip.origin_cycle = self.origin_cycle
+
     search_subtrip.destination_address = self.destination_address
-    search_subtrip.destination_cycle = self.destination_cycle  	
+    search_subtrip.destination_cycle = self.destination_cycle  
+
+    search_subtrip.date = self.end_date  	
     search_subtrip
-    raise
   end
 
   private
