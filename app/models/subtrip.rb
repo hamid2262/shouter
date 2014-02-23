@@ -13,10 +13,13 @@ class Subtrip < ActiveRecord::Base
   validate  :jdate_must_not_be_past
 
   validates :origin_address, length: {minimum: 2}, allow_blank: true
+  validates :olat, presence: true
+  validates :olng, presence: true
   
   validates :jminute, presence: true, unless: 'origin_address.nil?'
   validates :jhour, presence: true
 
+  before_validation :check_for_cities_validation
   before_create :set_seats
   before_create :set_date_time
   before_save :split_address_to_city_state_country
@@ -154,5 +157,22 @@ class Subtrip < ActiveRecord::Base
         self.destination_city = address[-3]            
       end
 
+    end
+
+    def check_for_cities_validation
+      if self.olat.blank? && self.origin_address
+        if Geocoder.search(self.origin_address)[0].try(:latitude).present?
+          self.olat = Geocoder.search(self.origin_address)[0].latitude
+          self.olng = Geocoder.search(self.origin_address)[0].longitude
+          # self.origin_name = Geocoder.search(self.origin_name)[0].address
+        end
+      end
+      if self.dlat.blank? && self.destination_address
+        if Geocoder.search(self.destination_address)[0].try(:latitude).present?  
+          self.dlat = Geocoder.search(self.destination_address)[0].latitude
+          self.dlng = Geocoder.search(self.destination_address)[0].longitude
+          # self.destination_name = Geocoder.search(self.destination_name)[0].address
+        end
+      end       
     end
 end

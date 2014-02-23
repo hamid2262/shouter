@@ -138,6 +138,14 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 				font-size: 1.3em;
 				font-weight: bold;				
 				margin-top: 0px;
+				.to{
+					text-align: center;
+				}
+				td{
+					border: 0;
+					padding:  0 5px;
+					color: #640800;
+				}
 			}
 			.car{
 				font-size: 0.9em;

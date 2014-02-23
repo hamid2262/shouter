@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140222194915) do
+ActiveRecord::Schema.define(version: 20140222204536) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,14 +83,24 @@ ActiveRecord::Schema.define(version: 20140222194915) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "permalink"
-    t.integer  "origin_id"
-    t.integer  "destination_id"
     t.integer  "origin_cycle"
     t.integer  "destination_cycle"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "olat"
+    t.float    "olng"
+    t.string   "origin_city",         limit: 50
+    t.string   "origin_state",        limit: 50
+    t.string   "origin_country",      limit: 50
+    t.string   "origin_address"
+    t.float    "dlat"
+    t.float    "dlng"
+    t.string   "destination_city",    limit: 50
+    t.string   "destination_state",   limit: 50
+    t.string   "destination_country", limit: 50
+    t.string   "destination_address"
   end
 
   add_index "spacial_events", ["permalink"], name: "index_spacial_events_on_permalink", using: :btree

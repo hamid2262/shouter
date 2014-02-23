@@ -1,5 +1,5 @@
 <div class="trip_timeline">
-	<h4> <%= t('.line1') %> <%= jalali_day trip.subtrips.first.date_time %> <%= jalali_date trip.subtrips.first.date_time %></h4>
+	<h4> <%= t('.line1') %> <%= jalali_day trip.subtrips.first.try(:date_time) %> <%= jalali_date trip.subtrips.first.try(:date_time) %></h4>
 	<div class="table-responsive">
 		<table class="table table-hover trip_timeline_row">
 			<thead>

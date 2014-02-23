@@ -9,16 +9,16 @@ function initialize() {
   var autocomplete_origin = new google.maps.places.Autocomplete(origin, options);
   google.maps.event.addListener(autocomplete_origin, 'place_changed', function () {
     var place = autocomplete_origin.getPlace();
-    document.getElementById('search_subtrip_origin_lat').value    = place.geometry.location.lat();
-    document.getElementById('search_subtrip_origin_lng').value    = place.geometry.location.lng();
+    document.getElementById('search_subtrip_olat').value    = place.geometry.location.lat();
+    document.getElementById('search_subtrip_olng').value    = place.geometry.location.lng();
    });
 
   var destination = document.getElementById('search_subtrip_destination_address');
   var autocomplete_destination = new google.maps.places.Autocomplete(destination, options);
   google.maps.event.addListener(autocomplete_destination, 'place_changed', function () {
     var place = autocomplete_destination.getPlace();
-    document.getElementById('search_subtrip_destination_lat').value    = place.geometry.location.lat();
-    document.getElementById('search_subtrip_destination_lng').value    = place.geometry.location.lng();
+    document.getElementById('search_subtrip_dlat').value    = place.geometry.location.lat();
+    document.getElementById('search_subtrip_dlng').value    = place.geometry.location.lng();
   });
 
 /////////////////////////// Trip New

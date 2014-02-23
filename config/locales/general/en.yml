@@ -43,7 +43,8 @@ en:
   accept: Accept 
   reject: Reject
   post: Post
-  sending: Sending... 
+  sending: Sending...
+  error_registration: Registreation failed! 
   # flash messages
   require_login: "You must be logged in to access this section"
   unauthorized_pages_message: 'you are not authorized to access this page'

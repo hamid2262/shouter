@@ -4,6 +4,10 @@
     <%= f.input :title %>
     <%= f.input :permalink %>      
     <%= f.input :origin_cycle %>
+    <%= f.input :origin_address, required: false, input_html: {id: "search_subtrip_origin_address", class: "form-control"} %>          
+
+    <%= f.input :destination_address, input_html: {id: "search_subtrip_destination_address", class: "form-control"} %>
+
     <%= f.input :destination_cycle %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>

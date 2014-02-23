@@ -73,6 +73,9 @@ class SpacialEventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def spacial_event_params
-      params.require(:spacial_event).permit(:title, :image, :permalink, :origin_id, :destination_id, :origin_cycle, :destination_cycle, :start_date, :end_date)
+      params.require(:spacial_event).permit(:title, :image, :permalink, :start_date, :end_date,
+                                            :olat, :olng, :origin_address, :origin_cycle, 
+                                            :dlat, :dlng, :destination_address, :destination_cycle 
+                                            )
     end
 end

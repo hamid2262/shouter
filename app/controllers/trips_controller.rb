@@ -37,18 +37,13 @@ class TripsController < ApplicationController
     # array  = filter_empty_subtrips(trip_params)
     @trip = Trip.new(filter_empty_subtrips(trip_params))
     @trip.driver = current_user
-
-    respond_to do |format|
-      if @trip.save
-        @trip.shouts.create!(user_id: current_user.id)
-    
-        format.html { redirect_to edit_trip_path(@trip.id), notice: t(:trip_create_message) }
-        format.json { render action: 'show', status: :created, location: @trip }
-      else
-        @max_vehicle_seats = 8
-        format.html { render action: 'new' }
-        format.json { render json: @trip.errors, status: :unprocessable_entity }
-      end
+    if @trip.save
+      @trip.shouts.create!(user_id: current_user.id)
+      redirect_to edit_trip_path(@trip.id), notice: t(:trip_create_message) 
+    else
+      @max_vehicle_seats = 50
+      # render action: 'new' 
+      redirect_to new_trip_path, alert: t("error_registration") 
     end
   end
 

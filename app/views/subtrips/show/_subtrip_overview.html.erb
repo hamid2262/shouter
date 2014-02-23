@@ -53,7 +53,9 @@
 
 		 		<tr>
 		  		<th><%= t 'distance' %></th>
-		  		<th><%= t 'km', amount: @subtrip.distance_to([@subtrip.olat,@subtrip.olng]).round(0) %></th>
+		  		<% if @subtrip.olat && @subtrip.dlng %>
+			  		<th><%= t 'km', amount: @subtrip.distance_to([@subtrip.olat,@subtrip.olng]).round(0) %></th>		  			
+		  		<% end %>
 		  	</tr> 
 	 			<tr>
 		  		<th><%= t 'viewed_times' %></th>

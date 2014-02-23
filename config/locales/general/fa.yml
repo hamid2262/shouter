@@ -42,6 +42,7 @@ fa:
   reject: رد درخواست
   post: ارسال
   sending: در حال ارسال...
+  error_registration: خطا مانع ثبت شد.
   # flash messages   
   require_login: برای ادامه، باید وارد سایت شوید
   unauthorized_pages_message: شما اجازه دسترسی به این صفحه را ندارید
