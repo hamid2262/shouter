@@ -80,10 +80,6 @@ class TripsController < ApplicationController
     def set_max_vehicle_seats
       @max_vehicle_seats = 50
     end
-    # def main_subtrip_params
-    #   params.require(:first_sub).permit( :origin_id, :destination_id, :seats, 
-    #                           :jminute, :jhour, :jyear, :jmonth, :jday)
-    # end
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail, :currency_id,

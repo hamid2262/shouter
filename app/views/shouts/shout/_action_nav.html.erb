@@ -1,0 +1,23 @@
+<% if (shout.user == current_user) && 
+	((can? :edit, shout.content) || (shout.content_type != 'Trip') ) %>
+	
+	<ul class="nav navbar-nav navbar-left <%= lang_other_side %> remove">
+		<li id="action_menu" class="dropdown">
+			<a id="title" href="#" class="dropdown-toggle" data-toggle="dropdown">
+				<%= t("action") %> <b class="caret"></b>
+			</a>
+			<ul class="dropdown-menu dropdown-menu-left">
+
+				<% if (shout.content_type == 'Trip') && (can? :edit, shout.content) %>
+					<li><%= link_to t("edit"), edit_trip_path(shout.content.id) %></li>
+				<% end %>
+
+				<% if shout.content_type != 'Trip' %>
+					<li><%= link_to t("remove"), shout.content, method: :delete, data: {confirm: t('delete_confirmation')} %></li>
+				<% end %>
+
+			</ul>
+		</li>
+	</ul>  
+<% end  %>
+

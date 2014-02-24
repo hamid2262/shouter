@@ -3,18 +3,18 @@
 		<%= div_for	shout do %> 
 			<%= link_to gravatar(shout.user), profile_url(shout.user) %>
 			<%= link_to shout.user.name, profile_url(shout.user) %>
+			
+
+<%= render partial: 'shouts/shout/action_nav', locals:{shout: shout} %>
+
 			<div class="content">
 				<%= render shout.try(:content) %>
 				<span class="meta">
 					<span class="text-muted"><%= time_ago_in_words(shout.created_at) %> <%=t("ago")  %></span>
 					<%# if can? :destroy, shout.content %>
-					<% if (shout.user == current_user && (shout.content_type != 'Trip')) %>
-						<span class="remove">
-							<%= link_to t("remove"), shout.content, method: :delete, class: "pull-left", data: {confirm: t('delete_confirmation')} %>
-						</span>
-					<% end %>
+					
 				</span>	
-			</div>
-		<% end %>
+			</div> 
+		<% end %> <!-- div_for	shout  -->
 	</div>
 </div>

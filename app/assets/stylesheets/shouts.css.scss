@@ -1,20 +1,32 @@
 .shout{
+	position: relative;
+	ul{
+		position: absolute;
+	}
+	&:hover{
+		background: #f7f7f7;
+	}
+	.remove{
+		display: none;
+	}
 	.content{
 		padding: 0 50px 0 0;
 		overflow: hidden;
 	} 
-}
-
-.shout .remove{
-	display: none;
+	.dropdown-menu{
+		right: auto;
+		left: 0;
+		min-width: 70px;
+	}
+	#action_menu{
+		#title{
+			// background-color: transparent;			
+		}
+	}
 }
 
 .shout.hover .remove{
 	display: inline;
-}
-
-.shout.hover{
-	background: #f7f7f7;
 }
 
 textarea.post_field{
