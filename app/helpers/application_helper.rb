@@ -116,6 +116,46 @@ module ApplicationHelper
 	 	message.html_safe
 	end
   
+	def currency price
+		number_to_currency(price, delimiter: ",", format: "%n",precision: 0)
+	end
+
+  def jdate_humanize_without_today date_time
+		if params[:locale] == 'fa'
+  		jalali_date date_time
+  	else
+  		date_time.strftime("%d %b %Y")
+  	end
+  end
+
+  def jdate_humanize date_time
+  	if date_time.to_date == Date.today
+  		t "today"
+  	elsif date_time.to_date == Date.today + 1.day
+  		t "tomorrow"
+  	elsif params[:locale] == 'fa'
+  		jalali_date date_time
+  	else
+  		date_time.strftime("%d %b %Y")
+  	end
+  end
+
+  def jday_humanize date_time
+  	if params[:locale] == 'fa'
+  		jalali_day date_time
+  	else
+  		date_time.strftime("%A")
+  	end
+  end
+
+  def jtime_humanize date_time
+  	if params[:locale] == 'fa'
+  		jalali_time(date_time)
+  	else
+  		date_time.strftime("%I:%M %p")
+  	end
+  end  
+
 	def am_pm time
 		if time.hour >= 12
       t('time.pm')
@@ -123,22 +163,6 @@ module ApplicationHelper
 			t('time.am')
 		end
 	end
-
-	def currency price
-		number_to_currency(price, delimiter: ",", format: "%n",precision: 0)
-	end
-
-  def jdate_humanize date_time, locale
-  	if date_time.to_date == Date.today
-  		t "today"
-  	elsif date_time.to_date == Date.today + 1.day
-  		t "tomorrow"
-  	elsif locale == 'fa'
-  		jalali_date date_time
-  	else
-  		date_time.strftime("%d %b %Y")
-  	end
-  end
 
   def jalali_date s
     JalaliDate.new(s).strftime("%d %b %Y")

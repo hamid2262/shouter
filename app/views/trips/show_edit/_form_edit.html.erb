@@ -29,9 +29,7 @@
       <div class="col-sm-9 col-sm-offset-3">
         <% if can? :edit, @trip %>
           <%= f.button :submit, class: "btn btn-warning" %>
-          <% if can? :edit, @trip %>
-            <%= link_to t('.delete'), trip_path(@trip), method: :delete, class: "btn btn-danger" %>
-          <% end %>
+          <%= link_to t('.delete'), trip_path(@trip), method: :delete, class: "btn btn-danger" %>
         <% end %>
 
       </div>

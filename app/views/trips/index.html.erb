@@ -22,7 +22,7 @@
               <td>
                   <%= trip.subtrips.first.date_time.to_s(:time) %> &nbsp;
                   <%= am_pm trip.subtrips.first.date_time %>&nbsp;-&nbsp;
-                  <%= jdate_humanize(trip.subtrips.first.date_time, params[:locale])  %>
+                  <%= jdate_humanize(trip.subtrips.first.date_time)  %>
               </td>
               <td>
                 <% trip.path_list.each do |s| %>

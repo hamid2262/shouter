@@ -47,9 +47,9 @@ class SearchSubtrip
   def subtrips_close_to_user ip, cycle = 100
   	 lat = Geocoder.search(ip).first.latitude 
   	 lng = Geocoder.search(ip).first.longitude
-  	 city_ids = city_ids_near_latlng lat, lng, cycle
-	   subtrips = Subtrip.where("origin_id IN (?)", city_ids ) 
-		 subtrips = subtrips.concat( Subtrip.where("destination_id IN (?)", city_ids ) )
+  	#  city_ids = city_ids_near_latlng lat, lng, cycle
+	  #  subtrips = Subtrip.where("origin_id IN (?)", city_ids ) 
+		 # subtrips = subtrips.concat( Subtrip.where("destination_id IN (?)", city_ids ) )
   end
 
 	def subtrips days=0
