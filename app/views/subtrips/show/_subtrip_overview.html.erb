@@ -74,7 +74,8 @@
 		 		<tr>
 		  		<th></th>
 		  		<th>
-						<% unless @subtrip.trip.driver == current_user %>
+						<% unless (@subtrip.trip.driver == current_user) || 
+							( @subtrip.trip.ladies_only && current_user.gender == 'm' ) %> <!-- if passenger is mail and trip is ladies only -->
 			  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>
 						<% end %>
 		  		</th>

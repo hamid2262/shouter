@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, except: [:booking_acceptance]
   load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  # skip_load_resource only: [:create] 
   skip_authorization_check only: [:booking_acceptance]
   # GET /bookings
   # GET /bookings.json
@@ -55,6 +55,11 @@ class BookingsController < ApplicationController
 
   def create
     @subtrip = Subtrip.find(params[:subtrip_id])
+    if check_for_ladies_only
+      flash[:error] = 'Not allowed to access to this section'
+      redirect_to root_path
+      return false
+    end
     @booking = @subtrip.bookings.build
     @booking.passenger = current_user
     @booking.take_all_conflict_seats params[:seat_numbers]
@@ -108,5 +113,9 @@ class BookingsController < ApplicationController
     end
     def subtrip_params
       params.require(:subtrip).permit(:seats)
+    end
+
+    def check_for_ladies_only
+      current_user.gender == 'm' && @subtrip.trip.ladies_only
     end
 end
