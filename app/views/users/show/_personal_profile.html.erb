@@ -1,8 +1,7 @@
 <form class="form-horizontal" role="form">
-	<%= user_form_control_static  User.human_attribute_name("gender"), t_gender(@user.gender) %>
-	<%= user_form_control_static  User.human_attribute_name("username"), @user.username %>
 	<%= user_form_control_static  User.human_attribute_name("firstname"), @user.firstname %>
 	<%= user_form_control_static  User.human_attribute_name("lastname"), @user.lastname %>
+	<%= user_form_control_static  User.human_attribute_name("gender"), t_gender(@user.gender) %>
 	<%= user_form_control_static  User.human_attribute_name("age"), @user.age %>
 
   <%= link_to t('.goto_change_personal_profile'), edit_user_registration_path+'#personal_profile', class: 'btn btn-link col-sm-offset-3' %>
