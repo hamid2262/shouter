@@ -2,6 +2,7 @@ fa:
   shared:
     users_list:
       list_is_empty: لیست خالی است.
+  ladies_only: مخصوص بانوان  
   followers:
     zero: بدون دنبال کننده
     one: یک دنبال کننده

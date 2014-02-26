@@ -7,6 +7,7 @@ en:
         total_available_seats: Total Seats
         currency: Currency
         detail: Details
+        ladies_only: Ladies only        
         driver: Driver
         subtrips: Routes
       trip/subtrips:
@@ -18,8 +19,7 @@ en:
         jday: Day
         jhour: Hour
         jminute: Minute
-        price: Price
-            
+        price: Price            
     errors:
       template:
         header:

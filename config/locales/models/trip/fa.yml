@@ -7,6 +7,7 @@ fa:
         total_available_seats: تعداد صندلی های در دسترس
         currency: واحد پولی
         detail: توضیحات
+        ladies_only: مخصوص بانوان
         driver: راننده
         subtrips: مسیر 
       trip/subtrips:
@@ -20,7 +21,6 @@ fa:
         jminute: دقیقه
         price: قیمت
         seats: صندلی
-        
     errors:
       template:
         header:

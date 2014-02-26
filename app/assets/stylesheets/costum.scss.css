@@ -88,6 +88,14 @@ body{
   left: 4px;
 }
 
+.right0{
+  right: 0px;
+}
+
+.left0{
+  left: 0px;
+}
+
 .content{
 	padding-left: 0;
 	padding-right: 0;

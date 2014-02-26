@@ -2,6 +2,7 @@ en:
   shared:
     users_list:
       list_is_empty: List is Empty.
+  ladies_only: Ladies only
   followers: Follower
   followeds: Followed
   sign_in: Sign In

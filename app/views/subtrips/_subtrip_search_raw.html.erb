@@ -1,5 +1,5 @@
 <a href="<%= subtrip_path(subtrip.id) %>" >
-	<div id="search_subtrips_raw" class="row">
+	<div class="search_subtrips_raw row">
 
 		<div class="user-info col-xs-4">
 			<div class="gravatar">
@@ -67,9 +67,14 @@
 			<div class="avalability">
 				<strong><%= subtrip.free_seats %> </strong>
 				<span><%= t('seats_left') %> <%= t('.from') %> <%= subtrip.seats.size %></span>
-
 			</div>
 		</div>
-		
+
+		<% if subtrip.trip.ladies_only %>
+			<div class="ladies_only <%= lang_other_side %>0" >
+				<%= image_tag("#{IMAGES_PATH}ladies_only_#{params[:locale]}.png" ) %>	
+			</div>				
+		<% end %>
+
 	</div>
 </a>
