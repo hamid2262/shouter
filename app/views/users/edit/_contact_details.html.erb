@@ -11,7 +11,12 @@
  	}			) do |f| %>
 
 	<%= f.input :tel %>
-	<%= f.input :mobile %>
+	<% if f.object.mobile.blank? %>
+		<%= f.input :mobile, wrapper_html: { class: 'form-group has-error' }, input_html: {:autofocus => true} %>
+	<% else %>		
+		<%= f.input :mobile %>
+	<% end %>
+
 	<%= f.input :address %>
 	<%= f.input :post_code %>
 	<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>

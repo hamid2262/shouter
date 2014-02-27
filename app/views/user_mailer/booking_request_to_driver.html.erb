@@ -3,7 +3,8 @@
 <br>
 <h3><%= t '.passenger_detail' %></h3>
 <table>
-	<tbody> 
+	<tbody>
+	
 		<tr>
 			<th style="text-align: left;width: 234px;"><%= t 'name_of_passenger' %></th>
 			<td style="text-align: left;width: 234px;">
@@ -14,9 +15,31 @@
 																			locale: 'fa') %>
 			</td>
 		</tr>
+
+		<tr>
 			<th style="text-align: left;width: 234px;"><%= t 'number_of_requested_seats' %></th>
 			<td style="text-align: left;width: 234px;"><%= @number_of_requested_seats %>	</td>
 		</tr>
+
+		<tr>
+			<th style="text-align: left;width: 234px;"><%= t 'email' %></th>
+			<td style="text-align: left;width: 234px;"><%= @passenger.email %>	</td>
+		</tr>
+
+		<% unless @passenger.tel.blank?  %>
+			<tr>
+				<th style="text-align: left;width: 234px;"><%= t 'tel' %></th>
+				<td style="text-align: left;width: 234px;"><%= @passenger.tel %>	</td>
+			</tr>			
+		<% end %>
+		
+		<% unless @passenger.mobile.blank?  %>
+			<tr>
+				<th style="text-align: left;width: 234px;"><%= t 'mobile' %></th>
+				<td style="text-align: left;width: 234px;"><%= @passenger.mobile %>	</td>
+			</tr>
+		<% end %>
+
 	</tbody>
 </table>
 

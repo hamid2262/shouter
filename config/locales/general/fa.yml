@@ -9,6 +9,8 @@ fa:
   name_of_passenger: نام مسافر
   name_of_driver: نام راننده
   contact_number: شماره تماس
+  tel: تلفن
+  mobile: موبایل
   email: پست الکترونیکی
   password: رمز عبور
   number_of_requested_seats: تعداد صندلی های درخواست شده
@@ -74,6 +76,8 @@ fa:
   shout_deleted_message:  پست شما با موفقیت پاک شد
   invitation_send_message: "دعوتنامه با موفقیت به  %{email} ارسال شد.  "
   
+  flash:
+    mobile_message: برای ادامه، شماره موبایل خود را وارد کنید.
   # cancan
   unauthorized:
     manage:

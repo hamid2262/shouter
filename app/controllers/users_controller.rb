@@ -69,7 +69,13 @@ class UsersController < Devise::RegistrationsController
       if check_for_cover_or_avatar_update?
         redirect_to_profile_with_flash(current_user, t(:image_updated_message) )
       else
-        redirect_to user_path(current_user)+'#'+params[:user][:tab] , notice: t(:profile_updated_message)    
+        if session[:back_url]
+          redirect_to session[:back_url]
+          session[:back_url] = nil
+          return false
+        else
+          redirect_to user_path(current_user)+'#'+params[:user][:tab] , notice: t(:profile_updated_message)              
+        end
       end
     else
       render action: 'edit', locals: {tab: params[:user][:tab]}

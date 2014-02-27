@@ -6,7 +6,7 @@ class TripsController < ApplicationController
   before_action :set_user, only: [:show, :edit]
   before_action :set_trip, only: [:show, :edit, :update, :destroy]
   before_action :set_max_vehicle_seats, only: [:new, :show]
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
   def index
     @trips = current_user.trips.order(updated_at: :desc)     
   end
@@ -22,6 +22,7 @@ class TripsController < ApplicationController
   end
 
   def new
+    check_for_mobile
     @trip = Trip.new
     @trip.subtrips.build
     @trip.subtrips.build

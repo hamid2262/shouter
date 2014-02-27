@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    check_for_mobile
     @subtrip = Subtrip.find(params[:trip])
     @booking = Booking.new
   end

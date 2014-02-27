@@ -9,6 +9,8 @@ en:
   name_of_passenger: "Passenger's Name"
   name_of_driver: "Driver's Name"
   contact_number: Contact Number
+  tel: Telephone
+  mobile: Cell Phone
   email: Email
   password: Password
   number_of_requested_seats: Number of requested seats
@@ -77,7 +79,9 @@ en:
   shout_deleted_message: Post deleted! 
 
   invitation_send_message: "Invitation has been sent"
-      
+  
+  flash:
+    mobile_message: To continiue please enter your mobile number.
   # cancan
   unauthorized:
     manage:
