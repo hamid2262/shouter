@@ -1,0 +1,5 @@
+<ul id="comments">
+	<% @comments.each do |comment| %>
+		<li><%= simple_format comment.body %> </li>
+	<% end %>
+</ul>

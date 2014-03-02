@@ -1,9 +1,12 @@
+<h1>sdf</h1>
 <div id="trip_show" class="">
 	<div class="col-md-8">
 		<div class="panel panel-default">
 			<%= render partial: 'trips/show_edit/head', locals: {user: @trip.driver} %>
 			<%= render 'trips/show_edit/trip_summary' %>
   		<%= render 'trips/show_edit/form_show' %>
+  		<%= render 'comments/comments' %>
+  		<%= render 'comments/form' %>
 		</div>
 	</div>
 </div>

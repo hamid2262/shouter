@@ -1,0 +1,6 @@
+<%= form_for [@commentable, @comment] do |f| -%>
+  <%= error_messages_for @comment %>
+
+  <p><%= f.text_area :body, rows: 8 %></p>
+  <p><%= f.submit "Submit", :disable_with => 'Submiting...' %></p>
+<% end %>

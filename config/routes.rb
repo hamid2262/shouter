@@ -1,4 +1,6 @@
 Shouter::Application.routes.draw do
+  get "comments/index"
+  get "comments/new"
     # resources :profiles , only: [:show] 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
     resource  :search_subtrips, only: [] do
@@ -22,9 +24,15 @@ Shouter::Application.routes.draw do
       get 'special_events1', on: :collection
     end
 
+    resources :trips do
+      resources :comments
+    end
+    resources :photo_shouts, only: [:create, :destroy] do
+      resources :comments
+    end
+
     resources :networks, only: [:show]
     resources :pages
-    resources :trips
     resources :currencies
     resources :vehicle_brands
     resources :vehicle_models
@@ -33,7 +41,6 @@ Shouter::Application.routes.draw do
     resources :homes, only: [:show]
     resources :shouts, only: [:show]
     resources :text_shouts, only: [:create, :destroy]
-    resources :photo_shouts, only: [:create, :destroy]
     resources :hashtags, only: [:show]
     
     root 'homes#show'

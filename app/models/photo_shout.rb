@@ -1,8 +1,9 @@
 class PhotoShout < ActiveRecord::Base
 
 	has_many :shouts, as: :content
-
- 	has_attached_file :image,
+  has_many :comments, as: :commentable
+ 	
+  has_attached_file :image,
     styles: lambda { |a| {:small => "x100>", :shout => "550x300>", :large => "x600>"} if a.instance.is_image? 
     	# {:small => "x200>", :medium => "x300>", :large => "x400>"} :	
     	# {:thumb => { :geometry => "100x100#", :format => 'jpg', :time => 10}, 	
