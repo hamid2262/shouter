@@ -9,9 +9,9 @@ class UsersController < Devise::RegistrationsController
   def index
     @users = User.scoped
     if params[:search]
-      @users = @users.order( params[:search]+ " DESC" )
+      @users = @users.order( params[:search]+ " DESC" ).limit(10)
     else
-      @users = @users.order(id: :desc)
+      @users = @users.order(id: :desc).limit(10)
     end
   end
 
