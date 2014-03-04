@@ -13,7 +13,7 @@ class SpacialEventsController < ApplicationController
   # GET /spacial_events/1.json
   def show
     @search_subtrip = @spacial_event.search_subtrips_init
-    @subtrips = @search_subtrip.subtrips(17).page(params[:page]).per_page(10) if @search_subtrip
+    @subtrips = @search_subtrip.subtrips(3).page(params[:page]).per_page(10) if @search_subtrip
   end
 
   # GET /spacial_events/new

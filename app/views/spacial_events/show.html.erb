@@ -5,7 +5,7 @@
 
 <div class="">
 <%= image_tag( @spacial_event.image.url(:large), alt: @spacial_event.title ,size: "900x200") %>
-  <%= link_to "ثبت سفر به مقصد کرمان", new_trip_path, class: "btn btn-lg btn-primary" %>
+  <%= link_to "ثبت سفر به مقصد #{@spacial_event.destination}", new_trip_path, class: "btn btn-lg btn-primary" %>
 </div>
 <%= render partial: 'search_subtrips/search_form', locals:{search_subtrip: @search_subtrip  } %>
 

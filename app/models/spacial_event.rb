@@ -24,6 +24,13 @@ class SpacialEvent < ActiveRecord::Base
     search_subtrip
   end
 
+  def destination
+    city = self.destination_country unless self.destination_country.blank?
+    city = self.destination_state unless self.destination_state.blank?
+    city = self.destination_city unless self.destination_city.blank?    
+    city
+  end
+
   private
     def split_address_to_city_state_country
       if self.origin_address   
