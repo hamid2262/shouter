@@ -7,11 +7,10 @@ class UsersController < Devise::RegistrationsController
   before_action :require_login, only: [:index, :show, :update, :edit]
 
   def index
-    @users = User.scoped
     if params[:search]
-      @users = @users.order( params[:search]+ " DESC" ).limit(10)
+      @users = User.order( params[:search]+ " DESC" ).limit(10)
     else
-      @users = @users.order(id: :desc).limit(10)
+      @users = User.order(id: :desc).limit(10)
     end
   end
 
