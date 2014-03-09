@@ -2,6 +2,11 @@ en:
   user_mailer:
     signup_confirmation:
       subject: "Signup Confirmation"
+      line1: You have successfully signed up!
+      line2: By clicking following link you can register you trip.
+      line3: From this link you can find a trip to your destination.
+      insert_trip: Insert trip
+      search_trip: Search trip
     booking_request_to_driver:
       subject: "Booking Confirmation" 
       passenger_detail: Passenger Details

@@ -1,12 +1,22 @@
-Hello <%= @user.name %>,
-<p>Welcome to <%#= link_to "hamsafaryab.com"%></p>
-<p>We are glad that you joined to hamsafaryab</p>
-Now you can see your profile in this link below
-<%#= link_to "Your Profile", @user %>
-<%=  %>
-<a href="<%= url_for(controller: 'users',
-						 action:'show', 
-						 id: @user.id,
-						 locale: locale,
-						 host: 'localhost:3000') %>">sdfg</a>
-<p>HamsafarYab's team</p>
+<%= render 'shared_mail/header' %>
+	<%= t 'hi' %> <%= @user.name %>,
+	<p>
+		<%= t '.line1' %>
+	</p>
+	<p>
+		<%= t '.line2' %> <br>
+		<a href="<%= url_for(controller: 'trips', action:'new', locale: locale,	 host: @host) %>">
+			<%= t '.insert_trip' %>
+		</a>
+	</p>
+	<p>
+
+	<p>
+		<%= t '.line3' %> <br>
+		<a href="<%= url_for(controller: 'search_subtrips', action:'search', locale: locale,	 host: @host) %>">
+			<%= t '.search_trip' %>
+		</a>
+	</p>
+	<!-- <p><%#= link_to t("sign"), root_url(locale: locale) %></p> -->
+
+<%= render 'shared_mail/footer' %>

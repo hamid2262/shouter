@@ -1,0 +1,14 @@
+<div id="container" style="max-width: 600px;border: 3px solid #91a022;">
+	<div id="head" style="padding: 10px;color: #91a022;border-bottom: 3px solid;overflow: hidden;">
+		<a href="<%= root_url(locale: locale) %>">
+<%#= image_tag attachments['logo-rtl.gif'].url, alt: 'Logo', class: 'photo' -%>
+			<img id="logo" src="<%= attachments['logo.gif'].url %>" alt="" style="width: 30%;float: <%= @lang_side %>;">			
+		</a>
+		<div id="site-name" style="float: <%= @lang_other_side %>;">
+			<a href="<%= root_url(locale: locale) %>" style="text-decoration: none;color: #91a022;">
+				<h3 style="margin: 6px 0 0 6px;">www.hamsafaryab.com</h3>	
+			</a>
+		</div>				
+	</div>
+	
+	<div id="main" style="clear: both;padding: 15px;direction:<%= @lang_direction %>;">

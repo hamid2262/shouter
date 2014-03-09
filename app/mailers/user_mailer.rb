@@ -1,6 +1,7 @@
 class UserMailer < ActionMailer::Base
   default from: "hamsafaryab@gmail.com"
   before_action :set_environment
+  before_action :common_vars
 
   def signup_confirmation(user)
     @user = user
@@ -71,6 +72,14 @@ private
     # Digest::MD5.hexdigest("#{answer}#{29}")
   end
 
+  def common_vars
+    attachments.inline['logo.gif'] = File.read("app/assets/images/logo-#{lang_direction}.gif")
+    attachments.inline['footer.gif'] = File.read("app/assets/images/headerBG-#{lang_direction}.gif")
+    @lang_direction = lang_direction
+    @lang_other_side = lang_other_side
+    @lang_side = lang_side
+  end
+
   def set_environment
     if Rails.env.production?
       @host = 'hamsafaryab.com'
@@ -79,6 +88,29 @@ private
     end
   end
 
+  def lang_direction
+    if locale==:fa
+      'rtl'
+    else 
+      'ltr'
+    end 
+  end
+
+  def lang_other_side
+    if locale==:fa
+      'left'
+    else 
+      'right'
+    end 
+  end
+
+  def lang_side
+    if locale==:fa
+      'right'
+    else 
+      'left'
+    end 
+  end
 
 end
  

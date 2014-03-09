@@ -2,7 +2,7 @@ fa:
   invitation_mailer:
     invite:
       subject: دعوتنامه برای همسفریاب
-      line1: "%{inviter} شما را برای ثبت نام در همسفریاب دعوت کرده است."
+      line1: " شما را برای ثبت نام در همسفریاب دعوت کرده است."
       accept_invite: قبول دعوت
     inform_inviter:
       subject: "قبول دعوتنامه شما"

@@ -1,12 +1,14 @@
-<%= t 'hi' %> <%= @passenger.name %>, <br> <br>
-<%= t '.line1' %> <br>
-<br>
+<%= render 'shared_mail/header' %>
 
-<%= render 'trip_details' %>
+	<%= t 'hi' %> <%= @passenger.name %>, <br> <br>
+	<%= t '.line1' %> <br>
+	<br>
 
-<%# accept = url_for(controller: 'bookings', action:'show', id: @booking.id,	 locale: 'fa', host: @host)  %>
-<% @subtrip_url = url_for(controller: 'search_subtrips', action:'search',	 locale: 'fa', host: @host)  %>
+	<%= render 'trip_details' %>
 
-<h3><%= link_to t(".go_to_search_subtrips"), @subtrip_url %></h3>
+	<%# accept = url_for(controller: 'bookings', action:'show', id: @booking.id,	 locale: 'fa', host: @host)  %>
+	<% @subtrip_url = url_for(controller: 'search_subtrips', action:'search',	 locale: 'fa', host: @host)  %>
 
-<p><%= link_to t("sign"), 'http://'+ @host + '/fa' %></p>
+	<h3><%= link_to t(".go_to_search_subtrips"), @subtrip_url %></h3>
+
+<%= render 'shared_mail/footer' %>
