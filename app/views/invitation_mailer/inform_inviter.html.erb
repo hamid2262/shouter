@@ -1,3 +1,4 @@
+<%= render 'shared_mail/style' %>
 <%= render 'shared_mail/header' %>
 
 	<p><%= t "hi" %> <%= @inviter.name %> , </p>
@@ -6,9 +7,7 @@
 
 	<p><%= t ".line2" %></p>
 
-	<h3><%= link_to t(".go_to_profile", name: @invited_user.name), @invited_user_profile_url %></h3>
-
-	<h3><%= link_to t(".go_to_profile", name: @inviter.name), @inviter_profile_url %></h3>
+	<%= link_to t(".go_to_profile", name: @invited_user.name), @invited_user_profile_url, {class: "button"} %>
 
 	<p><%= link_to t("sign"), root_url(locale: locale) %></p>
 

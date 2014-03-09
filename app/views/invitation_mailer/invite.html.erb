@@ -1,3 +1,4 @@
+<%= render 'shared_mail/style' %>
 <%= render 'shared_mail/header' %>
 	<p><%= t 'hi' %>, </p>
 
@@ -6,16 +7,8 @@
 		<%= t('.line1') %></p>
 
 	<% @accept_invite_url = url_for(controller: 'invitations', action:'invite_acceptation', inviter: @inviter.slug,	 locale: locale, host: @host)  %>
-		<h3><%= link_to t(".accept_invite"), @accept_invite_url, {:style => "
-			background-color: #fbd921;
-			text-decoration: none;
-			padding: 8px 17px;
-			color: #918B9B;
-			border-radius: 7px;
-			border: 1px solid #E7C407;
-			margin: 9px 108px;
-			float: #{@lang_other_side}"} %>
-		</h3>
+
+	<%= link_to t(".accept_invite"), @accept_invite_url, {:style => "float: #{@lang_other_side}", class: "button"} %>
 
 <%= render 'shared_mail/footer' %>
 

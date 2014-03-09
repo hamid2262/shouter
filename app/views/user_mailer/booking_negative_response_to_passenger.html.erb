@@ -1,3 +1,5 @@
+<%= render 'shared_mail/style' %>
+<%= render 'user_mailer/style' %>
 <%= render 'shared_mail/header' %>
 
 	<%= t 'hi' %> <%= @passenger.name %>, <br> <br>
@@ -9,6 +11,6 @@
 	<%# accept = url_for(controller: 'bookings', action:'show', id: @booking.id,	 locale: 'fa', host: @host)  %>
 	<% @subtrip_url = url_for(controller: 'search_subtrips', action:'search',	 locale: 'fa', host: @host)  %>
 
-	<h3><%= link_to t(".go_to_search_subtrips"), @subtrip_url %></h3>
+	<%= link_to t(".go_to_search_subtrips"), @subtrip_url, {class: "button"}  %>
 
 <%= render 'shared_mail/footer' %>

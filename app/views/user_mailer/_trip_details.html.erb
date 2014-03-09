@@ -4,31 +4,31 @@
 <table>
 	<tbody>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'from' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @subtrip.origin %></td>
+			<th><%= t 'from' %></th>
+			<td><%= @subtrip.origin %></td>
 		</tr>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'to' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @subtrip.destination %></td>
+			<th><%= t 'to' %></th>
+			<td><%= @subtrip.destination %></td>
 		</tr>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'day' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @jalali_day %></td>
+			<th><%= t 'day' %></th>
+			<td><%= @jalali_day %></td>
 		</tr>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'mydate' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;">
+			<th><%= t 'mydate' %></th>
+			<td>
 				<%= @jalali_month %>
 				<%= @jalali_day_num %> 
 			</td>
 		</tr>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'at' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @jalali_time %></td>
+			<th><%= t 'at' %></th>
+			<td><%= @jalali_time %></td>
 		</tr>
 		<tr>
-			<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'price' %></th>
-			<td style="text-align: <%= @lang_side %>;width: 234px;"><%= t('currency', amount: @subtrip.price, unit: @subtrip.trip.currency.try(:symbol) ) %></td>
+			<th><%= t 'price' %></th>
+			<td><%= t('currency', amount: @subtrip.price, unit: @subtrip.trip.currency.try(:symbol) ) %></td>
 		</tr>
 	</tbody>
 </table>

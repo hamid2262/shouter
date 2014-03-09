@@ -1,3 +1,4 @@
+<%= render 'shared_mail/style' %>
 <%= render 'shared_mail/header' %>
 	<%= t 'hi' %> <%= @user.name %>,
 	<p>
@@ -5,17 +6,16 @@
 	</p>
 	<p>
 		<%= t '.line2' %> <br>
-		<a href="<%= url_for(controller: 'trips', action:'new', locale: locale,	 host: @host) %>">
-			<%= t '.insert_trip' %>
-		</a>
+		<% insert_trip_url = url_for(controller: 'trips', action:'new', locale: locale,	 host: @host) %>
+		<%= link_to t('.insert_trip'), insert_trip_url, {class: "button"} %>
 	</p>
 	<p>
 
 	<p>
 		<%= t '.line3' %> <br>
-		<a href="<%= url_for(controller: 'search_subtrips', action:'search', locale: locale,	 host: @host) %>">
-			<%= t '.search_trip' %>
-		</a>
+		<% search_url = url_for(controller: 'search_subtrips', action:'search', locale: locale,	 host: @host) %>
+		<%= link_to t('.search_trip'), search_url, {class: "button"} %>
+
 	</p>
 	<!-- <p><%#= link_to t("sign"), root_url(locale: locale) %></p> -->
 
