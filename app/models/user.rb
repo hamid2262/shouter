@@ -65,8 +65,8 @@ class User < ActiveRecord::Base
   validates :address,   length:{ in: 4..250 }, allow_blank: true
   validates :post_code, length:{ in: 5..15  }, allow_blank: true
 
-  validates_attachment :avatar, :size => { in: 0..1.megabytes }
-  validates_attachment :cover,  :size => { in: 0..2.megabytes }
+  validates_attachment :avatar, :size => { in: 0..4.megabytes }
+  validates_attachment :cover,  :size => { in: 0..4.megabytes }
 
   def update_slug_update
     self.slug_updated = true  if self.slug_changed?

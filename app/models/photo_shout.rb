@@ -13,7 +13,7 @@ class PhotoShout < ActiveRecord::Base
   
   validates :body, presence: true, length: {minimum: 5}
   
-	validates_attachment :image, :size => { :in => 0..1.megabytes }
+	validates_attachment :image, :size => { :in => 0..4.megabytes }
 	  
   def is_image?
     image.instance.image_content_type =~ %r(image)
