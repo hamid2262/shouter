@@ -8,6 +8,15 @@ class UserMailer < ActionMailer::Base
     mail to: user.email, subject: "Signup Confirmation"
   end
 
+  def signup_inform_admin(user)
+    @user = user
+    @jalali_day = jalali_day @user.created_at
+    @jalali_time = jalali_time @user.created_at
+    @jalali_day_num =  jalali_day_num @user.created_at
+    @jalali_month = jalali_month @user.created_at
+    mail to: "hamsafaryab@gmail.com", subject: "New User"
+  end
+
   def booking_request_to_driver(booking)
     @booking = booking
 

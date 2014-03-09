@@ -41,10 +41,9 @@ class UsersController < Devise::RegistrationsController
       unless session[:inviter].nil?
         inviter = User.find(session[:inviter])
         inviter.invited_users << resource
-        InvitationMailer.inform_inviter(resource, resource.inviter).deliver
-
+        InvitationMailer.inform_inviter(resource, inviter).deliver
       end
-      # 
+      UserMailer.signup_inform_admin(resource).deliver
     else
       clean_up_passwords resource
       respond_with resource

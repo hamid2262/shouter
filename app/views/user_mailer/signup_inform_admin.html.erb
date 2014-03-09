@@ -1,0 +1,50 @@
+<%= render 'shared_mail/style' %>
+<%= render 'shared_mail/header' %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>ID</th>
+			<td><%= @user.id %></td>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<td><%= link_to @user.name, url_for(	
+							host: @host,
+							controller: 'profiles', 
+							action: 'show', 
+							id: @user.slug, 
+							locale: 'fa') %>
+			</td>
+		</tr>
+		<tr>
+			<th>Time</th>
+			<td><%= @jalali_time %></td>
+		</tr>
+		<tr>
+			<th>Date</th>
+			<td>
+				<%= @jalali_day %> ,
+				<%= @jalali_month %>,
+				<%= @jalali_day_num %> 
+			</td>
+		</tr>		
+	</tbody>
+</table>
+	
+<h4>Inviter</h4>
+<ol>
+	<% while	@user.inviter %>
+		<li>
+			<%= link_to @user.inviter.name, url_for(	
+				host: @host,
+				controller: 'profiles', 
+				action: 'show', 
+				id: @user.inviter.slug, 
+				locale: 'fa') %>
+		</li>
+		<% @user = @user.inviter %>
+	<% end %>
+</ol>
+
+<%= render 'shared_mail/footer' %>
