@@ -3,11 +3,12 @@
 	<%= t '.line1' %> <br>
 	<br>
 	<h3><%= t '.driver_details' %></h3>
+	<%= @lang_side %>
 	<table>
 		<tbody> 
 			<tr>
-				<th style="text-align: left;width: 234px;"><%= t 'name_of_driver' %></th>
-				<td style="text-align: left;width: 234px;">
+				<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'name_of_driver' %></th>
+				<td style="text-align: <%= @lang_side %>;width: 234px;">
 					<%= link_to @driver.name, url_for(	host: @host,
 																				controller: 'profiles', 
 																				action: 'show', 
@@ -15,12 +16,12 @@
 																				locale: 'fa') %>
 				</td>
 			</tr>
-				<th style="text-align: left;width: 234px;"><%= t 'contact_number' %></th>
-				<td style="text-align: left;width: 234px;"><%= @driver.tel %>, <%= @driver.mobile %>	</td>
+				<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'contact_number' %></th>
+				<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @driver.tel %>, <%= @driver.mobile %>	</td>
 			</tr>
 			</tr>
-				<th style="text-align: left;width: 234px;"><%= t 'email' %></th>
-				<td style="text-align: left;width: 234px;"><%= @driver.email %></td>
+				<th style="text-align: <%= @lang_side %>;width: 234px;"><%= t 'email' %></th>
+				<td style="text-align: <%= @lang_side %>;width: 234px;"><%= @driver.email %></td>
 			</tr>
 		</tbody>
 	</table>
