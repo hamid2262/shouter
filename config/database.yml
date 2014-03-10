@@ -18,11 +18,11 @@ test:
   password: 
   host: localhost
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: shouter
-  username: postgres
-  password: 
-  host: localhost
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   database: shouter
+#   username: postgres
+#   password: 
+#   host: localhost
