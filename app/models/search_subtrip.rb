@@ -6,7 +6,8 @@ class SearchSubtrip
   
 	attr_accessor :origin_address, :olat, :olng, :origin_cycle, 
 								:destination_address, :dlat, :dlng, :destination_cycle, 
-								:date, :jday, :jmonth, :jyear
+								:date, :jday, :jmonth, :jyear,
+								:autocomplete, :destination_id, :origin_id
 
 	# validate :cities_cannot_be_blank
 	validate :jday, :jday_validate
