@@ -11,7 +11,6 @@ gem 'pg'
 gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
-gem 'unicorn'
 gem 'awesome_print'
 gem 'newrelic_rpm'
 gem 'exception_notification'
@@ -67,4 +66,4 @@ gem 'capistrano', "~> 2.15.5", group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-ruby '2.0.0'
+# ruby '2.0.0'

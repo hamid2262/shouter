@@ -20,5 +20,5 @@ production:
   encoding: unicode
   database: shouter_production
   pool: 5
-  username: postgres
+  username: shouter
   password:
