@@ -14,7 +14,7 @@ class UserMailer < ActionMailer::Base
     @jalali_time = jalali_time @user.created_at
     @jalali_day_num =  jalali_day_num @user.created_at
     @jalali_month = jalali_month @user.created_at
-    mail to: "hamsafaryab@gmail.com", subject: "New User"
+    mail to: "hamsafaryab@gmail.com, m_nadi2000@yahoo.com", subject: "کاربر جدید"
   end
 
   def booking_request_to_driver(booking)
