@@ -3,3 +3,7 @@ en:
     show:
       followed_users: Followed Users
       other_users: Other Users
+    trip_actions:
+      register_trip: Register Trip
+      search_trips: Search Trip
+      title: Register and Search Trips

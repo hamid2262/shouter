@@ -65,7 +65,7 @@ class VehiclesController < ApplicationController
     end
 
     def user_authentication
-      redirect_to root_url unless current_user.id == params[:user_id].to_i
+      redirect_to root_url unless current_user.try(:id) == params[:user_id].to_i
     end
 
 end

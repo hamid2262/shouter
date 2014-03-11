@@ -1,0 +1,19 @@
+<div class="users-list panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+			<%= t '.title' %>
+    </h3>
+
+  </div>
+  <div class="panel-body">
+			<div class="row">
+			  <div class="col-xs-6">
+			  	<%= link_to t('.search_trips'), search_search_subtrips_path, class: "btn btn-warning btn-lg btn-block" %>
+				</div>		
+			  <div class="col-xs-6">
+					<%= link_to t('.register_trip'), new_trip_path , class: "btn btn-warning btn-lg btn-block" %>			  
+				</div>						
+			</div>
+
+  </div>
+</div>

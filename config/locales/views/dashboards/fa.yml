@@ -3,3 +3,7 @@ fa:
     show:
       followed_users: دنبال شونده ها
       other_users: کاربران دیگر
+    trip_actions:
+      register_trip: ثبت سفر
+      search_trips: جستجوی سفر
+      title: ثبت و جستجو سفرها

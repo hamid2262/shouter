@@ -1,7 +1,10 @@
 <div id="dashboard">
-	<div class="col-md-4 hidden-xs">
-		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('.followed_users')} %>
-		<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users') } %>
+	<div class="col-md-4 ">
+		<%= render 'trip_actions' %>
+		<span class="hidden-xs">
+			<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('.followed_users')} %>
+			<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users') } %>			
+		</span>
 	</div>
 
 	<div class="col-md-8">
