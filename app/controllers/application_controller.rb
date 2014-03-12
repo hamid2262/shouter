@@ -53,7 +53,13 @@ class ApplicationController < ActionController::Base
 
   
     def set_locale
-      I18n.locale = params[:locale] if params[:locale].present?
+      
+      if params[:locale].present?
+        I18n.locale = params[:locale]
+        cookies[:locale] = params[:locale]
+      else
+        I18n.locale = cookies[:locale]
+      end
       # current_user.locale
       # request.subdomain
       # request.env["HTTP_ACCEPT_LANGUAGE"]
