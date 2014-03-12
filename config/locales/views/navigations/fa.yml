@@ -13,6 +13,9 @@ fa:
         registered_trips: سقرهای ثبت کرده
         as_passenger: با عنوان مسافر
         as_driver:  با عنوان راننده
+    popup_signin:
+      sign_in_with_facebook: ورود با حساب کاربری فیسبوک
+
   navbar:
     profile:
       title: پروفایل

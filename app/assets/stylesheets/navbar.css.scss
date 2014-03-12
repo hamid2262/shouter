@@ -42,17 +42,34 @@
   border-color: transparent;
 }
 
-/* --- popup sign in form */
-#popup_signin_button{
-  background-color: #fff !important;
-}
+#popup_signin{
+	/* --- popup sign in form */
+	#popup_signin_button{
+	  background-color: #fff !important;
+	}
 
-ul#signin-dropdown{
-  right: -16px;
-  padding: 10px 26px 0 !important;
-  width: 270px;
-  border-radius: 0 0 6px 6px;
-}
-#signin-dropdown .form-group{
-  margin-bottom: 6px !important;
+	ul#signin-dropdown{
+	  right: -16px;
+	  padding: 10px 26px 0 !important;
+	  width: 270px;
+	  border-radius: 0 0 6px 6px;
+	}
+	#signin-dropdown .form-group{
+	  margin-bottom: 6px !important;
+	}
+
+	.facebook_link{
+		margin: 20px 0;
+		width: 113%;
+		font-weight: bold;
+		color: #fff;
+		padding: 7px 13px 7px 0;
+		background: #486299 url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png") no-repeat;
+		background-position-y: -80px;
+		background-position-x: 1px;
+		margin-right: -13px;
+		margin-left: -14px;
+		border-radius: 8px;
+		text-align: right;
+	}
 }

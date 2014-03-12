@@ -12,7 +12,9 @@ en:
         registered_trips: Inserted Trips
         as_passenger: As Passenger 
         as_driver: As Driver
-                
+    popup_signin:
+      sign_in_with_facebook: Sign in with Facebook
+
   navbar:
     profile:
       title: Profile
