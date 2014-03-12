@@ -79,6 +79,10 @@ module ApplicationHelper
 			image_tag(user.avatar.url(style), 
 				size: "#{size}x#{size}", 
 				alt:"#{user.name} in hamsafaryab.com", class: klass )
+		elsif user.facebook_image_url.present?
+			image_tag(user.facebook_image_url, 
+				size: "#{size}x#{size}", 
+				alt:"#{user.name} in hamsafaryab.com", class: klass )		
 		else
 			image_tag(default_avatar(user), 
 				size: "#{size}x#{size}", 

@@ -16,6 +16,7 @@ gem 'newrelic_rpm'
 gem 'exception_notification'
 gem 'will_paginate'
 gem 'globalize', '~> 4.0.0'
+gem 'omniauth-facebook'
 
 gem 'gmaps4rails'
 

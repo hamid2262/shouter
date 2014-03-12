@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  devise :omniauthable, :omniauth_providers => [:facebook]
+
   has_attached_file :avatar, 
     styles: lambda { |a| {:thumb => "48x48#", :square => "160x160#"} if a.instance.is_image? },
     default_url: lambda { |a| "#{IMAGES_PATH}#{a.instance.gender}_default_avatar.png"}
@@ -67,6 +69,44 @@ class User < ActiveRecord::Base
 
   validates_attachment :avatar, :size => { in: 0..4.megabytes }
   validates_attachment :cover,  :size => { in: 0..4.megabytes }
+
+  def self.find_for_facebook_oauth(auth)
+    user = User.where(email: auth.info.email).first
+    if user.nil?
+        user = User.new
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+        user.firstname = auth.info.first_name   
+        user.lastname = auth.info.last_name   
+        user.gender = auth.extra.raw_info.gender[0]
+        user.location = auth.extra.raw_info.location.try(:name)
+        user.facebook_image_url = auth.info.image
+        user.save!
+    else 
+      if user.uid.nil?
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.facebook_image_url = auth.info.image          
+        user.firstname = auth.info.first_name  if user.firstname.nil?
+        user.lastname = auth.info.last_name  if user.lastname.nil?
+        user.location = auth.extra.raw_info.location.try(:name) if auth.extra.raw_info.location.try(:name).present?
+      else      
+        user.facebook_image_url = auth.info.image          
+        user.location = auth.extra.raw_info.location.try(:name) if auth.extra.raw_info.location.try(:name).present?
+      end
+    end
+    user
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
 
   def update_slug_update
     self.slug_updated = true  if self.slug_changed?
@@ -155,6 +195,5 @@ class User < ActiveRecord::Base
       'no data'
     end
   end
-
 
 end

@@ -1,6 +1,11 @@
 Shouter::Application.routes.draw do
   get "comments/index"
   get "comments/new"
+
+  devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
+    omniauth_callbacks: "users/omniauth_callbacks"
+  }
+
     # resources :profiles , only: [:show] 
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   # scope "(:locale)", :locale => /en|fa/ do
@@ -46,7 +51,7 @@ Shouter::Application.routes.draw do
     
     root 'homes#show'
 
-    devise_for :users, :controllers => { registrations: 'users' }
+    devise_for :users, :controllers => { registrations: 'users' }, skip: [:omniauth_callbacks]
     devise_scope :user do
       resources :users, only: [:show, :index] do
         get 'refresh' => 'users#refresh'
