@@ -11,6 +11,7 @@ en:
         overview: Driver Overview
         trip_created_time: Trip registration time
         url: Url in Hamsafaryab
+        view_profile: View Profile
       gmap:
         trip_path: Trip Route
       seats_status:

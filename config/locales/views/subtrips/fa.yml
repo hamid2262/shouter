@@ -11,6 +11,7 @@ fa:
         overview: مشخصات راننده
         trip_created_time: زمان ثبت این سفر
         url: آدرس در همسفریاب
+        view_profile: مشاهده پروفایل
       gmap:
         trip_path: مسیر حرکت بر روی نقشه
       seats_status:
