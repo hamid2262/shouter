@@ -1,4 +1,4 @@
-<div class="frame">
+<div id="facebook_frame" class="frame">
 	<div class="title">
 		<h4>
 			<strong class="lead"> <%= t ".frame_title" %> </strong> 
@@ -10,13 +10,8 @@
 			<%#= image_tag( "https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/special_events/tractor/tiaxtor.jpg", class: "img-responsive") %>
 	<!-- 	</a> -->
 		<% @spacial_events.each do |se| %>
-			<div class="row">
-			  <div class="col-sm-6">
-					<strong><%= t(".title",title: se.title) %></strong>	
-				</div>				
-			  <div class="col-sm-6">
-					<%= link_to t(".button",des: se.destination_address), spacial_event_path(se.permalink), class: "btn btn-warning btn-lg btn-block" %>
-				</div>				
+			<div class="row">	
+			  <%= link_to t(".sign_in_with_facebook"), user_omniauth_authorize_path(:facebook), class: "facebook_link btn btn-warning btn-lg btn-block" %>
 			</div>	
 		<% end %>
 	</div>			

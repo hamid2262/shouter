@@ -1,5 +1,8 @@
 en:
   homes:
+    facebook_signin:
+      frame_title: Sign In With Facabook
+      sign_in_with_facebook: Sign In With Facebook
     sample_subtrips:
       nearest_ride_sharings: Nearest Ride Sharings
       rest_of_trips: More Trips
@@ -7,6 +10,7 @@ en:
       welcome_message: Welcome to Hamsafaryab!
     spacial_events:
       button: Trip to %{des}
+      frame_title: Spacial Events
       title: For %{title}
     trip_insert:
       description: If you are going to have a trip and you have free seats in your

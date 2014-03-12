@@ -1,5 +1,8 @@
 fa:
   homes:
+    facebook_signin:
+      frame_title: ورود با فیسبوک
+      sign_in_with_facebook: ورود با حساب کاربری فیسبوک
     sample_subtrips:
       nearest_ride_sharings: سفرهای در حال عزیمت در ساعات آینده
       rest_of_trips: ادامه سفرها
@@ -7,6 +10,7 @@ fa:
       welcome_message: به همسفریاب خوش آمدید
     spacial_events:
       button: سفر به %{des}
+      frame_title: سفرهای ویژه
       title: ویژه %{title}
     trip_insert:
       description: اگر با خودرو خود عازم سفر هستید، برای پیدا کردن همسفر برای صندلی

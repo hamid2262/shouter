@@ -70,4 +70,20 @@ $green: #b5c023;
 			margin-top: 5px;
 		}
 	}
+	#facebook_frame{
+		.facebook_link{
+			margin: 0;
+			width: 91%;
+			font-weight: bold;
+			color: #fff;
+			padding: 6px 13px 7px 0;
+			background: #486299 url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png") no-repeat;
+			background-position-y: -79px;
+			background-position-x: 2px;
+			margin-right: 19px;
+			margin-left: 19px;
+			border-radius: 8px;
+			text-align: right;
+		}
+	}
 }
