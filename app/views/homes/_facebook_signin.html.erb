@@ -6,13 +6,8 @@
 	</div>
 
 	<div class="inner">
-  <!-- <a href="<%= special_events_search_subtrips_path %>"> -->
-			<%#= image_tag( "https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/special_events/tractor/tiaxtor.jpg", class: "img-responsive") %>
-	<!-- 	</a> -->
-		<% @spacial_events.each do |se| %>
-			<div class="row">	
-			  <%= link_to t(".sign_in_with_facebook"), user_omniauth_authorize_path(:facebook), class: "facebook_link btn btn-warning btn-lg btn-block" %>
-			</div>	
-		<% end %>
+		<div class="row">	
+		  <%= link_to t(".sign_in_with_facebook"), user_omniauth_authorize_path(:facebook), class: "facebook_link btn btn-warning btn-lg btn-block" %>
+		</div>	
 	</div>			
 </div>

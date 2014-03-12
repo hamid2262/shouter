@@ -31,6 +31,10 @@ fa:
       title: خطا مانع ثبت این رکورد در سیستم شده است
       description: 'خطا در فیلدهای زیر بوده است:'
 
+  facebook_sign_in_title: ورود با فیسبوک
+  facebook_sign_in_caption: ورود با حساب کاربری فیسبوک
+
+
   waiting: در حالت انتظار 
   accepted: تایید شده
   rejected: رد شده

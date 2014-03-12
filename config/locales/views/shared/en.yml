@@ -25,6 +25,9 @@ en:
       title: Errors prohibited this record from being saved 
       description: 'There were problems with the following fields:'
   
+  facebook_sign_in_title: Sign In With Facabook
+  facebook_sign_in_caption: Sign In With Facebook
+
   waiting: "waiting.."
   accepted: Accepted
   rejected: Rejected

@@ -1,0 +1,11 @@
+		<div class="title">
+			<h4>
+				<strong class="lead"> <%= t "facebook_sign_in_title" %> </strong> 
+			</h4>
+		</div>
+
+		<div class="inner">
+				<div class="row">	
+				  <%= link_to t("facebook_sign_in_caption"), user_omniauth_authorize_path(:facebook), class: "facebook_link btn btn-warning btn-lg btn-block" %>
+				</div>	
+		</div>	
