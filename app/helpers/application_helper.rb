@@ -132,18 +132,6 @@ module ApplicationHelper
   	end
   end
 
-  def jdate_humanize date_time
-  	if date_time.to_date == Date.today
-  		t "today"
-  	elsif date_time.to_date == Date.today + 1.day
-  		t "tomorrow"
-  	elsif params[:locale] == 'fa'
-  		jalali_date date_time
-  	else
-  		date_time.strftime("%d %b %Y")
-  	end
-  end
-
   def jday_humanize date_time
   	if params[:locale] == 'fa'
   		jalali_day date_time
@@ -165,6 +153,38 @@ module ApplicationHelper
       t('time.pm')
 		else
 			t('time.am')
+		end
+	end
+
+  def jdate_humanize date_time
+  	if date_time.to_date == Date.today
+  		t "today"
+  	elsif date_time.to_date == Date.today + 1.day
+  		t "tomorrow"
+  	elsif params[:locale] == 'fa'
+  		jalali_date date_time
+  	else
+  		date_time.strftime("%d %b %Y")
+  	end
+  end
+
+	def apropriate_date subtrip
+		if subtrip.origin_country_code == "IR"
+	    JalaliDate.new(subtrip.date_time).strftime("%d %b %Y")
+		else
+			I18n.l subtrip.date_time, format: :my_date 		
+		end
+	end
+
+	def apropriate_date_humanize subtrip
+  	if subtrip.date_time.to_date == Date.today
+  		t "today"
+  	elsif subtrip.date_time.to_date == Date.today + 1.day
+  		t "tomorrow"
+		elsif subtrip.origin_country_code == "IR"
+	    JalaliDate.new(subtrip.date_time).strftime("%d %b %Y")
+		else
+			I18n.l subtrip.date_time, format: :my_date 		
 		end
 	end
 

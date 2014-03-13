@@ -190,6 +190,7 @@ fa:
       default: ! '%A، %e %B %Y، ساعت %H:%M:%S (%Z)'
       long: ! '%e %B %Y، ساعت %H:%M'
       short: ! '%e %B، ساعت %H:%M'
+      my_date: ! '%e %B %Y '
     pm: بعد از ظهر
   # remove these aliases after 'activemodel' and 'activerecord' namespaces are removed from Rails repository
   activemodel:

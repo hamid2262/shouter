@@ -140,37 +140,47 @@ class Subtrip < ActiveRecord::Base
       self.date_time = gdate + self.jhour.hours + self.jminute.minutes
     end
 
-    def split_address_to_city_state_country
-      if self.origin_address   
-        address = self.origin_address.split(',')
-        self.origin_country = address[-1]
-        self.origin_state = address[-2]
-        self.origin_city = address[-3]      
-      end
-
-      if self.destination_address
-        address = self.destination_address.split(',')
-        self.destination_country = address[-1]
-        self.destination_state = address[-2]
-        self.destination_city = address[-3]            
-      end
-
-    end
-
     def check_for_cities_validation
       if self.olat.blank? && self.origin_address
-        if Geocoder.search(self.origin_address)[0].try(:latitude).present?
-          self.olat = Geocoder.search(self.origin_address)[0].latitude
-          self.olng = Geocoder.search(self.origin_address)[0].longitude
-          # self.origin_name = Geocoder.search(self.origin_name)[0].address
+        origin = Geocoder.search(self.origin_address)[0]
+        if origin.try(:latitude).present?
+          self.olat                = origin.latitude
+          self.olng                = origin.longitude
+          self.origin_city         = origin.city
+          self.origin_state        = origin.state
+          self.origin_country      = origin.country
+          self.origin_country_code = origin.try(:country_code)
         end
       end
       if self.dlat.blank? && self.destination_address
-        if Geocoder.search(self.destination_address)[0].try(:latitude).present?  
-          self.dlat = Geocoder.search(self.destination_address)[0].latitude
-          self.dlng = Geocoder.search(self.destination_address)[0].longitude
-          # self.destination_name = Geocoder.search(self.destination_name)[0].address
+        destination = Geocoder.search(self.destination_address)[0]
+        if destination.try(:latitude).present?  
+          self.dlat                = destination.latitude
+          self.dlng                = destination.longitude
+          self.destination_city    = destination.city
+          self.destination_state   = destination.state
+          self.destination_country = destination.country
         end
       end       
+    end
+
+    def split_address_to_city_state_country
+      if self.origin_address && (self.origin_address.include? ",")
+        origin = Geocoder.search(self.origin_address)[0]
+        address = self.origin_address.split(',')
+        self.origin_country = address[-1] 
+        self.origin_state = address[-2]   
+        self.origin_city = address[-3]    
+        self.origin_country_code = origin.try(:country_code) unless origin.try(:country_code).blank?
+      end
+
+      if self.destination_address && (self.destination_address.include? ",")
+        destination = Geocoder.search(self.destination_address)[0]        
+        address = self.destination_address.split(',')
+        self.destination_country = address[-1] 
+        self.destination_state = address[-2]   
+        self.destination_city = address[-3]    
+      end
+
     end
 end

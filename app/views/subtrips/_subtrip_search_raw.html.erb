@@ -26,7 +26,8 @@
 			<h3 class="time">
 				<%= subtrip.date_time.to_s(:time) %> 
 				<%= am_pm subtrip.date_time %> &nbsp; 
-				<small><%= jdate_humanize(subtrip.date_time) %></small>
+				<small><%= apropriate_date_humanize(subtrip) %></small>
+
 			</h3> 
 			<h3 class="fromto">
 				<div class="table-responsive">

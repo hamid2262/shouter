@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311165626) do
+ActiveRecord::Schema.define(version: 20140312182546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,7 +141,7 @@ ActiveRecord::Schema.define(version: 20140311165626) do
     t.integer  "jhour"
     t.integer  "jminute"
     t.integer  "price"
-    t.integer  "seats",                          default: [], array: true
+    t.integer  "seats",                          default: [],   array: true
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "view",                           default: 0
@@ -157,6 +157,7 @@ ActiveRecord::Schema.define(version: 20140311165626) do
     t.string   "destination_state",   limit: 50
     t.string   "destination_country", limit: 50
     t.string   "destination_address"
+    t.string   "origin_country_code", limit: 5,  default: "IR"
   end
 
   add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng"], name: "index_subtrips_on_date_time_and_dlat_and_dlng_and_olat_and_olng", using: :btree
