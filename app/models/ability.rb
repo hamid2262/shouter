@@ -42,7 +42,7 @@ class Ability
 
     can :show, SpacialEvent
     can :show, User
-    can :new, Trip
+    can [:new,:select_date_format,:accept_date_format], Trip
     can :booking_acceptance, Booking
     can :show, Page
     # The first argument to `can` is the action you are giving the user 
