@@ -13,6 +13,12 @@ en:
         to departure time are not cancelable.
       title: List of Registered Trips
       total_available_seats: Total Available Seats
+    shared:
+      head:
+        price: Select Prices
+        register_trip_info: Register Trip
+        select_date_format: 'Select Date Format '
+        succecful_submit: Submit Complete
     show_edit:
       form_edit:
         delete: Delete All

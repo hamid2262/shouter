@@ -9,6 +9,21 @@
 	right: 42%;
 }
 
+#trips-register-head{
+	padding: 0;
+	table{
+		margin: 0;
+		td {
+			width: 25%;
+			text-align: center;
+		}
+		.current-stage{
+			background: #D6D6D6;
+			color: #000;
+		}
+	}
+}
+
 
 #new_trip_form{
 	.field_with_errors {
@@ -48,13 +63,6 @@
 }
 
 #trip_show, #trip_edit{
-	.panel-heading{
-		padding: 2px;
-		h3{
-			margin-top: 30px;
-			font-size: 1.5em;			
-		}
-	}
 	.route_table, .subtrips_edit_field{
 		background: #efefef;
 		border-radius: 5px;		

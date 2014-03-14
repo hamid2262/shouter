@@ -30,9 +30,13 @@ Shouter::Application.routes.draw do
       get 'special_events1', on: :collection
     end
 
+
+    put 'trips/accept_date_format' => 'trips#accept_date_format'
+    get 'trips/select_date_format' => 'trips#select_date_format'
     resources :trips do
       resources :comments
     end
+
     resources :photo_shouts, only: [:create, :destroy] do
       resources :comments
     end

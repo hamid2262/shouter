@@ -23,6 +23,7 @@ class Subtrip < ActiveRecord::Base
   before_save :split_address_to_city_state_country
  
   def origin
+    city = self.origin_address unless self.origin_address.blank?
     city = self.origin_country unless self.origin_country.blank?
     city = self.origin_state unless self.origin_state.blank?
     city = self.origin_city unless self.origin_city.blank?
@@ -30,6 +31,7 @@ class Subtrip < ActiveRecord::Base
   end
 
   def destination
+    city = self.destination_address unless self.destination_address.blank?
     city = self.destination_country unless self.destination_country.blank?
     city = self.destination_state unless self.destination_state.blank?
     city = self.destination_city unless self.destination_city.blank?    
@@ -110,13 +112,18 @@ class Subtrip < ActiveRecord::Base
   private
 
     def jdate_must_not_be_past
-
-      if JalaliDate.new(self.jyear, self.jmonth, self.jday ) < JalaliDate.new(Date.today) 
-        errors.add(:jday, :invalid_date)   
-        errors.add(:jmonth, :invalid_date)   
-        errors.add(:jyear, :invalid_date)   
+      if self.jyear
+        if JalaliDate.new(self.jyear, self.jmonth, self.jday ) < JalaliDate.new(Date.today) 
+          errors.add(:jday, :invalid_date)   
+          errors.add(:jmonth, :invalid_date)   
+          errors.add(:jyear, :invalid_date)   
+        end
+      else
+        if self.date_time < DateTime.now 
+          errors.add(:date_time, :invalid_date)  
+        end   
       end
-      
+
     end
 
     def jday_validate
@@ -134,9 +141,13 @@ class Subtrip < ActiveRecord::Base
       self.seats = s
     end
 
-    def set_date_time    
-      jdate = JalaliDate.new(self.jyear,self.jmonth,self.jday)  
-      gdate = jdate.to_g
+    def set_date_time
+      if date_time.nil?
+        jdate = JalaliDate.new(self.jyear,self.jmonth,self.jday)  
+        gdate = jdate.to_g
+      else
+        gdate = self.date_time
+      end
       self.date_time = gdate + self.jhour.hours + self.jminute.minutes
     end
 

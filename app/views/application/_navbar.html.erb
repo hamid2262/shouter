@@ -28,7 +28,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t("navbar.trip.insert"), new_trip_path %></li>
+        <li><%= link_to t("navbar.trip.insert"), trips_select_date_format_path %></li>
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 
         <% if current_page?( locale: "fa") %>

@@ -1,12 +1,12 @@
-<div id="new_trip_form" class="row col-md-8">
+<div id="new_trip_form" class="col-md-8">
 <div class="panel panel-default">
-  <div class="panel-heading"><%= t('.title') %></div>
+  <%= render partial: 'trips/shared/head', locals:{stage: 3} %>
   <div class="panel-body">
     <%= simple_form_for(@trip) do |f| %>
+      
       <%= error_messages_for(@trip) %>
-     
-     
-     <b><%= t('.route') %></b>
+
+      <b><%= t('.route') %></b>
       <div class="trip-route">
         <!-- Stopovers -->
         <%= f.simple_fields_for :subtrips do |s| %>
@@ -23,14 +23,14 @@
            <%= f.select :total_available_seats, 1..@max_vehicle_seats, {selected: 4}, {class: "form-control"} %>
         </div>
       </div>
-      
+
       <!-- currency -->
       <div class="row"> 
         <div class="col-sm-3">
           <%= f.label :currency %>
         </div>     
         <div class="col-sm-2">
-          <%= f.association :currency, label: false, selected: 1, input_html: {class: "form-control"} %>
+          <%= f.association :currency, label: false, selected: apropriate_currency, input_html: {class: "form-control"} %>
         </div>
       </div> 
       <!-- ladies_only -->
@@ -41,7 +41,6 @@
           </div>     
           <div class="col-sm-2">
             <%= f.select :ladies_only, [[t('my_no'),0], [t('my_yes'),1]], { include_blank: false },class: "form-control" %>
-
           </div>
         </div>         
       <% end %>

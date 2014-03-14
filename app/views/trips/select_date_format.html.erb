@@ -1,0 +1,38 @@
+<div id="trip_edit" class="">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+  		<%= render partial: 'trips/shared/head', locals:{stage: 1} %>
+			
+			<div class="panel-body">
+		    <p>نحوه نمایش تاریخ را انتخاب کنید</p>
+
+				<%= form_tag( trips_accept_date_format_path, method: :put) do %>
+
+					<div class="col-xs-10 col-xs-offset-2 ">
+						<div class="radio ">
+						  <label>
+								<%= radio_button_tag 'date_format', 'shamsi', true %>
+								<strong> هجری شمسی</strong>
+						  </label>
+						</div>			
+					</div>				
+
+
+					<div class="col-xs-10 col-xs-offset-2 ">
+						<div class="radio ">
+						  <label>
+								<%= radio_button_tag 'date_format', 'miladi' %>
+								<strong> میلادی	</strong>
+						  </label>
+						</div>
+					</div>
+
+						<%= submit_tag "مرحله بعد", class: "btn btn-warning pull-left" %>
+				<% end %>								
+			</div>
+	
+
+		</div>
+	</div>
+</div>
+

@@ -24,8 +24,20 @@ class TripsController < ApplicationController
     @comment = Comment.new
   end
 
-  def new
+  def select_date_format
     check_for_mobile
+    unless params[:locale] == 'fa' 
+      redirect_to action: 'new' 
+      return false
+    end
+  end
+
+  def accept_date_format
+    session[:date_format] = params[:date_format]
+    redirect_to action: 'new'
+  end
+
+  def new
     @trip = Trip.new
     @trip.subtrips.build
     @trip.subtrips.build
@@ -43,7 +55,7 @@ class TripsController < ApplicationController
     @trip.driver = current_user
     if @trip.save
       @trip.shouts.create!(user_id: current_user.id)
-      redirect_to edit_trip_path(@trip.id), notice: t(:trip_create_message) 
+      redirect_to edit_trip_path(@trip.id) #, notice: t(:trip_create_message) 
     else
       @max_vehicle_seats = 50
       # render action: 'new' 
@@ -54,7 +66,7 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        format.html { redirect_to @trip, notice: t(:trip_update_message) }
+        format.html { redirect_to @trip }#, notice: t(:trip_update_message) 
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -89,7 +101,7 @@ class TripsController < ApplicationController
       params.require(:trip).permit(:total_available_seats, :detail, :currency_id, :ladies_only,
         subtrips_attributes: [:id, :price, :seats, :_destroy,
                               :olat, :olng, :origin_address,
-                              :jminute, :jhour, :jyear, :jmonth, :jday])
+                              :date_time, :jminute, :jhour, :jyear, :jmonth, :jday])
     end
 
     def filter_empty_subtrips(array)

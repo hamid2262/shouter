@@ -5,7 +5,7 @@
     <%= f.error_notification %>
 
     <%= f.simple_fields_for :subtrips do |b| %>
-        <% next if b.object.origin == b.object.destination %>
+        <% next if b.object.origin.downcase == b.object.destination.downcase %>
       	<%= render 'trips/show_edit/subtrip_fields_edit', f: b %>
     <% end %>
     

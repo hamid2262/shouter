@@ -13,6 +13,12 @@ fa:
         نمی توان کنسل نمود.
       title: لیست سفرهای ثبت کرده
       total_available_seats: تعداد صندلی های در دسترس
+    shared:
+      head:
+        price: انتخاب قیمتها
+        register_trip_info: ثبت سفر
+        select_date_format: نمایش تاریخ
+        succecful_submit: اتمام ثبت سفر
     show_edit:
       form_edit:
         delete: حذف همه سفر
