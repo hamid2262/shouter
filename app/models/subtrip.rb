@@ -23,19 +23,11 @@ class Subtrip < ActiveRecord::Base
   before_save :split_address_to_city_state_country
  
   def origin
-    city = self.origin_address unless self.origin_address.blank?
-    city = self.origin_country unless self.origin_country.blank?
-    city = self.origin_state unless self.origin_state.blank?
-    city = self.origin_city unless self.origin_city.blank?
-    city 
+    city = self.origin_address.split(',').first
   end
 
   def destination
-    city = self.destination_address unless self.destination_address.blank?
-    city = self.destination_country unless self.destination_country.blank?
-    city = self.destination_state unless self.destination_state.blank?
-    city = self.destination_city unless self.destination_city.blank?    
-    city
+    city = self.destination_address.split(',').first
   end
 
   def number_of_taken_seats
