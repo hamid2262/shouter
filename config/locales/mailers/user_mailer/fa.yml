@@ -24,5 +24,7 @@ fa:
       go_to_search_subtrips: برو به صفحه جستجوی سفر
     trip_details:
       title:  مشخصات سفر
-
-      
+    following_inform:
+      subject: "شما توسط %{follower} دنبال میشوید."
+      line2: " برای مشاهده پروفایل  %{follower} لینک زیر را کلیک کنید."   
+      profile: " پروفایل %{follower} "    

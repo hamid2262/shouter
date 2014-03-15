@@ -1,0 +1,28 @@
+<%= render 'shared_mail/style' %>
+<%= render 'user_mailer/style' %>
+<%= render 'shared_mail/header' %>
+<div id="following_inform">
+	<table>
+		<tbody>
+			<tr>
+				<td id="head"> <%=link_to (gravatar @follower, size = 80, klass = "gravatar", style = :square), profile_url(@follower) %> </td>
+			</tr>
+			<tr>
+				<td>
+					<%= t(".subject", follower: @follower.name) %> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= t(".line2", follower: @follower.name) %> 
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<%= link_to t(".profile", follower: @follower.name), profile_url(@follower), class: "button" %>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<%= render 'shared_mail/footer' %>

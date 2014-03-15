@@ -24,4 +24,7 @@ en:
       go_to_search_subtrips: Go to search trips page
     trip_details: 
       title: Trip Details
-      
+    following_inform:
+      subject: " You are followed by %{follower} "
+      line2: "See %{follower}'s profile in the following link. "    
+      profile: "%{follower}'s profile"

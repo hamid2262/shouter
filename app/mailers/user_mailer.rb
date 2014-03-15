@@ -1,4 +1,6 @@
 class UserMailer < ActionMailer::Base
+  add_template_helper(ApplicationHelper)
+
   default from: "hamsafaryab@gmail.com"
   before_action :set_environment
   before_action :common_vars
@@ -29,9 +31,7 @@ class UserMailer < ActionMailer::Base
 
   def booking_positive_response_to_passenger(booking)
     @booking = booking
-
     set_booking_parameters
-
     mail to: @passenger.email, subject: t('.subject')    
   end
 
@@ -41,6 +41,12 @@ class UserMailer < ActionMailer::Base
     set_booking_parameters
 
     mail to: @passenger.email, subject: t('.subject')        
+  end
+
+  def following_inform follower, followed_user
+    @follower = follower
+    @followed_user = followed_user
+    mail to: @followed_user.email, subject: t(".subject", follower: @follower.name)
   end
 
 private

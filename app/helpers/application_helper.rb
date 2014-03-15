@@ -24,6 +24,11 @@ module ApplicationHelper
 			t('gender.female')
 		end
 	end
+	
+	# for using in Miler
+  def profile_url user
+     root_url(locale)[0..-3] + user.slug
+  end
 
 	def link_to_profile user, klass="small", length = 100
 		name = truncate(profile_url(user), length: length, omission: '').gsub("http://", "")		

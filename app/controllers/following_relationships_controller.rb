@@ -5,6 +5,7 @@ class FollowingRelationshipsController < ApplicationController
 	
 	def create
 		current_user.follow user
+    UserMailer.following_inform(current_user, user).deliver
 		redirect_to_profile_with_flash(user, t(:following_message,name: user.name) )
 	end
 
