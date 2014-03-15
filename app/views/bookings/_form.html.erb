@@ -20,7 +20,11 @@
   
 	<div class="panel-body">
 		<%= hidden_field_tag 'subtrip_id', @subtrip.id %>
-		<%= submit_tag t('.register_booking'), class: "btn btn-warning" %>
+		<% if  @subtrip.free_seats > 0 %>
+			<%= submit_tag t('.register_booking'), class: "btn btn-warning" %>			
+		<% else %>
+			<h3 id="seats_full"><%= t ".trip_if_full" %></h3>
+		<% end %>
 		<%= link_to t('.back_to_trip'), @subtrip, class: "btn btn-default" %>
   </div>
 

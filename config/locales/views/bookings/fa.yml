@@ -14,6 +14,7 @@ fa:
       seat_number: شماره صندلی
       select: انتخاب
       taken: گرفته شده
+      trip_if_full: تمام صندلی ها گرفته شده اند.
       unavailable: خارج از دسترس
     index:
       acceptance_status: وضعیت درخواست

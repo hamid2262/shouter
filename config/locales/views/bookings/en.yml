@@ -14,6 +14,7 @@ en:
       seat_number: Seat Number
       select: Select
       taken: Taken
+      trip_if_full: All seats are taken.
       unavailable: Unavailable
     index:
       acceptance_status: Request Status

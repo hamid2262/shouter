@@ -1,14 +1,15 @@
-<div class="col-lg-8">
-	<div class="panel panel-default">
-  	<div class="panel-heading"><h4><%= t '.booking_message' %></h4></div>
-	  <div class="panel-body">
-			<div class="col-xs-7">
-				<%= render 'form' %>	
+<div id="booking-new">
+	<div class="col-lg-8">
+		<div class="panel panel-default">
+	  	<div class="panel-heading"><h4><%= t '.booking_message' %></h4></div>
+		  <div class="panel-body">
+				<div class="col-xs-7">
+					<%= render 'form' %>	
+				</div>
+				<div class="col-xs-5 blueprints">
+					<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
+				</div>	 
 			</div>
-			<div class="col-xs-5 blueprints">
-				<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
-			</div>	 
-		</div>
-	</div>	
+		</div>	
+	</div>
 </div>
-
