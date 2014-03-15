@@ -11,7 +11,7 @@
         <%= f.select :jmonth, options_for_month %>
         <%= f.select :jyear, options_for_year %>         
       <% else %>
-        <%= f.date_select :date_time, {:prompt => { day: Date.today.day+2, :month => (l DateTime.now ,format: :only_month) , :year => Date.today.year }}, {:class => 'date-select'}  %>
+        <%= f.date_select :date_time %>
       <% end %>
 
     </div>
