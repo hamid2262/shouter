@@ -2,6 +2,11 @@
   <div class="panel-heading">
   	<%= @profile.user.name %> 
   	<%=t  '.overview'  %>
+
+		<% if current_user && current_user.can_follow?(user) %>
+			<div class="follow pull-<%= lang_other_side %>"><%= follow_button user %></div> 
+		<% end %>
+
   </div>
 	<div class="panel-body">
 		<form class="form-horizontal" role="form">
