@@ -1,7 +1,4 @@
 Shouter::Application.routes.draw do
-  get "comments/index"
-  get "comments/new"
-
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
     omniauth_callbacks: "users/omniauth_callbacks"
   }

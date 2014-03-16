@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312182546) do
+ActiveRecord::Schema.define(version: 20140316003518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20140312182546) do
     t.string   "commentable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 20140312182546) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "unit_price"
+    t.integer  "price_step"
   end
 
   create_table "currency_translations", force: true do |t|
@@ -158,6 +161,7 @@ ActiveRecord::Schema.define(version: 20140312182546) do
     t.string   "destination_country", limit: 50
     t.string   "destination_address"
     t.string   "origin_country_code", limit: 5,  default: "IR"
+    t.integer  "currency_id"
   end
 
   add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng"], name: "index_subtrips_on_date_time_and_dlat_and_dlng_and_olat_and_olng", using: :btree

@@ -11,8 +11,10 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.new(comment_params)
+    @comment.writer = current_user
     if @comment.save
-      redirect_to [@commentable, :comments], notice: "Comment successfully created"
+      redirect_to :back
+      # redirect_to [@commentable, :comments], notice: "Comment successfully created"
     else
       render :new
     end

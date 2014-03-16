@@ -1,5 +1,15 @@
-<ul id="comments">
-	<% @comments.each do |comment| %>
-		<li><%= simple_format comment.body %> </li>
+<div id="comments" class="pull-<%= lang_other_side %>">
+	<% comments.each do |comment| %>
+		<div class="single media">
+			<%= link_to (gravatar comment.writer, size = 35, klass = "img-rounded media-object"), profile_url( comment.writer), class: "pull-right" %>
+		  <div class="media-body">
+		    <small  class="media-heading">
+					<%= link_to (comment.writer.name), profile_url( comment.writer) %>
+		    </small>
+
+		    <small><%= simple_format comment.body %></small> 
+				<span class="text-muted"><%= time_ago_in_words(comment.created_at) %> <%=t("ago")  %></span>
+		  </div>
+		</div>		
 	<% end %>
-</ul>
+</div>

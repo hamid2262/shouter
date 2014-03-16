@@ -1,6 +1,15 @@
-<%= form_for [@commentable, @comment] do |f| -%>
-  <%= error_messages_for @comment %>
+<%= form_for [commentable, comment] do |f| -%>
+  <%= error_messages_for comment %>
 
-  <p><%= f.text_area :body, rows: 8 %></p>
-  <p><%= f.submit "Submit", :disable_with => 'Submiting...' %></p>
+  <span class="text-area">
+  	<div class="col-xs-1">
+  		<%= gravatar current_user, size = 35, klass = "img-rounded media-object" %>
+  	</div>
+  	<div class="col-xs-11 body1">
+  		<%= f.text_area :body, rows: 1, class: "form-control pull-left" %>
+		  <%= f.submit t("post"), :disable_with => t('sending'), class: "pull-left submit" %>
+  	</div>
+  </span>
+
 <% end %>
+<br>

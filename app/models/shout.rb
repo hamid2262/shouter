@@ -5,9 +5,9 @@ class Shout < ActiveRecord::Base
 
   default_scope { order( "created_at DESC" ) }
 
-  def self.text_shouts
-  	where(content_type: 'TextShout')	
-  end
+  # def self.text_shouts
+  # 	where(content_type: 'TextShout')	
+  # end
   
   def self.photo_shouts
   	where(content_type: 'PhotoShout')	

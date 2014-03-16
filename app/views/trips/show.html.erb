@@ -4,9 +4,13 @@
   		<%= render partial: 'trips/shared/head', locals:{stage: 5} %>
 			<%= render 'trips/show_edit/trip_summary' %>
   		<%= render 'trips/show_edit/form_show' %>
-  		<%#= render 'comments/comments' %>
-  		<%#= render 'comments/form' %>
 		</div>
+		<div class="panel panel-default">
+  		<div class="comment-frame-single">
+	  		<%= render partial:'comments/form', locals:{commentable: @trip, comment: @comment} %>
+	  		<%= render partial: 'comments/comments', locals:{comments: @comments}  %>
+  		</div>
+ 		</div>
 	</div>
 </div>
 

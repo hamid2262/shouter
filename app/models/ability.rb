@@ -10,8 +10,8 @@ class Ability
             user == u
         end
 
-        can [:read, :create, :new], [Shout, TextShout, PhotoShout]
-        can [:edit, :update, :destroy], [Shout, TextShout, PhotoShout] do |s|
+        can [:read, :create, :new], [Shout, PhotoShout]
+        can [:edit, :update, :destroy], [Shout, PhotoShout] do |s|
             user == s.shouts.first.user
         end
 
