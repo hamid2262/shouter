@@ -70,6 +70,6 @@ class CurrenciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def currency_params
-      params.require(:currency).permit(:name)
+      params.require(:currency).permit(:name, :price_step, :unit_price)
     end
 end
