@@ -13,11 +13,14 @@
 					</span>	
 				</div> 
 			<% end %> <!-- div_for	shout  -->
+			
+		  	<div class="panel-body">
+					<% if current_user %>
+				  		<%= render partial: 'comments/form', locals: {commentable: shout.content, comment: Comment.new} %>
+					<% end %>
+				  <%= render partial: 'comments/comments', locals: {comments: shout.content.comments} %>
+		  	</div>				
 
-	  	<div class="panel-body">
-	  		<%= render partial: 'comments/form', locals: {commentable: shout.content, comment: Comment.new} %>
-			  <%= render partial: 'comments/comments', locals: {comments: shout.content.comments} %>
-	  	</div>
 		</div>
 	</div>
 </div>
