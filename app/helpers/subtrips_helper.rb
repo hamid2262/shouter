@@ -4,6 +4,12 @@ module SubtripsHelper
 		User.find_by(id: id)
 	end
 	
+	def full_style subtrip
+		if subtrip.free_seats == 0
+	    full_style = "background: #E4E4E4;opacity: 0.6;"
+ 		end		
+	end
+	
 	def print_cities_name s, current_s
 		if (s.origin == current_s.origin) || (s.origin == current_s.destination)
 			"<strong class=\"text-danger\"><h3>#{s.origin} </h3> #{s.date_time.to_s(:time)} #{am_pm s.date_time} </strong>".html_safe			

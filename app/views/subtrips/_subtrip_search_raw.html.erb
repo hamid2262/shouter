@@ -1,6 +1,5 @@
 <a href="<%= subtrip_path(subtrip.id) %>" >
-	<div class="search_subtrips_raw row">
-
+	<div style="<%= full_style subtrip %>" class="search_subtrips_raw row ">
 		<div class="user-info col-xs-4">
 			<div class="gravatar">
 				<%= gravatar(subtrip.trip.driver, 72, "img-thumbnail") %>				
