@@ -53,6 +53,9 @@ class TripsController < ApplicationController
     # array  = filter_empty_subtrips(trip_params)
     @trip = Trip.new(filter_empty_subtrips(trip_params))
     @trip.driver = current_user
+    @trip.subtrips.each do |s|
+      s.currency_id = @trip.currency_id
+    end
     if @trip.save
       @trip.shouts.create!(user_id: current_user.id)
       redirect_to edit_trip_path(@trip.id) #, notice: t(:trip_create_message) 

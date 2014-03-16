@@ -3,6 +3,8 @@ class Subtrip < ActiveRecord::Base
   geocoded_by :destination_address, latitude: :dlat, longitude: :dlng
 
   belongs_to :trip
+  belongs_to :currency
+
   has_many	 :bookings
 
   default_scope { order('date_time ASC').order(:id) } 
@@ -21,6 +23,7 @@ class Subtrip < ActiveRecord::Base
   before_create :set_seats
   before_create :set_date_time
   before_save :split_address_to_city_state_country
+  before_save :estimate_prices
  
   def origin
     city = self.origin_address.split(',').first
@@ -111,7 +114,7 @@ class Subtrip < ActiveRecord::Base
           errors.add(:jyear, :invalid_date)   
         end
       else
-        if self.date_time < DateTime.now 
+        if self.date_time < (DateTime.now - 1.day)
           errors.add(:date_time, :invalid_date)  
         end   
       end
@@ -185,5 +188,16 @@ class Subtrip < ActiveRecord::Base
         self.destination_city = address[-3]    
       end
 
+    end
+
+    def estimate_prices
+      if (self.view == 0) && self.olat && self.dlat
+        currency = self.currency
+        unit_price = currency.unit_price
+        price_step = currency.price_step
+        distance = self.distance_to([self.olat,self.olng]) * 2 
+        price = (distance.round(0)) * unit_price / 20
+        self.price = (price.to_i / price_step) * price_step + price_step
+      end
     end
 end

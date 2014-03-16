@@ -54,7 +54,7 @@
 		 		<tr>
 		  		<th><%= t 'distance' %></th>
 		  		<% if @subtrip.olat && @subtrip.dlng %>
-			  		<th><%= t 'km', amount: @subtrip.distance_to([@subtrip.olat,@subtrip.olng]).round(0) %></th>		  			
+			  		<th><%= t 'km', amount: @subtrip.distance_to([@subtrip.olat,@subtrip.olng]).round(0) * 2 %></th>		  			
 		  		<% end %>
 		  	</tr> 
 	 			<tr>

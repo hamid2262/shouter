@@ -5,13 +5,7 @@
   </span>  
   <span class="col-sm-3"><%= f.object.origin %> </span>
   <span class="col-sm-3"><%= f.object.destination %> </span>
-
-  <% if f.object.trip.currency_id == 1 %>
-    <%= f.select :price, (0..100000).step(500).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.name)}", s]},{}, {class: "time_select"} %>      
-  <% else %>
-     <%= f.select :price, (0..100).step(1).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{}, {class: "time_select"} %>
- 
-  <% end %>
+  <%= f.select :price, (0..(100 * f.object.currency.price_step)).step(f.object.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{prompt: f.object.price }, {class: "time_select"} %>
   <%#= f.hidden_field :_destroy %>
   <%#= link_to t('remove') , "#", class: "remove_fields col-sm-1 pull-left" %>  
 </fieldset>
