@@ -5,7 +5,7 @@
   </span>  
   <span class="col-sm-3"><%= f.object.origin %> </span>
   <span class="col-sm-3"><%= f.object.destination %> </span>
-  <%= f.select :price, (0..(100 * f.object.currency.price_step)).step(f.object.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{prompt: f.object.price }, {class: "time_select"} %>
+  <%= f.select :price, (0..(100 * f.object.trip.currency.price_step)).step(f.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{prompt: f.object.price }, {class: "time_select"} %>
   <%#= f.hidden_field :_destroy %>
   <%#= link_to t('remove') , "#", class: "remove_fields col-sm-1 pull-left" %>  
 </fieldset>
