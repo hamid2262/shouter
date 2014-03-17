@@ -1,4 +1,4 @@
-<% if current_user.is_admin? %>
+<% if current_user && current_user.is_admin? %>
 	<% user = @profile.user %>
 <% else %>
 	<% user = current_user %>
