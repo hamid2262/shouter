@@ -2,7 +2,7 @@
 <div id="network_show">
   <div class="col-md-12">
     <div class="centerize">
-    <% unless @network.current == current_user %>
+    <% unless (@network.current == current_user) || current_user.is_admin?  %>
       <%= link_to "back", network_path(@network.current.inviter.slug), class: "up" %>
     <% end %>
       <%= link_to gravatar(@network.current, 30), network_url(@network.current.slug) %> <%= @network.current.name %>

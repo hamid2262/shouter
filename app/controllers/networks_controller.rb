@@ -9,11 +9,10 @@ class NetworksController < ApplicationController
 
   private
   	def authorize_user
-	  	unless [user, 
-	  					user.try(:inviter), 
-	  					user.try(:inviter).try(:inviter), 
-	  					user.try(:inviter).try(:inviter).try(:inviter)].include? current_user
-
+	  	if !([user, 
+	  		  					user.try(:inviter), 
+	  		  					user.try(:inviter).try(:inviter), 
+	  		  					user.try(:inviter).try(:inviter).try(:inviter)].include? current_user) && !current_user.is_admin?
 	  		redirect_to network_path(current_user.slug), error:  "no access"
 	  		return false
 	  	end
