@@ -1,0 +1,38 @@
+<% if @search_subtrip.origin_address.present? && @search_subtrip.destination_address.present?%>
+	<h4 class="no-trip">
+		<%= t(".no_trip") %>
+		<%= t(".from") %>
+		<strong><%= extract_city(@search_subtrip.origin_address) %></strong>
+		<%= t(".cycle") %>
+		<strong><%= @search_subtrip.origin_cycle %></strong>
+		<%= t(".kilo") %>
+		<%= t(".to") %>
+		<strong><%= extract_city(@search_subtrip.destination_address) %></strong>
+		<%= t(".cycle") %>
+		<strong><%= @search_subtrip.destination_cycle %></strong>
+		<%= t(".kilo") %>
+		<%= t(".not_founded") %>
+	</h4>
+
+<% elsif @search_subtrip.origin_address.present? %>
+	<h4 class="no-trip">
+		<%= t(".no_trip") %>
+		<%= t(".from") %>
+		<strong><%= extract_city(@search_subtrip.origin_address) %></strong>
+		<%= t(".cycle") %>
+		<strong><%= @search_subtrip.origin_cycle %></strong>
+		<%= t(".kilo") %>
+		<%= t(".not_founded") %>
+	</h4>
+<% elsif @search_subtrip.destination_address.present? %>
+	<h4 class="no-trip">
+		<%= t(".no_trip") %>
+		<%= t(".to") %>
+		<strong><%= extract_city(@search_subtrip.destination_address) %></strong>
+		<%= t(".cycle") %>
+		<strong><%= @search_subtrip.destination_cycle %></strong>
+		<%= t(".kilo") %>
+		<%= t(".not_founded") %>
+	</h4>	
+<% end %>
+

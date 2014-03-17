@@ -1,20 +1,28 @@
 fa:
   search_subtrips:
     form:
-      search_btn: "جستجو"
-      km: "کیلومتر"
+      km: کیلومتر
       mode:
-        select: 
-          selector: "حالت انتخابی"
+        autocomplete:
           placeholder:
-            origin: "لطفا شهر مبدا را انتخاب کنید"
-            destination: "لطفا شهر مقصد را انتخاب کنید"
-        autocomplete: 
-          selector: "حالت کامل کن"
+            destination: لطفا شهر مقصد را وارد کنید
+            origin: لطفا شهر مبدا را وارد کنید
+          selector: حالت کامل کن
+        select:
           placeholder:
-            origin: "لطفا شهر مبدا را وارد کنید"
-            destination: "لطفا شهر مقصد را وارد کنید"
+            destination: لطفا شهر مقصد را انتخاب کنید
+            origin: لطفا شهر مبدا را انتخاب کنید
+          selector: حالت انتخابی
+      search_btn: جستجو
+    no_record_found:
+      no_trip: 'هیچ سفری '
+      from: از مبدا
+      to: 'به مقصد'
+      cycle: 'و شهرهای اطراف آن به شعاع'
+      kilo: کیلومتری
+      not_founded: ' یافت نشد'
+               
     search:
-      search_filters: جستجو را محدود کنید
-      no_trip_registered:  سفری با این مشخصات پیدا نشد.                          
       comming_soon: بزودی این امکان اضافه خواهد شد
+      no_trip_registered: سفری با این مشخصات پیدا نشد.
+      search_filters: جستجو را محدود کنید

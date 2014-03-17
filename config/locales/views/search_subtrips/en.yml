@@ -1,20 +1,27 @@
 en:
   search_subtrips:
     form:
-      search_btn: "Search" 
-      km: "KM"     
+      km: KM
       mode:
-        select: 
-          selector: "Select Mode"
+        autocomplete:
           placeholder:
-            origin: "Please select origin city"
-            destination: "Please select destination city"
-        autocomplete: 
-          selector: "Autocomplete Mode"
+            destination: Please enter destination city
+            origin: Please enter origin city
+          selector: Autocomplete Mode
+        select:
           placeholder:
-            origin: "Please enter origin city"
-            destination: "Please enter destination city"
+            destination: Please select destination city
+            origin: Please select origin city
+          selector: Select Mode
+      search_btn: Search
+    no_record_found:
+      line1: '1'
+      line2: '2'
+      line3: '3'
+      line4: '4'
+      line5: '5'
+      message1: no trip from %{origin} founded
     search:
-      search_filters: Filter Your Search
-      no_trip_registered: No record with this condition. please try again.
       comming_soon: Comming Soon.
+      no_trip_registered: No record with this condition. please try again.
+      search_filters: Filter Your Search

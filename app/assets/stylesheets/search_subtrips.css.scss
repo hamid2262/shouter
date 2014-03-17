@@ -106,6 +106,12 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 }
 
 #search_subtrips{
+	.no-trip{
+		strong{
+			color: #F00;
+			font-size: 1.2em;
+		}
+	}
 	.pagination{
 		padding-left: 48%;
 		padding-right: 48%;
