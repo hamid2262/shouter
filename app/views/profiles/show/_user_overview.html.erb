@@ -1,14 +1,14 @@
 <% if current_user && current_user.is_admin? %>
-	<% user = @profile.user %>
+	<% current = user %>
 <% else %>
-	<% user = current_user %>
+	<% current = current_user %>
 <% end %>
 
 <div class="panel panel-default clear">
   <div class="panel-heading">
-  	<%= @profile.user.name %> 
+  	<%= user.name %> 
   	<%=t  '.overview'  %>
-		<% if current_user && current_user.can_follow?(@profile.user) %>
+		<% if current_user && current_user.can_follow?(user) %>
 			<div class="follow pull-<%= lang_other_side %>"><%= follow_button user %></div> 
 		<% end %>
   </div>
@@ -18,19 +18,19 @@
 			<tbody>
 				<tr>
 					<th><%= t(".last_activity") %></th>
-					<th><%= resent_activity(@profile.user, "activity") %></th>
+					<th><%= resent_activity(user, "activity") %></th>
 				</tr>
 				<tr>
-					<th><%= t(".number_of_followers", user: @profile.user.name) %></th>
-					<th><%= @profile.user.followers.size %></th>
+					<th><%= t(".number_of_followers", user: user.name) %></th>
+					<th><%= user.followers.size %></th>
 				</tr>
 				<tr>
-					<th><%= t(".number_of_followed_users", user: @profile.user.name) %></th>
-					<th><%=  @profile.user.followed_users.size %></th>
+					<th><%= t(".number_of_followed_users", user: user.name) %></th>
+					<th><%=  user.followed_users.size %></th>
 				</tr>
 				<tr>
-					<th><%= link_to(t(".number_of_network", user: @profile.user.name), network_path(user.slug) ) %></th>
-					<th><%= Network.network_size(@profile.user) %></th>
+					<th><%= link_to(t(".number_of_network", user: user.name), network_path(current.slug) ) %></th>
+					<th><%= Network.network_size(user) %></th>
 				</tr>
 				<tr>
 					<th><%= t(".trips_count") %></th>
@@ -51,12 +51,12 @@
 			</tbody>
 		</table>
 
-		<% if @profile.user.slug_updated %>
+		<% if user.slug_updated %>
 			<table class="table">
 				<tbody>
 					<tr>
 						<th><%= t(".url") %></th>
-						<th><%=  link_to_profile(@profile.user) %></th>
+						<th><%=  link_to_profile(user) %></th>
 					</tr>
 				</tbody>
 			</table>
