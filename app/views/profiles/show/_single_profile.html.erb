@@ -1,31 +1,44 @@
 <div class="panel panel-default clear">
   <div class="panel-heading"> <%=t  '.personal_profile'  %></div>
-	<div class="panel-body">
-		<form class="form-horizontal" role="form">
-			<%=  user_form_control_static User.human_attribute_name("firstname"), @profile.user.firstname %>
-			<%=  user_form_control_static User.human_attribute_name("lastname"), @profile.user.lastname %>
-			<%=  user_form_control_static User.human_attribute_name("username"), @profile.user.username %>
-			<%=  user_form_control_static User.human_attribute_name("gender"), t_gender(@profile.user.gender) %>
-			<%=  user_form_control_static User.human_attribute_name("age"), @profile.user.age %>
-		</form>
-	</div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th><%= User.human_attribute_name("firstname") %></th>
+				<th><%= @profile.user.firstname %></th>
+			</tr>
+			<tr>
+				<th><%= User.human_attribute_name("lastname") %></th>
+				<th><%= @profile.user.lastname %></th>
+			</tr>
+			<tr>
+				<th><%= User.human_attribute_name("gender") %></th>
+				<th><%= t_gender(@profile.user.gender)  %></th>
+			</tr>
+			<tr>
+				<th><%= User.human_attribute_name("age") %></th>
+				<th><%=  @profile.user.age %></th>
+			</tr>
+		</tbody>
+	</table>
 </div>
 
 
 <div class="panel panel-default clear">
   <div class="panel-heading"><%=t '.contact_details'  %></div>
-	<div class="panel-body">
-		<form class="form-horizontal" role="form">
-			<% if current_user %>
-				<%#=  user_form_control_static "Email", @profile.user.email %>
-				<%#=  user_form_control_static "Tel", @profile.user.tel %>
-				<%#=  user_form_control_static "Mobile", @profile.user.mobile %>
-				<%=  user_form_control_static User.human_attribute_name("city"), @profile.user.city %>
-				<%=  user_form_control_static User.human_attribute_name("address"), @profile.user.address %>
-				<%#=  user_form_control_static "Post Code", @user.post_code %>
-			<% else %>
-				<%= force_to_sign_in_message %>
-			<% end %> <!-- if current_user -->
-		</form>
-	</div>
+		<% if current_user %>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th><%= User.human_attribute_name("city") %></th>
+						<th><%= @profile.user.city %></th>
+					</tr>
+					<tr>
+						<th><%= User.human_attribute_name("address") %></th>
+						<th><%= @profile.user.address  %></th>
+					</tr>
+				</tbody>
+			</table>
+		<% else %>
+			<%= force_to_sign_in_message %>
+		<% end %> <!-- if current_user -->
 </div>

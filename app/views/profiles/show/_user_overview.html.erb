@@ -1,33 +1,69 @@
+<% if current_user.is_admin? %>
+	<% user = @profile.user %>
+<% else %>
+	<% user = current_user %>
+<% end %>
+
 <div class="panel panel-default clear">
   <div class="panel-heading">
   	<%= @profile.user.name %> 
   	<%=t  '.overview'  %>
-
 		<% if current_user && current_user.can_follow?(user) %>
 			<div class="follow pull-<%= lang_other_side %>"><%= follow_button user %></div> 
 		<% end %>
-
   </div>
-	<div class="panel-body">
-		<form class="form-horizontal" role="form">
 
-			<% if current_user %>
-				<%=  user_form_control_static t(".last_activity"), resent_activity(@profile.user, "activity"),"col-xs-5","col-xs-7" %>
-				<%#=  user_form_control_static t(".last_login_location"), @profile.user.last_login_location,"col-xs-5","col-xs-7" %>
-				<%=  user_form_control_static t(".trips_count"), @trips_count,"col-xs-5","col-xs-7" %>
-				<%=  user_form_control_static t(".bookings_count"), @bookings_count,"col-xs-5","col-xs-7" %>
-				<%=  user_form_control_static t(".trip_canceled_count"), @trip_canceled_count,"col-xs-5","col-xs-7" %>
-				<%=  user_form_control_static t(".booking_canceled_count"), @booking_canceled_count,"col-xs-5","col-xs-7" %>
+	<% if current_user %>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th><%= t(".last_activity") %></th>
+					<th><%= resent_activity(@profile.user, "activity") %></th>
+				</tr>
+				<tr>
+					<th><%= t(".number_of_followers", user: @profile.user.name) %></th>
+					<th><%= @profile.user.followers.size %></th>
+				</tr>
+				<tr>
+					<th><%= t(".number_of_followed_users", user: @profile.user.name) %></th>
+					<th><%=  @profile.user.followed_users.size %></th>
+				</tr>
+				<tr>
+					<th><%= link_to(t(".number_of_network", user: @profile.user.name), network_path(user.slug) ) %></th>
+					<th><%= Network.network_size(@profile.user) %></th>
+				</tr>
+				<tr>
+					<th><%= t(".trips_count") %></th>
+					<th><%= @trips_count %></th>
+				</tr>
+				<tr>
+					<th><%= t(".bookings_count") %></th>
+					<th><%= @bookings_count %></th>
+				</tr>
+				<tr>
+					<th><%= t(".trip_canceled_count") %></th>
+					<th><%= @trip_canceled_count %></th>
+				</tr>
+				<tr>
+					<th><%= t(".booking_canceled_count") %></th>
+					<th><%= @booking_canceled_count %></th>
+				</tr>
+			</tbody>
+		</table>
 
-				<% if @profile.user.slug_updated %>
-					<%=  user_form_control_static t(".url"), link_to_profile(@profile.user) %>
-				<% end %>
-
-			<% else %>
-				<%= force_to_sign_in_message %>
-			<% end %> <!-- if current_user -->
+		<% if @profile.user.slug_updated %>
+			<table class="table">
+				<tbody>
+					<tr>
+						<th><%= t(".url") %></th>
+						<th><%=  link_to_profile(@profile.user) %></th>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+	<% else %>
+		<%= force_to_sign_in_message %>
+	<% end %> <!-- if current_user -->
 			
-		</form>
-	</div>
 </div>
 

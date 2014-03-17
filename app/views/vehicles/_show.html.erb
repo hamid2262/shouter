@@ -4,21 +4,43 @@
     <div class="panel-body">
       <% if current_user %>
         <% if user.vehicle.present? %>
-          <div class="col-lg-6">
-            <form class="form-horizontal" role="form">
-              <%=  user_form_control_static Vehicle.human_attribute_name("color"), user.vehicle.color %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name) %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("vehicle_model"), user.vehicle.try(:vehicle_model).try(:name) %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("number_plate"), user.vehicle.try(:number_plate) %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("air_condition"), user.vehicle.try(:air_condition) %>
-              <%=  user_form_control_static Vehicle.human_attribute_name("year"), user.vehicle.year %>
-            </form>          
+          <div class="col-md-6 details">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("color") %></th>
+                  <th><%= user.vehicle.color %></th>
+                </tr>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("vehicle_brand") %></th>
+                  <th><%= user.vehicle.vehicle_model.try(:vehicle_brand).try(:name) %></th>
+                </tr>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("vehicle_model") %></th>
+                  <th><%= user.vehicle.try(:vehicle_model).try(:name) %></th>
+                </tr>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("number_plate") %></th>
+                  <th><%= user.vehicle.try(:number_plate) %></th>
+                </tr>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("air_condition") %></th>
+                  <th><%= user.vehicle.try(:air_condition) %></th>
+                </tr>
+                <tr>
+                  <th><%= Vehicle.human_attribute_name("year") %></th>
+                  <th><%= user.vehicle.year %></th>
+                </tr>
+  
+              </tbody>
+            </table>
+         
             <% if user == current_user %>
               <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
             <% end %>          
           </div>
 
-          <div class="col-lg-6">
+          <div class="col-md-6">
             <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %> <br>
             
           </div>      
