@@ -153,6 +153,14 @@ module ApplicationHelper
   	end
   end  
 
+	def before_after time
+		if time >= Time.now
+      t('before')
+		else
+			t('after')
+		end
+	end
+
 	def am_pm time
 		if time.hour >= 12
       t('time.pm')

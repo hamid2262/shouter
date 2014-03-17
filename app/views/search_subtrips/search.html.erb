@@ -24,7 +24,9 @@
 				<% elsif @search_subtrip && @search_subtrip.errors.any? %>
 					<%= error_messages_for(@search_subtrip) %>
 				<% else %>
-					<%= render 'no_record_found' %>
+					<div class="col-sm-12">
+						<%= render 'no_record_found' %>				
+					</div>
 				<% end %>
 			</div>
 			<% if @subtrips.try(:any?) %>

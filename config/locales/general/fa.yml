@@ -19,6 +19,8 @@ fa:
     female: خانم
   city: شهر
   at: در ساعت
+  before: قبل  
+  after: بعد
   day: روز
   from: مبدا حرکت از 
   via: گذر از 

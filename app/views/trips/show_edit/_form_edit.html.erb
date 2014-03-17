@@ -2,7 +2,7 @@
   <%= simple_form_for(@trip,
     html: { method: :put, class: 'form-horizontal' } ) do |f| %>
 
-    <%= f.error_notification %>
+    <%= render 'trips/show_edit/subtrips_header' %>
 
     <%= f.simple_fields_for :subtrips do |b| %>
         <% next if b.object.origin.downcase == b.object.destination.downcase %>

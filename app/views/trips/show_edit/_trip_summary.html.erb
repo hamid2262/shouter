@@ -2,7 +2,9 @@
 	<div class="col-sm-4 panel-body">
 		<strong>
 				<%= t('.description', date: @date) %> 
-				(<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>)
+				(<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>  
+				<%= before_after @trip.subtrips.first.date_time%>
+				)
 		</strong>
 	</div>
 

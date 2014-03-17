@@ -47,6 +47,11 @@ class TripsController < ApplicationController
   end
 
   def edit
+     if params[:locale] == "fa"
+      @date = @trip.jdate     
+    else
+      @date = @trip.subtrips.first.date_time.to_s(:date)
+    end
   end
 
   def create
