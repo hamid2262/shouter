@@ -196,13 +196,15 @@ class Subtrip < ActiveRecord::Base
     end
 
     def estimate_prices
-      if (self.view == 0) && self.olat && self.dlat
-        if currency = self.currency
-          unit_price = currency.unit_price
-          price_step = currency.price_step
-          distance = self.distance_to([self.olat,self.olng]) * 2 
-          price = (distance.round(0)) * unit_price / 20
-          self.price = (price.to_i / price_step) * price_step + price_step          
+      unless self.price
+        if (self.view == 0) && self.olat && self.dlat && self
+          if currency = self.currency
+            unit_price = currency.unit_price
+            price_step = currency.price_step
+            distance = self.distance_to([self.olat,self.olng]) * 2 
+            price = (distance.round(0)) * unit_price / 20
+            self.price = (price.to_i / price_step) * price_step + price_step          
+          end
         end
       end
     end
