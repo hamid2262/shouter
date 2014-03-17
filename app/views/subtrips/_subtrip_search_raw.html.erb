@@ -23,9 +23,8 @@
 
 		<div class="description col-xs-5">		
 			<h3 class="time">
-				<%= subtrip.date_time.to_s(:time) %> 
-				<%= am_pm subtrip.date_time %> &nbsp; 
-				<small><%= apropriate_date_humanize(subtrip) %></small>
+				<%= subtrip.date_time.to_s(:time) %> &nbsp; 
+				<small class="pull-<%= lang_other_side %>"><%= apropriate_date_humanize(subtrip) %></small>
 
 			</h3> 
 			<h3 class="fromto">

@@ -140,10 +140,15 @@ class Subtrip < ActiveRecord::Base
       if date_time.nil?
         jdate = JalaliDate.new(self.jyear,self.jmonth,self.jday)  
         gdate = jdate.to_g
+        self.date_time = gdate + self.jhour.hours + self.jminute.minutes        
       else
         gdate = self.date_time
+        if (self.date_time.hour == 0) && (self.date_time.min == 0)
+          self.date_time = gdate + self.jhour.hours + self.jminute.minutes
+        else
+          self.date_time = gdate
+        end
       end
-      self.date_time = gdate + self.jhour.hours + self.jminute.minutes
     end
 
     def check_for_cities_validation

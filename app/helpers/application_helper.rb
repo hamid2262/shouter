@@ -202,7 +202,7 @@ module ApplicationHelper
   end
  
   def jalali_time s
-    JalaliDate.new(s).strftime("%I:%M - %p")
+    JalaliDate.new(s).strftime("%H:%M")
   end
 
   # Date picker for jalali
