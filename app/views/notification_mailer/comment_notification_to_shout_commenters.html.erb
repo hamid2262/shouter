@@ -7,13 +7,13 @@
 		<tbody>
 			<tr>
 				<td>
-					<%= t(".subject", commenter: @commenter.name) %>
+					<%= t(".subject", owner: @owner.name) %>
 				</td>
 			</tr>
 
 			<tr>
 				<td id="comment"> 
-					<%=link_to (gravatar @commenter, size = 50, klass = "gravatar", style = :square), profile_url(@commenter) %> 
+					<%=link_to (gravatar @owner, size = 50, klass = "gravatar", style = :square), profile_url(@owner) %> 
 					<span id="body"><%= @comment.body %></span>
 				</td>
 			</tr>

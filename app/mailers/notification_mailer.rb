@@ -17,12 +17,14 @@ class NotificationMailer < ActionMailer::Base
     mail to: @owner.email, subject: t(".subject", commenter: @commenter.name)
   end
 
-  def comment_notification_to_shout_commenters(owner, commenters)
+  def comment_notification_to_shout_commenters(owner, commenters, comment)
     @owner = owner     
-    @commenters =commenters
+    commenters.delete @owner
+    @commenters = commenters
+    @comment = comment
 
-    emails = @commenters.map{|u| u.email}
-    mail to: emails, subject: t(".comment_notification")
+    emails = @commenters.map{|u| u.email}.uniq
+    mail to: emails, subject: t(".subject", owner: @owner.name)
     
   end
 

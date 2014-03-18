@@ -3,3 +3,7 @@ fa:
     comment_notification_to_shout_owner:
       subject: '%{commenter} در زیر پست شما کامنتی گذاشته است:'
       see_post: مشاهده پست
+    comment_notification_to_shout_commenters:
+      subject: '%{owner} به کامنت شما جواب داده است:'
+      see_post: مشاهده پست
+      

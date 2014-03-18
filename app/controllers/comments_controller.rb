@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     if @comment.save
       if current_user == @commentable.owner
         commenters = @commentable.comments.map{|c| c.writer}.uniq
-        # NotificationMailer.comment_notification_to_shout_commenters(current_user, commenters,@comment).deliver
+        NotificationMailer.comment_notification_to_shout_commenters(current_user, commenters, @comment).deliver
       else
         NotificationMailer.comment_notification_to_shout_owner(@commentable.owner, current_user, @comment).deliver
       end
