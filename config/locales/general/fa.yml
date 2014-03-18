@@ -48,6 +48,7 @@ fa:
   accept: قبول درخواست
   reject: رد درخواست
   post: ارسال
+  comment: یادداشت
   sending: در حال ارسال...
   error_registration: خطا مانع ثبت شد.
   # flash messages   

@@ -2,12 +2,12 @@
   <%= error_messages_for comment %>
 
   <span class="text-area">
-  	<div class="col-xs-1">
+  	<div class="col-xs-1 pull-<%= lang_side %> ">
   		<%= gravatar current_user, size = 35, klass = "img-rounded media-object" %>
   	</div>
   	<div class="col-xs-11 body1">
-  		<%= f.text_area :body, rows: 1, class: "form-control pull-left" %>
-		  <%= f.submit t("post"), :disable_with => t('sending'), class: "pull-left submit" %>
+  		<%= f.text_area :body, rows: 1, class: "form-control pull-#{lang_other_side }", :style => "padding-#{lang_other_side}: 50px;" %>
+		  <%= f.submit t("comment"), :disable_with => t('sending'), class: "btn btn-warning pull-#{lang_other_side } submit" %>
   	</div>
   </span>
 

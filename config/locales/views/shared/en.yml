@@ -17,7 +17,9 @@ en:
 
   followed_users_num: followings
   followers_num:  followers
-
+  
+  posted_at: Posted at 
+  
   sign_in: Sign In
   last_login: Last login
   posts: Posts

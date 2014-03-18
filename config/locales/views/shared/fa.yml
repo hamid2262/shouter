@@ -17,7 +17,9 @@ fa:
 
   followed_users_num: دنبال شونده
   followers_num:  دنبال کننده
-
+  
+  posted_at: پست شده در 
+  
   sign_in: ورود
   last_login: آخرین ورود  
   followed_users:  دنبال شونده های

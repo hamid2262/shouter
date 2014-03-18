@@ -10,19 +10,22 @@
 		  &:hover{
 				background: #E2E2E2;	
 		  }
+		  .meta{
+		  	margin: 0;
+		  }
 		}
 	}
 	.new_comment{
 		.submit{
-			margin-top: -27px;
-			margin-left: 2px;
+			margin-top: -33px;
+			margin-left: 0px;
 		}
 		.text-area{
 			.body1{
 				padding: 0;
 			}
 			textarea{
-				padding-left: 45px;
+				
 			}
 		}
 	}

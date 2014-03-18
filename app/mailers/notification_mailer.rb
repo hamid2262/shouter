@@ -24,8 +24,9 @@ class NotificationMailer < ActionMailer::Base
     @comment = comment
 
     emails = @commenters.map{|u| u.email}.uniq
-    mail to: emails, subject: t(".subject", owner: @owner.name)
-    
+    if emails.any? 
+      mail to: emails, subject: t(".subject", owner: @owner.name)
+    end
   end
 
   def common_vars
