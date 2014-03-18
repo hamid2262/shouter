@@ -11,9 +11,17 @@ fa:
     zero: بدون دنبال شونده
     one: یک دنبال شونده
     other: '%{count} دنبال شونده'
+
+  followed_users_by: دنبال شونده ها توسط %{user}
+  followers_of: دنبال کننده های %{user}
+
+  followed_users_num: دنبال شونده
+  followers_num:  دنبال کننده
+
   sign_in: ورود
   last_login: آخرین ورود  
   followed_users:  دنبال شونده های
+  followers:  دنبال کننده ها
   posts: پستها
   reviews: نظرات
   currency: "%{amount} %{unit}"
@@ -30,10 +38,8 @@ fa:
     error_messages:
       title: خطا مانع ثبت این رکورد در سیستم شده است
       description: 'خطا در فیلدهای زیر بوده است:'
-
   facebook_sign_in_title: ورود با فیسبوک
   facebook_sign_in_caption: ورود با حساب کاربری فیسبوک
-
 
   waiting: در حالت انتظار 
   accepted: تایید شده

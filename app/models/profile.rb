@@ -37,6 +37,10 @@ class Profile
 	def followed_users
 		@user.followed_users.order(updated_at: :desc)
 	end
+	
+	def followers
+		@user.followers.order(updated_at: :desc)
+	end
 
 	def random_users
 		User.where.not(id: unfollowed_users_ids).order(updated_at: :desc)

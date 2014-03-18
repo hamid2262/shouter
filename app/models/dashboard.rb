@@ -16,6 +16,10 @@ class Dashboard
 		@shouts = Shout.where(user_id: shout_user_ids)
 	end
 
+	def followers
+		@user.followers.order(updated_at: :desc)
+	end
+
 	def followed_users
 		@user.followed_users.order(updated_at: :desc)
 	end
@@ -26,9 +30,9 @@ class Dashboard
 
 	private
 
-		 def unfollowed_users_ids
+		def unfollowed_users_ids
 			ids = @user.followed_users.map{|user| user.id} + [@user.id]
-		 end
+		end
 
 		def shout_user_ids
 			@user.followed_users.map{|user| user.id} + [@user.id]

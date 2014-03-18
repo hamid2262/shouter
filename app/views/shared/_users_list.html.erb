@@ -14,7 +14,10 @@
 					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
 
 					<span class="followers-number small">
-						( <%= t('followers', count: user.followers.size) %> )
+						(
+							<%= user.followers.size %> <%= t('followers_num') %> , 
+							<%= user.followed_users.size %> <%= t('followed_users_num') %> 
+						)
 					</span> 
 
 					<span class="<%= "online" if user.online? %> ">

@@ -6,7 +6,8 @@
 	<%= render partial: 'profiles/show/single_profile', locals: {user: user}  %>
 	<%= render partial: 'vehicles/show', locals: {user: user} %>
 	<% if current_user %>
-		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: "#{t 'followed_users'} #{@profile.user.name }"} %>
+		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('followed_users_by', user: user.name)} %>
+		<%= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: user.name)} %>
 	<% end %>
 
 	<%= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>

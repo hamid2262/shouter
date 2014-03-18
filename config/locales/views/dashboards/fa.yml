@@ -1,7 +1,6 @@
 fa:
   dashboards:
     show:
-      followed_users: دنبال شونده ها
       other_users: کاربران دیگر
     trip_actions:
       register_trip: ثبت سفر

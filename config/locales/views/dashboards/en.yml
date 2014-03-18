@@ -1,7 +1,6 @@
 en:
   dashboards:
     show:
-      followed_users: Followed Users
       other_users: Other Users
     trip_actions:
       register_trip: Register Trip

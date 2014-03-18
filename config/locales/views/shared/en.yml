@@ -3,11 +3,23 @@ en:
     users_list:
       list_is_empty: List is Empty.
   ladies_only: Ladies only
-  followers: Follower
-  followeds: Followed
+  followers:
+    zero: without follower
+    one: one follower
+    other: ' %{count} followers'
+  followeds:
+    zero: without following
+    one: one following
+    other: '%{count} followings'
+
+  followed_users_by: Followed user by %{user}
+  followers_of: Followers of %{user}
+
+  followed_users_num: followings
+  followers_num:  followers
+
   sign_in: Sign In
   last_login: Last login
-  followed_users: Followed Users by
   posts: Posts
   reviews: reviews        
   currency:  "%{unit} %{amount}"
@@ -24,7 +36,6 @@ en:
     error_messages:
       title: Errors prohibited this record from being saved 
       description: 'There were problems with the following fields:'
-  
   facebook_sign_in_title: Sign In With Facabook
   facebook_sign_in_caption: Sign In With Facebook
 

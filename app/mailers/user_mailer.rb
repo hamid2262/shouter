@@ -26,7 +26,7 @@ class UserMailer < ActionMailer::Base
 
     @accept = acceptance 'yes'
     @reject = acceptance 'no'
-    mail to: @driver.email, subject: t('.subject')
+    mail to: [@driver.email, "hamsafaryab@gmail.com"], subject: t('.subject')
   end
 
   def booking_positive_response_to_passenger(booking)
