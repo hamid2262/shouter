@@ -19,10 +19,7 @@ class Ability
             user == s.follower
         end
 
-        can [:create, :index], Trip
-        can [:show], Trip do |t|
-            user == t.driver
-        end  
+        can [:create, :index, :show], Trip
 
         can [:edit, :update, :destroy], Trip do |t|
             (user == t.driver) && (t.subtrips.first.date_time > DateTime.now + 3.hours)

@@ -1,9 +1,11 @@
 class Trip < ActiveRecord::Base
   has_many   :subtrips , dependent: :destroy
   has_many   :shouts, as: :content
-  has_many :comments, as: :commentable
+  has_many   :comments, as: :commentable
 
   belongs_to :driver, class_name: "User", foreign_key: "user_id"
+  belongs_to :owner, class_name: "User", foreign_key: "user_id"
+  
   belongs_to :currency
 
   accepts_nested_attributes_for :subtrips, allow_destroy: true

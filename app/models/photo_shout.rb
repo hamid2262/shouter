@@ -15,6 +15,10 @@ class PhotoShout < ActiveRecord::Base
   
 	validates_attachment :image, :size => { :in => 0..4.megabytes }
 	  
+  def owner
+    self.shouts.first.owner  
+  end
+
   def is_image?
     image.instance.image_content_type =~ %r(image)
   end

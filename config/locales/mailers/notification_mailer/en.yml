@@ -1,0 +1,5 @@
+en:
+  notification_mailer:
+    comment_notification_to_shout_owner:
+      subject: '%{commenter} wrote a comment on your post: '
+      see_post: See Post      

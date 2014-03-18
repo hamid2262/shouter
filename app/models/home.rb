@@ -1,4 +1,4 @@
-class Home 
+class Home
 
 	def self.newtrips
     subtrips = Subtrip.where.not("origin_address = destination_address")

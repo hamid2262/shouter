@@ -1,0 +1,5 @@
+fa:
+  notification_mailer:
+    comment_notification_to_shout_owner:
+      subject: '%{commenter} در زیر پست شما کامنتی گذاشته است:'
+      see_post: مشاهده پست

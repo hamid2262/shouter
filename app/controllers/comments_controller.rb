@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.new(comment_params)
     @comment.writer = current_user
     if @comment.save
+      if current_user == @commentable.owner
+        commenters = @commentable.comments.map{|c| c.writer}.uniq
+        # NotificationMailer.comment_notification_to_shout_commenters(current_user, commenters,@comment).deliver
+      else
+        NotificationMailer.comment_notification_to_shout_owner(@commentable.owner, current_user, @comment).deliver
+      end
       redirect_to :back
       # redirect_to [@commentable, :comments], notice: "Comment successfully created"
     else

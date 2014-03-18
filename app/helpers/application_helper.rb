@@ -8,7 +8,6 @@ module ApplicationHelper
 		params[:locale] == 'fa' ? "left" : "right"
 	end
 
-
 	def farsi_right
 		params[:locale] == 'fa' ? "pull-right" : "pull-left"
 	end

@@ -7,7 +7,7 @@ class HomesController < ApplicationController
 
 		@search_subtrip = SearchSubtrip.new
 
-		@subtrips = Home.newtrips.limit(7)
+		@subtrips = Home.newtrips.limit(8)
 
 		@spacial_events = Home.spacial_events.limit(7)
   end

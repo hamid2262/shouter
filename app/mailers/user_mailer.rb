@@ -104,7 +104,7 @@ private
     @lang_side = lang_side
   end
 
-  def lang_direction
+  def lang_direction 
     if locale==:fa
       'rtl'
     else 

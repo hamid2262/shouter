@@ -1,0 +1,34 @@
+<%= render 'shared_mail/style' %>
+<%= render 'notification_mailer/style' %>
+<%= render 'shared_mail/header' %>
+
+<div id="comment_notification_to_shout_owner">
+	<table>
+		<tbody>
+			<tr>
+				<td>
+					<%= t(".subject", commenter: @commenter.name) %>
+				</td>
+			</tr>
+
+			<tr>
+				<td id="comment"> 
+					<%=link_to (gravatar @commenter, size = 50, klass = "gravatar", style = :square), profile_url(@commenter) %> 
+					<span id="body"><%= @comment.body %></span>
+				</td>
+			</tr>
+			
+			<tr>
+				<td id="see_post"> 
+					<%# commentable_url = url_for controller: @comment.commentable.class.name.downcase.pluralize, 
+						action: 'show', host: @host, id: @comment.commentable.id, locale: locale  %>	
+
+					<% commentable_url = profile_url(@owner) %>											
+					<%=link_to t(".see_post"), commentable_url, class: "button" %> 
+				</td>
+			</tr>
+			
+		</tbody>
+	</table>
+</div>
+<%= render 'shared_mail/footer' %>
