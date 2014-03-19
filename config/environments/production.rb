@@ -79,8 +79,8 @@ Shouter::Application.configure do
     domain: 'hamsafaryab.com',
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: 'hamsafaryab@gmail.com',
-    password: 'pectaiyocwaodpjq'
+    user_name: ENV['GMAIL_USER_NAME'],
+    password: ENV['GMAIL_PASSWORD']
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -101,12 +101,12 @@ Shouter::Application.configure do
     :storage => :s3,
     :s3_protocol => 'http',
     :s3_credentials => {
-      # :bucket => ENV['AWS_BUCKET'],
-      # :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      # :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-      :bucket => 'hamsafaryab.production',
-      :access_key_id => 'AKIAJJYF3VETKWDDFGBA',
-      :secret_access_key => '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'     
+      :bucket => ENV['PRO_AWS_BUCKET'],
+      :access_key_id => ENV['PRO_AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['PRO_AWS_SECRET_ACCESS_KEY']
+      # :bucket => 'hamsafaryab.production',
+      # :access_key_id => 'AKIAJJYF3VETKWDDFGBA',
+      # :secret_access_key => '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'     
     }
   }
 

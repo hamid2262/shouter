@@ -43,8 +43,8 @@ Shouter::Application.configure do
     domain: 'hamsafaryab.com',
     authentication: :plain,
     enable_starttls_auto: true,
-    user_name: 'hamsafaryab@gmail.com',
-    password: 'pectaiyocwaodpjq'
+    user_name: ENV['GMAIL_USER_NAME'],
+    password: ENV['GMAIL_PASSWORD']
   }
 
   # Amazon S3 settings for Paperclip uploads
@@ -52,9 +52,9 @@ Shouter::Application.configure do
     :storage => :s3,
     :s3_protocol => 'http',
     :s3_credentials => {
-      :bucket => 'shouter', #ENV['AWS_BUCKET'],
-      :access_key_id => 'AKIAIRZQKABYBWRUTCDQ', #ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => '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' # ENV['AWS_SECRET_ACCESS_KEY']
+      :bucket => ENV['DEV_AWS_BUCKET'],
+      :access_key_id => ENV['DEV_AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['DEV_AWS_SECRET_ACCESS_KEY']
     }
   }
 
