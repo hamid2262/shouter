@@ -1,7 +1,7 @@
 require "bundler/capistrano"
 
 # server "188.226.175.210", :web, :app, :db, primary: true
-server "107.170.96.30", :web, :app, :db, primary: true
+server "188.226.219.99", :web, :app, :db, primary: true
 
 set :application, "shouter"
 set :user, "deployer"
@@ -31,6 +31,7 @@ namespace :deploy do
     sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{application}"
     run "mkdir -p #{shared_path}/config"
     put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
+    put File.read("config/application.example.yml"), "#{shared_path}/config/application.yml"
     puts "Now edit the config files in #{shared_path}."
   end
   after "deploy:setup", "deploy:setup_config"
