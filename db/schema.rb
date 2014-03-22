@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316003518) do
+ActiveRecord::Schema.define(version: 20140322130755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,15 +195,12 @@ ActiveRecord::Schema.define(version: 20140316003518) do
     t.string   "current_sign_in_ip",     limit: 50
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                             default: false
-    t.integer  "city_id"
-    t.string   "username",               limit: 50
     t.string   "firstname",              limit: 50
     t.string   "lastname",               limit: 50
     t.string   "gender",                 limit: 6,                  null: false
     t.string   "tel",                    limit: 20
     t.string   "mobile",                 limit: 20
     t.string   "address"
-    t.string   "post_code",              limit: 10
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -221,24 +218,15 @@ ActiveRecord::Schema.define(version: 20140316003518) do
     t.string   "location"
     t.string   "uid"
     t.string   "facebook_image_url"
+    t.float    "ulat"
+    t.float    "ulng"
+    t.string   "city",                   limit: 80
   end
 
-  add_index "users", ["city_id"], name: "index_users_on_city_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
-
-  create_table "vehicle_brand_translations", force: true do |t|
-    t.integer  "vehicle_brand_id", null: false
-    t.string   "locale",           null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "name"
-  end
-
-  add_index "vehicle_brand_translations", ["locale"], name: "index_vehicle_brand_translations_on_locale", using: :btree
-  add_index "vehicle_brand_translations", ["vehicle_brand_id"], name: "index_vehicle_brand_translations_on_vehicle_brand_id", using: :btree
+  add_index "users", ["ulat", "ulng"], name: "index_users_on_ulat_and_ulng", using: :btree
 
   create_table "vehicle_brands", force: true do |t|
     t.string   "name"

@@ -11,14 +11,20 @@
  	}			) do |f| %>
 
 	<%= f.input :tel %>
+
 	<% if f.object.mobile.blank? %>
-		<%= f.input :mobile, wrapper_html: { class: 'form-group has-error' }, input_html: {:autofocus => true} %>
+		<%= f.input :mobile, wrapper_html: { class: 'form-group has-error' }, input_html: {:autofocus => true}, placeholder: t(".mobile_placeholder") %>
 	<% else %>		
 		<%= f.input :mobile %>
 	<% end %>
 
+	<% if f.object.city.blank? %>
+		<%= f.input :city, input_html: {id: 'search_subtrip_origin_address'}, wrapper_html: { class: 'form-group has-error' }, placeholder: t(".city_placeholder")  %>
+	<% else %>		
+		<%= f.input :city, input_html: {id: 'search_subtrip_origin_address'}, placeholder: t(".city_placeholder")  %>
+	<% end %>
+
 	<%= f.input :address %>
-	<%= f.input :post_code %>
 	<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>
 	<%= f.hidden_field :tab, :value => "contact_details" %>
 		  

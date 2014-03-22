@@ -80,7 +80,7 @@ fa:
   invitation_send_message: "دعوتنامه با موفقیت به  %{email} ارسال شد.  "
   
   flash:
-    mobile_message: برای ادامه، شماره موبایل خود را وارد کنید.
+    mobile_message: برای ادامه، شماره موبایل خود و شهر محل زندگی تان را وارد کنید.
   # cancan
   unauthorized:
     manage:

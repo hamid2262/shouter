@@ -4,14 +4,12 @@ fa:
       user: کاربر
     attributes:
       user:
-        username: نام کاربری
         firstname: نام
         lastname: نام خانوادگی
         gender: جنسیت
         tel: تلفن
         mobile: موبایل
         address: آدرس
-        post_code: کد پستی
         age: سن
         slug: آدرس اینترنتی شما در همسفریاب
         email: ایمیل

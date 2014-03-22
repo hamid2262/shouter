@@ -5,6 +5,9 @@ fa:
     edit:
       account_settings:
         new_password: رمز عبور جدید
+      contact_details:
+        city_placeholder: نام شهرتان را وارد کنید.
+        mobile_placeholder: شماره موبایتان را وارد کنید.
       page_url:
         change_url_message: 'توجه: آدرس اینترنتی شما در همسفریاب آدرسی خواهد بود که
           به موتورهای جستجوگر کمک خواهد کرد که صفحه شما برای دیگران با استفاده از

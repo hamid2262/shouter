@@ -5,6 +5,9 @@ en:
     edit:
       account_settings:
         new_password: New Password
+      contact_details:
+        city_placeholder: Enter your city name.
+        mobile_placeholder: Enter your cellphone number
       page_url:
         change_url_message: 'Caution: You can change your profile url only one time'
         your_url_is: 'Your url is:'

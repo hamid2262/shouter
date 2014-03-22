@@ -1,7 +1,7 @@
 <form class="form-horizontal" role="form">
-	<%= user_form_control_static  User.human_attribute_name("tel"), @user.tel %>
 	<%= user_form_control_static  User.human_attribute_name("mobile"), @user.mobile %>
+	<%= user_form_control_static  User.human_attribute_name("tel"), @user.tel %>
+	<%= user_form_control_static  User.human_attribute_name("city"), @user.city %>
 	<%= user_form_control_static  User.human_attribute_name("address"), @user.address %>
-	<%= user_form_control_static  User.human_attribute_name("post_code"), @user.post_code %>
   <%= link_to t(".goto_change_contact_details"), edit_user_registration_path+'#contact_details', class: 'btn btn-link col-sm-offset-3' %>
 </form>

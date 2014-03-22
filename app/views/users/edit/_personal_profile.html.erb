@@ -11,7 +11,6 @@
 	 	}			) do |f| %>
 
 			<%#= f.input :gender, collection: [[t('gender.male'),'m'],[t('gender.female'),'f']], prompt: "Select Gender" %>
-			<%#= f.input :username %>
 			<%= f.input :firstname %>
 			<%= f.input :lastname %>
 			<%= user_form_control_static  User.human_attribute_name("gender"), t_gender(@user.gender) %>

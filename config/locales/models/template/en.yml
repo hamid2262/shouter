@@ -4,14 +4,12 @@ en:
       user: User
     attributes:
       user:
-        username: Username
         firstname: "First Name"
         lastname: Last Name
         gender: Gender
         tel: Telphone
         mobile: Cellphone
         address: Address
-        post_code: Zip Code
         age: Age
         slug: Address in Hamsafaryab.com
         email: Email

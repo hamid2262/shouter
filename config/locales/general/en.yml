@@ -84,7 +84,7 @@ en:
   invitation_send_message: "Invitation has been sent"
   
   flash:
-    mobile_message: To continiue please enter your mobile number.
+    mobile_message: To continiue, please enter your mobile number and your current city.
   # cancan
   unauthorized:
     manage:

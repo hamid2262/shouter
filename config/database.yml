@@ -4,7 +4,7 @@ development:
   pool: 5
   database: shouter
   username: postgres
-  password: 
+  password: hamid
   host: localhost
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

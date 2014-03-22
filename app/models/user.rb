@@ -1,6 +1,9 @@
 require 'digest/sha1'
 
 class User < ActiveRecord::Base
+
+  geocoded_by :city, latitude: :ulat, longitude: :ulng
+  after_validation :geocode, :if => :city_changed?
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -22,13 +25,14 @@ class User < ActiveRecord::Base
                     format: { with: /\A[a-zA-Z][a-zA-Z0-9_-]+\z/i, message: "must be include letter and number and - , _ "  }, on: :update,
                     if: :has_slug_changed?
   validate :check_for_slud_updated_one_time
+
   before_create :generate_slug
   before_update :update_slug_update
+  before_save :check_for_cities_validation
 
   has_one    :vehicle
   has_many   :trips
   has_many   :bookings  
-  belongs_to :city
 
   has_many :shouts
 
@@ -58,14 +62,11 @@ class User < ActiveRecord::Base
   validates :firstname, length:   {maximum: 50}
   validates :lastname,  length:   {maximum: 50}
   validates :email,     uniqueness: true
-  validates :username,  uniqueness: true, allow_blank: true
   validates :gender,    presence: true, inclusion: { in: ['f','m'], message: "Please select gender" }
   validates :age,       inclusion:{ in: 0..99 }, allow_blank: true
-  # validates :city_id,   presence: true
   validates :tel,       length:{ in: 7..20  }, allow_blank: true
   validates :mobile,    length:{ in: 7..20  }, allow_blank: true
   validates :address,   length:{ in: 4..250 }, allow_blank: true
-  validates :post_code, length:{ in: 5..15  }, allow_blank: true
 
   validates_attachment :avatar, :size => { in: 0..4.megabytes }
   validates_attachment :cover,  :size => { in: 0..4.megabytes }
@@ -81,21 +82,18 @@ class User < ActiveRecord::Base
         user.firstname = auth.info.first_name   
         user.lastname = auth.info.last_name   
         user.gender = auth.extra.raw_info.gender[0]
-        user.location = auth.extra.raw_info.location.try(:name)
+        user.city = auth.extra.raw_info.location.try(:name)
         user.facebook_image_url = auth.info.image
         user.save!
     else 
       if user.uid.nil?
         user.provider = auth.provider
         user.uid = auth.uid
-        user.facebook_image_url = auth.info.image          
         user.firstname = auth.info.first_name  if user.firstname.nil?
         user.lastname = auth.info.last_name  if user.lastname.nil?
-        user.location = auth.extra.raw_info.location.try(:name) if auth.extra.raw_info.location.try(:name).present?
-      else      
-        user.facebook_image_url = auth.info.image          
-        user.location = auth.extra.raw_info.location.try(:name) if auth.extra.raw_info.location.try(:name).present?
       end
+      user.facebook_image_url = auth.info.image          
+      user.city = auth.extra.raw_info.location.try(:name) if user.ulat.nil? && (auth.extra.raw_info.location.try(:name).present?)
     end
     user
   end
@@ -140,8 +138,6 @@ class User < ActiveRecord::Base
   def name
     if self.firstname.present? || self.lastname.present?
       self.try(:firstname).try(:titleize) + " "+ self.try(:lastname).try(:titleize)
-    elsif self.username.present?
-       self.username
     else      
       self.email.partition("@").first 
    end
@@ -195,5 +191,20 @@ class User < ActiveRecord::Base
       'no data'
     end
   end
+
+  private
+
+    def check_for_cities_validation
+      if self.city
+        city = Geocoder.search(self.city)[0]
+        if city.try(:latitude).present?
+          self.ulat   = city.latitude
+          self.ulng   = city.longitude
+        else
+          self.ulat   = nil
+          self.ulng   = nil         
+        end
+      end     
+    end
 
 end
