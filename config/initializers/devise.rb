@@ -232,6 +232,7 @@ Devise.setup do |config|
   require "omniauth-facebook"
   config.omniauth :facebook, "697732596936483", "9c03d666c7586c8b40a75574834a4f3b", image_size: 'square' #, :strategy_class => OmniAuth::Strategies::Facebook
   # config.omniauth :facebook, "1392808294268799", "957fd2c8fb3385c7578f55898b564ceb", image_size: 'square' #, :strategy_class => OmniAuth::Strategies::Facebook
+  # this is german for iranian app 
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

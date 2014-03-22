@@ -2,7 +2,11 @@
   <div class="panel-heading">
     <h3 class="panel-title">
     	<%= title %>
-			<small class="pull-left "> <%= t 'last_login' %> </small>
+    	<% if random_user %>
+				<small class="pull-left "> <%= t 'city' %> </small>    		
+    	<% else %>
+				<small class="pull-left "> <%= t 'last_login' %> </small>    		
+    	<% end %>
     </h3>
 
   </div>
@@ -24,7 +28,11 @@
 						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user) %>
 					</span>		
 					
-					<%= resent_activity(user, "meta") %>
+					<% if random_user %>
+						<small class="pull-left text-muted meta"> <%= user.city_name %> </small>    		
+					<% else %>
+						<%= resent_activity(user, "meta") %>						
+					<% end %>
 						
 				</div>
 

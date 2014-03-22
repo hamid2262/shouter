@@ -2,9 +2,9 @@
 	<div class="col-md-4 ">
 		<%= render 'trip_actions' %>
 		<span class="hidden-xs">
-			<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('followed_users_by', user: current_user.name)} %>
-			<%= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: current_user.name)} %>
-			<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users') } %>			
+			<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('followed_users_by', user: current_user.name), random_user: false} %>
+			<%= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: current_user.name), random_user: false} %>
+			<%= render partial: 'shared/users_list', locals: {users: @random_users, title: t('.other_users'), random_user: true } %>			
 		</span>
 	</div>
 

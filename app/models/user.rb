@@ -135,6 +135,10 @@ class User < ActiveRecord::Base
     UserMailer.signup_confirmation(self).deliver
   end
 
+  def city_name
+    self.city.split(',')[0] if self.ulat
+  end
+
   def name
     if self.firstname.present? || self.lastname.present?
       self.try(:firstname).try(:titleize) + " "+ self.try(:lastname).try(:titleize)

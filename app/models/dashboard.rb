@@ -25,7 +25,17 @@ class Dashboard
 	end
 
 	def random_users
-		User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order(updated_at: :desc).limit(8)
+		if @user.ulat
+			users = User.where.not(id: unfollowed_users_ids).near(@user.city, 2000).order("RANDOM()").limit(8)
+			size = users.size
+			if size < 8
+				users = users.concat( User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8-size) )
+				users = users.uniq
+			end
+		else
+			users = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8)
+		end
+		users
 	end
 
 	private
