@@ -1,13 +1,15 @@
 <!-- Origin -->
 <div class="form-group">
-	<div class="origin_input ">
+	<div class="origin_input cities">
+		<div class="glyph-map pull-<%= lang_side %>"></div>
 		<%= f.input :origin_address,:label => false, required: false, placeholder:t("search_subtrips.form.mode.autocomplete.placeholder.origin"),  input_html: {class: "form-control input-lg"} %>					
 	</div>
 </div>
 
 <!-- Destination -->
 <div class="form-group">
-	<div class=" destination_input">
+	<div class=" destination_input cities">
+		<div class="glyph-map pull-<%= lang_side %>"></div>
 		<%= f.input :destination_address,:label => false, placeholder: t("search_subtrips.form.mode.autocomplete.placeholder.destination"), input_html: {class: "form-control requiredd input-lg"} %>
 	</div>
 </div>

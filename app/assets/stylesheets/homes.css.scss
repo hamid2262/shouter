@@ -24,6 +24,28 @@ $green: #b5c023;
 			z-index: 10;
 			width: 58px;
 		}
+		.cities{
+			input{
+				padding: 0 25px;
+			}
+		}
+		.origin_input .glyph-map{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
+			background-position: 0px -189px;
+		}
+		.destination_input .glyph-map{
+			background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
+			background-position: 0px -160px;
+		}
+	  .origin_input, .destination_input{
+	    .glyph-map{
+		  	width: 13px;
+		  	height: 30px;
+		  	margin: 6px 7px;
+		  	position: absolute;
+		  }
+		}
+
 		// background: $green;
 		// border: 2px solid #C3D329;
 		// border-radius: 6px;
