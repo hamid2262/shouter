@@ -1,6 +1,9 @@
-class TransportationCompany < ActiveRecord::Base
+class Company < ActiveRecord::Base
 
 	has_many :branches
+
+  validates :name, presence: true
+  validates :slug, presence: true
 
   has_attached_file :image, 
     styles: lambda { |a| {:thumb => "160x48#", :medium => "340x100#"} if a.instance.is_image? },

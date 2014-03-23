@@ -9,7 +9,7 @@ class CreateBranches < ActiveRecord::Migration
       t.string :slug
       t.float :blat
       t.float :blng
-      t.belongs_to :transportation_company, index: true
+      t.belongs_to :company, index: true
       t.belongs_to :user, index: true
       t.attachment :cover
 

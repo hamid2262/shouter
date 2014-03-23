@@ -1,4 +1,4 @@
-<%= simple_form_for(@branch) do |f| %>
+<%= simple_form_for( [@company, @branch]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -9,7 +9,7 @@
     <%= f.input :tel %>
     <%= f.input :city %>
     <%= f.association :manager %>
-    <%= f.association :transportation_company %>
+    <%= f.association :company %>
     <%= f.input :cover %>
   </div>
 

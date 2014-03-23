@@ -1,6 +1,6 @@
-class CreateTransportationCompanies < ActiveRecord::Migration
+class CreateCompanies < ActiveRecord::Migration
   def change
-    create_table :transportation_companies do |t|
+    create_table :companies do |t|
       t.string :name,  limit: 80
       t.string :tel,   limit: 80
       t.string :email, limit: 80

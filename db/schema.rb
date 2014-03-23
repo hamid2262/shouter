@@ -39,15 +39,15 @@ ActiveRecord::Schema.define(version: 20140323161040) do
   add_index "branch_driver_relationships", ["user_id"], name: "index_branch_driver_relationships_on_user_id", using: :btree
 
   create_table "branches", force: true do |t|
-    t.string   "name",                      limit: 80
+    t.string   "name",               limit: 80
     t.string   "address"
-    t.string   "email",                     limit: 80
-    t.string   "tel",                       limit: 80
-    t.string   "city",                      limit: 80
+    t.string   "email",              limit: 80
+    t.string   "tel",                limit: 80
+    t.string   "city",               limit: 80
     t.string   "slug"
     t.float    "blat"
     t.float    "blng"
-    t.integer  "transportation_company_id"
+    t.integer  "company_id"
     t.integer  "user_id"
     t.string   "cover_file_name"
     t.string   "cover_content_type"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20140323161040) do
     t.datetime "updated_at"
   end
 
-  add_index "branches", ["transportation_company_id"], name: "index_branches_on_transportation_company_id", using: :btree
+  add_index "branches", ["company_id"], name: "index_branches_on_company_id", using: :btree
   add_index "branches", ["user_id"], name: "index_branches_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
@@ -70,6 +70,24 @@ ActiveRecord::Schema.define(version: 20140323161040) do
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+
+  create_table "companies", force: true do |t|
+    t.string   "name",               limit: 80
+    t.string   "tel",                limit: 80
+    t.string   "email",              limit: 80
+    t.string   "website",            limit: 80
+    t.string   "slug"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "currencies", force: true do |t|
     t.string   "name"
@@ -202,24 +220,6 @@ ActiveRecord::Schema.define(version: 20140323161040) do
 
   create_table "text_shouts", force: true do |t|
     t.string "body"
-  end
-
-  create_table "transportation_companies", force: true do |t|
-    t.string   "name",               limit: 80
-    t.string   "tel",                limit: 80
-    t.string   "email",              limit: 80
-    t.string   "website",            limit: 80
-    t.string   "slug"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-    t.string   "cover_file_name"
-    t.string   "cover_content_type"
-    t.integer  "cover_file_size"
-    t.datetime "cover_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "trips", force: true do |t|

@@ -9,7 +9,7 @@
       <th>Tel</th>
       <th>City</th>
       <th>manager</th>
-      <th>Transportation company</th>
+      <th> company</th>
       <th></th>
       <th></th>
       <th></th>
@@ -24,11 +24,11 @@
         <td><%= branch.email %></td>
         <td><%= branch.tel %></td>
         <td><%= branch.city %></td>
-        <td><%= branch.manager.name %></td>
-        <td><%= branch.transportation_company.name %></td>
-        <td><%= link_to 'Show', branch %></td>
-        <td><%= link_to 'Edit', edit_branch_path(branch) %></td>
-        <td><%= link_to 'Destroy', branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= branch.manager.try(:name) %></td>
+        <td><%= branch.company.try(:name) %></td>
+        <td><%= link_to 'Show', [@company, branch] %></td>
+        <td><%= link_to 'Edit', edit_company_branch_path(id: branch.id) %></td>
+        <td><%= link_to 'Destroy', company_branch_path(id: branch.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,4 +36,4 @@
 
 <br>
 
-<%= link_to 'New Branch', new_branch_path %>
+<%= link_to 'New Branch', new_company_branch_path %>

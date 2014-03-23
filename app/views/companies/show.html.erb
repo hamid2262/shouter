@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @company.tel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @company.email %>
+</p>
+
+<%= image_tag( @company.image.url(:medium), alt: @company.name ,size: "340x100") %>
+<br>	
+<%= image_tag( @company.cover.url(:large), alt: @company.name ,size: "851x315") %>
+
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

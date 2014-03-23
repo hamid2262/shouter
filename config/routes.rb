@@ -39,7 +39,7 @@ Shouter::Application.routes.draw do
       resources :comments
     end
     
-    resources :transportation_companies do
+    resources :companies do
       resources :branches
     end
 
