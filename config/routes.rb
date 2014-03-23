@@ -38,7 +38,8 @@ Shouter::Application.routes.draw do
     resources :photo_shouts, only: [:create, :destroy] do
       resources :comments
     end
-
+    
+    resources :branches
     resources :transportation_companies
     resources :networks, only: [:show]
     resources :pages

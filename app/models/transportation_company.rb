@@ -1,5 +1,7 @@
 class TransportationCompany < ActiveRecord::Base
 
+	has_many :branches
+
   has_attached_file :image, 
     styles: lambda { |a| {:thumb => "160x48#", :medium => "340x100#"} if a.instance.is_image? },
     default_url: lambda { |a| "#{IMAGES_PATH}#{a.instance.gender}_default_avatar.png"}

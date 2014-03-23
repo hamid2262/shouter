@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @branch.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @branch.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @branch.email %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @branch.tel %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @branch.city %>
+</p>
+
+<p>
+  <strong>Blat:</strong>
+  <%= @branch.blat %>
+</p>
+
+<p>
+  <strong>Blng:</strong>
+  <%= @branch.blng %>
+</p>
+
+<p>
+  <strong>Transportation company:</strong>
+  <%= @branch.transportation_company.name %>
+</p>
+<p>
+  <%= image_tag( @branch.cover.url(:large), alt: @branch.name ,size: "851x315") %>
+</p>
+<%= link_to 'Edit', edit_branch_path(@branch) %> |
+<%= link_to 'Back', branches_path %>

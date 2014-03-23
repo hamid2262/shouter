@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_one    :vehicle
   has_many   :trips
   has_many   :bookings  
+  has_many   :branches  
 
   has_many :shouts
 

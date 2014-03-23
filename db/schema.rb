@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140323112723) do
+ActiveRecord::Schema.define(version: 20140323141426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,27 @@ ActiveRecord::Schema.define(version: 20140323112723) do
 
   add_index "bookings", ["subtrip_id"], name: "index_bookings_on_subtrip_id", using: :btree
   add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
+
+  create_table "branches", force: true do |t|
+    t.string   "name",                      limit: 80
+    t.string   "address"
+    t.string   "email",                     limit: 80
+    t.string   "tel",                       limit: 80
+    t.string   "city",                      limit: 80
+    t.float    "blat"
+    t.float    "blng"
+    t.integer  "transportation_company_id"
+    t.integer  "user_id"
+    t.string   "cover_file_name"
+    t.string   "cover_content_type"
+    t.integer  "cover_file_size"
+    t.datetime "cover_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "branches", ["transportation_company_id"], name: "index_branches_on_transportation_company_id", using: :btree
+  add_index "branches", ["user_id"], name: "index_branches_on_user_id", using: :btree
 
   create_table "comments", force: true do |t|
     t.text     "body"
