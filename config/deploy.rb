@@ -1,6 +1,5 @@
 require "bundler/capistrano"
 
-# server "188.226.175.210", :web, :app, :db, primary: true
 server "188.226.219.99", :web, :app, :db, primary: true
 
 set :application, "shouter"

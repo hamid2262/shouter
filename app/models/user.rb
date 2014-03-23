@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   has_attached_file :cover, 
     styles: lambda { |a| {:small => "370x140#", :large => "851x315#"} if a.instance.is_cover? },
     default_url:  "#{IMAGES_PATH}default_cover.jpg"
-  after_create :send_admin_mail
 
   # SLUG_REGEX =         
   validates :slug, uniqueness: { case_sensitive: false }, 
@@ -26,6 +25,7 @@ class User < ActiveRecord::Base
                     if: :has_slug_changed?
   validate :check_for_slud_updated_one_time
 
+  after_create :send_admin_mail
   before_create :generate_slug
   before_update :update_slug_update
   before_save :check_for_cities_validation

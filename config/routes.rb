@@ -1,4 +1,5 @@
 Shouter::Application.routes.draw do
+
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
@@ -38,6 +39,7 @@ Shouter::Application.routes.draw do
       resources :comments
     end
 
+    resources :transportation_companies
     resources :networks, only: [:show]
     resources :pages
     resources :currencies
