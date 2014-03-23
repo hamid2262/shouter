@@ -1,21 +1,25 @@
-	
-	<%= render "ga" if Rails.env.production?  %>
+<%= render "ga" if Rails.env.production?  %>
+  <div id="footer">
+    <div class="container small">
+      
+      <ul id="social">
+        <a href="http://www.facebook.com/hamsafaryab"><li id="facebook-link" ></li></a> 
+        <a href="https://plus.google.com/111714289206994000368"><li id="gplus" ></li></a> 
+        <a href="https://twitter.com/hamsafaryab"><li id="twitter" ></li></a> 
+      </ul>
 
 
-    <div id="footer">
-      <div class="container small">
-        <p class="text-muted <%= farsi_right %>">
-        	<%= t('.copyright', year: Time.now().year, href: link_to(t("site_info.title"), root_path) ).html_safe %>
-        </p>
+      <p class="text-muted pull-<%= lang_side %>">
+      	<%= t('.copyright', year: Time.now().year, href: link_to(t("site_info.title"), root_path) ).html_safe %>
+      </p>
 
-        <p class=" text-muted <%= farsi_left %>">
-        	<%= link_to t('.term'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
-        	<%= link_to t('.security'), root_path, class: "navbar-link" %> &nbsp;&nbsp;
-        	<%= link_to t('.privacy'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
-        	<%= link_to t('.contact'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
-	       </p>
-      </div>
+      <p class=" text-muted pull-<%= lang_other_side %>">
+      	<%= link_to t('.term'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+      	<%= link_to t('.security'), root_path, class: "navbar-link" %> &nbsp;&nbsp;
+      	<%= link_to t('.privacy'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+      	<%= link_to t('.contact'), root_path, class: "navbar-link" %>&nbsp;&nbsp;
+      </p>
     </div>
-
+  </div>
 </body>
 </html>

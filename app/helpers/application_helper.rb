@@ -8,14 +8,6 @@ module ApplicationHelper
 		params[:locale] == 'fa' ? "left" : "right"
 	end
 
-	def farsi_right
-		params[:locale] == 'fa' ? "pull-right" : "pull-left"
-	end
-
-	def farsi_left
-		params[:locale] == 'fa' ? "pull-left" : "pull-right"
-	end
-	
 	def t_gender gender
 		if gender == 'm'
 			t('gender.male')
