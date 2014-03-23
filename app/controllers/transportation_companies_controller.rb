@@ -72,6 +72,6 @@ class TransportationCompaniesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def transportation_company_params
-      params.require(:transportation_company).permit(:name, :tel, :email, :image, :cover)
+      params.require(:transportation_company).permit(:name,:slug, :tel, :email,:website, :image, :cover)
     end
 end

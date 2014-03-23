@@ -3,13 +3,12 @@
 
   <div class="form-inputs">
     <%= f.input :name %>
+    <%= f.input :slug %>
     <%= f.input :address %>
     <%= f.input :email %>
     <%= f.input :tel %>
     <%= f.input :city %>
-    <%= f.input :blat %>
-    <%= f.input :blng %>
-    <%= f.association :user %>
+    <%= f.association :manager %>
     <%= f.association :transportation_company %>
     <%= f.input :cover %>
   </div>

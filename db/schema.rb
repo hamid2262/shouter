@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20140323161040) do
     t.string   "email",                     limit: 80
     t.string   "tel",                       limit: 80
     t.string   "city",                      limit: 80
+    t.string   "slug"
     t.float    "blat"
     t.float    "blng"
     t.integer  "transportation_company_id"
@@ -205,8 +206,10 @@ ActiveRecord::Schema.define(version: 20140323161040) do
 
   create_table "transportation_companies", force: true do |t|
     t.string   "name",               limit: 80
-    t.string   "tel",                limit: 20
-    t.string   "email",              limit: 40
+    t.string   "tel",                limit: 80
+    t.string   "email",              limit: 80
+    t.string   "website",            limit: 80
+    t.string   "slug"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

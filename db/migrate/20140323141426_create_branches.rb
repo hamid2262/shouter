@@ -6,6 +6,7 @@ class CreateBranches < ActiveRecord::Migration
       t.string :email, limit: 80
       t.string :tel, limit: 80
       t.string :city, limit: 80
+      t.string :slug
       t.float :blat
       t.float :blng
       t.belongs_to :transportation_company, index: true

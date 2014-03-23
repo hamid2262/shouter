@@ -39,8 +39,10 @@ Shouter::Application.routes.draw do
       resources :comments
     end
     
-    resources :branches
-    resources :transportation_companies
+    resources :transportation_companies do
+      resources :branches
+    end
+
     resources :networks, only: [:show]
     resources :pages
     resources :currencies
