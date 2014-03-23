@@ -38,7 +38,7 @@
 
 				<tr>
 					<th><%= t(".city") %></th>
-					<th><%= @subtrip.trip.driver.try(:city).try(:name) %></th>
+					<th><%= @subtrip.trip.driver.city_name %></th>
 				</tr>
 				<% if @subtrip.trip.driver.slug_updated %>
 					<tr>
