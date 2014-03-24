@@ -74,18 +74,18 @@ module ApplicationHelper
 		if user.avatar.present?
 			image_tag(user.avatar.url(style), 
 				size: "#{size}x#{size}", 
-				alt:"#{user.name} in hamsafaryab.com", class: klass )
+				alt:"#{user.name}", class: klass )
 		elsif user.facebook_image_url.present?
 			image_tag(user.facebook_image_url, 
 				size: "#{size}x#{size}", 
-				alt:"#{user.name} in hamsafaryab.com", class: klass )		
+				alt:"#{user.name}", class: klass )		
 		else
 			image_tag(default_avatar(user), 
 				size: "#{size}x#{size}", 
-				alt:"#{user.name} in hamsafaryab.com", class: klass )
+				alt:"#{user.name}", class: klass )
 
 				# gravatar_image_tag( user.email.gsub('spam', 'mdeering'), 
-				# 	:alt => "#{user.name} in hamsafaryab.com", 
+				# 	:alt => "#{user.name}", 
 				# 	:class => klass,
 				# 	:gravatar => { 
 				# 		:default => default_avatar(user),

@@ -40,7 +40,10 @@ Shouter::Application.routes.draw do
     end
     
     resources :companies do
-      resources :branches
+      resources :branches do
+        post   'driver' => 'branch_driver_relationships#create' 
+        delete 'driver' => 'branch_driver_relationships#destroy' 
+      end
     end
 
     resources :networks, only: [:show]

@@ -1,7 +1,7 @@
 <div id='cover'>
 	<div class="coverImage">
 		<%= image_tag(user.cover.url(:large), 
-				alt:"#{user.name} in hamsafaryab.com", class: "img-responsive") %>
+				alt:"#{user.name}", class: "img-responsive") %>
 	</div>
 
 	<% if current_user && current_user.can_follow?(user) %>

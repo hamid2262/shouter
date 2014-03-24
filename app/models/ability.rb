@@ -7,9 +7,11 @@ class Ability
         can :manage, :all
     elsif user.try(:email) != ""
         
-        can [:edit, :update], Branch do |u|
-            user == u
+        can [:edit, :update], Branch do |b|
+            user == b.manager
         end
+
+        can [:manage], BranchDriverRelationship 
 
         can [:edit, :update, :refresh], User do |u|
             user == u

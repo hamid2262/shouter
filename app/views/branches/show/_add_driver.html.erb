@@ -1,0 +1,12 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+  	<%=t  '.add driver to branch'  %>
+  </div>
+  <div class="panel-body">
+		<%= flash_creator flash %>
+		<%= form_for(:branch, url: [@company, @branch, :driver], html: { method: :post, class: "" } ) do |f| %>
+			<%= f.text_field :email %>
+			<%= f.submit "send", :disable_with => 'sending...', class: 'btn-primary' %>
+		<% end %>
+  </div>
+</div>

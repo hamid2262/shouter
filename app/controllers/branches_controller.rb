@@ -16,6 +16,7 @@ class BranchesController < ApplicationController
   # GET /branches/1
   # GET /branches/1.json
   def show
+    @drivers = @branch.active_drivers
   end
 
   # GET /branches/new
@@ -79,6 +80,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:name, :slug, :address, :email, :tel, :city,:company_id, :user_id, :cover)
+      params.require(:branch).permit(:name, :slug, :address, :email, :tel, :mobile, :city,:company_id, :user_id, :cover)
     end
 end

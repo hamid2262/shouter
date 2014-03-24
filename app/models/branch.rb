@@ -34,4 +34,17 @@ class Branch < ActiveRecord::Base
     end
   end
 
+  def active_drivers
+    self.drivers.merge(BranchDriverRelationship.where(active: true) )
+  end
+
+  def timeline
+    @shouts = Shout.where(user_id: shout_user_ids)
+  end
+
+  private
+
+    def shout_user_ids
+      self.drivers.map{|user| user.id} + [self.manager.id]
+    end
 end

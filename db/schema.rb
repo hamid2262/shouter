@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140323161040) do
   create_table "branch_driver_relationships", force: true do |t|
     t.integer  "user_id"
     t.integer  "branch_id"
-    t.boolean  "active"
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140323161040) do
     t.string   "address"
     t.string   "email",              limit: 80
     t.string   "tel",                limit: 80
+    t.string   "mobile",             limit: 80
     t.string   "city",               limit: 80
     t.string   "slug"
     t.float    "blat"

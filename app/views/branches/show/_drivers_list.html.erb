@@ -1,0 +1,41 @@
+<div class="users-list panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+    	<%= t ".list_of_drivers" %>
+    </h3>
+
+  </div>
+  <div class="panel-body">
+		<% if users.any? %>
+		
+			<% users.each do |user| %>
+				<div class="user-row-small">
+					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
+
+					<span class="followers-number small">
+						(
+							<%= user.followers.size %> <%= t('followers_num') %> , 
+							<%= user.followed_users.size %> <%= t('followed_users_num') %> 
+						)
+					</span> 
+
+					<span class="<%= "online" if user.online? %> ">
+						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user) %>
+					</span>		
+					
+					<% if can? :edit, @branch %>
+						<small class="pull-left text-muted meta"> 
+							<%= button_to t('remove'), company_branch_driver_path(company_id: @company.id,  branch_id: @branch.id, driver_id: user.id), method: :delete, class: "btn btn-danger btn-xs" %>
+						</small>    		<!-- company_branch_driver_path -->
+					<% else %>
+						<small class="pull-left text-muted meta"> <%= user.city_name %> </small> 
+					<% end %>
+						
+				</div>
+
+			<% end %>	
+		<% else %>
+			<%= t('.list_is_empty') %>
+		<% end %>
+  </div>
+</div>
