@@ -1,46 +1,14 @@
-<p id="notice"><%= notice %></p>
+<% @page_title = @branch.name %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @branch.name %>
-</p>
+<div id="branches_show">
+  <!-- --       Larg Screen      -- -->
+  <div id="large-screen" class="hidden-sm hidden-xs">
+    <%= render partial: 'branches/show/large_screens'  %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @branch.address %>
-</p>
+  </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @branch.email %>
-</p>
-
-<p>
-  <strong>Tel:</strong>
-  <%= @branch.tel %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @branch.city %>
-</p>
-
-<p>
-  <strong>Blat:</strong>
-  <%= @branch.blat %>
-</p>
-
-<p>
-  <strong>Blng:</strong>
-  <%= @branch.blng %>
-</p>
-
-<p>
-  <strong> company:</strong>
-  <%= @branch.company.try(:name) %>
-</p>
-<p>
-  <%= image_tag( @branch.cover.url(:large), alt: @branch.name ,size: "851x315") %>
-</p>
-<%= link_to 'Edit', edit_company_branch_path %> |
-<%= link_to 'Back', company_branches_path %>
+  <!-- --       Small Screen     -- -->
+  <div id="small-screen" class=" hidden-md hidden-lg "> 
+    <%#= render partial:  'branches/show/small_screens'   %>
+  </div>
+</div>

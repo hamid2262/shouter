@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      branch: branch
+    attributes:
+      branch:
+        name: Name of Branch
+        address: Address of Branch
+        email:
+        
+
+  helpers:
+    submit:
+      branch:
+        create: "Submit Branch"

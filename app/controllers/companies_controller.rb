@@ -27,6 +27,7 @@ class CompaniesController < ApplicationController
   # POST /companies
   # POST /companies.json
   def create
+    raise
     @company = Company.new(company_params)
 
     respond_to do |format|
@@ -67,7 +68,7 @@ class CompaniesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_company
-      @company = Company.find(params[:id])
+      @company = Company.where(slug: params[:id]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -12,6 +12,7 @@ en:
   tel: Telephone
   mobile: Cell Phone
   email: Email
+  website: Website
   password: Password
   number_of_requested_seats: Number of requested seats
   name_of_driver: "Drivers' Name"

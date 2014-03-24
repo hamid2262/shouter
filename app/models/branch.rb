@@ -9,8 +9,8 @@ class Branch < ActiveRecord::Base
   has_many :branch_driver_relationships            
   has_many :drivers, through: :branch_driver_relationships 
 
+  validates :slug, presence: true, uniqueness: { case_sensitive: true }
   validates :name, presence: true
-  validates :slug, presence: true
   validates :company, presence: true
   validates :manager, presence: true
   
@@ -20,6 +20,18 @@ class Branch < ActiveRecord::Base
 
   def is_cover?
     cover.instance.cover_content_type =~ %r(image)
+  end
+  
+  def to_param
+    self.slug
+  end
+
+  def mycover  
+    if self.cover.present?
+      self.cover
+    else
+      self.company.cover
+    end
   end
 
 end

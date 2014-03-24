@@ -1,9 +1,11 @@
 class BranchesController < ApplicationController
+  layout 'application_user', only: [:show]
+  
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
   before_action :set_company
 
-  load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  authorize_resource 
+  # skip_load_resource only: [:create] 
   
   # GET /branches
   # GET /branches.json
@@ -68,11 +70,11 @@ class BranchesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_branch
-      @branch = Branch.find(params[:id])
+      @branch = Branch.where(slug: params[:id]).first
     end
 
     def set_company
-      @company = Company.find(params[:company_id])
+      @company = Company.where(slug: params[:company_id]).first
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

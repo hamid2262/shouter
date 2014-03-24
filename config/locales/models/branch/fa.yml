@@ -1,0 +1,15 @@
+fa:
+  activerecord:
+    models:
+      branch: شعبه
+    attributes:
+      branch:
+        name: نام شعبه
+        address: آدرس شعبه
+        email:
+        
+
+  helpers:
+    submit:
+      branch:
+        create: "ثبت شعبه"

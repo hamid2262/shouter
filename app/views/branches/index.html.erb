@@ -27,8 +27,8 @@
         <td><%= branch.manager.try(:name) %></td>
         <td><%= branch.company.try(:name) %></td>
         <td><%= link_to 'Show', [@company, branch] %></td>
-        <td><%= link_to 'Edit', edit_company_branch_path(id: branch.id) %></td>
-        <td><%= link_to 'Destroy', company_branch_path(id: branch.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', [:edit, @company, branch] %></td>
+        <td><%= link_to 'Destroy', [@company, branch], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

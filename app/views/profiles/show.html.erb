@@ -1,12 +1,12 @@
 <% @page_title = @profile.user.name %>
 <!-- --       Larg Screen      -- -->
-<div class="visible-lg">
+<div class="hidden-sm hidden-xs">
   <%= render partial: 'profiles/show/large_screens', locals: {user: @profile.user}  %>
 
 </div>
 
 
 <!-- --       Small Screen     -- -->
-<div class=" hidden-lg "> 
+<div class=" hidden-md hidden-lg "> 
 	<%= render partial:  'profiles/show/small_screens', locals: {user: @profile.user}   %>
 </div>

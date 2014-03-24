@@ -1,0 +1,23 @@
+<div id='cover'>
+	<div class="coverImage">
+		<%= image_tag(@branch.mycover.url(:large), 
+				alt:"#{@branch.name} in hamsafaryab.com", class: "img-responsive") %>
+	</div>
+
+	<%# if current_user && current_user.can_follow?(user) %>
+		<!-- <div class="follow"><%#= follow_button user %></div>  -->
+	<%# end %>
+	
+	<% if can? :edit, @branch %>
+		<%= simple_form_for(:branch, url: company_branch_path, html: { method: :put, class: "cover_upload_form1" } ) do |f| %>
+			<%= f.input :cover, as: :file, label: false, input_html: { class: 'cover_upload_button1' } %>
+		 	<%#= f.button :submit, "Please wait",disabled: true, class: 'btn-primary cover_upload_submit1'%>
+		 	<%= f.button :submit, "Submit", class: 'btn-primary cover_upload_submit1'%>
+		<% end %>
+	<% end %> 
+
+	<!-- Hidden for large screens -->
+	<%#= render partial: 'branches/show/avatar_and_brief_for_small_screen', locals: {user: user} %>
+</div>
+
+

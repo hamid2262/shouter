@@ -1,0 +1,19 @@
+<!-- --       Larg Screen      -- -->
+<div id="sidebar" class="col-md-4">
+  <%= render 'branches/show/logo_and_name_for_large_screen'  %>
+
+	<%= render 'branches/show/branch_overview' %>
+
+	<%= render partial: 'branches/show/single_branch'  %>
+	<% if current_user %>
+		<%#= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: user.name), random_user: false} %>
+	<% end %>
+</div>
+
+<div id="left-content" class="col-md-8">
+	<%= render 'branches/show/cover'%>
+	<%#= flash_creator flash %>
+
+	<%#= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>
+
+</div>

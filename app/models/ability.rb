@@ -6,6 +6,11 @@ class Ability
     if user.admin?
         can :manage, :all
     elsif user.try(:email) != ""
+        
+        can [:edit, :update], Branch do |u|
+            user == u
+        end
+
         can [:edit, :update, :refresh], User do |u|
             user == u
         end
@@ -37,6 +42,7 @@ class Ability
         can :invite_acceptation, Invitation
     end
 
+    can :show, Branch
     can :show, SpacialEvent
     can :show, User
     can [:new,:select_date_format,:accept_date_format], Trip

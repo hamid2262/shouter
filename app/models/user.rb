@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   has_many   :trips
   has_many   :bookings  
 
-  has_many   :owned_branches, class_name: 'Branch'  # for manager of branch
+  has_one    :owned_branches, class_name: 'Branch'  # for manager of branch
 
   has_many   :branch_driver_relationships            
   has_many   :branches, through: :branch_driver_relationships 

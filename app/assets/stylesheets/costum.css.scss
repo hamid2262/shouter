@@ -7,7 +7,9 @@ body{
     padding-top: 50px;
     background: #eee;
 }
-
+a{
+  text-decoration: none !important;
+}
 #wrap {
   min-height: 100%;
   height: auto;

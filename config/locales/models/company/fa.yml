@@ -1,0 +1,13 @@
+fa:
+  activerecord:
+    models:
+      company: شرکت
+    attributes:
+      company:
+        name: نام شرکت
+        address: آدرس شرکت
+
+  helpers:
+    submit:
+      company:
+        create: "ثبت شرکت"

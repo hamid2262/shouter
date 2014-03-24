@@ -1,0 +1,13 @@
+en:
+  activerecord:
+    models:
+      company: Company
+    attributes:
+      branch:
+        name: Name of Company
+        address: Address of Company
+
+  helpers:
+    submit:
+      company:
+        create: "Submit Company"

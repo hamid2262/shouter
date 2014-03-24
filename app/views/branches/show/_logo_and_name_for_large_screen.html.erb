@@ -1,0 +1,11 @@
+<div class="logo-large-screen ">
+	<div class="logo col-lg-11">
+		<%= render 'branches/show/gravatar' %>
+	</div>
+
+	<div class="col-lg-11">
+		<h2 class="name-of-branch"><%= link_to  "#{@company.name} شعبه #{@branch.name}", [@company, @branch] %></h2>		
+		<!-- <span class="stars" style="background-position:1431px 0px;"></span> -->
+		<!-- <p class="score">(4.5/5)</p>  -->
+	</div>
+</div>

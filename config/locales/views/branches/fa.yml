@@ -1,0 +1,8 @@
+fa:
+  branches:
+    show:
+      branch_overview:
+        overview: "  %{company_name} %{branch}  %{branch_name}  در یک نگاه"
+      single_branch:
+        about_branch: اطلاعات شعبه
+        branch_manager: مدیر شعبه

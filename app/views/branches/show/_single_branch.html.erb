@@ -1,0 +1,43 @@
+<div class="panel panel-default clear">
+  <div class="panel-heading"> <%=t '.about_branch' %></div>
+	<table class="table">
+		<tbody>
+			<tr>
+				<th><%= Company.human_attribute_name("name") %></th>
+				<th><%=  link_to @company.name, @company %></th>
+			</tr>
+			<tr>
+				<th><%= Branch.human_attribute_name("name") %></th>
+				<th><%= @branch.name %></th>
+			</tr>
+			<tr>
+				<th><%= t("city") %></th>
+				<th><%= @branch.city  %></th>
+			</tr>
+			<tr>
+				<th><%= Branch.human_attribute_name("address") %></th>
+				<th><%=  @branch.address %></th>
+			</tr>
+			<tr>
+				<th><%= t("tel") %></th>
+				<th><%=  @branch.tel %></th>
+			</tr>
+			<tr>
+				<th><%#= Branch.human_attribute_name("mobile") %></th>
+				<th><%#=  @branch.mobile %></th>
+			</tr>
+			<tr>
+				<th><%= t("email") %></th>
+				<th><%=  @branch.email %></th>
+			</tr>
+			<tr>
+				<th><%= t "website" %></th>
+				<th><%=  @company.website %></th>
+			</tr>
+			<tr>
+				<th><%= t ".branch_manager" %></th>
+				<th><%=  link_to @branch.manager.name, profile_url(@branch.manager) %></th>
+			</tr>
+		</tbody>
+	</table>
+</div>
