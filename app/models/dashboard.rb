@@ -25,16 +25,27 @@ class Dashboard
 	end
 
 	def random_users
+		online_users = User.where.not(id: unfollowed_users_ids).where("updated_at > ?", Time.now - 20.minutes).limit(8)
 		if @user.ulat
-			users = User.where.not(id: unfollowed_users_ids).near(@user.city, 2000).order("RANDOM()").limit(8)
+			users = User.where.not(id: unfollowed_users_ids).near(@user.city, 2000).order("RANDOM()").limit(8) if online_users.size < 8
+			# make sure user has at least one element
+			if users.any?
+				users = users.concat(online_users) 
+			elsif	online_users.any?
+				users = online_users.concat(users) 
+			else
+				users = User.where.not(id: unfollowed_users_ids).where("updated_at > ?", Time.now - 200.minutes).limit(2)
+			end
+
 			size = users.size
 			if size < 8
 				users = users.concat( User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8-size) )
-				users = users.uniq
 			end
 		else
 			users = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8)
+			users = online_users.concat(users) if online_users.any?
 		end
+		users = users.uniq
 		users
 	end
 
