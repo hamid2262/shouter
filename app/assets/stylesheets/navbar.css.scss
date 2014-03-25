@@ -1,4 +1,10 @@
 .top_navbar {
+	#my_pages_menu{
+		#title{
+			padding: 9px;			
+			background-color: transparent;
+		}
+	}
 	.navbar-brand{
     padding-bottom: 0;
     padding-top: 0;   
@@ -25,11 +31,10 @@
 	#profile_menu, #my_trips_menu{
 		#title{
 			background-color: transparent;					
-		&:focus {
-			background-color: #eee;	
+			&:focus {
+				background-color: #eee;	
+			}
 		}
-		}
-		
 	}
 	.special_events{
 		color: red !important;

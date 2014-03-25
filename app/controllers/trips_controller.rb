@@ -24,12 +24,36 @@ class TripsController < ApplicationController
     @comment = Comment.new
   end
 
-  def select_date_format
+  def start_new_trip
     check_for_mobile
-    unless params[:locale] == 'fa' 
-      redirect_to action: 'new' 
-      return false
+    if current_user.is_admin?  || current_user.owned_branch
+      redirect_to action: 'select_driver'
+    elsif locale == :fa 
+      redirect_to action: 'select_date_format'
+    else
+      redirect_to action: 'new'
     end
+    return false
+  end
+
+  def select_driver
+    if current_user.is_admin?
+      @drivers = User.joins(:branch_driver_relationships)
+    else
+      @drivers = current_user.owned_branch.drivers
+    end
+  end
+
+  def accept_driver
+    session[:driver_id] = params[:trip][:driver_id]
+    if locale == :fa 
+      redirect_to action: 'select_date_format'     
+    else
+      redirect_to action: 'new'   
+    end
+  end
+
+  def select_date_format
   end
 
   def accept_date_format
@@ -57,18 +81,23 @@ class TripsController < ApplicationController
   def create
     # array  = filter_empty_subtrips(trip_params)
     @trip = Trip.new(filter_empty_subtrips(trip_params))
-    @trip.driver = current_user
+    if session[:driver_id]
+      driver = User.find session[:driver_id]
+      session[:driver_id] = nil
+    else
+      driver = current_user
+    end
+    @trip.driver = driver
     @trip.subtrips.each do |s|
       s.currency_id = @trip.currency_id
     end
     if @trip.save
-      @trip.shouts.create!(user_id: current_user.id)
+      @trip.shouts.create!(user_id: driver.id)
       redirect_to edit_trip_path(@trip.id) #, notice: t(:trip_create_message) 
     else
-      @max_vehicle_seats = 50
-      # render action: 'new' 
       redirect_to new_trip_path, alert: t("error_registration") 
     end
+    
   end
 
   def update
@@ -87,7 +116,11 @@ class TripsController < ApplicationController
     @trip.destroy
     @shout = Shout.where(content_type: 'Trip', content_id: @trip.id).delete_all
     respond_to do |format|
-      format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
+      if current_user.owned_branch
+        format.html { redirect_to company_branch_path(company_id: current_user.owned_branch.company, branch_id: current_user.owned_branch), notice: t(:trip_delete_message) }
+      else
+        format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
+      end
       format.json { head :no_content }
     end
   end

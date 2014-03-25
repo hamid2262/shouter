@@ -18,8 +18,7 @@
           <%= render 'application/nav/profile' %>
           <%= render 'application/nav/my_trips' %>
           <%= render 'application/nav/my_network' %>
-          <li><%= link_to current_user.name, profile_url(current_user), class: "name" %>  </li>
-          <li class="link"><%= link_to gravatar(current_user, 32, "img-rounded"), profile_url(current_user) %>  </li>
+          <%= render 'application/nav/my_pages' %>
   			<% else %>
           <li><%= link_to  "", root_path, class: "home" %></li>
           <%= render 'popup_signin' %>
@@ -28,7 +27,7 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t("navbar.trip.insert"), trips_select_date_format_path %></li>
+        <li><%= link_to t("navbar.trip.insert"), trips_start_new_trip_path %></li>
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 
         <% if current_page?( locale: "fa") %>

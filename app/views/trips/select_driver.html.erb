@@ -1,0 +1,36 @@
+<div id="trip_edit" class="">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+  		<%= render partial: 'trips/shared/head', locals:{stage: 1} %>
+			<div class="panel-body">
+		    <p> <%= t ".please_select_driver" %></p>
+
+				<%= form_tag( trips_accept_driver_path, method: :put) do %>
+
+					<div class="col-xs-10 col-xs-offset-2 ">
+						<div class="radio ">
+						  <label>
+						  	<% if current_user.is_admin? %>
+							  	<span id="admin">
+										<strong><%= t('.branch_name') %></strong>
+										<%= collection_select(:temp1, :temp_id, Branch.all, :id, :name, prompt: true) %>
+							  		<strong><%= t('.driver_name') %></strong>
+										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name, :id, :name, include_blank: true %>					  		
+							  	</span>
+	
+						  	<% else %>
+						  		<strong><%= t('.driver_name') %></strong>
+									<%= collection_select(:trip, :driver_id, @drivers, :id, :name, prompt: false) %>
+						  	<% end %>
+						  </label>
+						</div>			
+					</div>				
+					<%= submit_tag "مرحله بعد", class: "btn btn-warning pull-left" %>
+				<% end %>								
+			</div>
+	
+
+		</div>
+	</div>
+</div>
+

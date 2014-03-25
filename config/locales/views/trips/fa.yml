@@ -13,11 +13,16 @@ fa:
         نمی توان کنسل نمود.
       title: لیست سفرهای ثبت کرده
       total_available_seats: تعداد صندلی های در دسترس
+    select_driver:
+      branch_name: نام شعبه
+      driver_name: 'نام راننده:'
+      please_select_driver: 'لطفا راننده را انتخاب کنید '
     shared:
       head:
         price: انتخاب قیمتها
         register_trip_info: ثبت سفر
         select_date_format: نمایش تاریخ
+        select_driver: انتخاب راننده
         succecful_submit: اتمام ثبت سفر
     show_edit:
       form_edit:

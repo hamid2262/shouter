@@ -1,6 +1,6 @@
 <div id="new_trip_form" class="col-md-8">
 <div class="panel panel-default">
-  <%= render partial: 'trips/shared/head', locals:{stage: 3} %>
+  <%= render partial: 'trips/shared/head', locals:{stage: 4} %>
   <div class="panel-body">
     <%= simple_form_for(@trip) do |f| %>
       
@@ -20,7 +20,7 @@
           <%= f.label :total_available_seats %>
         </div>  
         <div class="col-sm-2">        
-           <%= f.select :total_available_seats, 1..@max_vehicle_seats, {selected: 4}, {class: "form-control"} %>
+           <%= f.select :total_available_seats, 1..50, {selected: 4}, {class: "form-control"} %>
         </div>
       </div>
 

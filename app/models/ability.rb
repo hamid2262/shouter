@@ -26,10 +26,10 @@ class Ability
             user == s.follower
         end
 
-        can [:create, :index, :show], Trip
+        can [:create, :index, :show ,:select_date_format,:accept_date_format, :select_driver, :accept_driver], Trip
 
         can [:edit, :update, :destroy], Trip do |t|
-            (user == t.driver) && (t.subtrips.first.date_time > DateTime.now + 3.hours)
+           ( (user == t.driver) || (t.driver.branches.map{|b| b.manager}.include? user) )&& (t.subtrips.first.date_time > DateTime.now + 3.hours)
         end        
 
         can [:new, :create, :index], Booking
@@ -47,7 +47,7 @@ class Ability
     can :show, Branch
     can :show, SpacialEvent
     can :show, User
-    can [:new,:select_date_format,:accept_date_format], Trip
+    can [:new, :start_new_trip], Trip
     can :booking_acceptance, Booking
     can :show, Page
     # The first argument to `can` is the action you are giving the user 

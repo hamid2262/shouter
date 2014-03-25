@@ -1,5 +1,4 @@
-<% if (shout.user == current_user) && 
-	((can? :edit, shout.content) || (shout.content_type != 'Trip') ) %>
+<% if (can? :edit, shout.content) || (shout.content_type != 'Trip')  %>
 	
 	<ul class="nav navbar-nav navbar-left <%= lang_other_side %> remove">
 		<li id="action_menu" class="dropdown">

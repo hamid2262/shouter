@@ -24,4 +24,15 @@ jQuery ->
     event.preventDefault()
 
 
-    
+   
+  drivers = $('#admin #trip_driver_id').html()
+  $('#admin #trip_driver_id').empty('')
+  $('#admin #temp1_temp_id').change ->
+    branch = $("option:selected", this).text()
+    escaped_state = branch.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
+    options = $(drivers).filter("optgroup[label='#{escaped_state}']").html()
+    console.log options
+    if options
+      $('#admin #trip_driver_id').html(options)
+    else
+      $('#admin #trip_driver_id').empty('')

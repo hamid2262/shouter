@@ -13,11 +13,16 @@ en:
         to departure time are not cancelable.
       title: List of Registered Trips
       total_available_seats: Total Available Seats
+    select_driver:
+      branch_name: Branch's name
+      driver_name: 'Driver''s Name:'
+      please_select_driver: 'Please select the driver:'
     shared:
       head:
         price: Select Prices
         register_trip_info: Register Trip
         select_date_format: 'Select Date Format '
+        select_driver: Driver Select
         succecful_submit: Submit Complete
     show_edit:
       form_edit:

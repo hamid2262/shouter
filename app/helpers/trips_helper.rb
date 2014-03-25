@@ -1,10 +1,11 @@
 module TripsHelper
-	 
+
 	def title_create stage, current_stage, text
 		if stage == current_stage
 			html = <<-HTML
 				<td class="\stage current-stage\">	
-						<strong> #{text} </strong>
+					<strong> #{text} </strong>
+					<img src="#{IMAGES_PATH}arrow-#{lang_other_side}.png" alt="" class="pull-#{lang_other_side}">
 				</td>
 			HTML
 		else

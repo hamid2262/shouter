@@ -28,9 +28,11 @@ Shouter::Application.routes.draw do
       get 'special_events1', on: :collection
     end
 
-
-    put 'trips/accept_date_format' => 'trips#accept_date_format'
+    get 'trips/start_new_trip'     => 'trips#start_new_trip'
+    get 'trips/select_driver'      => 'trips#select_driver'
+    put 'trips/accept_driver'      => 'trips#accept_driver'
     get 'trips/select_date_format' => 'trips#select_date_format'
+    put 'trips/accept_date_format' => 'trips#accept_date_format'
     resources :trips do
       resources :comments
     end

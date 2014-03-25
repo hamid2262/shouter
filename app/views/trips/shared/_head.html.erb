@@ -3,21 +3,25 @@
 	<table class="table table-bordered">
 		<tbody>
 			<tr>
-				<%= title_create stage, 1, t(".select_date_format")%> 
+				<% if current_user.is_admin? || current_user.owned_branch %>
+					<%= title_create stage, 1, t(".select_driver")%> 
+				<% end %>
 
+				<% if locale == :fa %>
+					<%= title_create stage, 2, t(".select_date_format")%> 
+				<% end %>
 				<%#= title_create stage, 2, t(".regular or onetime")%> 
 
-				<%= title_create stage, 3 , t(".register_trip_info")%> 
+				<%= title_create stage, 4 , t(".register_trip_info")%> 
 
-				<%= title_create stage, 4, t(".price") %>
+				<%= title_create stage, 5, t(".price") %>
 
-				<%= title_create stage, 5, t(".succecful_submit") %>
+				<%= title_create stage, 6, t(".succecful_submit") %>
 			</tr>
 		</tbody>
 	</table>
 
 </div>
-
 
 
 

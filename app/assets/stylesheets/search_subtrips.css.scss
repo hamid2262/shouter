@@ -63,12 +63,17 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 			position: absolute;
 			top: 0;
 			z-index: 1;
-			width: 73px;
+			width: 77px;
 			height: 34px;
 			overflow: hidden;
 			// background: url(new_arrow.png) no-repeat right #ddd;
 			border: 1px solid #ccc;		
 			font-size: .9em;	
+			.caret{
+				position: absolute;
+				top: 16px;
+				z-index: -100;
+			}
 			select{
 				background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
 				border: medium none;
