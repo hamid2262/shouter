@@ -14,7 +14,7 @@ fa:
         as_passenger: با عنوان مسافر
         as_driver:  با عنوان راننده
       my_pages:
-        personal_page: صفحه شخصی
+        personal_page: " صفحه شخصی %{user} "
 
     popup_signin:
       sign_in_with_facebook: ورود با حساب کاربری فیسبوک

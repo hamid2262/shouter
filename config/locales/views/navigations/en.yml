@@ -13,7 +13,7 @@ en:
         as_passenger: As Passenger 
         as_driver: As Driver
       my_pages:
-        personal_page: Personal Page
+        personal_page: "%{user}'s Personal Page"
     popup_signin:
       sign_in_with_facebook: Sign in with Facebook
   navbar:

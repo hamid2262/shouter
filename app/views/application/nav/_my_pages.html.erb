@@ -3,7 +3,7 @@
 		<%= gravatar(current_user, 32, "img-rounded") %> <b class="caret"></b>
 	</a>
 	<ul class="dropdown-menu">
-		<li><%= link_to t('.personal_page'), profile_url(current_user) %></li>
+		<li><%= link_to t('.personal_page', user: current_user.name), profile_url(current_user) %></li>
 		<% if current_user.owned_branch %>
 			<li><%= link_to current_user.owned_branch.name, [current_user.owned_branch.company, current_user.owned_branch] %></li>
 		<% end %>
