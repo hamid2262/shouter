@@ -1,6 +1,6 @@
 <div class="user-info col-xs-4">
 	<% if driver.branches.any? %>
-		<%= image_tag(driver.branches.first.company.image.url(:thumb), class: "img-responsive pull-#{lang_side}") %>
+		<%= image_tag(driver.branches.first.company.image.url(:medium), class: "img-responsive logo pull-#{lang_side}") %>
 
 	<% else %>
 		<div class="gravatar">

@@ -34,10 +34,10 @@
 				<th><%= t "website" %></th>
 				<th><%=  @company.website %></th>
 			</tr>
-			<tr>
-				<th><%= t ".company_director" %></th>
-				<th><%=  link_to @company.director.name, profile_url(@company.director) %></th>
-			</tr>
+<!-- 			<tr>
+				<th><%#= t ".company_director" %></th>
+				<th><%#=  link_to @company.director.name, profile_url(@company.director) %></th>
+			</tr> -->
 			<tr>
 				<th><%= t ".branch_manager" %></th>
 				<th><%=  link_to @branch.manager.name, profile_url(@branch.manager) %></th>

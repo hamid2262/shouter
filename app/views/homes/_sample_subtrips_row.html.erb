@@ -1,7 +1,7 @@
 <div class="row subtrip-row">
 	<a href="<%= subtrip_path(subtrip.id) %>" >
 		<div class="fromto">
-			<div class="col col-xs-5">
+			<div class="col col-xs-4">
 				<span class="from"><%= subtrip.origin %> </span>
 				<span class="arrow-ie">&larr;</span>  
 				<span class="to"><%= subtrip.destination %></span>
@@ -9,7 +9,7 @@
 		</div>
 
 		<div class="time">
-			<div class="col col-xs-2">
+			<div class="col col-xs-3">
 				<%= subtrip.date_time.to_s(:time_ampm) %>  <br>
 				<small>
 					<%= jdate_humanize(subtrip.date_time) %>

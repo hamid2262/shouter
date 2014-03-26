@@ -1,5 +1,5 @@
 <div id="home">
-	<div class="col-md-6">
+	<div class="col-md-5">
 		<div id="search_form" >
 			<% unless (request.try(:location).try(:country_code) == 'IR')  %>
 				<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
@@ -18,7 +18,7 @@
 		</div>			
 	</div>	
 
-	<div class="col-md-6">
+	<div class="col-md-7">
 		<div id="insert_trip" >
 			<%= image_tag(IMAGES_PATH+"passenger_man.png", class: "passenger passenger_man")	%>
 			<%= render 'trip_insert' %>	

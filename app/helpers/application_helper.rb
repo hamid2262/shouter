@@ -206,7 +206,7 @@ module ApplicationHelper
 
   # Date picker for jalali
 	def options_for_year 
-		options_for_select( 1392..1393, JalaliDate.new(Date.today).year)
+		options_for_select( 1393..1393, JalaliDate.new(Date.today).year)
 	end
 
 	def collection_for_month #used in search form
