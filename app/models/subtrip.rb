@@ -197,8 +197,9 @@ class Subtrip < ActiveRecord::Base
 
     def estimate_prices
       unless self.price
-        if (self.view == 0) && self.olat && self.dlat && self
-          if currency = self.currency
+        if (self.view == 0) && self.olat && self.dlat && self 
+          currency = self.currency
+          if currency
             unit_price = currency.unit_price
             price_step = currency.price_step
             distance = self.distance_to([self.olat,self.olng]) * 2 

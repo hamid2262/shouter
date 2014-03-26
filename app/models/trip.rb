@@ -111,10 +111,23 @@ class Trip < ActiveRecord::Base
       end
       subtrips[i].save
     end
+    estimate_prices
   end
 
 
-  private
+private
 
+  def estimate_prices
+    unit_price = self.currency.unit_price
+    price_step = self.currency.price_step
+    self.subtrips.each do |subtrip|
+      if subtrip.olat && subtrip.dlat && subtrip.price.nil?
+        distance = subtrip.distance_to([subtrip.olat,subtrip.olng]) * 2 
+        price = (distance.round(0)) * unit_price / 20
+        subtrip.price = (price.to_i / price_step) * price_step + price_step   
+        subtrip.save!       
+      end
+    end
+  end
 
 end
