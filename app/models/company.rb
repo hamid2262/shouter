@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
 
 	has_many :branches
+  belongs_to :director, class_name: 'User', foreign_key: "user_id"
 
   validates :name, presence: true
   validates :slug, presence: true, uniqueness: { case_sensitive: false }

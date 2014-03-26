@@ -2,7 +2,8 @@ en:
   branches:
     show:
       branch_overview:
-        overview: "Overview of %{branch_name} %{branch} of %{company_name} "
+        overview: 'Overview of %{branch_name} %{branch} of %{company_name} '
       single_branch:
         about_branch: Branch Information
         branch_manager: Manager of Branch
+        company_director: CEO

@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   has_many   :bookings  
 
   has_one    :owned_branch, class_name: 'Branch'  # for manager of branch
+  has_one    :owned_company, class_name: 'Company'  # for director of company
 
   has_many   :branch_driver_relationships            
   has_many   :branches, through: :branch_driver_relationships 

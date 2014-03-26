@@ -14,6 +14,10 @@
   <strong>Email:</strong>
   <%= @company.email %>
 </p>
+<p>
+  <strong>director:</strong>
+  <%= @company.director.name %>
+</p>
 
 <%= image_tag( @company.image.url(:medium), alt: @company.name ,size: "340x100") %>
 <br>	
