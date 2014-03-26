@@ -5,7 +5,10 @@
 	</div>
 
 	<div class="col-sm-5">
-		<%= render 'subtrips/show/driver_overview' %>
+		<%= render 'subtrips/show/branch_overview' %>
+		<% if @driver.is_active? @branch %>
+			<%= render 'subtrips/show/driver_overview' %>
+		<% end %>
 		<%= render 'subtrips/show/seats_status' %>
 		<%= render partial: 'vehicles/show', locals: {user: @subtrip.trip.driver} %>
 	</div>

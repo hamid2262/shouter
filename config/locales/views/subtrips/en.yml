@@ -1,6 +1,10 @@
 en:
   subtrips:
     show:
+      branch_overview:
+        branch_name: Name of Branch
+        company_name: 'Name of Company '
+        more_information: More information...
       driver_overview:
         city: City
         last_activity: Last activity
@@ -21,5 +25,6 @@ en:
         seats_status: Seats Status
       subtrip_overview:
         book_trip: Book this trip
+        only_bookable_via_tel: Only bookable via phone
     subtrip_search_raw:
       from: from

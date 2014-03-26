@@ -13,6 +13,27 @@
 			font-weight: bold;
 		}
 	}
+	.branch_overview,.driver_overview{
+		.stars{
+			display: inline-block;
+			height: 26px;
+			width: 142px;
+			float: left;
+		}
+	}
+	.branch_overview{
+		.panel-heading{
+			text-align: center;
+			padding: 0;
+			height: 100px;
+			a{
+				display: inline-block;
+			}
+			&:hover{
+				background: #E4E4E4;
+			}			
+		}
+	}
 	.driver_overview{
 		.panel-heading{
 			padding: 0;
@@ -23,13 +44,12 @@
 			.view_profile{
 				margin: 0px 53px;
 			}
+			&:hover{
+				background: #E4E4E4;
+			}			
+
 		}
-		.stars{
-			display: inline-block;
-			height: 26px;
-			width: 142px;
-			float: left;
-		}
+
 	}
 	.seats_status{
 		th{

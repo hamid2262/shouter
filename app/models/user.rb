@@ -111,6 +111,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_active? branch
+    BranchDriverRelationship.where(user_id: self.id, branch_id: branch.id).first.active
+  end
+
   def update_slug_update
     self.slug_updated = true  if self.slug_changed?
   end

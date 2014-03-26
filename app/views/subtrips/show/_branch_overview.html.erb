@@ -1,0 +1,42 @@
+<div class="branch_overview">
+	<div class="panel panel-default clear">
+	  <div class="panel-heading">
+		  <%= link_to [@company, @branch] do %>
+		  	<%= image_tag(@company.image.url(:medium), class: "img-responsive pull-#{lang_other_side}") %>
+			<% end %>
+	  </div>
+		<div class="panel-body">
+			<div class="meta">
+				<span class="stars" style="background-position:1569px 0px;"></span>
+				<p class="score">(5/5)</p> 
+			</div>
+		</div>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th><%= t(".company_name") %></th>
+					<th><%= link_to(@company.name , [@company] )%></th>
+				</tr>
+				<tr>
+					<th><%= t(".branch_name") %></th>
+					<th><%= link_to(@branch.name , [@company, @branch] )%></th>
+				</tr>
+
+				<tr>
+					<th><%= t("city") %></th>
+					<th><%= @branch.city %></th>
+				</tr>		  			  			
+				<tr>
+					<th><%= t("tel") %></th>
+					<th><%= @branch.tel %></th>
+				</tr>		  	
+				<tr>
+					<th><%= link_to t(".more_information"), [@company, @branch], class: "btn btn-default" %></th>
+				</tr>		  	
+
+			</tbody>
+		</table>
+		
+	</div>
+
+</div>

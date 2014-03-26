@@ -4,6 +4,9 @@ class SubtripsController < ApplicationController
 
   def show
     @subtrip = Subtrip.find(params[:id])
+    @branch = @subtrip.trip.driver.branches.first
+    @driver = @subtrip.trip.driver
+    @company = @branch.company
   	@hash = Gmaps4rails.build_markers(@subtrip.trip.path_list) do |subtrip, marker|
 		  marker.lat subtrip.olat
 		  marker.lng subtrip.olng

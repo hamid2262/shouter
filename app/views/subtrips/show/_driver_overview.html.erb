@@ -1,11 +1,12 @@
 <div class="driver_overview">
 	<div class="panel panel-default clear">
-	  <div class="panel-heading">
-	  	<%= link_to(gravatar(@subtrip.trip.driver, 90, "img-responsive img-thumbnail pull-#{lang_other_side}",:square), profile_url(@subtrip.trip.driver) )%>
-	  	<h2> <%=t  '.overview'  %> </h2>
-		  <%= link_to t(".view_profile"), profile_url(@subtrip.trip.driver), class: "view_profile" %>
-
-	  </div>
+  	<a href="<%= profile_url(@subtrip.trip.driver) %> ">
+		  <div class="panel-heading">
+		  	<%= gravatar(@subtrip.trip.driver, 90, "img-responsive img-thumbnail pull-#{lang_other_side}",:square)%>
+		  	<h2> <%=t  '.overview'  %> </h2>
+			  <%= link_to t(".view_profile"), profile_url(@subtrip.trip.driver), class: "view_profile" %>
+		  </div>
+		</a>
 		<div class="panel-body">
 			<div class="meta">
 				<span class="stars" style="background-position:1569px 0px;"></span>

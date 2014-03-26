@@ -1,6 +1,10 @@
 fa:
   subtrips:
     show:
+      branch_overview:
+        branch_name: نام شعبه
+        company_name: نام شرکت
+        more_information: اطلاعات بیشتر...
       driver_overview:
         city: شهر
         last_activity: آخرین فعالیت
@@ -21,5 +25,7 @@ fa:
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر
+        only_bookable_via_tel: در حال حاضر فقط با تماس تلفنی امکان رزرو این سفر وجود
+          دارد
     subtrip_search_raw:
       from: از
