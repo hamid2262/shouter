@@ -29,3 +29,6 @@ fa:
           دارد
     subtrip_search_raw:
       from: از
+    subtrip_search_row:
+      offer:
+        from: از

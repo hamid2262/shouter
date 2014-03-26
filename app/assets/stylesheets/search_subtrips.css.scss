@@ -136,7 +136,7 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 	.panel-body {
 		padding: 0px;
 	}
-	.search_subtrips_raw{
+	.search_subtrips_row{
 		position: relative;
 		margin-bottom: 1px;
 		margin-right: 0px;
@@ -144,8 +144,9 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 		padding-top: 10px;
 		padding-bottom: 10px;
 		border-bottom: 1px solid #e2e2e2;	
+		background: #f9f9f9;
 		&:hover{
-			background: #e8f28f;
+			background: #DDE7EB;
 		}
 		.ladies_only{
 			position: absolute;

@@ -28,3 +28,6 @@ en:
         only_bookable_via_tel: Only bookable via phone
     subtrip_search_raw:
       from: from
+    subtrip_search_row:
+      offer:
+        from: from

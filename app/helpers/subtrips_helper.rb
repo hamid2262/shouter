@@ -6,7 +6,7 @@ module SubtripsHelper
 	
 	def full_style subtrip
 		if subtrip.free_seats == 0
-	    full_style = "background: #E4E4E4;opacity: 0.6;"
+	    full_style = "background: #E5EBEE;opacity: .5;"
  		end		
 	end
 	

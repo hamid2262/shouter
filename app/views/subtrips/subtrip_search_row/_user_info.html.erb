@@ -1,0 +1,26 @@
+<div class="user-info col-xs-4">
+	<% if driver.branches.any? %>
+		<%= image_tag(driver.branches.first.company.image.url(:thumb), class: "img-responsive pull-#{lang_side}") %>
+
+	<% else %>
+		<div class="gravatar">
+			<%= gravatar(driver, 72, "img-thumbnail") %>				
+		</div>
+		<div class="user">
+			<h2 class="name">	<%= driver.name %> </h2>
+			<% if driver.age %>
+				<span class="old small text-muted">
+					<%= driver.try(:age) %> 
+					<%= t('years_old') %>
+				</span>						
+			<% end %>
+		<!-- TODO Raiting -->					
+		</div>			
+	<% end %>
+
+
+	<span class="ratingSmall col-md-">
+		<span class="stars"></span>
+		<span class="reviews"><%= t 'reviews' %></span>
+	</span> 
+</div>
