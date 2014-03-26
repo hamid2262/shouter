@@ -1,15 +1,15 @@
 <div class="row subtrip-row">
 	<a href="<%= subtrip_path(subtrip.id) %>" >
-		<div class="col-xs-4">
-			<h4 class="fromto">
+		<div class="fromto">
+			<div class="col col-xs-5">
 				<span class="from"><%= subtrip.origin %> </span>
 				<span class="arrow-ie">&larr;</span>  
 				<span class="to"><%= subtrip.destination %></span>
-			</h4>
+			</div>
 		</div>
 
-		<div class="col-xs-3">
-			<div class="time">
+		<div class="time">
+			<div class="col col-xs-2">
 				<%= subtrip.date_time.to_s(:time_ampm) %>  <br>
 				<small>
 					<%= jdate_humanize(subtrip.date_time) %>
@@ -17,8 +17,8 @@
 			</div>
 		</div>
 
-		<div class="col-xs-3">
-			<div class="price">
+		<div class="price">
+			<div class="col col-xs-2">
 				<strong>
 					<%= t 'currency', amount: currency(subtrip.price), unit: subtrip.trip.currency.try(:symbol) %>
 				</strong> <br>
@@ -26,9 +26,14 @@
 			</div>
 		</div>
 
-		<div class="col-xs-2">
-			<div class="user-info ">
+		<div class="user-info ">
+			<div class="col col-xs-3">
+				<% if subtrip.trip.driver.branches.any? %>
+					<%= image_tag(subtrip.trip.driver.branches.first.company.image.url(:thumb), class: "img-responsive logo pull-#{lang_side}") %>
+				<% else %>
 					<%= gravatar(subtrip.trip.driver, 42, "img-thumbnail") %>	
+					<span class="name">حمید محسنی </span>
+				<% end %>
 			</div>
 		</div>
 	</a>

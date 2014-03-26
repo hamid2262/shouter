@@ -5,8 +5,10 @@
 	</div>
 
 	<div class="col-sm-5">
-		<%= render 'subtrips/show/branch_overview' %>
-		<% if @driver.is_active? @branch %>
+		<% if @branch.present? %>
+			<%= render 'subtrips/show/branch_overview' %>			
+		<% end %>
+		<% if @branch.nil? || (@driver.is_active? @branch) %>
 			<%= render 'subtrips/show/driver_overview' %>
 		<% end %>
 		<%= render 'subtrips/show/seats_status' %>

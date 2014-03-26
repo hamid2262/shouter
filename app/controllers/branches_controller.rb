@@ -1,10 +1,10 @@
 class BranchesController < ApplicationController
   layout 'application_user', only: [:show]
+  authorize_resource 
   
   before_action :set_branch, only: [:show, :edit, :update, :destroy]
   before_action :set_company
 
-  authorize_resource 
   # skip_load_resource only: [:create] 
   
   # GET /branches

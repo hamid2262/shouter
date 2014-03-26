@@ -81,15 +81,57 @@ $green: #b5c023;
 	}
 
 	#sample_trips{
-		.subtrip-row{
-			border-bottom: 2px solid #E2E2E2;
-			padding-top: 5px;
-			&:hover {
-				background: rgba(181, 192, 35, 0.22);			
+		.inner{
+			padding-top: 0;
+			.subtrip-row{
+				a{
+					// color: #2E692E; #8a6d3b
+					color: #8a6d3b; 
+				}
+				border-bottom: 2px solid #E2E2E2;
+				padding-top: 5px;
+				background: #F5F5F5;
+				&:hover {
+					background: rgba(181, 192, 35, 0.22);			
+					a{
+						color: #522D0C;
+					}
+				}
+				.fromto{
+					font-weight: bold;
+					text-align: center;
+					.from{
+						float: right;
+					}
+					.to{
+						float: left;
+					}
+					.arrow-ie{
+						margin: 0 auto;
+						display: inline-block;
+					}
+				}
+				.time{
+					.col{
+						padding-right: 0 ;
+					}
+				}
+				.price{
+					.col{
+						padding: 0;
+					}
+				}
+				.user-info{
+					.name{
+						float: left;
+						width: 50px;
+					}
+					img{
+						float: left;
+						padding: 2px;
+					}
+				}				
 			}
-		}
-		.time{
-			margin-top: 5px;
 		}
 	}
 	#facebook_frame{

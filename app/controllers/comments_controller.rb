@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
-	skip_authorization_check
+  authorize_resource 
+	
 	before_filter :load_commentable
   def index
   	@comments = @commentable.comments

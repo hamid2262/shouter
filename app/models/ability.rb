@@ -45,6 +45,7 @@ class Ability
     end
 
     can :show, Branch
+    can :show, Company
     can :show, SpacialEvent
     can :show, User
     can [:new, :start_new_trip], Trip
