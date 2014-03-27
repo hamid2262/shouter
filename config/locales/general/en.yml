@@ -43,6 +43,8 @@ en:
   today: Today
   tomorrow: Tomorrow
 
+  next: Next
+  previous: Previous
   edit: Edit
   action: Action
   remove: Remove
@@ -86,6 +88,7 @@ en:
   
   flash:
     mobile_message: To continiue, please enter your mobile number and your current city.
+    choose_a_day: Choose week days.
   # cancan
   unauthorized:
     manage:
@@ -93,3 +96,12 @@ en:
       user: "Not allowed to manage other user accounts."
     update:
       project: "Not allowed to update this project."
+
+  day_name:
+    d0: Sunday
+    d1: Sunday
+    d2: Tuesday
+    d3: Wednesday
+    d4: Thursday
+    d5: Friday
+    d6: Saturday

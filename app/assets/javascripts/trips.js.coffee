@@ -24,7 +24,7 @@ jQuery ->
     event.preventDefault()
 
 
-   
+# select_admin   
   drivers = $('#admin #trip_driver_id').html()
   $('#admin #trip_driver_id').empty('')
   $('#admin #temp1_temp_id').change ->
@@ -36,3 +36,11 @@ jQuery ->
       $('#admin #trip_driver_id').html(options)
     else
       $('#admin #trip_driver_id').empty('')
+
+# select_period
+  $('#period_periodic').click ->
+    if ($(this).is(':checked'))
+      $('#wdays').show()
+  $('#period_once').click ->
+    if ($(this).is(':checked'))
+      $('#wdays').hide()

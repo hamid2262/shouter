@@ -152,7 +152,7 @@ class Subtrip < ActiveRecord::Base
     end
 
     def check_for_cities_validation
-      if self.olat.blank? && self.origin_address
+      if self.origin_address && self.origin_country.nil?
         origin = Geocoder.search(self.origin_address)[0]
         if origin.try(:latitude).present?
           self.olat                = origin.latitude
@@ -163,7 +163,8 @@ class Subtrip < ActiveRecord::Base
           self.origin_country_code = origin.try(:country_code)
         end
       end
-      if self.dlat.blank? && self.destination_address
+
+      if self.destination_address && self.destination_country.nil?
         destination = Geocoder.search(self.destination_address)[0]
         if destination.try(:latitude).present?  
           self.dlat                = destination.latitude
@@ -176,23 +177,25 @@ class Subtrip < ActiveRecord::Base
     end
 
     def split_address_to_city_state_country
-      if self.origin_address && (self.origin_address.include? ",")
-        origin = Geocoder.search(self.origin_address)[0]
-        address = self.origin_address.split(',')
-        self.origin_country = address[-1] 
-        self.origin_state = address[-2]   
-        self.origin_city = address[-3]    
-        self.origin_country_code = origin.try(:country_code) unless origin.try(:country_code).blank?
+      if self.origin_country.nil?
+        if self.origin_address && (self.origin_address.include? ",")
+          origin = Geocoder.search(self.origin_address)[0]
+          address = self.origin_address.split(',')
+          self.origin_country = address[-1] 
+          self.origin_state = address[-2]   
+          self.origin_city = address[-3]    
+          self.origin_country_code = origin.try(:country_code) unless origin.try(:country_code).blank?
+        end        
       end
-
-      if self.destination_address && (self.destination_address.include? ",")
-        destination = Geocoder.search(self.destination_address)[0]        
-        address = self.destination_address.split(',')
-        self.destination_country = address[-1] 
-        self.destination_state = address[-2]   
-        self.destination_city = address[-3]    
+      if self.destination_country.nil?
+        if self.destination_address && (self.destination_address.include? ",")
+          destination = Geocoder.search(self.destination_address)[0]        
+          address = self.destination_address.split(',')
+          self.destination_country = address[-1] 
+          self.destination_state = address[-2]   
+          self.destination_city = address[-3]    
+        end      
       end
-
     end
 
     def estimate_prices

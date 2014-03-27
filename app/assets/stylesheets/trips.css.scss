@@ -70,6 +70,29 @@
 	}
 }
 
+#select_period{
+	.row{
+		width: 60%;
+	}
+	#wdays{
+		display: none;
+		#days{
+			width: 121px;
+			border: 1px solid #D6D6D6;
+			margin: 20px 14px;
+			margin-top: -152px;
+		}
+		#weeks{
+			width: 60px;
+			border: 1px solid #D6D6D6;
+		}
+		#week_form{
+			width: 300px;
+			margin: 37px -13px 37px 36px;
+		}
+	}
+}
+
 #trip_show, #trip_edit{
 	.route_table, .subtrips_edit_field{
 		background: #efefef;

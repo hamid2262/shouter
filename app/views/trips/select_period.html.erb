@@ -1,0 +1,91 @@
+<div id="select_period" class="">
+	<div class="col-md-8">
+		<div class="panel panel-default">
+  		<%= render partial: 'trips/shared/head', locals:{stage: 3} %>
+			<div class="panel-body">
+				<%= form_tag( trips_accept_period_path, method: :put) do %>
+
+					<div class="row ">
+						<div class="col-xs-12">
+							<div class="radio ">
+							  <label>
+									<%= radio_button_tag 'period', 'once', true, {class: "pull-#{lang_side}" } %>
+									<strong> <%= t ".one_time_trip" %></strong>
+							  </label>
+							</div>			
+						</div>			
+					</div>			
+
+
+					<div class="row ">
+						<div class="col-xs-12">
+							<div class="radio ">
+							  <label>
+									<%= radio_button_tag 'period', 'periodic',false, {class: "pull-#{lang_side}" }%>
+									<strong> <%= t ".periodic_trips" %>	</strong>
+							  </label>
+							</div>
+						</div>
+					</div>
+					
+
+					<div id="wdays">
+						<br>
+						<h4><%= t ".start_day_msg" %> </h4>
+						
+						<div id="week_form">
+						  <div class="form-group">
+						    <label class="col-xs-7 control-label">تعداد هفته های تکرار</label>
+						    <div class="col-xs-5">
+						      <p class="form-control-static"><%= select_tag "weeks", options_for_select(1..6, 4 ), class: "form-control" %></p>
+						    </div>
+						  </div>
+						</div>
+
+						<!-- <div class=" row clear"> -->
+							<table id="days" class="table table-striped " style="float: <%= lang_other_side %> "	>
+							  <tbody> 
+							  	<tr>
+							  		<th><%= t("day_name.d6") %></th>
+							  		<td><%= check_box_tag 'days[6]', '6', true %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d0") %></th>
+							  		<td><%= check_box_tag 'days[0]', '0', true %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d1") %></th>
+							  		<td><%= check_box_tag 'days[1]', '1', true %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d2") %></th>
+							  		<td><%= check_box_tag 'days[2]', '2', true %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d3") %></th>
+							  		<td><%= check_box_tag 'days[3]', '3', true %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d4") %></th>
+							  		<td><%= check_box_tag 'days[4]', '4', false %></td>
+							  	</tr>
+							  	<tr>
+							  		<th><%= t("day_name.d5") %></th>
+							  		<td><%= check_box_tag 'days[5]', '5', false %></td>
+							  	</tr>
+							  </tbody>
+							</table>
+						<!-- </div> -->
+					</div>
+
+					<div class="col-xs-12">
+						<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-left" %> 
+						<%= link_to "<< #{t("previous")} ", trips_select_date_format_path ,class: "btn btn-default pull-right" %> 
+					</div>	
+
+				<% end %>								
+			</div>
+		</div>
+	</div>
+</div>
+

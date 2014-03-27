@@ -17,12 +17,18 @@ fa:
       branch_name: نام شعبه
       driver_name: 'نام راننده:'
       please_select_driver: 'لطفا راننده را انتخاب کنید '
+    select_period:
+      next: مرحله بعد
+      one_time_trip: سفر یک بار
+      periodic_trips: سفرهای هفتگی منظم
+      start_day_msg: تاریخ شروع سفرها ، تاریخ اولین سفر خواهد بود
     shared:
       head:
         price: انتخاب قیمتها
         register_trip_info: ثبت سفر
         select_date_format: نمایش تاریخ
         select_driver: انتخاب راننده
+        select_period: انتخاب تناوب
         succecful_submit: اتمام ثبت سفر
     show_edit:
       form_edit:

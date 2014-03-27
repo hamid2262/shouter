@@ -28,12 +28,14 @@ class TripsController < ApplicationController
     check_for_mobile
     if current_user.is_admin?  || current_user.owned_branch
       redirect_to action: 'select_driver'
+      return false
     elsif locale == :fa 
       redirect_to action: 'select_date_format'
+      return false
     else
-      redirect_to action: 'new'
+      redirect_to action: 'select_period'
+      return false
     end
-    return false
   end
 
   def select_driver
@@ -49,7 +51,7 @@ class TripsController < ApplicationController
     if locale == :fa 
       redirect_to action: 'select_date_format'     
     else
-      redirect_to action: 'new'   
+      redirect_to action: 'select_period'   
     end
   end
 
@@ -58,6 +60,22 @@ class TripsController < ApplicationController
 
   def accept_date_format
     session[:date_format] = params[:date_format]
+    redirect_to action: 'select_period'
+  end
+
+  def select_period
+  end
+
+  def accept_period
+    if params[:period] == "periodic"
+      if params[:days].nil?
+        flash[:error] = t "flash.choose_a_day"
+        redirect_to action: 'select_period'
+        return false
+      end
+      session[:weeks] = params[:weeks]
+      session[:days] = params[:days].map{|v,s| s}
+    end
     redirect_to action: 'new'
   end
 
@@ -68,14 +86,6 @@ class TripsController < ApplicationController
     @trip.subtrips.build
     @trip.subtrips.build
     @trip.subtrips.build
-  end
-
-  def edit
-     if params[:locale] == "fa"
-      @date = @trip.jdate     
-    else
-      @date = @trip.subtrips.first.date_time.to_s(:date)
-    end
   end
 
   def create
@@ -93,11 +103,42 @@ class TripsController < ApplicationController
     end
     if @trip.save
       @trip.shouts.create!(user_id: driver.id)
+      
+      subtrips = Subtrip.where(id: @trip.subtrips.ids)
+      weeks = session[:weeks]
+      if weeks
+        days = session[:days]
+        day =  @trip.subtrips.first.date_time
+        end_date = day + (weeks.to_i * 7).days - 1.day
+        while(day < end_date) do
+          day = day + 1.day
+          if days.include? day.wday.to_s
+            temp_trip = @trip.dup
+            temp_trip.save!
+            temp_trip.shouts.create!(user_id: driver.id)
+
+            subtrips.each do |subtrip|
+              s = subtrip.dup
+              s.date_time = day
+              s.trip_id = temp_trip.id
+              s.save!
+            end
+          end
+        end        
+      end
       redirect_to edit_trip_path(@trip.id) #, notice: t(:trip_create_message) 
     else
       redirect_to new_trip_path, alert: t("error_registration") 
     end
     
+  end
+
+  def edit
+     if params[:locale] == "fa"
+      @date = @trip.jdate     
+    else
+      @date = @trip.subtrips.first.date_time.to_s(:date)
+    end
   end
 
   def update
@@ -114,7 +155,6 @@ class TripsController < ApplicationController
 
   def destroy
     @trip.destroy
-    @shout = Shout.where(content_type: 'Trip', content_id: @trip.id).delete_all
     respond_to do |format|
       if current_user.owned_branch
         format.html { redirect_to company_branch_path(company_id: current_user.owned_branch.company, branch_id: current_user.owned_branch), notice: t(:trip_delete_message) }

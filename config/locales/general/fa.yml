@@ -42,6 +42,8 @@ fa:
   today: امروز
   tomorrow: فردا
 
+  next: مرحله بعد
+  previous: مرحله قبل
   edit: ویرایش
   action: عملیات
   remove: حذف
@@ -82,6 +84,7 @@ fa:
   
   flash:
     mobile_message: برای ادامه، شماره موبایل خود و شهر محل زندگی تان را وارد کنید.
+    choose_a_day: لطفا برای ادامه روز یا روزهای هفته را انتخاب کنید
   # cancan
   unauthorized:
     manage:
@@ -89,3 +92,12 @@ fa:
       user: "Not allowed to manage other user accounts."
     update:
       project: "Not allowed to update this project."
+
+  day_name:
+    d0: یکشنبه
+    d1: دوشنبه
+    d2: سه‌شنبه
+    d3: چهارشنبه
+    d4: پنج‌شنبه
+    d5: جمعه
+    d6: شنبه

@@ -17,16 +17,16 @@ class Ability
             user == u
         end
 
+        can [:new, :create], Comment
+
         can [:read, :create, :new], [Shout, PhotoShout]
         can [:edit, :update, :destroy], [Shout, PhotoShout] do |s|
             user == s.shouts.first.user
         end
 
-        can [:manage], FollowingRelationship do |f|
-            user == s.follower
-        end
+        can [:manage], FollowingRelationship 
 
-        can [:create, :index, :show ,:select_date_format,:accept_date_format, :select_driver, :accept_driver], Trip
+        can [:new, :create, :index, :show ,:select_driver, :accept_driver,:select_date_format,:accept_date_format,  :select_period, :accept_period], Trip
 
         can [:edit, :update, :destroy], Trip do |t|
            ( (user == t.driver) || (t.driver.branches.map{|b| b.manager}.include? user) )&& (t.subtrips.first.date_time > DateTime.now + 3.hours)
@@ -48,7 +48,7 @@ class Ability
     can :show, Company
     can :show, SpacialEvent
     can :show, User
-    can [:new, :start_new_trip], Trip
+    can [:start_new_trip], Trip
     can :booking_acceptance, Booking
     can :show, Page
     # The first argument to `can` is the action you are giving the user 

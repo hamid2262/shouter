@@ -1,7 +1,6 @@
 class FollowingRelationshipsController < ApplicationController
 
-  load_and_authorize_resource 
-  skip_load_resource only: [:create] 
+  authorize_resource 
 	
 	def create
 		current_user.follow user

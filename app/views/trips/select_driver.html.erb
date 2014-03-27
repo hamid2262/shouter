@@ -5,7 +5,7 @@
 			<div class="panel-body">
 		    <p> <%= t ".please_select_driver" %></p>
 
-				<%= form_tag( trips_accept_driver_path, method: :put) do %>
+				<%= form_tag( trips_accept_driver_path, method: :put, id: "select_driver") do %>
 
 					<div class="col-xs-10 col-xs-offset-2 ">
 						<div class="radio ">
@@ -15,7 +15,7 @@
 										<strong><%= t('.branch_name') %></strong>
 										<%= collection_select(:temp1, :temp_id, Branch.all, :id, :name, prompt: true) %>
 							  		<strong><%= t('.driver_name') %></strong>
-										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name, :id, :name, include_blank: true %>					  		
+										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name, :id, :name,{include_blank: true}, {class: "required"} %>					  		
 							  	</span>
 	
 						  	<% else %>
@@ -25,7 +25,7 @@
 						  </label>
 						</div>			
 					</div>				
-					<%= submit_tag "مرحله بعد", class: "btn btn-warning pull-left" %>
+					<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-left" %>
 				<% end %>								
 			</div>
 	

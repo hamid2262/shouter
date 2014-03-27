@@ -33,6 +33,8 @@ Shouter::Application.routes.draw do
     put 'trips/accept_driver'      => 'trips#accept_driver'
     get 'trips/select_date_format' => 'trips#select_date_format'
     put 'trips/accept_date_format' => 'trips#accept_date_format'
+    get 'trips/select_period' => 'trips#select_period'
+    put 'trips/accept_period' => 'trips#accept_period'
     resources :trips do
       resources :comments
     end

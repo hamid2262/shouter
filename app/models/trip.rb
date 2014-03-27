@@ -1,7 +1,7 @@
 class Trip < ActiveRecord::Base
   has_many   :subtrips , dependent: :destroy
-  has_many   :shouts, as: :content
-  has_many   :comments, as: :commentable
+  has_many   :shouts, as: :content, dependent: :destroy
+  has_many   :comments, as: :commentable, dependent: :destroy
 
   belongs_to :driver, class_name: "User", foreign_key: "user_id"
   belongs_to :owner, class_name: "User", foreign_key: "user_id"
@@ -79,39 +79,41 @@ class Trip < ActiveRecord::Base
 
   # initialize other subtrips and fill destination cities 
   def subtrips_init 
-    subtrips = self.subtrips.order(:date_time) 
-    for i in 0..(subtrips.size-1)
-      if subtrips[i+1]
-        subtrips[i].destination_address = subtrips[i+1].origin_address
-        subtrips[i].dlat = subtrips[i+1].olat
-        subtrips[i].dlng = subtrips[i+1].olng
-        for j in (i+2)..(subtrips.size-1)
-            self.subtrips.build(olat: subtrips[i].olat, 
-                                olng: subtrips[i].olng, 
-                                origin_address: subtrips[i].origin_address, 
+    if self.subtrips.any? && self.subtrips.last.destination_country.nil?
+      subtrips = self.subtrips.order(:date_time) 
+      for i in 0..(subtrips.size-1)
+        if subtrips[i+1]
+          subtrips[i].destination_address = subtrips[i+1].origin_address
+          subtrips[i].dlat = subtrips[i+1].olat
+          subtrips[i].dlng = subtrips[i+1].olng
+          for j in (i+2)..(subtrips.size-1)
+              self.subtrips.build(olat: subtrips[i].olat, 
+                                  olng: subtrips[i].olng, 
+                                  origin_address: subtrips[i].origin_address, 
 
-                                price: subtrips[i].price, 
-                                date_time: subtrips[i].date_time, 
-                                jminute: subtrips[i].jminute, 
-                                jhour: subtrips[i].jhour, 
-                                jday: subtrips[i].jday, 
-                                jmonth: subtrips[i].jmonth, 
-                                jyear: subtrips[i].jyear, 
+                                  price: subtrips[i].price, 
+                                  date_time: subtrips[i].date_time, 
+                                  jminute: subtrips[i].jminute, 
+                                  jhour: subtrips[i].jhour, 
+                                  jday: subtrips[i].jday, 
+                                  jmonth: subtrips[i].jmonth, 
+                                  jyear: subtrips[i].jyear, 
 
-                                dlat: subtrips[j].olat,
-                                dlng: subtrips[j].olng,
-                                destination_address: subtrips[j].origin_address
-                               )
-            self.save
+                                  dlat: subtrips[j].olat,
+                                  dlng: subtrips[j].olng,
+                                  destination_address: subtrips[j].origin_address
+                                 )
+              self.save
+          end
+        else
+          subtrips[i].dlat = subtrips[i].olat        
+          subtrips[i].dlng = subtrips[i].olng
+          subtrips[i].destination_address = subtrips[i].origin_address
         end
-      else
-        subtrips[i].dlat = subtrips[i].olat        
-        subtrips[i].dlng = subtrips[i].olng
-        subtrips[i].destination_address = subtrips[i].origin_address
+        subtrips[i].save
       end
-      subtrips[i].save
+      estimate_prices
     end
-    estimate_prices
   end
 
 
