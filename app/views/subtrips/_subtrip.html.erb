@@ -1,6 +1,4 @@
-
-
-<% if session[:temp].nil? || session[:temp] != subtrip.date_time.day  %>
+<% if session[:search_show_init_date].nil? || session[:search_show_init_date] != subtrip.date_time.day  %>
 
 	<h4 class="subtrips-date">  
 		<%= jday_humanize(subtrip.try(:date_time)) %> 
@@ -8,9 +6,9 @@
 	</h4>
 		<%= render partial: 'subtrips/subtrip_search_row', locals: {subtrip: subtrip} %>
 <% else %>
-	<% if (session[:temp] == subtrip.date_time.day) %>	
+	<% if (session[:search_show_init_date] == subtrip.date_time.day) %>	
 			<%= render partial: 'subtrips/subtrip_search_row', locals: {subtrip: subtrip} %> 
 	<% end %>
 <% end %>
 
-<% session[:temp] = subtrip.date_time.day %>
+<% session[:search_show_init_date] = subtrip.date_time.day %>

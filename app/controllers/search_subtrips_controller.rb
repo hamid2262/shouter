@@ -12,5 +12,6 @@ class SearchSubtripsController < ApplicationController
 				@subtrips = @search_subtrip.subtrips(30).page(params[:page]).per_page(10) if @search_subtrip
 			end			
 		end
+		session[:search_show_init_date] = nil 
 	end
 end
