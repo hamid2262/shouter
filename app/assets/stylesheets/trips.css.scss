@@ -100,6 +100,32 @@
 	}
 }
 
+.table-hover > tbody > tr.current_trip:hover > td{
+	background: #fff !important;
+}
+
+#trip_edit{
+	#trip{
+		background: #FFF;
+		border: 2px solid #D3D3D3;
+	}
+	#trips{
+		background: #F5FFBE;
+		border: 2px solid #C9C9C9;
+		.current_trip{
+			font-weight: bold;
+			color: #207060;
+			background: #FFF;
+			td{
+				&:hover{
+					background: #fff !important;
+				}
+			}
+		}
+	}
+}
+
+
 #trips_index{
 	.dropdown-menu{
 		right: auto;

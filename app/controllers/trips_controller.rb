@@ -74,7 +74,10 @@ class TripsController < ApplicationController
         return false
       end
       session[:weeks] = params[:weeks]
-      session[:days] = params[:days].map{|v,s| s}
+      session[:days]  = params[:days].map{|v,s| s}
+    else
+      params[:days]   = nil
+      session[:weeks] = nil
     end
     redirect_to action: 'new'
   end
@@ -102,6 +105,9 @@ class TripsController < ApplicationController
       s.currency_id = @trip.currency_id
     end
     if @trip.save
+      @trip.groupid = @trip.id
+      @trip.save!
+
       @trip.shouts.create!(user_id: driver.id)
       
       subtrips = Subtrip.where(id: @trip.subtrips.ids)
@@ -139,11 +145,26 @@ class TripsController < ApplicationController
     else
       @date = @trip.subtrips.first.date_time.to_s(:date)
     end
+    @trips = Trip.where(groupid: @trip.groupid)
   end
 
   def update
     respond_to do |format|
       if @trip.update(trip_params)
+        if session[:weeks]
+
+          @trip.subtrips.each do |subtrip|
+            Trip.where(groupid: @trip.groupid).each do |trip|
+              subs_for_change = trip.subtrips.where(olat: subtrip.olat, dlat: subtrip.dlat).where("date_time > ?", DateTime.now)
+              subs_for_change.each do |s|
+                s.price = subtrip.price
+                s.save!
+              end              
+            end
+          end
+
+
+        end
         format.html { redirect_to @trip }#, notice: t(:trip_update_message) 
         format.json { head :no_content }
       else

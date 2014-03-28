@@ -32,7 +32,7 @@
 					<%= image_tag(subtrip.trip.driver.branches.first.company.image.url(:thumb), class: "img-responsive logo pull-#{lang_side}") %>
 				<% else %>
 					<%= gravatar(subtrip.trip.driver, 42, "img-thumbnail") %>	
-					<span class="name">حمید محسنی </span>
+					<span class="name"><%= subtrip.trip.driver.name %> </span>
 				<% end %>
 			</div>
 		</div>

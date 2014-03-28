@@ -2,15 +2,13 @@
   <%= simple_form_for(@trip,
     html: { method: :put, class: 'form-horizontal' } ) do |f| %>
 
-    <%= render 'trips/show_edit/subtrips_header' %>
+    <%#= render 'trips/show_edit/subtrips_header' %>
 
-    <%= f.simple_fields_for :subtrips do |b| %>
-        <% next if b.object.origin.downcase == b.object.destination.downcase %>
-      	<%= render 'trips/show_edit/subtrip_fields_edit', f: b %>
-    <% end %>
+    <%= render 'trips/show_edit/edit/trip', f: f %>
     
-    <hr>
-    
+    <h4>سفرهای متوالی ثبت شده با این سفر</h4>
+    <%= render partial: 'trips/show_edit/edit/trips', locals: {trips: @trips} %>
+
     <div class="form-group">
       <%= f.label :total_available_seats, class: "col-sm-3 control-label" %>
       <div class="col-sm-9">
@@ -36,4 +34,6 @@
     </div>
 
   <% end %>
+
+
 </div>

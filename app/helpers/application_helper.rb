@@ -145,7 +145,7 @@ module ApplicationHelper
   end  
 
 	def before_after time
-		if time >= Time.now
+		if time <= Time.now
       t('before')
 		else
 			t('after')

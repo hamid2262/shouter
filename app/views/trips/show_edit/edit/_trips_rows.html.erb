@@ -1,0 +1,13 @@
+<% if @trip.id == subtrip.trip.id %>
+	<tr class="current_trip">
+<% else %>
+	<tr style="cursor: pointer;" onclick="document.location = '<%= edit_trip_path subtrip.trip %> ';">
+<% end %>
+
+	<td><%= apropriate_date subtrip %></td>
+	<td><%= localize subtrip.date_time, :format => '%A' %></td>
+	<td><%= jalali_time subtrip.date_time %></td>
+	<td><%= subtrip.origin %> </td>
+	<td><%= subtrip.destination %></td>
+	<td><%= "#{t('currency', amount: subtrip.price, unit: subtrip.trip.currency.try(:symbol) )}" %></td>
+</tr>
