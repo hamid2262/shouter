@@ -41,8 +41,9 @@ class ApplicationController < ActionController::Base
       if current_user.mobile.blank?
         session[:back_url] = request.original_url
         flash[:error] = t("flash.mobile_message") 
-        redirect_to edit_user_registration_path+'#contact_details'
+        return redirect_to edit_user_registration_path+'#contact_details'
       end
+      false
     end
 
 	private

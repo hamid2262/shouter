@@ -25,17 +25,16 @@ class TripsController < ApplicationController
   end
 
   def start_new_trip
-    check_for_mobile
-    if current_user.is_admin?  || current_user.owned_branch
-      redirect_to action: 'select_driver'
-      return false
-    elsif locale == :fa 
-      redirect_to action: 'select_date_format'
-      return false
-    else
-      redirect_to action: 'select_period'
-      return false
-    end
+
+      if check_for_mobile
+      elsif current_user.is_admin?  || current_user.owned_branch
+        return redirect_to action: 'select_driver'
+      elsif locale == :fa 
+        return redirect_to action: 'select_date_format'
+      else
+        return redirect_to action: 'select_period'
+      end
+    return false
   end
 
   def select_driver
