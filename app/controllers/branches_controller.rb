@@ -16,7 +16,12 @@ class BranchesController < ApplicationController
   # GET /branches/1
   # GET /branches/1.json
   def show
-    @drivers = @branch.active_drivers
+    begin
+      @drivers = @branch.active_drivers
+    rescue  
+      redirect_to company_branch_path(company_id: params[:company_id], id: params[:branch_id])
+      return false
+    end
   end
 
   # GET /branches/new

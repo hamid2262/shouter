@@ -9,9 +9,6 @@
 
 				<% if (shout.content_type == 'Trip') && (can? :edit, shout.content) %>
 					<li><%= link_to t("edit"), edit_trip_path(shout.content.id) %></li>
-				<% end %>
-
-				<% if shout.content_type != 'Trip' %>
 					<li><%= link_to t("remove"), shout.content, method: :delete, data: {confirm: t('delete_confirmation')} %></li>
 				<% end %>
 
