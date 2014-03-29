@@ -10,6 +10,7 @@
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
     </tr>
   </thead>
 
@@ -20,6 +21,7 @@
         <td><%= company.tel %></td>
         <td><%= company.email %></td>
         <td><%= company.director.name %></td>
+        <td><%= link_to 'Branches', company_branches_path(company) %></td>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>
         <td><%= link_to 'Destroy', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
