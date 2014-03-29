@@ -23,11 +23,6 @@
       <div class="col-sm-9">
         <strong><%= f.object.detail %></strong>
       </div>
-    </div>
-
-    <% if can? :edit, @trip %>
-      <%= link_to t('.all_trips'), trips_path, class: "pull-left btn btn-link" %>
-      <%= link_to t('.edit_trip'), edit_trip_path(@trip), class: "pull-left btn btn-link" %>
-    <% end %>  <!-- if can?    -->    
+    </div> 
   <% end %>  <!-- simple_form_for -->
 </div>

@@ -15,6 +15,10 @@ class Trip < ActiveRecord::Base
 
   after_create :subtrips_init
 
+  def sisters
+    Trip.where(groupid: self.groupid).where.not(groupid: nil)
+  end
+
   def jdate
     JalaliDate.new( self.subtrips.first.date_time ).strftime("%d %b %Y") 
   end

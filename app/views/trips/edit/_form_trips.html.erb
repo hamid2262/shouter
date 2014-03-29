@@ -1,0 +1,11 @@
+<div class="panel-body subtrips_edit_field">
+  <%= simple_form_for(@trip,
+    html: { method: :put, class: 'form-horizontal' } ) do |f| %>
+
+    <h4>سفرهای متوالی ثبت شده با این سفر</h4>
+  
+    <%= render partial: 'trips/edit/trips', locals: {trips: @trips, f: f} %>
+    <%= hidden_field_tag :group_update, 1 %>
+  
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<table id="trip" class="table table-hover">
+	<thead>
+		<th><%= t "mydate" %></th>
+		<th><%= t "day" %></th>
+		<th><%= t "at" %></th>
+		<th><%= t "from" %></th>
+		<th><%= t "to"  %></th>
+		<th><%= t "price"   %></th>
+	</thead>
+	<tbody>
+ 		<%= f.simple_fields_for :subtrips do |b| %>
+      <% next if b.object.origin.downcase == b.object.destination.downcase %>
+      <%= render 'trips/edit/trip_rows', f: b  %>
+	  <% end %>
+	</tbody>
+</table	>	
+
+<div class="row">
+
+  <div class="col-sm-7">
+    <div class="col-sm-2">
+  		<strong><%= f.label :detail %></strong>
+    </div>
+    <div class="col-sm-10">
+      <%= f.text_area :detail,  rows: 3, class: "form-control" %>
+    </div>
+  </div>
+
+	<div class="col-sm-5">
+		<div class="col-xs-7">
+	 		<%= f.submit t(".single_trip_update"), class: "btn btn-warning" %>
+		</div>
+		<div class="col-xs-5">
+			<%= link_to t('.single_trip_delete'), trip_path(@trip), method: :delete, class: "btn btn-danger pull-#{lang_other_side}" %>
+		</div>
+	</div>
+</div>

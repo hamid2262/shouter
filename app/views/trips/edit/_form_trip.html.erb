@@ -1,0 +1,6 @@
+<div class="panel-body subtrips_edit_field">
+  <%= simple_form_for(@trip,
+    html: { method: :put, class: 'form-horizontal' } ) do |f| %>
+    <%= render 'trips/edit/trip', f: f %>
+  <% end %>
+</div>

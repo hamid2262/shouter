@@ -2,9 +2,22 @@
 	<div class="col-md-8">
 		<div class="panel panel-default">
   		<%= render partial: 'trips/shared/head', locals:{stage: 6} %>
-			<%= render 'trips/show_edit/trip_summary' %>
+			<%= render 'trips/shared/trip_summary' %>
   		<%= render 'trips/show_edit/form_show' %>
 		</div>
+
+		<% if can? :edit, @trip %>
+			<div class="panel-body subtrips_edit_field">
+				<div class="col-xs-12">
+					<%= link_to t('.all_trips'), trips_path, class: "btn btn-warning pull-left" %>
+
+					<%= link_to "<< #{t("previous")} ", edit_trip_path(@trip), class: "btn btn-default pull-right" %>
+
+				</div>	
+			</div>
+	  <% end %>  <!-- if can?    -->   
+
+
 		<div class="panel panel-default">
   		<div class="comment-frame-single">
 	  		<%= render partial:'comments/form', locals:{commentable: @trip, comment: @comment} %>

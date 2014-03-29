@@ -25,7 +25,6 @@ class TripsController < ApplicationController
   end
 
   def start_new_trip
-
       if check_for_mobile
       elsif current_user.is_admin?  || current_user.owned_branch
         return redirect_to action: 'select_driver'
@@ -150,10 +149,11 @@ class TripsController < ApplicationController
   def update
     respond_to do |format|
       if @trip.update(trip_params)
-        if session[:weeks]
-
+        if params[:group_update]
           @trip.subtrips.each do |subtrip|
             Trip.where(groupid: @trip.groupid).each do |trip|
+              trip.detail = @trip.detail
+              trip.save!
               subs_for_change = trip.subtrips.where(olat: subtrip.olat, dlat: subtrip.dlat).where("date_time > ?", DateTime.now)
               subs_for_change.each do |s|
                 s.price = subtrip.price
@@ -161,10 +161,8 @@ class TripsController < ApplicationController
               end              
             end
           end
-
-
         end
-        format.html { redirect_to @trip }#, notice: t(:trip_update_message) 
+        format.html { redirect_to [:edit, @trip] }#, notice: t(:trip_update_message) 
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -174,10 +172,17 @@ class TripsController < ApplicationController
   end
 
   def destroy
-    @trip.destroy
+    if params[:group_delete]
+      @trip.sisters.destroy_all
+    else
+      @trip.destroy
+      sister_trip = @trip.sisters.first
+    end
     respond_to do |format|
-      if current_user.owned_branch
-        format.html { redirect_to company_branch_path(company_id: current_user.owned_branch.company, branch_id: current_user.owned_branch), notice: t(:trip_delete_message) }
+      if sister_trip
+        format.html { redirect_to edit_trip_path(sister_trip), notice: t(:trip_delete_message) }
+      elsif current_user.owned_branch
+        format.html { redirect_to [current_user.owned_branch.company, current_user.owned_branch], notice: t(:trip_delete_message) }
       else
         format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
       end

@@ -42,6 +42,11 @@ class Branch < ActiveRecord::Base
     @shouts = Shout.where(user_id: shout_user_ids)
   end
 
+  def name_with_company
+    "#{self.company.name}. #{name}"
+  end
+
+
   private
 
     def shout_user_ids

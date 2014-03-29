@@ -13,9 +13,10 @@
 						  	<% if current_user.is_admin? %>
 							  	<span id="admin">
 										<strong><%= t('.branch_name') %></strong>
-										<%= collection_select(:temp1, :temp_id, Branch.all, :id, :name, prompt: true) %>
+
+										<%= collection_select(:temp1, :temp_id, Branch.all, :id, :name_with_company, prompt: true) %>
 							  		<strong><%= t('.driver_name') %></strong>
-										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name, :id, :name,{include_blank: true}, {class: "required"} %>					  		
+										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name_with_company, :id, :name,{include_blank: true}, {class: "required"} %>					  		
 							  	</span>
 	
 						  	<% else %>

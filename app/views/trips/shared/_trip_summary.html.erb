@@ -1,11 +1,17 @@
 <div class="panel-body ">	
 	<div class="col-sm-4 panel-body">
-		<strong>
+    <div class="col-xs-12">
+			<strong>
 				<%= t('.description', date: @date) %> 
-				(<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>  
+				<p>(<%=  distance_of_time_in_words(Time.now, @trip.subtrips.first.date_time)   %>  
 				<%= before_after @trip.subtrips.first.date_time%>
-				)
-		</strong>
+				)</p>
+			</strong>
+	    <strong>
+	    	<%= t "activerecord.attributes.trip.total_available_seats" %>
+	    	<%= @trip.total_available_seats %>
+	    </strong> 
+    </div>
 	</div>
 
 	<div class="col-sm-8 route_table">

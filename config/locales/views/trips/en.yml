@@ -1,5 +1,12 @@
 en:
   trips:
+    edit:
+      trip:
+        single_trip_delete: Delete single trip
+        single_trip_update: Update single trip
+      trips:
+        all_trips_delete: Delete All Trips
+        all_trips_update: All Trips Update
     form_new:
       add_stopover: Add Stopover
       route: Route
@@ -30,6 +37,8 @@ en:
         select_driver: Driver Select
         select_period: Select Period
         succecful_submit: Submit Complete
+      trip_summary:
+        description: This trip starts on %{date}
     show_edit:
       form_edit:
         delete: Delete All

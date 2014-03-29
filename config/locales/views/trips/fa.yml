@@ -1,5 +1,12 @@
 fa:
   trips:
+    edit:
+      trip:
+        single_trip_delete: حدف این سفر
+        single_trip_update: ثبت قیمت و توضیحات برای این سفر
+      trips:
+        all_trips_delete: حذف تمام سفرها
+        all_trips_update: ثبت قیمت و توضیحات برای تمام سفرها
     form_new:
       add_stopover: اضافه کردن شهر عبوری
       route: مسیر حرکت
@@ -30,6 +37,8 @@ fa:
         select_driver: انتخاب راننده
         select_period: انتخاب تناوب
         succecful_submit: اتمام ثبت سفر
+      trip_summary:
+        description: این سفر در تاریخ %{date} است.
     show_edit:
       form_edit:
         delete: حذف همه سفر

@@ -3,8 +3,20 @@
 		<div class="panel panel-default">
   		<%= render partial: 'trips/shared/head', locals:{stage: 5} %>
 			<%#= error_messages_for(@trip) %>
-			<%= render 'trips/show_edit/trip_summary' %>
-			<%= render 'trips/show_edit/form_edit' %>
+			<%= render 'trips/shared/trip_summary' %>
+			<%= render 'trips/edit/form_trip' %>
+			
+			<% if @trip.sisters.size > 1 %>
+				<br>
+				<%= render 'trips/edit/form_trips' %>				
+			<% end %>
+			
+			<br>
+			<div class="panel-body subtrips_edit_field">
+				<div class="col-xs-12">
+					<%= link_to " #{t("next")} >>", @trip ,class: "btn btn-warning pull-left" %> 
+				</div>	
+			</div>
 		</div>
 	</div>
 </div>
