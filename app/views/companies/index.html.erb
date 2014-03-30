@@ -20,7 +20,7 @@
         <td><%= company.name %></td>
         <td><%= company.tel %></td>
         <td><%= company.email %></td>
-        <td><%= company.director.name %></td>
+        <td><%= company.director.try(:name) %></td>
         <td><%= link_to 'Branches', company_branches_path(company) %></td>
         <td><%= link_to 'Show', company %></td>
         <td><%= link_to 'Edit', edit_company_path(company) %></td>

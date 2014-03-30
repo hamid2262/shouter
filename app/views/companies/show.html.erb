@@ -16,7 +16,7 @@
 </p>
 <p>
   <strong>director:</strong>
-  <%= @company.director.name %>
+  <%= @company.director.try(:name) %>
 </p>
 
 <%= image_tag( @company.image.url(:medium), alt: @company.name ,size: "340x100") %>
