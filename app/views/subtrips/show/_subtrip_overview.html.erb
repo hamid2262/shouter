@@ -74,7 +74,7 @@
 		 		<tr>
 		  		<th></th>
 		  		<th>
-						<% unless (@subtrip.trip.driver == current_user)  %> <!-- if passenger is male and trip is ladies only -->
+						<%#unless (@subtrip.trip.driver == current_user)  %> <!-- if passenger is male and trip is ladies only -->
 							<!-- ( @subtrip.trip.ladies_only && current_user.gender == 'm' ) -->
 							<% if can? :edit, @subtrip %>
 				  			<%= link_to t(".delete_seats"), edit_subtrip_path, class: "btn btn-lg btn-warning pull-#{lang_other_side}" %>
@@ -83,11 +83,11 @@
 							<% elsif (@branch.nil? || (@driver.is_active? @branch)) && (@subtrip.date_time > DateTime.now)%>
 				  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>		
 				  		<% elsif @subtrip.date_time < DateTime.now %>	
-				  							
+
 							<% else %>
 								<%= t ".only_bookable_via_tel" %>								
 							<% end %>
-						<% end %>
+						<%# end %>
 		  		</th>
 		  	</tr> 
 
