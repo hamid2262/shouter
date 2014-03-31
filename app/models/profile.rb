@@ -31,7 +31,7 @@ class Profile
   end
 
 	def timeline
-		@shouts = Shout.where(user_id: shout_user_ids)
+		Shout.where(user_id: shout_user_ids)
 	end
 
 	def followed_users

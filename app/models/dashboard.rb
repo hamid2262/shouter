@@ -13,7 +13,7 @@ class Dashboard
 	end
 	
 	def timeline
-		@shouts = Shout.where(user_id: shout_user_ids)
+		Shout.where(user_id: shout_user_ids)
 	end
 
 	def followers
@@ -45,7 +45,7 @@ class Dashboard
 	private
 
 		def unfollowed_users_ids
-			ids = @user.followed_users.map{|user| user.id} + [@user.id]
+			@user.followed_users.map{|user| user.id} + [@user.id]
 		end
 
 		def shout_user_ids

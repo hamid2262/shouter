@@ -13,7 +13,7 @@ Shouter::Application.routes.draw do
       get 'choose_search_mode' => 'search_subtrips#choose_search_mode'
     end
 
-    resources :subtrips, only: [:show]
+    resources :subtrips, only: [:show, :edit, :update]
     resources :bookings do
       get 'booking_acceptance', on: :collection
     end

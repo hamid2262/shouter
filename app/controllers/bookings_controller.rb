@@ -63,7 +63,7 @@ class BookingsController < ApplicationController
     end
     @booking = @subtrip.bookings.build
     @booking.passenger = current_user
-    @booking.take_all_conflict_seats params[:seat_numbers]
+    @booking.subtrip.take_all_conflict_seats params[:seat_numbers], @booking.passenger.id
 
     respond_to do |format|
       if @booking.save

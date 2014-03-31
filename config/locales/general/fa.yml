@@ -41,6 +41,7 @@ fa:
   car_model: مدل خودرو
   today: امروز
   tomorrow: فردا
+  not_available: خارج از دسترس
 
   next: مرحله بعد
   previous: مرحله قبل
@@ -85,6 +86,7 @@ fa:
   flash:
     mobile_message: برای ادامه، شماره موبایل خود و شهر محل زندگی تان را وارد کنید.
     choose_a_day: لطفا برای ادامه روز یا روزهای هفته را انتخاب کنید
+    seats_deleted_successfully: صندلی ها حذف گردیدند.
   # cancan
   unauthorized:
     manage:

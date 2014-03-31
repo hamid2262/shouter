@@ -76,6 +76,34 @@ class Subtrip < ActiveRecord::Base
     flag
   end
 
+  def take_all_conflict_seats seat_numbers, replace_id = -1
+    all_crossed_subtrips = self.find_conflict_subtrips 
+    all_crossed_subtrips.each do |subtrip|
+      seats = create_replacing_seats_array_for_insert(subtrip, seat_numbers, replace_id) 
+      save_new_seats_array(seats, subtrip)
+    end
+  end
+
+    def save_new_seats_array(seats, subtrip)
+        subtrip.seats = []
+        seats.each do |single|
+          subtrip.seats << single
+        end
+        subtrip.save    
+    end
+
+    def create_replacing_seats_array_for_insert subtrip, seat_numbers, passenger_id
+      seats = subtrip.seats
+      seat_numbers.each do |k,v|
+        if v == 'T'
+          seats[k.to_i] = passenger_id
+        end
+      end
+      seats
+    end
+
+
+
   def find_conflict_subtrips
   	origin = self.origin_address
     destination = self.destination_address

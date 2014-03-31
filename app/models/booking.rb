@@ -89,15 +89,6 @@ class Booking < ActiveRecord::Base
     end
   end
 
-  def take_all_conflict_seats seat_numbers
-    all_crossed_subtrips = self.subtrip.find_conflict_subtrips 
-
-    all_crossed_subtrips.each do |subtrip|
-      seats = create_replacing_seats_array_for_insert(subtrip, seat_numbers, self.passenger.id) 
-      save_new_seats_array(seats, subtrip)
-    end
-  end
-
   private
     def save_new_seats_array(seats, subtrip)
         subtrip.seats = []
@@ -114,14 +105,5 @@ class Booking < ActiveRecord::Base
         }
     end
 
-    def create_replacing_seats_array_for_insert subtrip, seat_numbers, passenger_id
-      seats = subtrip.seats
-      seat_numbers.each do |k,v|
-        if v == 'T'
-          seats[k.to_i] = passenger_id
-        end
-      end
-      seats
-    end
 
 end

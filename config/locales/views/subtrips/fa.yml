@@ -1,5 +1,13 @@
 fa:
   subtrips:
+    edit:
+      deleting_seats_message: از لیست صندلی های خالی زیر، صندلی یا صندلیهای مورد نظری
+        که می خواهید حذف کنید را انتخاب نموده و دکمه حذف صندلی را کلیک کنید.
+    form:
+      back_to_trip: بازگشت به صفحه سفر
+      delete_seats: حذف صندلی
+      seat_number: "\nشماره صندلی\t"
+      select: انتخاب
     show:
       branch_overview:
         branch_name: نام شعبه
@@ -25,6 +33,7 @@ fa:
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر
+        edit_trip: از دسترس خارج کردن صندلی ها
         only_bookable_via_tel: در حال حاضر فقط با تماس تلفنی امکان رزرو این سفر وجود
           دارد
     subtrip_search_raw:

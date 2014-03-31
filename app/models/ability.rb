@@ -28,6 +28,10 @@ class Ability
 
         can [:new, :create, :index, :show ,:select_driver, :accept_driver,:select_date_format,:accept_date_format,  :select_period, :accept_period], Trip
 
+        can [:edit, :update], Subtrip do |s|
+            (user == s.trip.driver) || (s.trip.driver.branches.map{|b| b.manager}.include? user)
+        end
+
         can [:edit, :update, :destroy], Trip do |t|
            ( (user == t.driver) || (t.driver.branches.map{|b| b.manager}.include? user) )&& (t.subtrips.first.date_time > DateTime.now + 3.hours)
         end        
@@ -49,6 +53,7 @@ class Ability
     can :show, SpacialEvent
     can :show, User
     can [:start_new_trip], Trip
+    can [:show], Subtrip
     can :booking_acceptance, Booking
     can :show, Page
     # The first argument to `can` is the action you are giving the user 

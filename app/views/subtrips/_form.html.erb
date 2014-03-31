@@ -1,4 +1,4 @@
-<%= form_tag bookings_path do %>
+<%= form_tag subtrip_path, method: :put do %>
 <!-- Table -->
   <table class="table table-bordered">
   	<thead>
@@ -21,7 +21,7 @@
 	<div class="panel-body">
 		<%= hidden_field_tag 'subtrip_id', @subtrip.id %>
 		<% if  @subtrip.free_seats > 0 %>
-			<%= submit_tag t('.register_booking'), class: "btn btn-warning" %>			
+			<%= submit_tag t('.delete_seats'), class: "btn btn-warning" %>			
 		<% else %>
 			<h3 id="seats_full"><%= t ".trip_if_full" %></h3>
 		<% end %>

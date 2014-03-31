@@ -121,8 +121,9 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 		}
 	}
 	.pagination{
-		padding-left: 48%;
-		padding-right: 48%;
+		margin: 0 auto;
+		text-align: center;
+		width: 758px;
 	}
 	.subtrips-date{
 		margin-top: 0px;

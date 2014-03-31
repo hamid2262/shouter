@@ -42,7 +42,8 @@ en:
   car_model: Car Model
   today: Today
   tomorrow: Tomorrow
-
+  not_available: Not Available
+    
   next: Next
   previous: Previous
   edit: Edit
@@ -89,6 +90,7 @@ en:
   flash:
     mobile_message: To continiue, please enter your mobile number and your current city.
     choose_a_day: Choose week days.
+    seats_deleted_successfully: Seats deleted successfully
   # cancan
   unauthorized:
     manage:
