@@ -80,8 +80,10 @@
 				  			<%= link_to t(".delete_seats"), edit_subtrip_path, class: "btn btn-lg btn-warning pull-#{lang_other_side}" %>
 				  			<%= link_to t(".edit_trip"), edit_trip_path(@subtrip.trip), class: "btn btn-lg btn-warning pull-#{lang_side}" %>
 
-							<% elsif @branch.nil? || (@driver.is_active? @branch) %>
-				  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>							
+							<% elsif (@branch.nil? || (@driver.is_active? @branch)) && (@subtrip.date_time > DateTime.now)%>
+				  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>		
+				  		<% elsif @subtrip.date_time < DateTime.now %>	
+				  							
 							<% else %>
 								<%= t ".only_bookable_via_tel" %>								
 							<% end %>
