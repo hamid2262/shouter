@@ -54,12 +54,14 @@ class ApplicationController < ActionController::Base
 
   
     def set_locale
+      # if Geocoder.search(request.remote_ip)[0].try(:country_code) == "DE"
+      #   I18n.locale = :en
+      # els
       if params[:locale].present?
         I18n.locale = params[:locale].to_sym 
       else
         I18n.locale = :fa 
       end
-
       # current_user.locale
       # request.subdomain
       # request.env["HTTP_ACCEPT_LANGUAGE"]
