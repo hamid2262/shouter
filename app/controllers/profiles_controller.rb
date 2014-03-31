@@ -5,6 +5,10 @@ class ProfilesController < ApplicationController
 	skip_authorization_check
 
 	def show
+        if locale == :fa && request.url[-3,3]== "/en"
+            u = request.url.gsub! "/en", "/fa"
+            redirect_to u
+        end
 		user                    = User.find_by!(slug: params[:id])
 		@profile                = Profile.new(user)
 

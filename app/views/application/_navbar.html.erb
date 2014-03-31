@@ -31,9 +31,10 @@
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 
         <% if current_page?( locale: "fa") %>
-          <li><%= link_to_unless_current t("navbar.language.english"), locale: "en" %></li>
+          <li><%= link_to_unless_current t("navbar.language.english"), lang_select_path(lang: "en",  url:  request.original_url) %></li>
         <% else %>
-          <li><%= link_to_unless_current t("navbar.language.farsi"), locale: "fa" %></li>
+          <li><%= link_to_unless_current t("navbar.language.farsi"), lang_select_path(lang: "fa",  url:  request.original_url) %></li> 
+
         <% end %>
       </ul>     
 

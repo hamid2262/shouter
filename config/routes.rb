@@ -57,7 +57,10 @@ Shouter::Application.routes.draw do
     resources :vehicle_models
     resource  :search, only: [:show]
     resource  :dashboard, only: [:show,:create]  
+    
+    get 'lang_select'  => 'homes#lang_select'
     resources :homes, only: [:show]
+
     resources :shouts, only: [:show]
     resources :text_shouts, only: [:create, :destroy]
     resources :hashtags, only: [:show]

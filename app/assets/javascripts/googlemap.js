@@ -1,7 +1,7 @@
 function initialize() {
 
   var options = {
-    // types: ['(cities)']
+    types: ['(cities)']
     // , componentRestrictions: {country: "ir"}
   };
 

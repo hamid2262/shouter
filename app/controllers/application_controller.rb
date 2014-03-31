@@ -57,7 +57,10 @@ class ApplicationController < ActionController::Base
       # if Geocoder.search(request.remote_ip)[0].try(:country_code) == "DE"
       #   I18n.locale = :en
       # els
-      if params[:locale].present?
+      # raise
+      if cookies[:lang].present?
+        I18n.locale = cookies[:lang].to_sym 
+      elsif params[:locale].present?
         I18n.locale = params[:locale].to_sym 
       else
         I18n.locale = :fa 
