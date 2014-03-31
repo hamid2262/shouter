@@ -2,11 +2,13 @@ fa:
   trips:
     edit:
       trip:
+        active: فعال/غیرفعال
         single_trip_delete: حدف این سفر
-        single_trip_update: ثبت قیمت و توضیحات برای این سفر
+        single_trip_update: بروزرسانی این سفر
       trips:
+        active: فعال/غیرفعال
         all_trips_delete: حذف تمام سفرها
-        all_trips_update: ثبت قیمت و توضیحات برای تمام سفرها
+        all_trips_update: بروزرسانی تمام سفرها
     form_new:
       add_stopover: اضافه کردن شهر عبوری
       route: مسیر حرکت

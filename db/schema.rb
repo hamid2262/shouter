@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140327210238) do
+ActiveRecord::Schema.define(version: 20140331052552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -218,6 +218,7 @@ ActiveRecord::Schema.define(version: 20140327210238) do
     t.string   "destination_address"
     t.string   "origin_country_code", limit: 5,  default: "IR"
     t.integer  "currency_id"
+    t.boolean  "active",                         default: true
   end
 
   add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng"], name: "index_subtrips_on_date_time_and_dlat_and_dlng_and_olat_and_olng", using: :btree

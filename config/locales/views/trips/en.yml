@@ -2,9 +2,12 @@ en:
   trips:
     edit:
       trip:
+        actice: aaa
+        active: Active/Inactive
         single_trip_delete: Delete single trip
         single_trip_update: Update single trip
       trips:
+        active: Active/Inactive
         all_trips_delete: Delete All Trips
         all_trips_update: All Trips Update
     form_new:

@@ -101,24 +101,41 @@
 }
 
 .table-hover > tbody > tr.current_trip:hover > td{
-	background: #fff !important;
+	background: #fff ;
 }
 
 #trip_edit{
+	.subtrips{
+		thead{
+			background: #797979;
+			color: #fff;			
+		}
+	}
 	#trip{
 		background: #FFF;
 		border: 2px solid #D3D3D3;
 	}
 	#trips{
-		background: #F5FFBE;
+		background: #FFF;
 		border: 2px solid #C9C9C9;
 		.current_trip{
 			font-weight: bold;
 			color: #207060;
-			background: #FFF;
+			background: #F0F;
 			td{
+				background: #D1D1D1 !important;
 				&:hover{
-					background: #fff !important;
+					background: #fff ;
+				}
+			}
+		}
+		.inactive{
+			color: #E4E4E4;
+			background: #fff ;
+			td{
+				background: #fff ;
+				&:hover{
+					background: #fff ;
 				}
 			}
 		}

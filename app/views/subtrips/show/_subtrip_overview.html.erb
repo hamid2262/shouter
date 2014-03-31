@@ -77,7 +77,9 @@
 						<% unless (@subtrip.trip.driver == current_user)  %> <!-- if passenger is male and trip is ladies only -->
 							<!-- ( @subtrip.trip.ladies_only && current_user.gender == 'm' ) -->
 							<% if can? :edit, @subtrip %>
-				  			<%= link_to t(".edit_trip"), edit_subtrip_path, class: "btn btn-lg btn-warning pull-left" %>
+				  			<%= link_to t(".delete_seats"), edit_subtrip_path, class: "btn btn-lg btn-warning pull-#{lang_other_side}" %>
+				  			<%= link_to t(".edit_trip"), edit_trip_path(@subtrip.trip), class: "btn btn-lg btn-warning pull-#{lang_side}" %>
+
 							<% elsif @branch.nil? || (@driver.is_active? @branch) %>
 				  			<%= link_to t(".book_trip"), new_booking_path(trip: @subtrip.id), class: "btn btn-lg btn-warning pull-left" %>							
 							<% else %>

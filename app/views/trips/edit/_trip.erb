@@ -1,4 +1,4 @@
-<table id="trip" class="table table-hover">
+<table id="trip" class="subtrips table table-hover">
 	<thead>
 		<th><%= t "mydate" %></th>
 		<th><%= t "day" %></th>
@@ -6,6 +6,7 @@
 		<th><%= t "from" %></th>
 		<th><%= t "to"  %></th>
 		<th><%= t "price"   %></th>
+		<th><%= t ".active"   %></th>
 	</thead>
 	<tbody>
  		<%= f.simple_fields_for :subtrips do |b| %>

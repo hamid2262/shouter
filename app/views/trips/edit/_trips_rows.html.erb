@@ -1,5 +1,9 @@
-<% if @trip.id == subtrip.trip.id %>
+<% if (subtrip.active == false) && (@trip.id == subtrip.trip.id) %>
+	<tr class="inactive current_trip" style="cursor: pointer;" onclick="document.location = '<%= edit_trip_path subtrip.trip %> ';">
+<% elsif @trip.id == subtrip.trip.id %>
 	<tr class="current_trip">
+<% elsif subtrip.active == false %>
+	<tr class="inactive" style="cursor: pointer;" onclick="document.location = '<%= edit_trip_path subtrip.trip %> ';">
 <% else %>
 	<tr style="cursor: pointer;" onclick="document.location = '<%= edit_trip_path subtrip.trip %> ';">
 <% end %>

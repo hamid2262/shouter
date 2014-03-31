@@ -35,7 +35,8 @@ en:
         seats_status: Seats Status
       subtrip_overview:
         book_trip: Book this trip
-        edit_trip: Eliminate seats
+        delete_seats: Eliminate seats
+        edit_trip: Edit trip
         only_bookable_via_tel: Only bookable via phone
     subtrip_search_raw:
       from: from

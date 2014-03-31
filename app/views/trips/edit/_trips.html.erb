@@ -1,4 +1,4 @@
-<table id="trips" class="table table-hover">
+<table id="trips" class="subtrips table table-hover">
 	<thead>
 		<th><%= t "mydate" %></th>
 		<th><%= t "day" %></th>
@@ -22,6 +22,7 @@
 		<th><%= t "from" %></th>
 		<th><%= t "to"  %></th>
 		<th><%= t "price"   %></th>
+		<th><%= t ".active"   %></th>
 	</thead>
 	<tbody>
  		<%= f.simple_fields_for :subtrips do |b| %>
@@ -31,7 +32,10 @@
 				<td><%= b.object.origin %> </td>
 				<td><%= b.object.destination %> </td>
 				<td><%= b.select :price, (0..(100 * b.object.trip.currency.price_step)).step(b.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: b.object.trip.currency.try(:symbol) )}", s]},{prompt: b.object.price }, {class: "time_select"} %></td>
+				<td> <%= b.input :active, label: false %></td>
+
 			</tr>
+
 	  <% end %>
 	</tbody>
 </table	>	

@@ -42,6 +42,7 @@ class SearchSubtrip
 	def newtrips
     subtrips = Subtrip.where.not("origin_address = destination_address")
     subtrips = subtrips.where("date_time > ?", DateTime.now)
+    subtrips = subtrips.where("active = true")
     subtrips = subtrips.order(date_time: :desc)		
 	end
 
@@ -61,6 +62,7 @@ class SearchSubtrip
 		subtrips = subtrips.near(self.destination_address, self.destination_cycle , :units => :km) unless self.destination_address.blank?
 	  subtrips = where_near_origin(subtrips,self.origin_address, self.origin_cycle) unless self.origin_address.blank?
     subtrips = subtrips.where.not("origin_address = destination_address")
+    subtrips = subtrips.where("active = true")
 	end
 
 

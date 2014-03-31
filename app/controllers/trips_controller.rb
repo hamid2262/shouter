@@ -157,6 +157,7 @@ class TripsController < ApplicationController
               subs_for_change = trip.subtrips.where(olat: subtrip.olat, dlat: subtrip.dlat).where("date_time > ?", DateTime.now)
               subs_for_change.each do |s|
                 s.price = subtrip.price
+                s.active = subtrip.active
                 s.save!
               end              
             end
@@ -205,7 +206,7 @@ class TripsController < ApplicationController
 
     def trip_params
       params.require(:trip).permit(:total_available_seats, :detail, :currency_id, :ladies_only,
-        subtrips_attributes: [:id, :price, :seats, :_destroy,
+        subtrips_attributes: [:id, :price, :seats, :active, :_destroy,
                               :olat, :olng, :origin_address,
                               :date_time, :jminute, :jhour, :jyear, :jmonth, :jday])
     end

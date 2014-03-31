@@ -33,7 +33,8 @@ fa:
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر
-        edit_trip: از دسترس خارج کردن صندلی ها
+        delete_seats: از دسترس خارج کردن صندلی ها
+        edit_trip: ویرایش سفر
         only_bookable_via_tel: در حال حاضر فقط با تماس تلفنی امکان رزرو این سفر وجود
           دارد
     subtrip_search_raw:
