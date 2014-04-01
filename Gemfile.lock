@@ -48,6 +48,9 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
+    ckeditor (4.0.11)
+      mime-types
+      orm_adapter (~> 0.5.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.3)
@@ -122,6 +125,7 @@ GEM
     newrelic_rpm (3.7.1.182)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    non-stupid-digest-assets (1.0.4)
     oauth2 (0.8.1)
       faraday (~> 0.8)
       httpauth (~> 0.1)
@@ -227,6 +231,7 @@ DEPENDENCIES
   binding_of_caller
   cancan (~> 1.6.10)
   capistrano (~> 2.15.5)
+  ckeditor (~> 4.0.11)
   coffee-rails (~> 4.0.0)
   devise
   exception_notification
@@ -240,6 +245,7 @@ DEPENDENCIES
   letter_opener
   meta_request
   newrelic_rpm
+  non-stupid-digest-assets (~> 1.0.4)
   omniauth-facebook
   paperclip (~> 3.5.2)
   pg

@@ -17,8 +17,9 @@ gem 'exception_notification'
 gem 'will_paginate'
 gem 'globalize', '~> 4.0.0'
 gem 'omniauth-facebook'
-
 gem 'gmaps4rails'
+gem 'ckeditor', '~> 4.0.11'
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 gem 'twilio-ruby'
 group :production do

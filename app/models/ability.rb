@@ -5,6 +5,9 @@ class Ability
     user ||= User.new 
     if user.admin?
         can :manage, :all
+        can :access, :ckeditor 
+        can [:read, :create, :destroy], Ckeditor::Picture
+        can [:read, :create, :destroy], Ckeditor::AttachmentFile
     elsif user.try(:email) != ""
         
         can [:edit, :update], Branch do |b|

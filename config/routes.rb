@@ -1,5 +1,6 @@
 Shouter::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, skip: [:session, :password, :registration, :confirmation], :controllers => {
     omniauth_callbacks: "users/omniauth_callbacks"
   }
