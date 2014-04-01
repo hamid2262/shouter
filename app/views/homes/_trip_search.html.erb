@@ -15,10 +15,14 @@
 
 			<div class="row">
 				<!-- DatePicker -->
-				<div class="form-group  date-select col-sm-6">
-			    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
-			    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
-			    <%= f.select :jyear, 1392..1393,{}, {class: "datepicker"} %> 
+				<div class="form-group datepicker-input date-select col-sm-8 pull-<%= lang_side %>">
+					<% if locale == :en %>
+        		<%= f.input :date_time,placeholder: "mm / dd / yyyy", label: false,input_html: { id: "datepicker", class: "form-control gdate" }  %>
+					<% else %>
+				    <%= f.select :jday, 1..31,{}, {class: "datepicker"}  %> 
+				    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"} %>
+				    <%= f.select :jyear, 1393..1394,{}, {class: "datepicker"} %> 
+					<% end %>
 				</div>
 			</div>
 

@@ -7,14 +7,14 @@
 //= require select2
 //= require underscore
 //= require gmaps/google
+//= require jquery.ui.datepicker
 //= require ckeditor/override
 //= require ckeditor/init
 //= require_tree .
 
 $(function() {
-  $(".select2_input").select2({ 
-		width: '265px' 
-	});
+
+  $( "#datepicker" ).datepicker({ minDate: 0, maxDate: "+6M" });
 
   // update url by tab changing
   $('.nav-tabs a').click(function (e) {

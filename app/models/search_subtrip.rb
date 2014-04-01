@@ -6,7 +6,7 @@ class SearchSubtrip
   
 	attr_accessor :origin_address, :olat, :olng, :origin_cycle, 
 								:destination_address, :dlat, :dlng, :destination_cycle, 
-								:date, :jday, :jmonth, :jyear,
+								:date_time, :jday, :jmonth, :jyear,
 								:autocomplete, :destination_id, :origin_id
 
 	# validate :cities_cannot_be_blank
@@ -55,7 +55,7 @@ class SearchSubtrip
   end
 
 	def subtrips days=0
-		start_date = JalaliDate.new(jyear.to_i,jmonth.to_i,jday.to_i).to_gregorian.beginning_of_day - 1.minute
+		start_date = choose_date_time
 		end_date = start_date.end_of_day + days.days
 
 		subtrips = Subtrip.where("date_time > ?", start_date).where("date_time < ?", end_date)
@@ -67,7 +67,7 @@ class SearchSubtrip
 
 
 
-	private
+private
 	def where_near_origin subtrips, address, cycle
 		lat,lng = Geocoder.coordinates address
 		subtrips.where("olat - ? < ?", lat, cycle.to_f/80).where("olng - ? < ?", lng, cycle.to_f/80)
@@ -111,6 +111,15 @@ class SearchSubtrip
 			end				
 		end
 
+		def choose_date_time
+			if date_time.present?
+				Date.strptime(self.date_time, '%m/%d/%Y') 				
+			elsif jyear.present?
+				JalaliDate.new(jyear.to_i,jmonth.to_i,jday.to_i).to_gregorian.beginning_of_day - 1.minute
+			else
+				Date.today
+			end
+		end
 		# def cities_cannot_be_blank
   # 		errors.add(:destination_address, "can't be blank")	if @destination_address.blank?		
 		# end

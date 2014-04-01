@@ -23,10 +23,12 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 		font-weight: bold;
 	}
 	.datepicker-input{
-		margin-top: 8px;
-		input{
-			padding-right: 40px;
-			width: 140px;
+		.gdate{
+			width: 100%;
+			padding: 0 20px;
+			background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png');
+			background-position: 170px -330px;
+			background-repeat: no-repeat;
 		}
 		.ui-datepicker-trigger{
 			border: medium none;

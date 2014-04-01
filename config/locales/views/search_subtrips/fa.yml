@@ -15,13 +15,12 @@ fa:
           selector: حالت انتخابی
       search_btn: جستجو
     no_record_found:
-      no_trip: 'هیچ سفری '
+      cycle: و شهرهای اطراف آن به شعاع
       from: از مبدا
-      to: 'به مقصد'
-      cycle: 'و شهرهای اطراف آن به شعاع'
       kilo: کیلومتری
+      no_trip: 'هیچ سفری '
       not_founded: ' یافت نشد'
-               
+      to: به مقصد
     search:
       comming_soon: بزودی این امکان اضافه خواهد شد
       no_trip_registered: سفری با این مشخصات پیدا نشد.

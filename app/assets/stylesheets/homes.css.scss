@@ -1,4 +1,3 @@
-
 $green: #b5c023;
 #home{		
 	#insert_trip{
@@ -45,6 +44,17 @@ $green: #b5c023;
 		  	position: absolute;
 		  }
 		}
+
+		.datepicker-input{
+			.gdate{
+				width: 175px;
+				padding: 0 20px;
+				background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png');
+				background-position: 143px -328px;
+				background-repeat: no-repeat;
+			}
+		}
+
 
 		// background: $green;
 		// border: 2px solid #C3D329;

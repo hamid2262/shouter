@@ -9,9 +9,13 @@
 
 		<!-- DatePicker -->
 				<div class="form-group datepicker-input col-sm-4 my-col-lg-5">
-				    <%= f.select :jday, 1..31  %> 
-				    <%= f.select :jmonth, collection_for_month %>
-				    <%= f.select :jyear, 1392..1393 %> 
+					<% if locale == :en %>
+        		<%= f.input :date_time,placeholder: "mm / dd / yyyy", label: false,input_html: { id: "datepicker", class: "form-control gdate" }  %>
+					<% else %>
+				    <%= f.select :jday, 1..31,{}, {class: "datepicker"}    %> 
+				    <%= f.select :jmonth, collection_for_month,{}, {class: "datepicker"}   %>
+				    <%= f.select :jyear, 1393..1394,{}, {class: "datepicker"}   %> 
+					<% end %>
 				</div>
 		<!-- Submit -->
 			  <div class="col-sm-4 my-col-lg-3">
