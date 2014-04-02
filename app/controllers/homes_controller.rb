@@ -1,5 +1,4 @@
 class HomesController < ApplicationController
-
 	skip_authorization_check :only => [:show, :lang_select]
 
   def show

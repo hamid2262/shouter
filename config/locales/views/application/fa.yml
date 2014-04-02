@@ -1,0 +1,35 @@
+fa:
+  application:
+    error_messages:
+      description: 'خطا در فیلدهای زیر بوده است:'
+      title: خطا مانع ثبت این رکورد در سیستم شده است
+    footer:
+      about_hamsafaryab: درباره همسفریاب
+      about_us: درباره ما
+      ads_in_hamsafaryab: تبلیغات هوشمند در همسفریاب
+      benefits: مزایای استفاده از همسفریاب
+      booking: رزرو یک سفر
+      bus_ticket_booking: ' رزرو بلیط اتوبوس'
+      contact: ارتباط با ما
+      copyright: تمامی حقوق این سایت متعلق به %{href}  می باشد.
+      cost_calculation: نحوه محاسبه قیمتهای پیشنهادی
+      create_profile: ساخت و ویرایش پروفایل
+      customer_service: خدمات مشتری
+      enter_ride: ثبت سفر
+      for_companies: برای شرکتهای مسافربری
+      for_drivers: برای راننده ها
+      for_passengers: برای مسافران
+      frequently_asked_questions: سوالات متداول و پاسخها
+      help: راهنما
+      how_it_works_for_companies: نحوه کار برای شرکتها
+      how_it_works_for_drivers: نحوه کار برای راننده ها
+      how_it_works_for_passengers: نحوه کار برای مسافران
+      legal: قوانین
+      metting: قرار ملاقات
+      privacy: حقوق مالکيت معنوي
+      questions_answers: سوالها و پاسخها
+      search_trip: جستجوی سفر
+      security: امنیت
+      spacial_account_for companies: 'درخواست حساب کاربری ویژه '
+      spacial_offers: خدمات ویژه
+      term: شرايط استفاده

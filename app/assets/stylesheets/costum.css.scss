@@ -25,46 +25,6 @@ a{
   width: auto;
   padding: 0 15px;
 }
-.container .text-muted {
-  margin: 20px 0;
-}
- 
-#footer{
-  height: 60px;
-  position: relative;
-  .container {
-    ul{
-      list-style: none;
-      display: inline;
-      li{
-        display: inline-block;
-        padding: 0 5px;
-      }
-    }       
-  }
-
-  #social{
-    position: absolute;
-    top: 12px;
-    right: 44%;
-    li{
-      width:  30px;
-      height: 30px;
-    }
-    #facebook-link{
-      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
-      background-position: 0px -255px;
-    }
-    #twitter{
-      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
-      background-position: 0px -294px;
-    }
-    #gplus{
-      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
-      background-position: 0px -220px;
-    }
-  }
-}
 
 img.logo{
   background: #ADB9CC;

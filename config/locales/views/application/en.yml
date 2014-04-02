@@ -1,0 +1,35 @@
+en:
+  application:
+    error_messages:
+      description: 'There were problems with the following fields:'
+      title: Errors prohibited this record from being saved
+    footer:
+      about_hamsafaryab: About Hamsafaryab
+      about_us: About us
+      ads_in_hamsafaryab: Ads in Hamsafaryab
+      benefits: Benefits
+      booking: Booking
+      bus_ticket_booking: ‌Bus ticket booking
+      contact: Contact
+      copyright: © %{year} %{href} All rights reserved
+      cost_calculation: Trip Cost Calculation
+      create_profile: Create Profile
+      customer_service: Customer Service
+      enter_ride: Enter ride
+      for_companies: For Companies
+      for_drivers: For Drivers
+      for_passengers: For Passengers
+      frequently_asked_questions: FAQ
+      help: Help
+      how_it_works_for_companies: 'How it works: for companies'
+      how_it_works_for_drivers: 'How it works: for drivers'
+      how_it_works_for_passengers: 'How it works: for passengers'
+      legal: Legal
+      metting: Meeting
+      privacy: Privacy
+      questions_answers: Questions & Answers
+      search_trip: Look for a trip
+      security: Security
+      spacial_account_for companies: 'Spacial account '
+      spacial_offers: Special offers
+      term: Terms

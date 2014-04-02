@@ -1,0 +1,58 @@
+#footer{
+  height: 60px;
+  position: relative;
+  .container {
+    ul{
+      list-style: none;
+      display: inline;
+      li{
+        padding: 0 5px;
+      }
+    }       
+  }
+	#sec1{
+	  .footer_list{
+	  	color: #16360C;
+	  	&:hover {
+				text-decoration: underline !important;
+	  	}
+	  }
+		.list{
+			.title{
+				border-bottom: 2px solid #93BE6B;
+				width: 150px;
+				padding-bottom: 8px;
+				margin-bottom: -2px;
+				font-size: 1.3em;
+				font-weight: bold;
+				padding: 8px 5px;
+			}
+		}
+	}
+	#sec2{
+		padding: 13px 17px 0;
+		border-top: 1px solid #eee;
+		#copyright{
+			margin-top: 9px;
+		}
+	  #social{
+	    li{
+	      display: inline-block;
+	      width:  30px;
+	      height: 30px;
+	    }
+	    #facebook-link{
+	      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
+	      background-position: 0px -255px;
+	    }
+	    #twitter{
+	      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
+	      background-position: 0px -294px;
+	    }
+	    #gplus{
+	      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
+	      background-position: 0px -220px;
+	    }
+	  }
+	}
+}

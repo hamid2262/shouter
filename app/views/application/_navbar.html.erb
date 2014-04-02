@@ -24,6 +24,8 @@
           <%= render 'popup_signin' %>
           <li><%= link_to t("navbar.user.sign_up"), new_user_registration_path %></li>
   			<% end %>	
+        <li><%= link_to t("navbar.how_it_works"), page_path('about') %></li>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-left">
@@ -34,7 +36,6 @@
           <li><%= link_to_unless_current t("navbar.language.english"), lang_select_path(lang: "en",  url:  request.original_url) %></li>
         <% else %>
           <li><%= link_to_unless_current t("navbar.language.farsi"), lang_select_path(lang: "fa",  url:  request.original_url) %></li> 
-
         <% end %>
       </ul>     
 

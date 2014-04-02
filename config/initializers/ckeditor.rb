@@ -20,7 +20,7 @@ Ckeditor.setup do |config|
   # By default: there is no authorization.
   config.authorize_with :cancan
 
-  config.assets_languages = ['en', 'fa']
+  config.assets_languages = 'en'
   config.assets_plugins = ['image', 'smiley']
 
   # Asset model classes
