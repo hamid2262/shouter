@@ -4,7 +4,7 @@
 //= require jquery_ujs
 // require turbolinks
 //= require bootstrap
-//= require select2
+// require select2
 //= require underscore
 //= require gmaps/google
 //= require jquery.ui.datepicker
