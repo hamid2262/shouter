@@ -58,7 +58,7 @@ class Ability
     can [:start_new_trip], Trip
     can [:show], Subtrip
     can :booking_acceptance, Booking
-    can :show, Page
+    can [:show, :contact, :contact_accept], Page
     # The first argument to `can` is the action you are giving the user 
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

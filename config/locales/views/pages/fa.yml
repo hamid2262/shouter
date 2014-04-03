@@ -1,0 +1,9 @@
+fa:
+  pages:
+    contact:
+      message: پیام
+      subject: موضوع
+      your_email: آدرس الکترونیکی
+      your_name: 'نام کامل '
+    contact_accept:
+      contact_us_sent: 'پیام شما با موفقیت ارسال شد.'

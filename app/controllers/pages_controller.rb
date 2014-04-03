@@ -22,6 +22,18 @@ class PagesController < ApplicationController
   def edit
   end
 
+  # GET /pages/contact
+  def contact
+  end
+
+  # POST /pages/contact_accept
+  def contact_accept
+    AdminMailer.contact_us(params[:contact]).deliver
+    flash[:notice] = t(".contact_us_sent")
+    redirect_to action: "contact"
+    return false
+  end
+
   # POST /pages
   # POST /pages.json
   def create

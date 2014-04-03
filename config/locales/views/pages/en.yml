@@ -1,0 +1,9 @@
+en:
+  pages:
+    contact:
+      message: Message
+      subject: Subject
+      your_email: Your Email
+      your_name: Your Name
+    contact_accept:
+      contact_us_sent: "Your message sent successfuly."

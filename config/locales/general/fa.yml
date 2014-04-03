@@ -53,6 +53,7 @@ fa:
   reject: رد درخواست
   post: ارسال
   comment: یادداشت
+  send:  ارسال
   sending: در حال ارسال...
   error_registration: خطا مانع ثبت شد.
   # flash messages   

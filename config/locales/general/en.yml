@@ -55,6 +55,7 @@ en:
   reject: Reject
   post: Post
   comment: Comment
+  send: Send
   sending: Sending...
   error_registration: Registreation failed! 
   # flash messages
