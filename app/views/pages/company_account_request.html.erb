@@ -1,0 +1,61 @@
+<div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+	<%= form_tag company_account_request_accept_pages_path, {id: "contact_us_form", class: "form-horizontal"} do -%>
+	  <div class="form-group">
+	  	<%= label_tag "request[company_name]", t('.company_name'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[company_name]",nil, { placeholder: t('.placeholder_company_name'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[branch_name]", t('.branch_name'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[branch_name]",nil, { placeholder: t('.placeholder_branch_name'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[branch_address]", t('.branch_address'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[branch_address]",nil, { placeholder: t('.branch_address'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[branch_tel]", t('.branch_tel'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[branch_tel]",nil, { placeholder: t('.placeholder_branch_tel'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[operator_mobile]", t('.operator_mobile'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[operator_mobile]",nil, { placeholder: t('.placeholder_operator_mobile'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[operator_email]", t('.operator_email'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+	  		<%= text_field_tag "request[operator_email]",nil, { placeholder: t('.placeholder_operator_email'), class: "form-control required "} %>
+	  	</div>
+	  </div>
+
+	  <div class="form-group">
+	  	<%= label_tag "request[detail]", t('.detail'),{ class: "col-sm-3 control-label"} %>
+	  	<div class="col-sm-9">
+		  	<%= text_area_tag "request[detail]",nil, { placeholder: t('.placeholder_detail'), class: "form-control",rows: "8"} %>
+	  	</div>
+	  </div>
+
+
+	  <div class="form-group">
+		  <div class="col-sm-offset-3 col-sm-4">
+			  <%= submit_tag t('send'), :disable_with => t('sending'), class: "btn btn-block btn-lg btn-warning" %>
+		  </div>
+	  </div>
+
+	<% end %>
+
+</div>

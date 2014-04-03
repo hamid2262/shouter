@@ -6,9 +6,10 @@ en:
     footer:
       about_hamsafaryab: About Hamsafaryab
       about_us: About us
+      account_request_for_companies: Acount request for companies
       ads_in_hamsafaryab: Ads in Hamsafaryab
       benefits: Benefits
-      booking: Booking
+      booking: Booking a trip
       bus_ticket_booking: ‌Bus ticket booking
       contact: Contact
       copyright: © %{year} %{href} All rights reserved
@@ -30,6 +31,5 @@ en:
       questions_answers: Questions & Answers
       search_trip: Look for a trip
       security: Security
-      spacial_account_for companies: 'Spacial account '
       spacial_offers: Special offers
       term: Terms

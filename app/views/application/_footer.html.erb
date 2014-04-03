@@ -17,7 +17,6 @@
           <h3 class="title"><%= t('.for_passengers') %></h3>
           <ul>
             <li><%= link_to t('.how_it_works_for_passengers'), page_path("how-it-works-for-passengers"), class: "footer_list" %></li>
-            <li><%= link_to t('.bus_ticket_booking'), page_path("bus-ticket-booking"), class: "footer_list" %></li>
             <li><%= link_to t('.booking'), page_path("booking"), class: "footer_list" %></li>
             <li><%= link_to t('.search_trip'), search_search_subtrips_path, class: "footer_list" %></li>
           </ul>
@@ -26,7 +25,7 @@
         <div class="col-xs-4 col-sm-2 list">
           <h3 class="title"><%= t('.for_companies') %></h3>
           <ul>
-            <li><%= link_to t('.spacial_account_for companies'), dashboard_path, class: "footer_list" %></li>
+            <li><%= link_to t('.account_request_for_companies'), company_account_request_pages_path, class: "footer_list" %></li>
             <li><%= link_to t('.how_it_works_for_companies'), page_path("how-it-works-for-companies"), class: "footer_list" %></li>
           </ul>
         </div>

@@ -6,9 +6,10 @@ fa:
     footer:
       about_hamsafaryab: درباره همسفریاب
       about_us: درباره ما
+      account_request_for_companies: 'درخواست حساب کاربری شرکتها '
       ads_in_hamsafaryab: تبلیغات هوشمند در همسفریاب
       benefits: مزایای استفاده از همسفریاب
-      booking: رزرو یک سفر
+      booking: نحوه رزرو سفر
       bus_ticket_booking: ' رزرو بلیط اتوبوس'
       contact: ارتباط با ما
       copyright: تمامی حقوق این سایت متعلق به %{href}  می باشد.
@@ -30,6 +31,5 @@ fa:
       questions_answers: سوالها و پاسخها
       search_trip: جستجوی سفر
       security: امنیت
-      spacial_account_for companies: 'درخواست حساب کاربری ویژه '
       spacial_offers: خدمات ویژه
       term: شرايط استفاده

@@ -1,9 +1,26 @@
 en:
   pages:
+    company_account_request:
+      branch_address: Address of Branch
+      branch_name: Name of Branch
+      branch_tel: Branch Phone Number
+      company_name: Name of Company
+      detail: More Infrormation
+      operator_email: Operator's Email
+      operator_mobile: Operator's mobile
+      placeholder_branch_name: Name of branch
+      placeholder_branch_tel: Branch phone number for booking
+      placeholder_company_name: Name of transportation company
+      placeholder_detail: More Information
+      placeholder_operator_email: Operator's email address
+      placeholder_operator_mobile: Mobile number of operator for receiveing bookings
+        via SMS
     contact:
       message: Message
       subject: Subject
       your_email: Your Email
       your_name: Your Name
     contact_accept:
-      contact_us_sent: "Your message sent successfuly."
+      contact_us_sent: Your message sent successfuly.
+    company_account_request_accept: 
+      company_account_request_sent: Your request sent successfuly to Hamsafaryab, you will receive response email maximum in three days.

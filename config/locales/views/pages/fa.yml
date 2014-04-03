@@ -1,9 +1,27 @@
 fa:
   pages:
+    company_account_request:
+      branch_address: آدرش شعبه
+      branch_name: نام شعبه
+      branch_tel: تلفن شعبه
+      company_name: نام شرکت
+      detail: اطلاعات اضافی
+      operator_email: ایمیل متصدی
+      operator_mobile: موبایل متصدی
+      placeholder_branch_name: نام شعبه شرکت مسافربری
+      placeholder_branch_tel: شماره تماس شعبه برای رزرو بلیط
+      placeholder_company_name: نام شرکت مسافربری
+      placeholder_detail: اطلاعات اضافی مانند امکانات شعبه برای قرار دادن در صفحه  شعبه
+      placeholder_operator_email: ایمیل متصدی برای ایجاد حساب کاربری در همسفریاب و
+        دریافت ایمیل هنگام رزرو بلیط
+      placeholder_operator_mobile: شماره موبایل متصدی شعبه برای دریاف اس ام اس اتوماتیک
+        در هنگام رزرو بلیط توسط مسافران
     contact:
       message: پیام
       subject: موضوع
       your_email: آدرس الکترونیکی
       your_name: 'نام کامل '
     contact_accept:
-      contact_us_sent: 'پیام شما با موفقیت ارسال شد.'
+      contact_us_sent: پیام شما با موفقیت ارسال شد.
+    company_account_request_accept: 
+      company_account_request_sent: درخواست شما با موفقیت ارسال شد. در چند روز آینده ایمیلی از طرف همسفریاب برای درخواستتان دریافت خواهید نمود.

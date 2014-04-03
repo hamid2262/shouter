@@ -18,7 +18,8 @@
           <%= javascript_include_tag :defaults %>
 
   <% if params[:locale] == 'fa' %>
-  	<%= javascript_include_tag ASSETS_PATH+"js/localization/messages_fa.js" %>  	
+  	<%= javascript_include_tag ASSETS_PATH+"js/localization/messages_fa.js" %>  
+    <%= stylesheet_link_tag ASSETS_PATH+"css/bootstrap-rtl.css", media: "all", "data-turbolinks-track" => true %>
   <% end %>
 
   <% unless params[:locale] == 'fa' %>

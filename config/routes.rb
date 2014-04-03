@@ -29,6 +29,8 @@ Shouter::Application.routes.draw do
       collection do
         get 'contact'
         post 'contact_accept'
+        get 'company_account_request'
+        post 'company_account_request_accept'
       end
     end
 

@@ -34,6 +34,18 @@ class PagesController < ApplicationController
     return false
   end
 
+  # GET /pages/company_account_request
+  def company_account_request
+  end
+
+  # POST /pages/company_account_request_accept
+  def company_account_request_accept
+    AdminMailer.company_account_request(params[:request]).deliver
+    flash[:notice] = t(".company_account_request_sent")
+    redirect_to action: "company_account_request"
+    return false
+  end
+
   # POST /pages
   # POST /pages.json
   def create

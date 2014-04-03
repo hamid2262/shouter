@@ -11,7 +11,7 @@
  *= require bootstrap
  *= require bootstrap-rtl
  *= require jquery.ui.datepicker
- *= require select2
+ * require select2
  *= require_self
  *= require_tree .
  */
