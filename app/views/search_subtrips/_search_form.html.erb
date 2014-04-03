@@ -8,7 +8,7 @@
 				<%= render partial: 'search_subtrips/search_form_with_autocomplete', locals:{f: f} %>	
 
 		<!-- DatePicker -->
-				<div class="form-group datepicker-input col-sm-4 my-col-lg-5">
+				<div class="form-group datepicker-input col-sm-4 col-lg-3">
 					<% if locale == :en %>
         		<%= f.input :date_time,placeholder: "mm / dd / yyyy", label: false,input_html: { id: "datepicker", class: "form-control gdate" }  %>
 					<% else %>
@@ -18,8 +18,8 @@
 					<% end %>
 				</div>
 		<!-- Submit -->
-			  <div class="col-sm-4 my-col-lg-3">
-						<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-primary gold_btn" %>
+			  <div class="search_btn col-sm-4 col-lg-1 ">
+						<%= f.button :submit, t("search_subtrips.form.search_btn"), class: "btn btn-primary gold_btn " %>
 				</div>		
 			<% end %>
 		</div>

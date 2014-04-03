@@ -24,7 +24,7 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 	}
 	.datepicker-input{
 		.gdate{
-			width: 100%;
+			width: 203px;
 			padding: 0 20px;
 			background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png');
 			background-position: 170px -330px;
@@ -37,7 +37,9 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 			top: 6px;
 		}
 	}
-
+	.search_btn{
+		padding: 0;
+	}
 	.origin_input .glyph-map{
 		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') no-repeat;
 		background-position: 0px -189px;

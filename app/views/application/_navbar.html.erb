@@ -24,11 +24,11 @@
           <%= render 'popup_signin' %>
           <li><%= link_to t("navbar.user.sign_up"), new_user_registration_path %></li>
   			<% end %>	
-        <li><%= link_to t("navbar.how_it_works"), page_path('about') %></li>
+        <li><%= link_to t("navbar.how_it_works"), page_path('how_does_hamsafaryab_work') %></li>
 
       </ul>
 
-      <ul class="nav navbar-nav navbar-left">
+      <ul class="nav navbar-nav navbar-<%= lang_other_side %>">
         <li><%= link_to t("navbar.trip.insert"), trips_start_new_trip_path %></li>
         <li><%= link_to t("navbar.trip.search"), search_search_subtrips_path %></li>
 

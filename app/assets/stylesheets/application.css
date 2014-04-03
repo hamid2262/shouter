@@ -9,7 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap
- *= require bootstrap-rtl
+ * require bootstrap-rtl
  *= require jquery.ui.datepicker
  * require select2
  *= require_self
