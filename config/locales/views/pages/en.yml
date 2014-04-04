@@ -6,6 +6,8 @@ en:
       branch_tel: Branch Phone Number
       company_name: Name of Company
       detail: More Infrormation
+      line1: 'Transformation companies can request spacial account to user for managing
+        their buses or other tranformation vehicles trip with only one account. '
       operator_email: Operator's Email
       operator_mobile: Operator's mobile
       placeholder_branch_name: Name of branch
@@ -15,12 +17,17 @@ en:
       placeholder_operator_email: Operator's email address
       placeholder_operator_mobile: Mobile number of operator for receiveing bookings
         via SMS
+      title: Account request for branches of transformation companies.
+    company_account_request_accept:
+      company_account_request_sent: Your request sent successfuly to Hamsafaryab,
+        you will receive response email maximum in three days.
     contact:
+      contact us: Contact us
+      line1: If you have any question or mayby some recommandation for improving Hamsafaryab.
+        You can write to us below. We usally respond in 24 hours or less.
       message: Message
       subject: Subject
       your_email: Your Email
       your_name: Your Name
     contact_accept:
       contact_us_sent: Your message sent successfuly.
-    company_account_request_accept: 
-      company_account_request_sent: Your request sent successfuly to Hamsafaryab, you will receive response email maximum in three days.

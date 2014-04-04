@@ -1,24 +1,28 @@
-<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-	<%= form_tag contact_accept_pages_path, {id: "contact_us_form"} do -%>
-	  <div class="form-group">
-	  	<%= text_field_tag "contact[subject]",nil, { placeholder: t('.subject'), class: "form-control required "} %>
-	  </div>
-	  <div class="form-group">
-	  	<%= text_field_tag "contact[name]",nil, { placeholder: t('.your_name'), class: "form-control required"} %>
-	  </div>
+<div id="pages">
+	<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+		<div id="form-explanation">
+				<h1><%= t ".contact us" %></h1>
+				<p> <%= t ".line1" %> </p>
+		</div>		
+		<%= form_tag contact_accept_pages_path, {id: "contact_us_form"} do -%>
+		  <div class="form-group">
+		  	<%= text_field_tag "contact[subject]",nil, { placeholder: t('.subject'), class: "form-control required "} %>
+		  </div>
+		  <div class="form-group">
+		  	<%= text_field_tag "contact[name]",nil, { placeholder: t('.your_name'), class: "form-control required"} %>
+		  </div>
 
-	  <div class="form-group">
-		  <%= text_area_tag "contact[message]",nil, { placeholder: t('.message'), class: "form-control",rows: "8"} %>
-	  </div>
+		  <div class="form-group">
+			  <%= text_area_tag "contact[message]",nil, { placeholder: t('.message'), class: "form-control",rows: "8"} %>
+		  </div>
 
-	  <div class="form-group">
-	  	<%= text_field_tag "contact[email]",nil, { placeholder: t('.your_email'), class: "form-control required"} %>
-	  </div>
+		  <div class="form-group">
+		  	<%= text_field_tag "contact[email]",nil, { placeholder: t('.your_email'), class: "form-control required"} %>
+		  </div>
 
-	  <div class="form-group">
-		  <%= submit_tag t('send'), :disable_with => t('sending'), class: "btn btn-block btn-lg btn-warning" %>
-	  </div>
-
-	<% end %>
-
+		  <div class="form-group">
+			  <%= submit_tag t('send'), :disable_with => t('sending'), class: "btn btn-block btn-lg btn-warning" %>
+		  </div>
+		<% end %>
+	</div>
 </div>
