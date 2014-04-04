@@ -1,4 +1,11 @@
-/*
-  Place all the styles related to the matching controller here.
-  They will automatically be included in application.css.
-*/
+#pages{
+	h2{
+		color: #4C9768;
+		font-weight: bold;	
+	}
+	p{
+		padding: 10px 20px;
+		color: #25462F;
+		line-height: 2em;
+	}
+}

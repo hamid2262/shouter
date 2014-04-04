@@ -31,12 +31,12 @@ class Dashboard
 			users = User.where.not(id: unfollowed_users_ids).near(@user.city, 2000).order("RANDOM()").limit(8-size)
 			size = users.size + size
 			if size < 8
-				rand_user = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8-size) 
+				rand_user = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").where("users.avatar_file_name IS NOT NULL").limit(8-size) 
 				users = rand_user.concat(users)
 				users = users.uniq
 			end
 		else
-			users = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).order("RANDOM()").limit(8-size)
+			users = User.where.not(id: unfollowed_users_ids).where.not(id: admin_ids).where("users.avatar_file_name IS NOT NULL").order("RANDOM()").limit(8-size)
 		end
 		users = online_users.concat(users) if online_users.any?
 		users

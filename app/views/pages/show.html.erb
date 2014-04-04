@@ -3,6 +3,7 @@
 	<%= link_to 'Back', pages_path %>
 <% end %>
 
- <h2> <%= @page.name %> </h2>
-  <%= @page.content.html_safe %>
-
+<h2> <%= @page.name %> </h2>
+<div id="pages">
+	<%= @page.content.html_safe %>
+</div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140401171311) do
+ActiveRecord::Schema.define(version: 20140404001036) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -249,7 +249,7 @@ ActiveRecord::Schema.define(version: 20140401171311) do
     t.boolean  "active",                         default: true
   end
 
-  add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng"], name: "index_subtrips_on_date_time_and_dlat_and_dlng_and_olat_and_olng", using: :btree
+  add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng", "active"], name: "index_subtrips_on_date_time_and_dlatlng_and_olatolng_active", using: :btree
   add_index "subtrips", ["trip_id"], name: "index_subtrips_on_trip_id", using: :btree
 
   create_table "text_shouts", force: true do |t|
@@ -310,6 +310,7 @@ ActiveRecord::Schema.define(version: 20140401171311) do
     t.string   "city",                   limit: 80
   end
 
+  add_index "users", ["avatar_file_name"], name: "index_users_on_avatar_file_name", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
