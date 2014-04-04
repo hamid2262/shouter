@@ -4,11 +4,11 @@ class Vehicle < ActiveRecord::Base
 
   has_attached_file :image, 
     styles: lambda { |a| {:small => "x100>", :normal => "x300>"} if a.instance.is_image? },
-    default_url:  "#{IMAGES_PATH}vehicle_default.png"
+    default_url:  "#{IMAGES_PATH}vehicle_default.jpg"
 
 
 	validates_attachment :image, :size => { in: 0..4.megabytes }
-  validates :vehicle_model_id, presence: true
+  # validates :vehicle_model_id, presence: true
 
   # virtual attribute getter
   def brand

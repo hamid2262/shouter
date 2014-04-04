@@ -34,3 +34,7 @@ fa:
       security: امنیت
       spacial_offers: خدمات ویژه
       term: شرايط استفاده
+    nav:
+      my_trips:
+        booked_trips: سفرهای رزرو کرده
+        registered_trips: سفرهای ثبت کرده

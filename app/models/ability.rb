@@ -45,12 +45,18 @@ class Ability
         end
         
         can [:show, :create], Invitation
+        
+        can [:new, :create], Vehicle
+        can [:edit, :update], Vehicle do |v|
+            user == v.user
+        end
 
         can [:show], Network
     else
         can :invite_acceptation, Invitation
     end
 
+    can :show, Vehicle
     can :show, Branch
     can :show, Company
     can :show, SpacialEvent

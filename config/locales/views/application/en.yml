@@ -34,3 +34,7 @@ en:
       security: Security
       spacial_offers: Special offers
       term: Terms
+    nav:
+      my_trips:
+        booked_trips: Booked trips
+        registered_trips: Registered Trips
