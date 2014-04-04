@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 	skip_authorization_check :only => [:show, :lang_select]
-
+  before_action  :redirect_to_appropriate_lang
   def show
     redirect_to dashboard_path if current_user
 
@@ -21,4 +21,15 @@ class HomesController < ApplicationController
   	end
   	redirect_to new_url
   end
+
+  private
+
+    def redirect_to_appropriate_lang
+      if cookies[:lang].nil?
+        if request.original_url.include?("/fa")
+          cookies[:lang] = :fa   
+          redirect_to root_url    
+        end        
+      end
+    end
 end
