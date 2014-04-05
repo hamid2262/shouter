@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   authorize_resource 
 
-  before_action :set_user, only: [:update]
+  before_action :set_user
   before_action :set_vehicle, only: [:edit, :update, :destroy]
 
   def new
@@ -32,7 +32,7 @@ class VehiclesController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle.update(vehicle_params)
-        format.html { redirect_to :back }
+        format.html { redirect_to_profile_with_flash( @user, t(:vehicle_create_message) ) }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
