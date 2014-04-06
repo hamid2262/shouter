@@ -178,6 +178,11 @@ $btn-primary-darker:  darken($btn-primary-color, 8%);
 				.to{
 					text-align: center;
 				}
+				.from, .to{
+					small{
+						display: inline-block;
+					}
+				}
 				td{
 					border: 0;
 					padding:  0 5px;

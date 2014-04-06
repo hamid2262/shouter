@@ -27,10 +27,14 @@ class Subtrip < ActiveRecord::Base
  
   def origin
     city = self.origin_address.split(',').first
+    city = city + "<small>(#{self.origin_address.split(',')[1]})</small>"  if self.origin_address.split(',').size > 2
+    city.html_safe
   end
 
   def destination
     city = self.destination_address.split(',').first
+    city = city  +"<small>(#{self.destination_address.split(',')[1]})</small>"  if self.destination_address.split(',').size > 2
+    city.html_safe
   end
 
   def number_of_taken_seats
