@@ -77,6 +77,13 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, :size => { in: 0..4.megabytes }
   validates_attachment :cover,  :size => { in: 0..4.megabytes }
 
+  def contacts
+    contacts = Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
+    contacts = contacts.map { |e| [e.sender_id, e.receiver_id] }.flatten
+    contacts. delete self.id
+    contacts 
+  end
+
   def self.find_for_facebook_oauth(auth)
     user = User.where(email: auth.info.email).first
     if user.nil?

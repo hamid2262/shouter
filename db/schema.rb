@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404001036) do
+ActiveRecord::Schema.define(version: 20140406175047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -109,6 +109,19 @@ ActiveRecord::Schema.define(version: 20140404001036) do
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
+
+  create_table "contacts", force: true do |t|
+    t.integer  "sender_id"
+    t.integer  "receiver_id"
+    t.boolean  "receiver_saw"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contacts", ["receiver_id", "receiver_saw"], name: "index_contacts_on_receiver_id_and_receiver_saw", using: :btree
+  add_index "contacts", ["receiver_id"], name: "index_contacts_on_receiver_id", using: :btree
+  add_index "contacts", ["sender_id", "receiver_id"], name: "index_contacts_on_sender_id_and_receiver_id", using: :btree
+  add_index "contacts", ["sender_id"], name: "index_contacts_on_sender_id", using: :btree
 
   create_table "currencies", force: true do |t|
     t.string   "name"
