@@ -62,6 +62,8 @@ class Ability
         can :invite_acceptation, Invitation
     end
 
+    can [:index], Contact
+
     can :show, Vehicle
     can :show, Branch
     can :show, Company

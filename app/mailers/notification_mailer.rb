@@ -29,6 +29,13 @@ class NotificationMailer < ActionMailer::Base
     end
   end
 
+  def message_notification(contact, message)
+    @sender = contact.sender 
+    @receiver = contact.receiver
+    @message = message
+    mail to: @receiver.email, subject: t(".subject", sender: @sender.name)
+  end
+
   def common_vars
     attachments.inline['logo.gif'] = File.read("app/assets/images/logo-#{lang_direction}.gif")
     attachments.inline['footer.gif'] = File.read("app/assets/images/headerBG-#{lang_direction}.gif")

@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   layout 'application_user'
   authorize_resource
+  before_filter :authenticate_user!
  
   # before_action :set_contact, only: [:show, :edit, :update, :destroy]
 
@@ -11,7 +12,6 @@ class ContactsController < ApplicationController
 
     # @receiver   = User.where(slug: params[:id]).first
     @receiver   = current_user.contacts.last
-
     receiver_id = @receiver.id if @receiver
     @contacts   = Contact.where("sender_id = ? AND receiver_id = ? OR sender_id = ? AND receiver_id = ?", current_user.id, receiver_id, receiver_id, current_user.id)
     @contact    =  Contact.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).last
