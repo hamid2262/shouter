@@ -9,7 +9,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @message    = Message.new
-
+# raise
     # @receiver   = User.where(slug: params[:id]).first
     @receiver   = current_user.contacts.last
     receiver_id = @receiver.id if @receiver
