@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140406175047) do
+ActiveRecord::Schema.define(version: 20140406195034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,15 +113,13 @@ ActiveRecord::Schema.define(version: 20140406175047) do
   create_table "contacts", force: true do |t|
     t.integer  "sender_id"
     t.integer  "receiver_id"
-    t.boolean  "receiver_saw"
+    t.boolean  "receiver_saw", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "contacts", ["receiver_id", "receiver_saw"], name: "index_contacts_on_receiver_id_and_receiver_saw", using: :btree
-  add_index "contacts", ["receiver_id"], name: "index_contacts_on_receiver_id", using: :btree
   add_index "contacts", ["sender_id", "receiver_id"], name: "index_contacts_on_sender_id_and_receiver_id", using: :btree
-  add_index "contacts", ["sender_id"], name: "index_contacts_on_sender_id", using: :btree
 
   create_table "currencies", force: true do |t|
     t.string   "name"
@@ -161,6 +159,17 @@ ActiveRecord::Schema.define(version: 20140406175047) do
 
   add_index "invitations", ["invited_user_id"], name: "index_invitations_on_invited_user_id", using: :btree
   add_index "invitations", ["inviter_id"], name: "index_invitations_on_inviter_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "contact_id"
+    t.text     "body"
+    t.boolean  "hide4sender",   default: false
+    t.boolean  "hide4receiver", default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["contact_id"], name: "index_messages_on_contact_id", using: :btree
 
   create_table "page_translations", force: true do |t|
     t.integer  "page_id",    null: false

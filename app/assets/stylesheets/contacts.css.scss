@@ -1,0 +1,63 @@
+#contact_show{
+	#contact_list{
+		border: 1px solid #E7E7E7;
+		background: #f0f0f0;
+		padding: 0;
+		a{
+			color: #252525;
+		}
+		.active{
+			background: #4388A3;
+			a{
+				color: #fff;
+				font-weight: bold;
+			}
+		}
+		.contact_list_row{
+			border-bottom: 1px solid #fff;
+			padding: 1px;
+			img{
+				border-radius: 0px;
+			}
+			&:hover {
+				background: #ddd;
+			}
+			
+		}
+	}
+	#messages_frame{
+		background: #EEE;
+		border: 1px solid #d1d1d1;
+		margin: 0 10px 10px;
+		padding: 5px 20px;
+		#messages{
+			overflow-x: hidden;
+			height: 400px;
+			overflow-y: auto;
+			.message_row{
+				.body{
+					position: relative;
+					padding: 10px 15px;
+					background: #fff;
+					margin: 0px 30px 15px 30px;
+					border: 1px solid #D8D8D8;
+					border-radius: 10px;
+					width: 70%;
+					p{
+						margin: 0;
+						overflow: hidden;
+					}
+					small{
+						position: absolute;
+						top: -25px;
+					}
+				}
+			}
+		}
+		.message_form{
+			textarea{
+				margin-bottom: 5px;
+			}
+		}
+	}
+}

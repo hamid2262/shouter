@@ -11,6 +11,7 @@ fa:
         bookings_count: سفرهای رزرو کرده به عنوان مسافر
         last_activity: آخریت فعالیت
         last_login_location: آخرین اتصال از
+        message: ارسال پیام
         number_of_followed_users: دنبال شونده ها توسط %{user}
         number_of_followers: دنبال کننده های %{user}
         number_of_network: تعداد افراد در شبکه %{user}

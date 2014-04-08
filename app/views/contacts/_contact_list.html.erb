@@ -1,0 +1,8 @@
+<% @contact_list.each do |contact| %>
+	<% klass = "active" if contact== @receiver%>
+	<div class="contact_list_row <%= klass %>">
+		<%= gravatar contact,30 , "img-rounded" %>
+	  <%= link_to contact.name, contact_path(contact.slug) %>
+	</div>
+  
+<% end %>

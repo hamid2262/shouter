@@ -23,13 +23,14 @@ class ApplicationController < ActionController::Base
   helper_method :profile_url
   
   def lang_direction
-    if params[:locale]=='fa' 
-      'rtl'
-    else 
-      'ltr'
-    end 
+    params[:locale]=='fa' ? 'rtl' :  'ltr' 
   end
   helper_method :lang_direction
+
+  def lang_other_direction
+    params[:locale]=='fa' ? 'ltr' :  'rtl' 
+  end
+  helper_method :lang_other_direction
 
   protected
 

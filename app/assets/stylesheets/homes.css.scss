@@ -132,8 +132,9 @@ $green: #b5c023;
 				}
 				.user-info{
 					.name{
-						float: left;
-						width: 75px;
+				    display: inline-block;
+				    overflow: hidden;
+				    width: 53px;
 					}
 					img{
 						float: left;

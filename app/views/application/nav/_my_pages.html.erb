@@ -1,6 +1,6 @@
 <li id="my_pages_menu" class="dropdown">
 	<a id="title" href="#" class="dropdown-toggle" data-toggle="dropdown">
-		<%= gravatar(current_user, 32, "img-rounded") %> <b class="caret"></b>
+		<%= gravatar(current_user, 32, "img-circle") %> <b class="caret"></b>
 	</a>
 	<ul class="dropdown-menu">
 		<li><%= link_to t('.personal_page', user: current_user.name), profile_url(current_user) %></li>

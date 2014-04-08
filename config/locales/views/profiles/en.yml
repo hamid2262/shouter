@@ -11,6 +11,7 @@ en:
         bookings_count: Total number of bookings
         last_activity: Last Activity
         last_login_location: Last login Location
+        message: Message
         number_of_followed_users: Followed by %{user}
         number_of_followers: Followers of %{user}
         number_of_network: people in this %{user}'s network

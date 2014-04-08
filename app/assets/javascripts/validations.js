@@ -1,4 +1,5 @@
 $(function() {
+  $("#message_form").validate();
   $("#contact_us_form").validate();
   $("#vehicle_form").validate();
   $("#new_trip").validate();

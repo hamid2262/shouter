@@ -4,7 +4,7 @@ body {
   /* The html and body elements cannot have any padding or margin. */
 }
 body{
-    padding-top: 50px;
+    padding-top: 39px;
     background: #eee;
 }
 a{
@@ -36,16 +36,17 @@ img.logo{
     #siteHeader{
         background: url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/headerBG.gif") 10px bottom no-repeat;
         overflow: hidden;
-        height: 100px;
+        height: 80px;
         border-bottom: 2px solid #91a022;
         margin-bottom: 15px;
     }
 }
  
 #siteLogo{
-	margin: 25px 15px 15px;
+	margin: 0px 15px 15px;
   width: 256px;
   height: 55px;
+  background-repeat: no-repeat;
 
 }
 

@@ -1,0 +1,25 @@
+<div id="contact_show" class="col-sm-9">
+	<div id="contact_list_header" class="col-sm-3">
+		<h4><%= t(".Friend List") %></h4>
+	</div>
+	<div id="messages_header"  class="col-sm-8">
+		<h4><%= @receiver.name %></h4>
+	</div>
+
+
+	<div id="contact_list" class="col-sm-3">
+		<%= render 'contact_list' %>
+	</div>
+
+	<div id="messages_frame" class="col-sm-8">
+		<div id="messages"  class="row">
+			<% @messages.each do |message| %>
+				<%= render partial: 'contacts/message_row', locals: {message: message} %>
+			<% end %>
+		</div>‍
+		
+		<div class="message_form" class="row">
+			<p><%= render 'messages/form' %>	</p>
+		</div>
+	</div>
+</div>

@@ -79,8 +79,8 @@ class User < ActiveRecord::Base
 
   def contacts
     contacts = Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
-    contacts = contacts.map { |e| [e.sender_id, e.receiver_id] }.flatten
-    contacts. delete self.id
+    contacts = contacts.map { |c| [c.sender, c.receiver] }.flatten.uniq
+    contacts. delete self
     contacts 
   end
 

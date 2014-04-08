@@ -1,9 +1,9 @@
 class CreateContacts < ActiveRecord::Migration
   def change
     create_table :contacts do |t|
-      t.belongs_to :sender, index: true
-      t.belongs_to :receiver, index: true
-      t.boolean :receiver_saw
+      t.belongs_to :sender
+      t.belongs_to :receiver
+      t.boolean :receiver_saw, default: false
 
       t.timestamps
     end

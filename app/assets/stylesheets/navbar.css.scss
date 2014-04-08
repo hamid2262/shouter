@@ -1,4 +1,14 @@
+.navbar-nav > li > a {
+	padding-top:6px !important; 
+	padding-bottom:1px !important;
+}
+.navbar {min-height:32px !important}
+
+
 .top_navbar {
+	.container{
+		min-height: 38px;
+	}
 	#my_pages_menu{
 		#title{
 			padding: 9px;			
@@ -15,18 +25,52 @@
 		margin-top: -5px;
 		background: none;
 	}
-	.name{
-		padding-left: 0;
-	}
-	.home{
-		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons.png') 34.5px 1px;;
+	.main_icons{
 		height: 35px;
 		width: 35px;
-		margin-top: 7px;
-		opacity: .6;
+		// margin-top: 7px;
 		&:hover {
-			background-position-x: 2px;
+			opacity: .6;
 		}
+	}
+	.home{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') .5px 6px;;
+		padding-left: 0;
+	}
+	.messages{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') .5px 171px;
+	}
+
+	.profile{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') -2.5px 104px;;
+	}
+
+	.trips{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') -0.5px 138px;
+	}
+
+	.network{
+		background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') -0.5px 65px;
+	}
+	
+	.text-nav{
+		padding-top: 10px !important;
+	}
+	.actions{
+width: 25px;
+height: 18px;
+text-indent: 43px;
+border: 1px;
+	}
+	.search_subtrip{
+		background-image: url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png") ;
+		 background-position: 0px -399px;
+		 background-repeat: no-repeat;
+	}
+	.register_trip{
+		background-image: url("https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png");
+ 	  background-position: 0px -368px;
+  	background-repeat: no-repeat;
 	}
 	#profile_menu, #my_trips_menu{
 		#title{

@@ -1,0 +1,21 @@
+<% sender = message.contact.sender  %>
+<% if  sender != current_user %>
+	<% klass = "direction: #{lang_other_direction};" %>
+	<% klass_time = "#{lang_side}:0;" %>	
+<% else %>
+	<% klass_time = "#{lang_other_side}:0;" %>	
+<% end %>
+
+<div class="message_row" style="<%= klass %>">
+	<%= gravatar sender,30 , "img-rounded" %>
+  <%= link_to sender.name, profile_url(sender) %>
+
+	<div class="body">
+		<%= simple_format(message.body) %> 
+		<small class="text-muted pull-<%= lang_other_side %>" style="<%= klass_time %> ">
+			<%= time_ago_in_words(message.created_at) %> 
+			<%= t("ago")  %>
+		</small>
+	</div>
+
+</div>

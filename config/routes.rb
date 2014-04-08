@@ -45,6 +45,7 @@ Shouter::Application.routes.draw do
     put 'trips/accept_date_format' => 'trips#accept_date_format'
     get 'trips/select_period' => 'trips#select_period'
     put 'trips/accept_period' => 'trips#accept_period'
+
     resources :trips do
       resources :comments
     end
@@ -60,6 +61,9 @@ Shouter::Application.routes.draw do
       end
     end
 
+    resources :contacts , only: [:index, :show, :create, :update] do
+      resources :messages, only: [:create, :update]
+    end
     resources :networks, only: [:show]
     resources :currencies
     resources :vehicle_brands

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contact_id: 
+  body: MyText
+  hide4sender: false
+  hide4receiver: false
+
+two:
+  contact_id: 
+  body: MyText
+  hide4sender: false
+  hide4receiver: false

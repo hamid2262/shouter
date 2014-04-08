@@ -52,6 +52,12 @@ class Ability
         end
 
         can [:show], Network
+
+        can [:create], Message
+        can [:create, :show], Contact
+        can [:index, :update], Contact do |m|
+            user = m
+        end
     else
         can :invite_acceptation, Invitation
     end

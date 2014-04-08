@@ -33,4 +33,8 @@ $(function() {
   t = $('ul.nav a[href="#' + $.trim(t) + '"]');
   t && t.tab('show'); 
 
+// contact controller in messages
+  $("#messages").scrollTop($("#messages").height()+1000) ;
+
 });
+

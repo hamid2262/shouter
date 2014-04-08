@@ -9,7 +9,9 @@
   	<%= user.name %> 
   	<%=t  '.overview'  %>
 		<% if current_user && current_user.can_follow?(user) %>
-			<div class="follow pull-<%= lang_other_side %>"><%= follow_button user %></div> 
+			<div class="message pull-<%= lang_other_side %>">
+			<%= link_to t('.message'), contact_path(user.slug), class: "btn btn-default" %>
+			</div> 
 		<% end %>
   </div>
  
