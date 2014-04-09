@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-  <title><%=t 'site_info.title' %><%= " | #{@page_title}" if @page_title %></title>
+  <title> <%= "(#{session[:unread_messages]})" if notification_exist? session[:unread_messages]  %> <%=t 'site_info.title' %><%= " | #{@page_title}" if @page_title %></title>
 
   <!-- dp2dxhgz2DSL0XBruyi43dku3so -->
   <meta name="alexaVerifyID" content="dp2dxhgz2DSL0XBruyi43dku3so" />

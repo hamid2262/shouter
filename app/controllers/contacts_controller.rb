@@ -8,28 +8,28 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @message    = Message.new
-# raise
-    # @receiver   = User.where(slug: params[:id]).first
-    @receiver   = current_user.contacts.last
-    receiver_id = @receiver.id if @receiver
-    @contacts   = Contact.where("sender_id = ? AND receiver_id = ? OR sender_id = ? AND receiver_id = ?", current_user.id, receiver_id, receiver_id, current_user.id)
-    @contact    =  Contact.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id).last
-    @messages   = Message.where(contact_id: @contacts.ids)
-    @contact_list =  current_user.contacts
-
+    if current_user.last_contacted_user
+      redirect_to contact_path(current_user.last_contacted_user.slug)
+      return false
+    end
   end
 
   # GET /contacts/1
   # GET /contacts/1.json
   def show
   	@message    = Message.new
-  	@receiver   = User.where(slug: params[:id]).first
-  	receiver_id = @receiver.id
-    @contact    =  Contact.where(sender_id: current_user.id, receiver_id: receiver_id).first_or_create!
-  	@contacts   = Contact.where("sender_id = ? AND receiver_id = ? OR sender_id = ? AND receiver_id = ?", current_user.id, receiver_id, receiver_id, current_user.id)
-  	@messages   = Message.where(contact_id: @contacts.ids)
-    @contact_list =  current_user.contacts
+  	@receiver   ||= User.where(slug: params[:id]).first
+    @contact    ||= Contact.where(sender_id: current_user.id, receiver_id: @receiver.id).first_or_create!
+  	@messages   ||= Message.where(contact_id: current_user.contacts_with(@receiver).ids).limit(15)
+
+    @contacted_users =  current_user.contacted_users
+    
+    @contact_otherside = @receiver.contact_to current_user
+    if @contact_otherside
+      @contact_otherside.receiver_saw = true
+      @contact_otherside.save!
+    end
+
   end
 
   # GET /contacts/new

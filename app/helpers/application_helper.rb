@@ -260,4 +260,8 @@ module ApplicationHelper
 		</small>".html_safe
   end
 
+  def notification_exist? notification
+  	(notification && notification > 0) ? true : false
+  end
+
 end

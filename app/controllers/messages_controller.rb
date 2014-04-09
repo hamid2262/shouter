@@ -6,12 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @contacts =  current_user.contacts
-  end
-
-  # GET /messages/1
-  # GET /messages/1.json
-  def single
+    @contacted_users =  current_user.contacted_users
   end
 
   # GET /messages/new
@@ -19,13 +14,20 @@ class MessagesController < ApplicationController
   # POST /messages
   # POST /messages.json
   def create
-    contact = Contact.find(params[:contact_id])
-    message = Message.new(message_params)
-    message.contact = contact
+    @_contact ||= Contact.find(params[:contact_id])
 
+    message = Message.new(message_params)
+    message.contact = @_contact
     respond_to do |format|
       if message.save
-        NotificationMailer.message_notification(contact, message).deliver
+        @_contact.try :touch
+
+        @_contact.receiver_saw = false
+        @_contact.save!
+        if session[ params[:contact_id] ].nil?     
+          session[ params[:contact_id] ] = true
+          NotificationMailer.message_notification(@_contact, message).deliver
+        end
 
         format.html { redirect_to :back , notice: 'Message was successfully created.' }
         format.json { render action: 'show', status: :created, location: message }

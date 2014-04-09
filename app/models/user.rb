@@ -77,11 +77,38 @@ class User < ActiveRecord::Base
   validates_attachment :avatar, :size => { in: 0..4.megabytes }
   validates_attachment :cover,  :size => { in: 0..4.megabytes }
 
+  def contacted_users
+    contacts = Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id).order("updated_at DESC")
+    contacted_users = contacts.map { |c| [c.sender, c.receiver] }.flatten.uniq
+    contacted_users. delete self
+    contacted_users 
+  end
+
+  def last_contacted_user
+    contact = Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id).order("updated_at DESC").first
+    if contact
+      users = [contact.sender, contact.receiver]
+      users.delete self
+      users.last
+    else
+      false
+    end
+   end
+
+  def contacts_with user
+    Contact.where("sender_id = ? AND receiver_id = ? OR sender_id = ? AND receiver_id = ?", self.id, user.id, user.id, self.id)
+  end
+
+  def contact_to user
+    Contact.where("sender_id = ? AND receiver_id = ?", self.id, user.id).first
+  end
+
   def contacts
-    contacts = Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
-    contacts = contacts.map { |c| [c.sender, c.receiver] }.flatten.uniq
-    contacts. delete self
-    contacts 
+    Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
+  end
+
+  def unread_messages
+    Contact.where(receiver_id: self.id, receiver_saw: false).size
   end
 
   def self.find_for_facebook_oauth(auth)

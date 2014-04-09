@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   before_filter :set_locale
 	after_filter :user_activity
+  before_action :message_notification
 
   def redirect_to_profile_with_flash user, flash
     redirect_to profile_url(user)+"/"+locale.to_s, notice: flash
@@ -76,4 +77,7 @@ class ApplicationController < ActionController::Base
       {locale: I18n.locale}
     end
     
+    def message_notification
+      session[:unread_messages] = current_user.unread_messages if current_user
+    end
 end

@@ -15,7 +15,13 @@
       <ul class="nav navbar-nav">
   			<% if user_signed_in? %>
           <li><%= link_to  "", dashboard_path, class: "home main_icons" %></li>
-          <li><%= link_to  "", dashboard_path, class: "messages main_icons" %></li>
+          <li>
+          	<%= link_to(contacts_path, class: "messages main_icons") do %>
+	          	<% if notification_exist? session[:unread_messages] %>
+	          		<span class="notification"><%= session[:unread_messages] %></span>
+	          	<% end %>
+	          <% end %>
+          </li>
           <%= render 'application/nav/profile' %>
           <%= render 'application/nav/my_trips' %>
           <%= render 'application/nav/my_network' %>
