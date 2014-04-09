@@ -97,8 +97,19 @@
     .user-name{
       position: absolute;
       right: 59px;
-      top: 1px;  
+        top: 1px;  
     }
+    .message{
+      height: 35px;
+      width: 35px;
+    }
+    .online{
+      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') .5px 212px;
+    }
+    .offline{
+      background: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/icons1.png') .5px 72px;
+    }
+
     .followers-number{
       position: absolute;
       right: 59px;

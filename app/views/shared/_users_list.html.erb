@@ -11,11 +11,15 @@
 
   </div>
   <div class="panel-body">
-		<% if users.any? %>
-		
+		<% if users.any? %>		
 			<% users.each do |user| %>
 				<div class="user-row-small">
 					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
+
+					<%= link_to contact_path(user.slug) do %>
+						<% klass = user.online? ? "online" : "offline" %>
+						<div class="message <%= klass %> pull-<%= lang_other_side %>"></div> 
+					<% end %>
 
 					<span class="followers-number small">
 						(
@@ -29,7 +33,7 @@
 					</span>		
 					
 					<% if random_user %>
-						<small class="pull-left text-muted meta"> <%= user.city_name %> </small>    		
+						<small class="pull-left text-muted meta"> <%= user.city_name %> </small>   		
 					<% else %>
 						<%= resent_activity(user, "meta") %>						
 					<% end %>
