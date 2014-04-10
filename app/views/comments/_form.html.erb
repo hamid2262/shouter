@@ -6,7 +6,7 @@
   		<%= gravatar current_user, size = 35, klass = "img-rounded media-object" %>
   	</div>
   	<div class="col-xs-11 body1">
-  		<%= f.text_area :body, rows: 1, class: "form-control pull-#{lang_other_side }", :style => "padding-#{lang_other_side}: 50px;" %>
+  		<%= f.text_area :body, rows: 1, class: "comment_field form-control pull-#{lang_other_side }", :style => "padding-#{lang_other_side}: 50px;" %>
 		  <%= f.submit t("comment"), :disable_with => t('sending'), class: "btn btn-warning pull-#{lang_other_side } submit" %>
   	</div>
   </span>

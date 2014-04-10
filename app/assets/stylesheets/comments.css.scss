@@ -34,3 +34,13 @@
 	overflow: hidden;
 	padding: 5px;
 }
+
+textarea.comment_field{
+  resize: vertical;
+  &:active {
+    height: auto;   
+  }
+  &:focus {
+    min-height: 150px;
+  }	
+}
