@@ -9,7 +9,7 @@ Shouter::Application.routes.draw do
   scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
   # scope "(:locale)", :locale => /en|fa/ do
 
-  get "superadmins/index"
+  get "superadmins" => "superadmins#index"
   get "superadmins/trips"
   get "superadmins/messages"
 

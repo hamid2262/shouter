@@ -1,2 +1,24 @@
-<h1>Superadmins#messages</h1>
-<p>Find me in app/views/superadmins/messages.html.erb</p>
+<p><%= link_to "back", superadmins_path %></p>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>id</th>
+			<th>sender</th>
+			<th>receiver</th>
+			<th>message</th>
+			<th>id</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @messages.each do |message| %>
+			<tr>
+				<td><%= message.id %></td>
+				<td><%= link_to message.contact.sender.name, profile_url(message.contact.sender) %></td>
+				<td><%= link_to message.contact.receiver.name, profile_url(message.contact.receiver) %></td>
+				<td><%=  message.body %></td>
+				<td><%= jdate_humanize_without_today message.created_at %></td>
+				<td><%= time_ago_in_words(message.created_at)  %> <%= t("ago") %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

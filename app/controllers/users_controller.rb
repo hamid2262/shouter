@@ -10,7 +10,7 @@ class UsersController < Devise::RegistrationsController
     if params[:search]
       @users = User.order( params[:search]+ " DESC" ).limit(10)
     else
-      @users = User.last(10)
+      @users = User.last(10).reverse
     end
   end
 

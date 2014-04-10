@@ -5,9 +5,10 @@ class SuperadminsController < ApplicationController
   end
 
   def trips
-  	@trips = Trip.last(5)
+  	@trips = Trip.last(5).reverse
   end
 
   def messages
+  	@messages = Message.last(20).reverse
   end
 end
