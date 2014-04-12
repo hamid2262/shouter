@@ -10,7 +10,7 @@
 		
 			<% users.each do |user| %>
 				<div class="user-row-small">
-					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
+					<%= link_to user.name, profile_url(user.slug) ,class: "user-name" %>
 
 					<span class="followers-number small">
 						(
@@ -20,7 +20,7 @@
 					</span> 
 
 					<span class="<%= "online" if user.online? %> ">
-						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user) %>
+						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user.slug) %>
 					</span>		
 					
 					<% if can? :edit, @branch %>

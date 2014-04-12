@@ -9,20 +9,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
-  before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :set_locale
-	after_filter :user_activity
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_locale
   before_action :message_notification
+  after_action  :user_activity
 
-  def redirect_to_profile_with_flash user, flash
-    redirect_to profile_url(user)+"/"+locale.to_s, notice: flash
-  end
-
-  def profile_url user
-     root_url[0..-3] + user.slug
-  end
-  helper_method :profile_url
-  
   def lang_direction
     params[:locale]=='fa' ? 'rtl' :  'ltr' 
   end

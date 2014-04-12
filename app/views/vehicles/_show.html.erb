@@ -4,25 +4,26 @@
     <div class="panel-body">
       <% if current_user %>
         <% if user.vehicle.present? %>
-          <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %>
+          <div id="vehicle_image">
+            <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %>
+            <% if can? :edit, user.vehicle %>
+              <%= simple_form_for(:vehicle, url: user_vehicles_path(user), html: { method: :put, class: "vehicle_upload_form" } ) do |f| %>
+                <%= f.input :image, as: :file, label: false, input_html: { class: 'image_upload_button' } %>
+                <%= f.button :submit, t("please_wait"), disabled: true, class: 'btn-primary image_upload_submit' %>
+              <% end %>
+            <% end %>
+          </div>
+
           <div class="panel-body">
             <%= profile_sidebar_row Vehicle.human_attribute_name("color"),user.vehicle.color  %>
             <%= profile_sidebar_row Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
             <%= profile_sidebar_row Vehicle.human_attribute_name("number_plate"),user.vehicle.number_plate  %>
             <%= profile_sidebar_row Vehicle.human_attribute_name("air_condition"),t_has(user.vehicle.air_condition)  %>
-            <%= profile_sidebar_row Vehicle.human_attribute_name("year"),user.vehicle.year  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("year"),user.vehicle.year.year  %>
           </div>         
           <% if user == current_user %>
             <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
-          <% end %>          
-
-          <% if can? :edit, user.vehicle %>
-            <%= simple_form_for(:vehicle, url: user_vehicles_path(user), html: { method: :put, class: "vehicle_upload_form" } ) do |f| %>
-              <%= f.input :image, as: :file, label: false, input_html: { class: 'image_upload_button' } %>
-              <%= f.button :submit, "Please wait", disabled: true, class: 'btn-primary image_upload_submit' %>
-            <% end %>
-          <% end %>
-              
+          <% end %>           
         <% else %>
           <p><%= t('.there_is_no_car_registered.') %></p>
           <% if user == current_user %>

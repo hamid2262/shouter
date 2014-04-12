@@ -7,7 +7,7 @@
 
 	<p><%= t ".line2" %></p>
 
-	<%= link_to t(".go_to_profile", name: @invited_user.name), @invited_user_profile_url, {class: "button"} %>
+	<%= link_to t(".go_to_profile", name: @invited_user.name), mailer_profile_url(@invited_user), {class: "button"} %>
 
 	<p><%= link_to t("sign"), root_url(locale: locale) %></p>
 

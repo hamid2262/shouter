@@ -130,7 +130,7 @@ class TripsController < ApplicationController
           end
         end        
       end
-      redirect_to edit_trip_path(@trip.id) #, notice: t(:trip_create_message) 
+      redirect_to edit_trip_path(@trip.id) 
     else
       redirect_to new_trip_path, alert: t("error_registration") 
     end
@@ -163,7 +163,7 @@ class TripsController < ApplicationController
             end
           end
         end
-        format.html { redirect_to [:edit, @trip] }#, notice: t(:trip_update_message) 
+        format.html { redirect_to [:edit, @trip] }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -181,11 +181,11 @@ class TripsController < ApplicationController
     end
     respond_to do |format|
       if sister_trip
-        format.html { redirect_to edit_trip_path(sister_trip), notice: t(:trip_delete_message) }
+        format.html { redirect_to edit_trip_path(sister_trip), notice: t("unfollowed_message") }
       elsif current_user.owned_branch
-        format.html { redirect_to [current_user.owned_branch.company, current_user.owned_branch], notice: t(:trip_delete_message) }
+        format.html { redirect_to [current_user.owned_branch.company, current_user.owned_branch], notice: t("unfollowed_message") }
       else
-        format.html { redirect_to trips_path, notice: t(:trip_delete_message) }
+        format.html { redirect_to trips_path, notice: t("unfollowed_message") }
       end
       format.json { head :no_content }
     end

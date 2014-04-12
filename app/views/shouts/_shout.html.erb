@@ -2,8 +2,8 @@
 	<div class="panel panel-default shout">
 	  <div class="panel-body">
 			<%= div_for	shout do %> 
-				<%= link_to gravatar(shout.user), profile_url(shout.user) %>
-				<%= link_to shout.user.name, profile_url(shout.user) %>
+				<%= link_to gravatar(shout.user), profile_url(shout.user.slug) %>
+				<%= link_to shout.user.name, profile_url(shout.user.slug) %>
 				<%= render partial: 'shouts/shout/action_nav', locals:{shout: shout} %>
 				<div class="content">
 					<%= render shout.try(:content) %>

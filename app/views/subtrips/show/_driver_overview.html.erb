@@ -1,10 +1,10 @@
 <div class="driver_overview">
 	<div class="panel panel-default clear">
-  	<a href="<%= profile_url(@subtrip.trip.driver) %> ">
+  	<a href="<%= profile_url(@subtrip.trip.driver.slug) %> ">
 		  <div class="panel-heading">
 		  	<%= gravatar(@subtrip.trip.driver, 90, "img-responsive img-thumbnail pull-#{lang_other_side}",:square)%>
 		  	<h2> <%=t  '.overview'  %> </h2>
-			  <%= link_to t(".view_profile"), profile_url(@subtrip.trip.driver), class: "view_profile" %>
+			  <%= link_to t(".view_profile"), profile_url(@subtrip.trip.driver.slug), class: "view_profile" %>
 		  </div>
 		</a>
 		<div class="panel-body">
@@ -17,7 +17,7 @@
 			<tbody>
 				<tr>
 					<th><%= t(".name") %></th>
-					<th><%= link_to(@subtrip.trip.driver.name , profile_url(@subtrip.trip.driver) )%></th>
+					<th><%= link_to(@subtrip.trip.driver.name , profile_url(@subtrip.trip.driver.slug) )%></th>
 				</tr>
 				<tr>
 					<th><%= t(".num_of_trips") %></th>
@@ -40,13 +40,7 @@
 				<tr>
 					<th><%= t(".city") %></th>
 					<th><%= @subtrip.trip.driver.city_name %></th>
-				</tr>
-				<% if @subtrip.trip.driver.slug_updated %>
-					<tr>
-						<th><%= t(".url") %></th>
-						<th><%= link_to_profile(@subtrip.trip.driver) %></th>
-					</tr>  				
-				<% end %>					  			  			
+				</tr>		  			  			
 			</tbody>
 		</table>
 		

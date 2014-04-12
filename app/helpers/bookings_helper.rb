@@ -24,7 +24,7 @@ module BookingsHelper
 			"
 		else
 			" <th> #{index+1} </th>   
-  			<th> #{link_to user.name, profile_url(user)}	</th>
+  			<th> #{link_to user.name, profile_url(user.slug)}	</th>
 
 			"
 		end

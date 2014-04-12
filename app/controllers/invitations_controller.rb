@@ -7,7 +7,7 @@ class InvitationsController < ApplicationController
 
   def create
     InvitationMailer.invite(current_user, params[:email]).deliver
-    redirect_to invitation_path, notice: t(:invitation_send_message, email: params[:email])
+    redirect_to invitation_path, notice: t("invitation_send_message", email: params[:email])
   end
 
   def invite_acceptation

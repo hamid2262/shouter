@@ -6,7 +6,7 @@
 	</p>
 	<p>
 		<%= t '.line2' %> <br>
-		<% insert_trip_url = url_for(controller: 'trips', action:'new', locale: locale,	 host: @host) %>
+		<% insert_trip_url = url_for(controller: 'trips', action:'start_new_trip', locale: locale,	 host: @host) %>
 		<%= link_to t('.insert_trip'), insert_trip_url, {class: "button"} %>
 	</p>
 	<p>

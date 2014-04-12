@@ -5,7 +5,7 @@
 	<table>
 		<tbody>
 			<tr>
-				<td id="head"> <%=link_to (gravatar @follower, size = 80, klass = "gravatar", style = :square), profile_url(@follower) %> </td>
+				<td id="head"> <%=link_to (gravatar @follower, size = 80, klass = "gravatar", style = :square), mailer_profile_url(@follower) %> </td>
 			</tr>
 			<tr>
 				<td>
@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td>
-					<%= link_to t(".profile", follower: @follower.name), profile_url(@follower), class: "button" %>
+					<%= link_to t(".profile", follower: @follower.name), mailer_profile_url(@follower), class: "button" %>
 				</td>
 			</tr>
 		</tbody>

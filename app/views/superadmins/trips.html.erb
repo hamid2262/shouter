@@ -9,7 +9,7 @@
 		<% @trips.each do |trip| %>
 			<tr>
 				<td><%= link_to trip.id, trip_path(trip) %></td>
-				<td><%= link_to trip.driver.name, profile_url(trip.driver) %></td>
+				<td><%= link_to trip.driver.name, profile_url(trip.driver.slug) %></td>
 				<td><%= trip.subtrips.size %></td>
 				<td> 
 					<% trip.subtrips.each do |subtrip| %>

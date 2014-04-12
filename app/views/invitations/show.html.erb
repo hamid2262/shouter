@@ -37,7 +37,7 @@
 		<div class="panel-body">
 			<ol>
 				<% current_user.invited_users.each do |u| %>
-					<li><%= link_to u.name, profile_url(u) %></li>		
+					<li><%= link_to u.name, profile_url(u.slug) %></li>		
 				<% end %>
 			</ol>
 		</div>

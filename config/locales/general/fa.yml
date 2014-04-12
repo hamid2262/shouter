@@ -61,6 +61,7 @@ fa:
   comment: یادداشت
   send:  ارسال
   sending: در حال ارسال...
+  please_wait: لطفا به مدت یک دقیقه صبر کنید...
   error_registration: خطا مانع ثبت شد.
   # flash messages   
   require_login: برای ادامه، باید وارد سایت شوید

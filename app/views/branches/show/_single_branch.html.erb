@@ -36,11 +36,11 @@
 			</tr>
 <!-- 			<tr>
 				<th><%#= t ".company_director" %></th>
-				<th><%#=  link_to @company.director.name, profile_url(@company.director) %></th>
+				<th><%#=  link_to @company.director.name, profile_url(@company.director.slug) %></th>
 			</tr> -->
 			<tr>
 				<th><%= t ".branch_manager" %></th>
-				<th><%=  link_to @branch.manager.name, profile_url(@branch.manager) %></th>
+				<th><%=  link_to @branch.manager.name, profile_url(@branch.manager.slug) %></th>
 			</tr>
 		</tbody>
 	</table>

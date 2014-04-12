@@ -8,7 +8,7 @@
 
 <div class="message_row" style="<%= klass %>">
 	<%= gravatar sender,30 , "img-rounded" %>
-  <%= link_to sender.name, profile_url(sender) %>
+  <%= link_to sender.name, profile_url(sender.slug) %>
 
 	<div class="body">
 		<%= simple_format(message.body) %> 

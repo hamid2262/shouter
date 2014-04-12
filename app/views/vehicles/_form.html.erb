@@ -13,7 +13,7 @@
             start_year: Date.today.year - 70,
             end_year: Date.today.year, discard_day: true,
             order: [:year] %>
-<%= f.input :image, as: :file %>
+<%#= f.input :image, as: :file %>
 <%#= f.association :vehicle_model,
             :label_method => lambda { |vehicle_model| "#{vehicle_model.vehicle_brand.name} | #{vehicle_model.name}" } %>
 

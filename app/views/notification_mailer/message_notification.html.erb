@@ -13,7 +13,7 @@
 
 			<tr>
 				<td id="comment"> 
-					<%=link_to (gravatar @sender, size = 50, klass = "gravatar", style = :square), profile_url(@sender) %> 
+					<%=link_to (gravatar @sender, size = 50, klass = "gravatar", style = :square), mailer_profile_url(@sender) %> 
 					<span id="body"><%= @message.body %></span>
 				</td>
 			</tr>

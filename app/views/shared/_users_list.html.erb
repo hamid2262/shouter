@@ -14,7 +14,7 @@
 		<% if users.any? %>		
 			<% users.each do |user| %>
 				<div class="user-row-small">
-					<%= link_to user.name, profile_url(user) ,class: "user-name" %>
+					<%= link_to user.name, profile_url(user.slug) ,class: "user-name" %>
 
 					<%= link_to contact_path(user.slug) do %>
 						<% klass = user.online? ? "online" : "offline" %>
@@ -29,7 +29,7 @@
 					</span> 
 
 					<span class="<%= "online" if user.online? %> ">
-						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user) %>
+						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user.slug) %>
 					</span>		
 					
 					<% if random_user %>

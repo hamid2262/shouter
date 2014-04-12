@@ -2,7 +2,7 @@
 <%= render 'shared_mail/header' %>
 	<p><%= t 'hi' %>, </p>
 
-	<p><%= link_to @inviter.name, @inviter_profile_url %>
+	<p><%= link_to @inviter.name, mailer_profile_url(@inviter) %>
 
 		<%= t('.line1') %></p>
 

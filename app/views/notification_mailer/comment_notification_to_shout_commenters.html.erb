@@ -13,7 +13,7 @@
 
 			<tr>
 				<td id="comment"> 
-					<%=link_to (gravatar @owner, size = 50, klass = "gravatar", style = :square), profile_url(@owner) %> 
+					<%=link_to (gravatar @owner, size = 50, klass = "gravatar", style = :square), mailer_profile_url(@owner) %> 
 					<span id="body"><%= @comment.body %></span>
 				</td>
 			</tr>
@@ -23,7 +23,7 @@
 					<%# commentable_url = url_for controller: @comment.commentable.class.name.downcase.pluralize, 
 						action: 'show', host: @host, id: @comment.commentable.id, locale: locale  %>	
 
-					<% commentable_url = profile_url(@owner) %>											
+					<% commentable_url = mailer_profile_url(@owner) %>											
 					<%=link_to t(".see_post"), commentable_url, class: "button" %> 
 				</td>
 			</tr>

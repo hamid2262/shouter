@@ -22,7 +22,7 @@
 		<p class="text-center">
 			<%=t '.your_url_is' %>
 			<strong>
-				<%= link_to_profile(@user,"") %>					
+				<%= link_to(profile_url(@user.slug), profile_url(@user.slug) ) %>					
 			</strong>
 		</p>
 		</div>

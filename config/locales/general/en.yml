@@ -64,6 +64,7 @@ en:
   comment: Comment
   send: Send
   sending: Sending...
+  please_wait: Please wait...
   error_registration: Registreation failed! 
   # flash messages
   require_login: "You must be logged in to access this section"

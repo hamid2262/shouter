@@ -83,6 +83,8 @@ Shouter::Application.routes.draw do
     resources :shouts, only: [:show]
     resources :text_shouts, only: [:create, :destroy]
     resources :hashtags, only: [:show]
+
+    resources :profiles, only: [:show]
     
     root 'homes#show'
 

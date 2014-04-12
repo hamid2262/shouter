@@ -52,17 +52,6 @@
 				</tr>
 			</tbody>
 		</table>
-
-		<% if user.slug_updated %>
-			<table class="table">
-				<tbody>
-					<tr>
-						<th><%= t(".url") %></th>
-						<th><%=  link_to_profile(user) %></th>
-					</tr>
-				</tbody>
-			</table>
-		<% end %>
 	<% else %>
 		<%= force_to_sign_in_message %>
 	<% end %> <!-- if current_user -->

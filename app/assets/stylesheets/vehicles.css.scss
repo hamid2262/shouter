@@ -1,6 +1,3 @@
-// Place all the styles related to the vehicles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 .vehicle_show{
 	img{
 		width: 100%;
@@ -12,31 +9,29 @@
 		padding: 0 !important;
 	}
 }
-
-.vehicle_upload_form{
-	position: absolute;
-	top: 0px;
-	width: 34px;
-	
-	.image_upload_button{
- 		background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/upload_bordered.png');
-		// background-position: -2px 0;
-		background-repeat: no-repeat;
-		overflow: hidden;
-    height: 30px;
-    width: 33px;
-		text-indent: 40px;	
-		opacity: .6;
-		&:hover {
+#vehicle_image{
+	position: relative;
+	.vehicle_upload_form{
+		position: absolute;
+		top: 0px;
+		width: 34px;		
+		.image_upload_button{
+	 		background-image: url('https://s3-eu-west-1.amazonaws.com/hamsafaryab.production/static_files/images/upload_bordered.png');
+			background-repeat: no-repeat;
+			overflow: hidden;
+	    height: 30px;
+	    width: 33px;
+			text-indent: 40px;	
+			opacity: .6;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		.image_upload_submit{
+			display: none;
+			position: absolute;
+			top: 0;
 			opacity: 1;
 		}
-
-	}
-	.image_upload_submit{
-		display: none;
-		position: absolute;
-		top: 0;
-		opacity: 1;
-
 	}
 }
