@@ -6,26 +6,45 @@
 	 		:wrapper_html => {
 	 			:class => 'form-group'
 	 		}, 
-	 		:input_html => { 	:class => 'form-control col-sm-8' 	},
-	 		label_html: { class: 'col-sm-3' }
+	 		:input_html => { 	:class => 'form-control' 	}
 	 	}			) do |f| %>
 
-		<%= f.input :email, input_html: { disabled: "disabled" } %>
+		<div class="col-sm-3">
+			<%= f.label :email, t('email') %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :email, label: false , input_html: { disabled: "disabled" } %>
+		</div>
+		
 		<% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
 			<div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
 		<% end %>  
 
-		<%= f.input :password, 
-								 label: t('.new_password'),
+		<div class="col-sm-3">
+			<%= f.label :password, t('.new_password') %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :password, 
+								 label: false,
 							   # hint: "leave blank if you don't want to change it.",
-							   placeholder: "password", 
+							   placeholder: t('.new_password'), 
 							   input_html: { autocomplete: "off" }
 							    %>
-		<%= f.input :password_confirmation,
-		  placeholder: "password confirmation"  %>
-		<%= f.input :current_password, 
-								 # hint: "we need your current password to confirm your changes.",
-								 placeholder: "current password"  %>
+		</div>
+
+		<div class="col-sm-3">
+			<%= f.label :password_confirmation, t(".Password Confirmation") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :password_confirmation, label: false, placeholder: t(".Password Confirmation")  %>
+		</div>
+
+		<div class="col-sm-3">
+			<%= f.label :current_password, t(".Current Password") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :current_password, label: false , placeholder: t(".Current Password")  %>
+		</div>
 		<%= f.hidden_field :tab, :value => "account_settings" %>
 
 		<%= f.button :submit, {class: ' btn-primary col-sm-offset-3'} %>

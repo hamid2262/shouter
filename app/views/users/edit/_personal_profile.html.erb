@@ -6,24 +6,40 @@
 	 		wrapper_html: {
 	 			class: 'form-group'
 	 		}, 
-	 		input_html: { 	class: 'form-control col-sm-8' 	},
-	 		label_html: { class: 'col-sm-3' }
+	 		input_html: {class: 'form-control '}
 	 	}			) do |f| %>
 
 			<%#= f.input :gender, collection: [[t('gender.male'),'m'],[t('gender.female'),'f']], prompt: "Select Gender" %>
-			<%= f.input :firstname %>
-			<%= f.input :lastname %>
-			<%= user_form_control_static  User.human_attribute_name("gender"), t_gender(@user.gender) %>
-			<%= f.input :age, collection: 13..90 %>
-			<% if current_user.is_admin? %>
-			  <%= f.label :admin, "Admin" %>
+		<div class="col-sm-3">
+			<%= f.label :firstname, t("firstname") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :firstname, label: false %>
+		</div>
+
+		<div class="col-sm-3">
+			<%= f.label :lastname, t("lastname") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :lastname, label: false %>
+		</div>
+
+		<div class="col-sm-3">
+			<%= f.label :age, t("age") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :age, label: false, collection: 13..90 %>
+		</div>
+	
+		<% if current_user.is_admin? %>
+			<div class="col-sm-3">
+				<%= f.label :admin, "Admin" %>
+			</div>
+			<div class="col-sm-8">
 			  <%= f.check_box :admin %>  
-			<% end %>
-			<%= f.input :avatar, as: :file %>
-			<%= f.input :cover, as: :file %>
+			</div>
+		<% end %>
+		<%= f.hidden_field :tab, value: "personal_profile" %>	
 
-			<%= f.hidden_field :tab, value: "personal_profile" %>	
-
-			<%= f.button :submit, :disable_with => t('.please wait'), class: 'btn btn-primary col-sm-offset-3 please_wait' %>
-  
+		<%= f.button :submit, :disable_with => t('.please wait'), class: 'btn btn-primary col-sm-3 please_wait' %>
 	<% end %>

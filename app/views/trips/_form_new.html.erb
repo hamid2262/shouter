@@ -56,8 +56,8 @@
       </div> 
 
       <!-- submit -->
-      <%= f.submit " #{t("next")} >>", class: "btn btn-warning btn pull-left" %>
-      <%= link_to "<< #{t("previous")} ", trips_select_period_path ,class: "btn btn-default pull-right" %> 
+      <%= f.submit " #{t("next")} >>", class: "btn btn-warning btn pull-#{lang_other_side}" %>
+      <%= link_to "<< #{t("previous")} ", trips_select_period_path ,class: "btn btn-default pull-#{lang_side}" %> 
     <% end %>
     
   </div>  <!-- <div class="panel-body"> -->

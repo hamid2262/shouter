@@ -4,11 +4,15 @@ fa:
     contact_details: اطلاعات تماس
     edit:
       account_settings:
+        Current Password: رمز عبور فعلی
+        Password Confirmation: تایید رمز عبور
         new_password: رمز عبور جدید
       contact_details:
         city_placeholder: نام شهرتان را وارد کنید.
         mobile_placeholder: شماره موبایتان را وارد کنید.
       page_url:
+        Enter your desired url: لطفا آدر اینترنتی دلخواه تان را وارد کنید
+        Profile Url: آدرس اینترنتی پروفایل
         change_url_message: 'توجه: آدرس اینترنتی شما در همسفریاب آدرسی خواهد بود که
           به موتورهای جستجوگر کمک خواهد کرد که صفحه شما برای دیگران با استفاده از
           نامی که انتخاب می کنید، در لیست جستجو ها نمایش داده شود. لطفا در انتخاب

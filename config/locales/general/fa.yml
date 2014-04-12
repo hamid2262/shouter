@@ -1,6 +1,6 @@
 fa:
   hamsafaryab: همسفریاب
-  slogan: یابنده همسفر و مسافر در سفرهای بین شهری
+  slogan: یابنده همسفر و مسافر در سفرهای شهری و بین شهری
   no_data: ثبت نشده
   hi: سلام
   my_yes: بلی
@@ -9,9 +9,13 @@ fa:
   name_of_passenger: نام مسافر
   name_of_driver: نام راننده
   contact_number: شماره تماس
+  firstname: نام
+  lastname: نام خانوادگی
+  age: سن
   tel: تلفن
   mobile: موبایل
   email: پست الکترونیکی
+  address: آدرس
   website: وب سایت اینترنتی
   password: رمز عبور
   number_of_requested_seats: تعداد صندلی های درخواست شده

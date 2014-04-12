@@ -141,11 +141,13 @@ h2{
 		margin-bottom: 15px;
 	}
 	.userurl_input{
+		direction: ltr;
 		position: relative;
 		color: blue;
 		.hamsafaryaburl{
 			position: absolute;
-			left: 86px;
+			direction: ltr;
+			left: 11px;
 			z-index: 10;
 			top: 7px;		
 		}

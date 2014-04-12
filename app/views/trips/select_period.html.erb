@@ -79,8 +79,8 @@
 					</div>
 
 					<div class="col-xs-12">
-						<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-left" %> 
-						<%= link_to "<< #{t("previous")} ", trips_select_date_format_path ,class: "btn btn-default pull-right" %> 
+						<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-#{lang_other_side}" %> 
+						<%= link_to "<< #{t("previous")} ", trips_select_date_format_path ,class: "btn btn-default pull-#{lang_side}" %> 
 					</div>	
 
 				<% end %>								
