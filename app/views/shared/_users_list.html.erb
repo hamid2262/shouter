@@ -14,14 +14,14 @@
 		<% if users.any? %>		
 			<% users.each do |user| %>
 				<div class="user-row-small">
-					<%= link_to user.name, profile_url(user.slug) ,class: "user-name" %>
+					<%= link_to user.name, profile_url(user.slug) ,{class: "user-name", style: "#{lang_side}:59px" } %>
 
 					<%= link_to contact_path(user.slug) do %>
 						<% klass = user.online? ? "online" : "offline" %>
 						<div class="message <%= klass %> pull-<%= lang_other_side %>"></div> 
 					<% end %>
 
-					<span class="followers-number small">
+					<span class="followers-number small" , style= "<%= lang_side %>:59px">
 						(
 							<%= user.followers.size %> <%= t('followers_num') %> , 
 							<%= user.followed_users.size %> <%= t('followed_users_num') %> 

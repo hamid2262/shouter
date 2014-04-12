@@ -31,7 +31,7 @@
 			<tr>
 				<td><%= b.object.origin %> </td>
 				<td><%= b.object.destination %> </td>
-				<td><%= b.select :price, (0..(100 * b.object.trip.currency.price_step)).step(b.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: b.object.trip.currency.try(:symbol) )}", s]},{prompt: b.object.price }, {class: "time_select"} %></td>
+				<td><%= b.select :price, (0..(200 * b.object.trip.currency.price_step)).step(b.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: b.object.trip.currency.try(:symbol) )}", s]},{prompt: b.object.price }, {class: "time_select"} %></td>
 				<td> <%= b.input :active, label: false %></td>
 
 			</tr>

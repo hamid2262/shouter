@@ -62,6 +62,9 @@ class TripsController < ApplicationController
   end
 
   def select_period
+    if locale == :en
+      session[:date_format] = nil
+    end
   end
 
   def accept_period

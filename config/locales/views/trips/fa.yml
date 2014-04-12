@@ -11,7 +11,9 @@ fa:
         all_trips_update: بروزرسانی تمام سفرها
     form_new:
       add_stopover: اضافه کردن شهر عبوری
-      route: مسیر حرکت
+      description: (نام شهرها را به ترتیب از مبدا به مقصد و شهرهای عبوری را به
+        همراه ساعت و تاریخ عبور از هر کدام وارد کنید)
+      route: مسیر حرکت 
       title: فرم ورود مشخصات سفر
     index:
       action_nav:
@@ -55,7 +57,7 @@ fa:
       add_stopover: اضافه کردن شهر عبوری
       address_placeholder: نام شهر را بنویسید.
       at: در ساعت
-      city: از شهر
+      city: شهر
       on_at: تاریخ و ساعت
       remove: حذف
     trip:

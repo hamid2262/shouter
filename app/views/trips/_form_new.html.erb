@@ -7,6 +7,7 @@
       <%= error_messages_for(@trip) %>
 
       <b><%= t('.route') %></b>
+      <%= t('.description') %>
       <div class="trip-route">
         <!-- Stopovers -->
         <%= f.simple_fields_for :subtrips do |s| %>
