@@ -1,48 +1,22 @@
 <div class="panel panel-default clear">
   <div class="panel-heading"> <%=t  '.personal_profile'  %></div>
-	<table class="table">
-		<tbody>
-			<tr>
-				<th><%= User.human_attribute_name("firstname") %></th>
-				<th><%= @profile.user.firstname %></th>
-			</tr>
-			<tr>
-				<th><%= User.human_attribute_name("lastname") %></th>
-				<th><%= @profile.user.lastname %></th>
-			</tr>
-			<tr>
-				<th><%= User.human_attribute_name("gender") %></th>
-				<th><%= t_gender(@profile.user.gender)  %></th>
-			</tr>
-			<tr>
-				<th><%= User.human_attribute_name("age") %></th>
-				<th><%=  @profile.user.age %></th>
-			</tr>
-			<tr>
-				<th><%= User.human_attribute_name("details") %></th>
-				<th><%=  @profile.user.details %></th>
-			</tr>
-		</tbody>
-	</table>
+  <div class="panel-body">
+    <%= profile_sidebar_row User.human_attribute_name("firstname"), @profile.user.firstname  %>
+    <%= profile_sidebar_row User.human_attribute_name("lastname"), @profile.user.lastname  %>
+    <%= profile_sidebar_row User.human_attribute_name("gender"), t_gender(@profile.user.gender)  %>
+    <%= profile_sidebar_row User.human_attribute_name("age"), @profile.user.age  %>
+    <%= profile_sidebar_row User.human_attribute_name("details"), @profile.user.details  %>
+	</div>
 </div>
-
 
 <div class="panel panel-default clear">
   <div class="panel-heading"><%=t '.contact_details'  %></div>
+  <div class="panel-body">
 		<% if current_user %>
-			<table class="table">
-				<tbody>
-					<tr>
-						<th><%= User.human_attribute_name("city") %></th>
-						<th><%= @profile.user.city %></th>
-					</tr>
-					<tr>
-						<th><%= User.human_attribute_name("address") %></th>
-						<th><%= @profile.user.address  %></th>
-					</tr>
-				</tbody>
-			</table>
+    	<%= profile_sidebar_row User.human_attribute_name("city"), @profile.user.city  %>
+    	<%= profile_sidebar_row User.human_attribute_name("address"), @profile.user.address  %>
 		<% else %>
 			<%= force_to_sign_in_message %>
 		<% end %> <!-- if current_user -->
+	</div>
 </div>

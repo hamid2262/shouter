@@ -8,4 +8,19 @@ module ProfilesHelper
 		HTML
 		html.html_safe
 	end
+
+	def profile_sidebar_row title, value, title_width = 4, value_width = 8
+		html = <<-HTML
+      <div class="row">
+        <div class="col-sm-#{title_width}">
+          <strong> #{title}</strong>
+        </div>
+        <div class="col-sm-#{value_width}">
+          #{ value }
+        </div>
+      </div>
+		HTML
+		html.html_safe
+
+	end
 end

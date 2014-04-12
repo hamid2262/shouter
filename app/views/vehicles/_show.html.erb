@@ -4,51 +4,25 @@
     <div class="panel-body">
       <% if current_user %>
         <% if user.vehicle.present? %>
-          <div class="col-md-6 details">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("color") %></th>
-                  <th><%= user.vehicle.color %></th>
-                </tr>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("vehicle_brand") %></th>
-                  <th><%= user.vehicle.vehicle_model.try(:vehicle_brand).try(:name) %></th>
-                </tr>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("vehicle_model") %></th>
-                  <th><%= user.vehicle.try(:vehicle_model).try(:name) %></th>
-                </tr>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("number_plate") %></th>
-                  <th><%= user.vehicle.try(:number_plate) %></th>
-                </tr>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("air_condition") %></th>
-                  <th><%= user.vehicle.try(:air_condition) %></th>
-                </tr>
-                <tr>
-                  <th><%= Vehicle.human_attribute_name("year") %></th>
-                  <th><%= user.vehicle.year %></th>
-                </tr>
-  
-              </tbody>
-            </table>
-         
-            <% if user == current_user %>
-              <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
-            <% end %>          
-          </div>
+          <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %>
+          <div class="panel-body">
+            <%= profile_sidebar_row Vehicle.human_attribute_name("color"),user.vehicle.color  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("number_plate"),user.vehicle.number_plate  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("air_condition"),t_has(user.vehicle.air_condition)  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("year"),user.vehicle.year  %>
+          </div>         
+          <% if user == current_user %>
+            <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
+          <% end %>          
 
-          <div class="col-md-6">
-            <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %> <br>
-            <% if can? :edit, user.vehicle %>
-              <%= simple_form_for(:vehicle, url: user_vehicles_path(user), html: { method: :put, class: "vehicle_upload_form" } ) do |f| %>
-                <%= f.input :image, as: :file, label: false, input_html: { class: 'image_upload_button' } %>
-                <%= f.button :submit, "Please wait", disabled: true, class: 'btn-primary image_upload_submit' %>
-              <% end %>
+          <% if can? :edit, user.vehicle %>
+            <%= simple_form_for(:vehicle, url: user_vehicles_path(user), html: { method: :put, class: "vehicle_upload_form" } ) do |f| %>
+              <%= f.input :image, as: :file, label: false, input_html: { class: 'image_upload_button' } %>
+              <%= f.button :submit, "Please wait", disabled: true, class: 'btn-primary image_upload_submit' %>
             <% end %>
-          </div>      
+          <% end %>
+              
         <% else %>
           <p><%= t('.there_is_no_car_registered.') %></p>
           <% if user == current_user %>

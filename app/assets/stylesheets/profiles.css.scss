@@ -31,6 +31,9 @@ h2{
 	padding: 0;
 	#sidebar{
 		overflow: hidden;
+		.row{
+			margin-bottom: 8px;
+		}
 	}
 	.score{
 		font-size: 1.5em;

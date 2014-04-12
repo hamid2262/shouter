@@ -22,6 +22,8 @@ fa:
   gender:
     male: آقا
     female: خانم
+  has: دارد
+  dosnt_have: ندارد 
   city: شهر
   at: در ساعت
   before: قبل  

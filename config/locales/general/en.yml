@@ -24,6 +24,8 @@ en:
   gender:
     male: Male
     female: Female
+  has: "Yes"
+  dosnt_have: "No"   
   city: City
   at: At
   before: ‌‌Before 
