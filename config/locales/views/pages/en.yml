@@ -6,8 +6,11 @@ en:
       branch_tel: Branch Phone Number
       company_name: Name of Company
       detail: More Infrormation
-      line1: 'Transformation companies can request spacial account to user for managing
-        their buses or other tranformation vehicles trip with only one account. '
+      line1: 'Transformation companies can send a request for spacial account. With
+        spacial account all trips can be managed by an administrator account. '
+      line2: By filling and sending the following form, your application will be processed
+        by our support team. You will receive an answer within 48 hour anter your
+        application.
       operator_email: Operator's Email
       operator_mobile: Operator's mobile
       placeholder_branch_name: Name of branch
