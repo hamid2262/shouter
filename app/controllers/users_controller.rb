@@ -112,11 +112,11 @@ private
   end
 
   def user_without_password_params
-    params.require(:user).permit(:firstname, :lastname, :slug,  :gender, :age, :tel, :mobile, :address, :city, :avatar, :cover)    
+    params.require(:user).permit(:firstname, :lastname, :details , :slug,  :gender, :age, :tel, :mobile, :address, :city, :avatar, :cover)    
   end
 
   def admin_user_params
-    params.require(:user).permit(:firstname, :lastname, :slug,  :gender, :age, :tel, :mobile, :address, :city, :avatar, :cover, :admin)
+    params.require(:user).permit(:firstname, :lastname, :details, :slug,  :gender, :age, :tel, :mobile, :address, :city, :avatar, :cover, :admin)
   end
 
   def needs_password?(user, params)

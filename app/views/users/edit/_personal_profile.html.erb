@@ -31,6 +31,13 @@
 			<%= f.input :age, label: false, collection: 13..90 %>
 		</div>
 	
+		<div class="col-sm-3">
+			<%= f.label :details, t("details") %>
+		</div>
+		<div class="col-sm-8">
+			<%= f.input :details, label: false, as: :text, input_html: {rows: 4} %>
+		</div>
+	
 		<% if current_user.is_admin? %>
 			<div class="col-sm-3">
 				<%= f.label :admin, "Admin" %>
@@ -41,5 +48,5 @@
 		<% end %>
 		<%= f.hidden_field :tab, value: "personal_profile" %>	
 
-		<%= f.button :submit, :disable_with => t('.please wait'), class: 'btn btn-primary col-sm-3 please_wait' %>
+		<%= f.button :submit, :disable_with => t('.please wait'), class: 'btn btn-primary col-sm-offset-3 please_wait' %>
 	<% end %>

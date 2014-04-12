@@ -8,6 +8,7 @@ en:
         lastname: Last Name
         gender: Gender
         tel: Telphone
+        details: More details
         mobile: Cellphone
         address: Address
         age: Age
