@@ -20,7 +20,7 @@ class ContactsController < ApplicationController
   	@message    = Message.new
   	@receiver   ||= User.where(slug: params[:id]).first
     @contact    ||= Contact.where(sender_id: current_user.id, receiver_id: @receiver.id).first_or_create!
-  	@messages   ||= Message.where(contact_id: current_user.contacts_with(@receiver).ids).limit(15)
+  	@messages   ||= Message.where(contact_id: current_user.contacts_with(@receiver).ids).last(15)
 
     @contacted_users =  current_user.contacted_users
     

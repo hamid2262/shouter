@@ -34,7 +34,7 @@ $(function() {
   t && t.tab('show'); 
 
 // contact controller in messages
-  $("#messages").scrollTop($("#messages").height()+1000) ;
+  $("#messages").scrollTop($("#messages").height()+20000) ;
 
 });
 
