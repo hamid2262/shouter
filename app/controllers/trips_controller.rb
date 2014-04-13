@@ -184,11 +184,11 @@ class TripsController < ApplicationController
     end
     respond_to do |format|
       if sister_trip
-        format.html { redirect_to edit_trip_path(sister_trip), notice: t("unfollowed_message") }
+        format.html { redirect_to edit_trip_path(sister_trip), notice: t("trip_delete_message") }
       elsif current_user.owned_branch
-        format.html { redirect_to [current_user.owned_branch.company, current_user.owned_branch], notice: t("unfollowed_message") }
+        format.html { redirect_to [current_user.owned_branch.company, current_user.owned_branch], notice: t("trip_delete_message") }
       else
-        format.html { redirect_to trips_path, notice: t("unfollowed_message") }
+        format.html { redirect_to trips_path, notice: t("trip_delete_message") }
       end
       format.json { head :no_content }
     end

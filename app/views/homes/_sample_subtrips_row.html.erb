@@ -2,9 +2,9 @@
 	<a href="<%= subtrip_path(subtrip.id) %>" >
 		<div class="fromto">
 			<div class="col col-xs-4">
-				<span class="from"><%= subtrip.origin %> </span>
+				<span class="from"><%= subtrip.origin(locale) %> </span>
 				<span class="arrow-ie">&larr;</span>  
-				<span class="to"><%= subtrip.destination %></span>
+				<span class="to"><%= subtrip.destination(locale) %></span>
 			</div>
 		</div>
 

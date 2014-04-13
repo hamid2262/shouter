@@ -25,15 +25,25 @@ class Subtrip < ActiveRecord::Base
   before_save :split_address_to_city_state_country
   before_save :estimate_prices
  
-  def origin
-    city = self.origin_address.split(',').first
-    city = city + "<small>(#{self.origin_address.split(',')[1]})</small>"  if self.origin_address.split(',').size > 2
+  def origin locale = :fa
+    if locale == :en && self.origin_address_en
+      city = self.origin_address_en.split(',').first
+      city = city + "<small>(#{self.origin_address_en.split(',')[1]})</small>"  if self.origin_address_en.split(',').size > 2      
+    else
+      city = self.origin_address.split(',').first
+      city = city + "<small>(#{self.origin_address.split(',')[1]})</small>"  if self.origin_address.split(',').size > 2
+    end
     city.html_safe
   end
 
-  def destination
-    city = self.destination_address.split(',').first
-    city = city  +"<small>(#{self.destination_address.split(',')[1]})</small>"  if self.destination_address.split(',').size > 2
+  def destination locale = :en
+    if locale == :en && self.origin_address_en
+      city = self.destination_address_en.split(',').first
+      city = city  +"<small>(#{self.destination_address_en.split(',')[1]})</small>"  if self.destination_address_en.split(',').size > 2
+    else
+      city = self.destination_address.split(',').first
+      city = city  +"<small>(#{self.destination_address.split(',')[1]})</small>"  if self.destination_address.split(',').size > 2
+    end
     city.html_safe
   end
 
@@ -193,6 +203,7 @@ class Subtrip < ActiveRecord::Base
           self.origin_state        = origin.state
           self.origin_country      = origin.country
           self.origin_country_code = origin.try(:country_code)
+          self.origin_address_en   = origin.address
         end
       end
 
@@ -204,6 +215,7 @@ class Subtrip < ActiveRecord::Base
           self.destination_city    = destination.city
           self.destination_state   = destination.state
           self.destination_country = destination.country
+          self.destination_address_en = destination.address
         end
       end       
     end
@@ -217,6 +229,8 @@ class Subtrip < ActiveRecord::Base
           self.origin_state = address[-2]   
           self.origin_city = address[-3]    
           self.origin_country_code = origin.try(:country_code) unless origin.try(:country_code).blank?
+          self.origin_address_en   = origin.address
+
         end        
       end
       if self.destination_country.nil?
@@ -226,6 +240,7 @@ class Subtrip < ActiveRecord::Base
           self.destination_country = address[-1] 
           self.destination_state = address[-2]   
           self.destination_city = address[-3]    
+          self.destination_address_en = destination.address
         end      
       end
     end

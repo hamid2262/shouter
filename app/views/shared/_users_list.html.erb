@@ -29,13 +29,13 @@
 					</span> 
 
 					<span class="<%= "online" if user.online? %> ">
-						<%= link_to gravatar(user, 50, "img-thumbnail"), profile_url(user.slug) %>
+						<%= link_to gravatar(user, 50, "img-thumbnail #{lang_side}0"), profile_url(user.slug) %>
 					</span>		
 					
 					<% if random_user %>
 						<small class="pull-left text-muted meta"> <%= user.city_name %> </small>   		
 					<% else %>
-						<%= resent_activity(user, "meta") %>						
+						<%= resent_activity(user, "meta #{lang_other_side}0") %>						
 					<% end %>
 						
 				</div>

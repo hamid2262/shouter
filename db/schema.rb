@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412103229) do
+ActiveRecord::Schema.define(version: 20140413071237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -251,25 +251,27 @@ ActiveRecord::Schema.define(version: 20140412103229) do
     t.integer  "jhour"
     t.integer  "jminute"
     t.integer  "price"
-    t.integer  "seats",                          default: [],   array: true
+    t.integer  "seats",                             default: [],   array: true
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "view",                           default: 0
+    t.integer  "view",                              default: 0
     t.float    "olat"
     t.float    "olng"
-    t.string   "origin_city",         limit: 50
-    t.string   "origin_state",        limit: 50
-    t.string   "origin_country",      limit: 50
+    t.string   "origin_city",            limit: 50
+    t.string   "origin_state",           limit: 50
+    t.string   "origin_country",         limit: 50
     t.string   "origin_address"
     t.float    "dlat"
     t.float    "dlng"
-    t.string   "destination_city",    limit: 50
-    t.string   "destination_state",   limit: 50
-    t.string   "destination_country", limit: 50
+    t.string   "destination_city",       limit: 50
+    t.string   "destination_state",      limit: 50
+    t.string   "destination_country",    limit: 50
     t.string   "destination_address"
-    t.string   "origin_country_code", limit: 5,  default: "IR"
+    t.string   "origin_country_code",    limit: 5,  default: "IR"
     t.integer  "currency_id"
-    t.boolean  "active",                         default: true
+    t.boolean  "active",                            default: true
+    t.string   "origin_address_en"
+    t.string   "destination_address_en"
   end
 
   add_index "subtrips", ["date_time", "dlat", "dlng", "olat", "olng", "active"], name: "index_subtrips_on_date_time_and_dlatlng_and_olatolng_active", using: :btree

@@ -10,12 +10,12 @@
 					  <tbody>
 					  	<tr>
 					  		<td>
-									<span class="from"><%= subtrip.origin %> </span>
+									<span class="from"><%= subtrip.origin(locale)  %> </span>
 					  		</td>
 				  
 					  		<td class="to"><%= params[:locale] == "fa" ? "&larr;".html_safe : "&rarr;".html_safe %></td>
 					  		<td>
-									<span class="to" style='float: <%= lang_other_side %>;'><%= subtrip.destination %></span>
+									<span class="to" style='float: <%= lang_other_side %>;'><%= subtrip.destination(locale)  %></span>
 					  		</td>
 					  	</tr>
 					  </tbody>
