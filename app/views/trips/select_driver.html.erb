@@ -6,7 +6,6 @@
 		    <p> <%= t ".please_select_driver" %></p>
 
 				<%= form_tag( trips_accept_driver_path, method: :put, id: "select_driver") do %>
-
 					<div class="col-xs-10 col-xs-offset-2 ">
 						<div class="radio ">
 						  <label>
@@ -16,9 +15,9 @@
 
 										<%= collection_select(:temp1, :temp_id, Branch.all, :id, :name_with_company, prompt: true) %>
 							  		<strong><%= t('.driver_name') %></strong>
-										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name_with_company, :id, :name,{include_blank: true}, {class: "required"} %>					  		
+										<%= grouped_collection_select :trip, :driver_id,  Branch.order(:name), :drivers, :name_with_company, :id, :name,{include_blank: true}, {class: "required"} %>
 							  	</span>
-	
+
 						  	<% else %>
 						  		<strong><%= t('.driver_name') %></strong>
 									<%= collection_select(:trip, :driver_id, @drivers, :id, :name, prompt: false) %>
@@ -26,11 +25,15 @@
 						  </label>
 						</div>			
 					</div>				
-					<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-#{lang_other_side}" %>
+
+					<div class="col-xs-12">
+						<%= submit_tag " #{t("next")} >>", class: "btn btn-warning pull-#{lang_other_side}" %>
+					</div>
+					<div class="col-xs-12">						
+						<%= link_to "#{t(".for_myself")} >>", trips_select_date_format_path ,class: "btn btn-default pull-#{lang_other_side}" %> 
+					</div>	
 				<% end %>								
 			</div>
-	
-
 		</div>
 	</div>
 </div>

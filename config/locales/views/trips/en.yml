@@ -12,7 +12,7 @@ en:
         all_trips_update: All Trips Update
     form_new:
       add_stopover: Add Stopover
-      description: insert the cities, passing time and date 
+      description: insert the cities, passing time and date
       route: Route
       title: New trip form
     index:
@@ -27,6 +27,7 @@ en:
     select_driver:
       branch_name: Branch's name
       driver_name: 'Driver''s Name:'
+      for_myself: Trip for myself
       please_select_driver: 'Please select the driver:'
     select_period:
       next: Next

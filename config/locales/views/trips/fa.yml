@@ -11,9 +11,9 @@ fa:
         all_trips_update: بروزرسانی تمام سفرها
     form_new:
       add_stopover: اضافه کردن شهر عبوری
-      description: (نام شهرها را به ترتیب از مبدا به مقصد و شهرهای عبوری را به
-        همراه ساعت و تاریخ عبور از هر کدام وارد کنید)
-      route: مسیر حرکت 
+      description: (نام شهرها را به ترتیب از مبدا به مقصد و شهرهای عبوری را به همراه
+        ساعت و تاریخ عبور از هر کدام وارد کنید)
+      route: مسیر حرکت
       title: فرم ورود مشخصات سفر
     index:
       action_nav:
@@ -27,6 +27,7 @@ fa:
     select_driver:
       branch_name: نام شعبه
       driver_name: 'نام راننده:'
+      for_myself: سفر شخصی خودم
       please_select_driver: 'لطفا راننده را انتخاب کنید '
     select_period:
       next: مرحله بعد
