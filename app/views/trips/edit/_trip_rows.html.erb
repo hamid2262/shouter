@@ -7,8 +7,8 @@
 	<td><%= apropriate_date f.object %></td>
 	<td><%= localize f.object.date_time, :format => '%A' %></td>
 	<td><%= jalali_time f.object.date_time %></td>
-	<td><%= f.object.origin %> </td>
-	<td><%= f.object.destination %> </td>
-	<td><%= f.select :price, (0..(200 * f.object.trip.currency.price_step)).step(f.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{prompt: f.object.price }, {class: "time_select"} %></td>
+	<td><%= f.object.origin(locale) %> </td>
+	<td><%= f.object.destination(locale) %> </td>
+	<td><%= f.select :price, (0..(400 * f.object.trip.currency.price_step)).step(f.object.trip.currency.price_step).map{|s| ["#{t('currency', amount: s, unit: f.object.trip.currency.try(:symbol) )}", s]},{prompt: f.object.price }, {class: "time_select"} %></td>
 	<td> <%= f.input :active, label: false %></td>
 </tr>

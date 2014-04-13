@@ -167,7 +167,7 @@ module ApplicationHelper
   end
 
 	def apropriate_date subtrip
-		if subtrip.origin_country_code == "IR"
+		if subtrip.origin_country_code == "IR" && (locale == :fa)
 	    JalaliDate.new(subtrip.date_time).strftime("%d %b %Y")
 		else
 			I18n.l subtrip.date_time, format: :my_date 		
@@ -179,7 +179,7 @@ module ApplicationHelper
   		t "today"
   	elsif subtrip.date_time.to_date == Date.today + 1.day
   		t "tomorrow"
-		elsif subtrip.origin_country_code == "IR"
+		elsif subtrip.origin_country_code == "IR" && (locale == :fa)
 	    JalaliDate.new(subtrip.date_time).strftime("%d %b %Y")
 		else
 			I18n.l subtrip.date_time, format: :my_date 		
