@@ -54,6 +54,21 @@ class BookingsController < ApplicationController
     @subtrip = @booking.subtrip
   end
 
+  def booking_response
+    @booking = Booking.find(params[:id])
+    if params[:accept].to_i == 1
+      if @booking.update_attributes(acceptance_status: 1)
+        UserMailer.booking_positive_response_to_passenger(@booking).deliver
+      end
+    else
+      if @booking.update_attributes(acceptance_status: -1)
+        @booking.update_all_bookings
+        UserMailer.booking_negative_response_to_passenger(@booking).deliver
+      end
+    end
+    redirect_to :back    
+  end
+
   def create
     @subtrip = Subtrip.find(params[:subtrip_id])
     if check_for_ladies_only

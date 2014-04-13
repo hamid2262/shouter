@@ -25,6 +25,10 @@ class Subtrip < ActiveRecord::Base
   before_save :split_address_to_city_state_country
   before_save :estimate_prices
  
+  def waiting_bookings
+    self.bookings.where(acceptance_status: 0)
+  end
+
   def origin locale = :fa
     if locale == :en && self.origin_address_en
       city = self.origin_address_en.split(',').first

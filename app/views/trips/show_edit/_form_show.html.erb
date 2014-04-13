@@ -5,7 +5,7 @@
     <%= render 'trips/show_edit/subtrips_header' %>
 
     <%= f.simple_fields_for :subtrips do |b| %>
-        <% next if b.object.origin.downcase == b.object.destination.downcase %>
+        <% next if b.object.olat == b.object.dlat %>
       	<%= render 'trips/show_edit/subtrip_fields_show', f: b %>
     <% end %>
     

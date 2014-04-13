@@ -29,9 +29,16 @@ en:
       gmap:
         trip_path: Trip Route
       seats_status:
+        accept: Accept
+        accept_req: Accept Request
+        name: Full Name
         number_of_free_seats: 'Number of available  seats:'
         number_of_seats: 'Seats total number:'
         number_of_taken_seats: 'Number of taken seats:'
+        passengers_list: List of waiting passengers
+        reject: Reject
+        reject_req: Reject Request
+        seat_numbers: Seats Numbers
         seats_status: Seats Status
       subtrip_overview:
         book_trip: Book this trip

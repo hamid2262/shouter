@@ -2,6 +2,7 @@ class Booking < ActiveRecord::Base
   belongs_to :passenger, class_name: "User", foreign_key: "user_id"
   belongs_to :subtrip
 
+  delegate :trip, :to => :subtrip, :allow_nil => true
   # after_destroy :release_subtrip_seats
 
   def self.create_new_seats_array params, current_user, subtrip
@@ -48,10 +49,8 @@ class Booking < ActiveRecord::Base
         end
       end
     end
-    
-    # if there is other reservations in same seats?
-      # clear all reflectet subtrips for those seats
-      # reregister other bookings
+    # set all acceptance_status  of bookings from the  same passenger to -1
+    self.subtrip.bookings.where(user_id: self.passenger.id).each { |e| e.update_attributes(acceptance_status: -1) }
   end
 
   def check_if_subtrips_dirty_after_delete seat_numbers

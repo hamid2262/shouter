@@ -23,6 +23,7 @@ Shouter::Application.routes.draw do
     resources :subtrips, only: [:show, :edit, :update]
     resources :bookings do
       get 'booking_acceptance', on: :collection
+      get 'booking_response', on: :collection
     end
 
     resource  :invitation, only: [:show, :create] do

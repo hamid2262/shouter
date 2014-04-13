@@ -17,14 +17,44 @@
 			  			<th><%= t '.number_of_taken_seats' %> </th>
 			  			<th><%= @subtrip.number_of_taken_seats %>	</th>  			
 			  		</tr>
-
 		  		</tbody>
 		  	</table>
+
 	  	</div>
+
 			<div class="col-lg-6 blueprints">
 				<%= render partial: 'shared/seats_order', locals: {subtrip: @subtrip} %>
-			</div>
-		
+			</div>		
 	  </div>
+
+  	<% if (can? :booking_response, @subtrip.bookings.first) && @subtrip.waiting_bookings.any? %>
+		  <div class="panel-body">
+		  	<p> <strong><%= t ".passengers_list" %></strong> </p>
+		  	<table class="table table-bordered">
+		  		<thead>
+		  			<tr>
+		  				<th><%= t ".name" %></th>
+		  				<th><%= t ".seat_numbers" %></th>
+		  				<th><%= t(".accept_req") %> </th>
+		  				<th><%= t(".reject_req") %></th>
+		  			</tr>
+		  		</thead>
+		  		<tbody>
+			  		<% a = [] %>
+			  		<% @subtrip.waiting_bookings.each do |booking| %>
+			  			<% next if (a.include? booking.passenger.id) %>
+			  			<% a << booking.passenger.id %>
+				  		<tr>
+				  			<td><%= link_to booking.passenger.name, profile_path(booking.passenger.slug) %></td>
+				  			<td><%= booking.find_seat_numbers( booking.subtrip, booking).map{|u| u+1}.join(",") %> </td>
+				  			<td><%= link_to t(".accept"), booking_response_bookings_path(id: booking.id, accept: 1), class: "btn btn-success btn-sm btn-block" %></td>
+				  			<td><%= link_to t(".reject"), booking_response_bookings_path(id: booking.id, accept: 0), class: "btn btn-danger btn-sm btn-block" %></td>
+				  		</tr>							
+			  		<% end %>
+		  		</tbody>
+		  	</table>
+			</div>
+		<% end %>
+
 	</div>
 </div>

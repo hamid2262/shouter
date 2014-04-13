@@ -27,9 +27,16 @@ fa:
       gmap:
         trip_path: مسیر حرکت بر روی نقشه
       seats_status:
+        accept: قبول
+        accept_req: قبول درخواست
+        name: نام و نام خانوادگی
         number_of_free_seats: 'تعداد صندلی های خالی:'
         number_of_seats: 'تعداد کل صندلی ها:'
         number_of_taken_seats: 'تعداد صندلیهای گرفته شده:'
+        passengers_list: ' لیست مسافران منتظر'
+        reject: رد
+        reject_req: رد درخواست
+        seat_numbers: شماره صندلیها
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر

@@ -40,6 +40,9 @@ class Ability
         end        
 
         can [:new, :create, :index], Booking
+        can [:booking_response], Booking do |b|
+            [b.subtrip.trip.driver, b.subtrip.trip.driver.branches.map{|branch| branch.manager}].flatten.include? user
+        end
         can [:destroy], Booking do |b|
             (user == b.passenger) && (b.acceptance_status != -1) && (b.subtrip.date_time > DateTime.now + 3.hours)
         end

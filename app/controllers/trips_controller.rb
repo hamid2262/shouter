@@ -25,14 +25,15 @@ class TripsController < ApplicationController
   end
 
   def start_new_trip
-      if check_for_mobile
-      elsif current_user.is_admin?  || current_user.owned_branch
-        return redirect_to action: 'select_driver'
-      elsif locale == :fa 
-        return redirect_to action: 'select_date_format'
-      else
-        return redirect_to action: 'select_period'
-      end
+    reset_sessions
+    if check_for_mobile
+    elsif current_user.is_admin?  || current_user.owned_branch
+      return redirect_to action: 'select_driver'
+    elsif locale == :fa 
+      return redirect_to action: 'select_date_format'
+    else
+      return redirect_to action: 'select_period'
+    end
     return false
   end
 
@@ -221,5 +222,12 @@ class TripsController < ApplicationController
         end
       end
       array
+    end
+
+    def reset_sessions
+      session[:driver_id] = nil
+      session[:date_format] = nil
+      session[:weeks] = nil
+      session[:days]  = nil
     end
 end
