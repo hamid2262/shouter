@@ -37,4 +37,18 @@ en:
     nav:
       my_trips:
         booked_trips: Booked trips
+        booking waiting list: Booking waiting list
+        booking_note_msg: '%{passenger} has a book request for %{origin} to %{destination}'
+        booking_request_notifications_row:
+          booking_note_msg: sent a booking request
+          driver_name: Driver's name
+          from: 'from '
+          to: to
+        booking_respond_notifications_row:
+          accepted_msg: accepted your trip request
+          'accepted_msg ': accepted your trip request.
+          from: From
+          rejected_msg: rejected your trip request
+          'rejected_msg ': rejected you trip request.
+          to: to
         registered_trips: Registered Trips

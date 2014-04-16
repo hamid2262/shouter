@@ -37,4 +37,20 @@ fa:
     nav:
       my_trips:
         booked_trips: سفرهای رزرو کرده
+        booking waiting list: لیست مسافران منتظر
+        booking_note_msg: یک درخواست رزرو سفر از جانب %{passenger} برای سفر %{origin}
+          به %{destination} وجود دارد
+        booking_request_notifications_row:
+          booking_note_msg: درخواست رزرو سفر شما را کرده است.
+          booking_respond_notifications_row:
+            accepted_msg: درخواست سفر شما را قبول کرده است
+            rejected_msg: درخواست سفر شما را رد کرده است
+          driver_name: نام راننده
+          from: از
+          to: به
+        booking_respond_notifications_row:
+          'accepted_msg ': درخواست رزرو سفر شما را قبول کرده است.
+          from: از
+          'rejected_msg ': درخواست رزرو سفر شما را رد کرده است.
+          to: به مقصد
         registered_trips: سفرهای ثبت کرده

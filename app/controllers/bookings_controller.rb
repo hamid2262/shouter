@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
   def edit
   end
 
+  # acceptance via email
   def booking_acceptance
     @booking = Booking.find(params[:booking_id])
     @subtrip = @booking.subtrip
@@ -37,34 +38,24 @@ class BookingsController < ApplicationController
 
     if @booking.booking_id_check(hashed_code)
       if  @booking.booking_id_check(hashed_code) == 1
-        if @booking.update_attributes(acceptance_status: 1)
-          UserMailer.booking_positive_response_to_passenger(@booking).deliver
-        end
+        @booking.accept_actions
       elsif  @booking.booking_id_check(hashed_code) == -1
-        if @booking.update_attributes(acceptance_status: -1)
-          @booking.update_all_bookings
-          UserMailer.booking_negative_response_to_passenger(@booking).deliver
-        end
-      end #@booking.booking_id_check(hashed_code) == -1
+        @booking.reject_actions
+      end 
     else
       redirect_to root_path, notice: t('unauthorized_pages_message') 
-    end #@booking.booking_id_check(hashed_code)
-    # give deletation message and redirect to reservation page
+    end 
     @booking = Booking.find(params[:booking_id])
     @subtrip = @booking.subtrip
   end
 
+  # acceptance via subtrip page
   def booking_response
     @booking = Booking.find(params[:id])
     if params[:accept].to_i == 1
-      if @booking.update_attributes(acceptance_status: 1)
-        UserMailer.booking_positive_response_to_passenger(@booking).deliver
-      end
+      @booking.accept_actions
     else
-      if @booking.update_attributes(acceptance_status: -1)
-        @booking.update_all_bookings
-        UserMailer.booking_negative_response_to_passenger(@booking).deliver
-      end
+      @booking.reject_actions
     end
     redirect_to :back    
   end
@@ -79,9 +70,15 @@ class BookingsController < ApplicationController
     @booking = @subtrip.bookings.build
     @booking.passenger = current_user
     @booking.subtrip.take_all_conflict_seats params[:seat_numbers], @booking.passenger.id
-
     respond_to do |format|
       if @booking.save
+        # notification create
+        @booking.notifications.create!(user_id: @booking.trip.driver.id, 
+                                       subtrip_id: @subtrip.id,
+                                       notifier_id: current_user.id,
+                                       note: "Booking Request"
+                                      )
+        # mail to driver
         UserMailer.booking_request_to_driver(@booking).deliver
         format.html { redirect_to @subtrip, notice: t("booking_created_message") }
         format.json { render action: 'show', status: :created, location: @booking }

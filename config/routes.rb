@@ -24,6 +24,7 @@ Shouter::Application.routes.draw do
     resources :bookings do
       get 'booking_acceptance', on: :collection
       get 'booking_response', on: :collection
+      # resources :notifications, only: [:create]
     end
 
     resource  :invitation, only: [:show, :create] do

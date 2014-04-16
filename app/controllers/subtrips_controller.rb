@@ -14,6 +14,15 @@ class SubtripsController < ApplicationController
 		  marker.lng subtrip.olng
 		  marker.infowindow render_to_string(:partial => "subtrips/show/data_for_gmaps", :locals => { subtrip: subtrip})
 		end
+
+    if current_user
+      Notification.clear_notificatins(current_user, @subtrip)
+      @bookings = @subtrip.bookings.where(user_id: current_user.id)
+      if @bookings.any?
+        @booking = @bookings.last
+      end
+
+    end
   end
 
 

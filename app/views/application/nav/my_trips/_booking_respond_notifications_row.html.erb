@@ -1,0 +1,25 @@
+<% notifier = User.find notification.notifier_id  %>
+<% subtrip = notification.subtrip  %>
+<% url = subtrip_url(notification.subtrip)  %>
+
+<li><span class="note-row">
+	<%= link_to url do %>
+		<%= gravatar notifier, 32, "img-rounded gravatar" %>
+		<span class="note">
+			<strong class="name"><%= notifier.name %></strong>
+
+			<% if notification.note == "Request Accepted" %>
+				<span class="accepted"> <%= t ".accepted_msg " %> </span>
+			<% else %>
+				<span class="rejected"> <%= t ".rejected_msg " %> </span>
+			<% end %>
+
+		 	<p class="fromto"><strong> 
+		 		<%= t ".from" %> 
+		 		<span class="from"><%= subtrip.origin_city %></span> 
+		 		<%= t ".to" %> 
+		 		<span class="to"><%= subtrip.destination_city %></span> 
+		 	</strong></p>
+		</span>
+	<% end %>
+</span></li>

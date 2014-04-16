@@ -6,6 +6,8 @@ class Subtrip < ActiveRecord::Base
   belongs_to :currency
 
   has_many	 :bookings
+  has_many   :notifications, as: :notificationable, dependent: :destroy
+  # has_many   :notes, class_name: "Notification" , dependent: :destroy
 
   default_scope { order('date_time ASC').order(:id) } 
 
@@ -25,6 +27,10 @@ class Subtrip < ActiveRecord::Base
   before_save :split_address_to_city_state_country
   before_save :estimate_prices
  
+  def seat_numbers user
+    self.seats.each_index.select{|i| self.seats[i] == user.id}.map{|s| s+1}
+  end
+
   def waiting_bookings
     self.bookings.where(acceptance_status: 0)
   end
@@ -32,12 +38,16 @@ class Subtrip < ActiveRecord::Base
   def origin locale = :fa
     if locale == :en && self.origin_address_en
       city = self.origin_address_en.split(',').first
-      city = city + "<small>(#{self.origin_address_en.split(',')[1]})</small>"  if self.origin_address_en.split(',').size > 2      
+      city = city + "<small>(#{self.origin_address_en.split(',')[1]})</small>"  if self.origin_address_en.split(',').size > 2
     else
       city = self.origin_address.split(',').first
       city = city + "<small>(#{self.origin_address.split(',')[1]})</small>"  if self.origin_address.split(',').size > 2
     end
     city.html_safe
+  end
+
+  def origin_city
+    self.origin_address.split(',').first
   end
 
   def destination locale = :en
@@ -49,6 +59,9 @@ class Subtrip < ActiveRecord::Base
       city = city  +"<small>(#{self.destination_address.split(',')[1]})</small>"  if self.destination_address.split(',').size > 2
     end
     city.html_safe
+  end
+  def destination_city locale = :en
+    self.destination_address.split(',').first
   end
 
   def number_of_taken_seats

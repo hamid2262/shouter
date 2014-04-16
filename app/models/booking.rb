@@ -1,6 +1,7 @@
 class Booking < ActiveRecord::Base
   belongs_to :passenger, class_name: "User", foreign_key: "user_id"
   belongs_to :subtrip
+  has_many   :notifications, as: :notificationable, dependent: :destroy
 
   delegate :trip, :to => :subtrip, :allow_nil => true
   # after_destroy :release_subtrip_seats
@@ -86,6 +87,31 @@ class Booking < ActiveRecord::Base
     else
       false
     end
+  end
+
+  def accept_actions
+    if self.update_attributes(acceptance_status: 1)
+      UserMailer.booking_positive_response_to_passenger(self).deliver
+      self.notifications.destroy_all if self.notifications.any?
+      self.notifications.create!(user_id: self.passenger.id, 
+                                 subtrip_id: self.subtrip.id,
+                                 notifier_id: self.trip.driver.id,
+                                 note: "Request Accepted"
+                                )
+    end 
+  end
+
+  def reject_actions
+    if self.update_attributes(acceptance_status: -1)
+      self.update_all_bookings
+      UserMailer.booking_negative_response_to_passenger(self).deliver
+      self.notifications.destroy_all if self.notifications.any?
+      self.notifications.create!(user_id: self.passenger.id, 
+                                 subtrip_id: self.subtrip.id,
+                                 notifier_id: self.trip.driver.id,
+                                 note: "Request Rejected"
+                                )
+    end    
   end
 
   private

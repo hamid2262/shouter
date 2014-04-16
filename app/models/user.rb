@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_one    :vehicle
   has_many   :trips
   has_many   :bookings  
+  has_many   :notifications  
 
   has_one    :owned_branch, class_name: 'Branch'  # for manager of branch
   has_one    :owned_company, class_name: 'Company'  # for director of company
@@ -105,10 +106,6 @@ class User < ActiveRecord::Base
 
   def contacts
     Contact.where("sender_id = ? OR receiver_id = ?", self.id, self.id)
-  end
-
-  def unread_messages
-    Contact.where(receiver_id: self.id, receiver_saw: false).size
   end
 
   def self.find_for_facebook_oauth(auth)

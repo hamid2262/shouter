@@ -5,6 +5,14 @@
 	</div>
 
 	<div class="col-sm-5">
+		<% if current_user && @booking %>
+			<%= render 'subtrips/show/passenger_booking_status' %>			
+		<% end %>
+
+		<% if (can? :booking_response, @subtrip.bookings.first) && @subtrip.waiting_bookings.any? %>
+			<%= render 'subtrips/show/booking_wait_list' %>			
+		<% end %>
+
 		<% if @branch.present? %>
 			<%= render 'subtrips/show/branch_overview' %>			
 		<% end %>

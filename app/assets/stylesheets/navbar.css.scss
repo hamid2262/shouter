@@ -97,10 +97,65 @@
 			}
 		}
 	}
-	.special_events{
-		color: red !important;
-		font-weight: bold ;
-	}	
+	#my_trips_menu{
+		.notification{
+			left: 14px;
+			z-index: 100;
+			padding-top: 2px;
+		}
+		#my_trips_dropdown{
+			// padding-bottom: 0;
+			.divider{
+				margin: 0;
+			}
+			.note-row{
+				margin: 1px;
+				padding: 3px 3px;
+				display: block;
+				width: 225px;
+				background: #e4e4e4;
+				border: 1px solid #CECECE;
+				border-radius: 2px;
+				a{
+					position: relative;
+					display: inherit;
+					color: #444;
+					font-size: .8em;
+					.gravatar{
+						border-radius: 2px;
+						width: 15%;
+						height: auto;
+						float: right;
+					}
+					.note{
+						display: inline-block;
+						padding: 0px 5px;
+						width: 84% !important;
+						.name{
+							color: #000086;
+						}
+						.accepted{
+							color: #048504;
+						}
+						.rejected{
+							color: #DD0000;
+						}
+						.fromto{
+							margin-bottom: 0;
+							.from{
+								color: #00AA19;
+								font-size: 1.2em;
+							}
+							.to{
+								color: #D10000;
+								font-size: 1.2em;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 .navbar{

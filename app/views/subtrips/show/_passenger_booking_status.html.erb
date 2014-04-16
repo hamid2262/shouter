@@ -1,0 +1,38 @@
+<div class="seats_status">	
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	  	<div class="col-xs-10">
+		  	<h4><%= t ".booking_status" %></h4>
+	  	</div>
+	  	<div class="col-xs-2 pull-<%= lang_other_side %>">
+				<% if @booking.acceptance_status == 0 %>
+					<%= image_tag IMAGES_PATH+"waiting.png", class: "img-responsive"  %>
+				<% elsif @booking.acceptance_status == 1  %>
+					<%= image_tag IMAGES_PATH+"accept.png", class: "img-responsive" %>
+				<% elsif @booking.acceptance_status == -1  %>
+					<%= image_tag IMAGES_PATH+"reject.png", class: "img-responsive"  %>
+				<% end %>
+		  </div>
+
+	  </div>
+	  <div class="panel-body">
+			<% if @booking.acceptance_status == 0 %>
+				<p><%= t ".line1" %></p>
+				<p>
+					<strong><%= t ".seat_numbers" %></strong>
+					<%= @subtrip.seat_numbers(current_user).join(',') %>
+				</p>
+				<p style="color:rgb(221, 221, 71);"> <%= t ".still_waiting" %> </p>
+			<% elsif @booking.acceptance_status == 1  %>
+				<p><%= t ".line1" %></p>
+				<p>
+					<strong><%= t ".seat_numbers" %></strong>
+					<%= @subtrip.seat_numbers(current_user).join(',') %>
+				</p>
+				<p style="color:rgb(60, 202, 54);"> <%= t ".accepted" %> </p>
+			<% elsif @booking.acceptance_status == -1  %>
+				<p style="color:#f00"> <%= t ".rejected" %> </p>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<li>
+	<%= link_to(contacts_path, class: "messages main_icons") do %>
+  	<% if notification_exist? @unread_messages_notifications %>
+  		<span class="notification"><%= @unread_messages_notifications %></span>
+  	<% end %>
+  <% end %>
+</li>

@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_locale
   before_action :message_notification
+  before_action :booking_request_notifications
+  before_action :booking_respond_notifications  
   after_action  :user_activity
 
   def lang_direction
@@ -23,6 +25,7 @@ class ApplicationController < ActionController::Base
     params[:locale]=='fa' ? 'ltr' :  'rtl' 
   end
   helper_method :lang_other_direction
+
 
   protected
 
@@ -68,7 +71,17 @@ class ApplicationController < ActionController::Base
       {locale: I18n.locale}
     end
     
-    def message_notification
-      session[:unread_messages] = current_user.unread_messages if current_user
+    def booking_request_notifications
+      @booking_request_notifications = Notification.booking_requests(current_user) if current_user
     end
+
+    def booking_respond_notifications
+      @booking_respond_notifications = Notification.booking_responds(current_user) if current_user
+    end
+
+    def message_notification
+      @unread_messages_notifications = Message.unread_messages_size(current_user) if current_user
+    end
+
+
 end

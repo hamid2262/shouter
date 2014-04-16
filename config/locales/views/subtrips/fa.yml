@@ -9,6 +9,14 @@ fa:
       seat_number: "\nشماره صندلی\t"
       select: انتخاب
     show:
+      booking_wait_list:
+        accept: قبول
+        accept_req: قبول درخواست
+        name: نام و نام خانوادگی
+        passengers_list: ' لیست مسافران منتظر'
+        reject: رد
+        reject_req: رد درخواست
+        seat_numbers: شماره صندلیها
       branch_overview:
         branch_name: نام شعبه
         company_name: نام شرکت
@@ -26,22 +34,26 @@ fa:
         view_profile: مشاهده پروفایل
       gmap:
         trip_path: مسیر حرکت بر روی نقشه
+      passenger_booking_status:
+        accepted: درخواست شما توسط راننده تایید شده است.
+        booking_status: وضعیت درخواست رزرو شما
+        line1: شما در این سفر صندلی (های) زیر را رزرو کرده اید.
+        rejected: درخواست شما رد شده است.
+        seat_numbers: 'شماره صندلی (ها):'
+        still_waiting: هنوز پاسخی داده نشده است.
       seats_status:
-        accept: قبول
-        accept_req: قبول درخواست
-        name: نام و نام خانوادگی
         number_of_free_seats: 'تعداد صندلی های خالی:'
         number_of_seats: 'تعداد کل صندلی ها:'
         number_of_taken_seats: 'تعداد صندلیهای گرفته شده:'
-        passengers_list: ' لیست مسافران منتظر'
-        reject: رد
-        reject_req: رد درخواست
-        seat_numbers: شماره صندلیها
+        passengers_list: null
         seats_status: وضعیت صندلی ها
       subtrip_overview:
         book_trip: رزرو سفر
         delete_seats: از دسترس خارج کردن صندلی ها
         edit_trip: ویرایش سفر
+        expired_trip: تاریخ حرکت این سفر گذشته است.
+        have_rejected: درخواست قبلی شما برای رزرو این سفر رد شده است. درخواست دوباره
+          امکانپذیر نیست.
         only_bookable_via_tel: در حال حاضر فقط با تماس تلفنی امکان رزرو این سفر وجود
           دارد
     subtrip_search_raw:

@@ -1,17 +1,36 @@
 <li id="my_trips_menu" class="dropdown">
-	<a id="title" href="#" class="dropdown-toggle main_icons trips" data-toggle="dropdown">
-		
-	</a>
-	<ul class="dropdown-menu">
-		<li role="presentation" class="dropdown-header"><%= t(".as_passenger") %></li>
+	<% if @booking_request_notifications.any? ||
+			  @booking_respond_notifications.any?
+	%>
+		<span class="notification">
+			<%= 
+					@booking_request_notifications.size.to_i +
+					@booking_respond_notifications.size.to_i
+			%>
+		</span>
+	<% end %>
 
+
+	<a id="title" href="#" class="dropdown-toggle main_icons trips" data-toggle="dropdown"></a>
+	<ul id="my_trips_dropdown" class="dropdown-menu">
 		<li><%= link_to t('.booked_trips'), bookings_path %></li>
+	  <% if @booking_respond_notifications.any? %>
+		  <li class="divider"></li>
+			<!-- <li role="presentation" class="dropdown-header"><%#= t(".booking request list") %></li> -->
+			<% @booking_respond_notifications.each do |notification| %>
+				<%= render partial: 'application/nav/my_trips/booking_respond_notifications_row', locals: {notification: notification} %>
+			<% end %>
+	  <% end %>
+
 
 	  <li class="divider"></li>
-		<li role="presentation" class="dropdown-header"><%= t(".as_driver") %></li>
 		<li><%= link_to t(".registered_trips"), trips_path %></li>
-	  <!-- <li class="divider"></li> -->
-<!-- 	  <li><a href="#">Separated link</a></li>
-	  <li class="divider"></li> -->
+	  <% if @booking_request_notifications.any? %>
+		  <li class="divider"></li>
+			<!-- <li role="presentation" class="dropdown-header"><%#= t(".booking waiting list") %></li> -->
+			<% @booking_request_notifications.each do |notification| %>
+				<%= render partial: 'application/nav/my_trips/booking_request_notifications_row', locals: {notification: notification} %>
+			<% end %>
+	  <% end %>
 	</ul>
 </li>

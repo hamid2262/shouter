@@ -1,0 +1,27 @@
+<% passenger = notification.passenger  %>
+<% subtrip = notification.subtrip  %>
+<% url = subtrip_url(notification.subtrip)  %>
+
+<li><span class="note-row">
+	<%= link_to url do %>
+		<%= gravatar passenger, 32, "img-rounded gravatar" %>
+		<span class="note">
+			<strong class="name"><%= passenger.name %></strong>
+		 	<%= t".booking_note_msg"%>
+		 	<p class="fromto">
+			 	<strong> 
+			 		<%= t ".from" %> 
+			 		<span class="from"><%= subtrip.origin_city %></span> 
+			 		<%= t ".to" %> 
+			 		<span class="to"><%= subtrip.destination_city %></span> 
+			 	</strong>
+			 </p>
+			 <p class="fromto">
+			 	<% if subtrip.trip.driver != current_user %>
+			 		<strong href=""><%= t ".driver_name" %>:</strong>
+			 		<%= subtrip.trip.driver.name %>
+			 	<% end %>
+		 	</p>
+		</span>
+	<% end %>
+</span></li>

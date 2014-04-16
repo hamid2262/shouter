@@ -1,16 +1,22 @@
 en:
   subtrips:
     edit:
-      deleting_seats_message: 'Please select your desired seats from free seat''s
-        list below and then press Delete Seats.
-
-        '
+      deleting_seats_message: Please select your desired seats from free seat's list
+        below and then press Delete Seats.
     form:
       back_to_trip: Back to Trip
       delete_seats: Delete seats
       seat_number: Seat number
       select: Select
     show:
+      booking_wait_list:
+        accept: Accept
+        accept_req: Accept Request
+        name: Full Name
+        passengers_list: List of waiting passengers
+        reject: Reject
+        reject_req: Reject Request
+        seat_numbers: Seats Numbers
       branch_overview:
         branch_name: Name of Branch
         company_name: 'Name of Company '
@@ -28,22 +34,26 @@ en:
         view_profile: View Profile
       gmap:
         trip_path: Trip Route
+      passenger_booking_status:
+        accepted: Your request has been accepted by the driver
+        booking_status: Your request status
+        line1: You have already booked the following seats in this trip.
+        rejected: Your request has been rejected.
+        seat_numbers: 'Seat number(s):'
+        still_waiting: There is no answer to your request yet.
       seats_status:
-        accept: Accept
-        accept_req: Accept Request
-        name: Full Name
         number_of_free_seats: 'Number of available  seats:'
         number_of_seats: 'Seats total number:'
         number_of_taken_seats: 'Number of taken seats:'
-        passengers_list: List of waiting passengers
-        reject: Reject
-        reject_req: Reject Request
-        seat_numbers: Seats Numbers
+        passengers_list: null
         seats_status: Seats Status
       subtrip_overview:
         book_trip: Book this trip
         delete_seats: Eliminate seats
         edit_trip: Edit trip
+        expired_trip: The departure time of this trip has expired.
+        have_rejected: You have already a reject response from this trip. you can
+          not book this trip again.
         only_bookable_via_tel: Only bookable via phone
     subtrip_search_raw:
       from: from
