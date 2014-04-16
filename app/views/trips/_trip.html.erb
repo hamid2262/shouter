@@ -18,7 +18,7 @@
 			</thead>
 			<tbody>
 				<% trip.subtrips.each do |subtrip| %>
-				  <% next if subtrip.origin == subtrip.destination %>
+				  <% next if subtrip.olat == subtrip.dlat %>
 					<%= render partial: 'trips/trip/subtrip_row', locals: {subtrip: subtrip} %>
 				<% end %>
 			</tbody>
