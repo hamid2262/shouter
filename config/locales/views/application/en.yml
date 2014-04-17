@@ -35,6 +35,10 @@ en:
       spacial_offers: Special offers
       term: Terms
     nav:
+      profile:
+        vehicle_detail: Vehicle Details
+        edit_vehicle: Edit Vehicle details
+        new_vehicle: Register Vehicle Details
       my_trips:
         booked_trips: Booked trips
         booking waiting list: Booking waiting list

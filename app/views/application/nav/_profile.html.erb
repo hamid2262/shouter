@@ -13,8 +13,16 @@
 		<li role="presentation" class="dropdown-header"><%= t("navbar.profile.edit") %></li>
 		<li><%= link_to t("navbar.profile.edit_profile"), edit_user_registration_path %></li>
 	  <li class="divider"></li>
-<!-- 	  <li><a href="#">Separated link</a></li>
-	  <li class="divider"></li> -->
+
+		<li role="presentation" class="dropdown-header"><%= t(".vehicle_detail") %></li>
+		<% if current_user.vehicle.present? %>
+			<li><%= link_to t(".edit_vehicle"), edit_user_vehicles_path(current_user) %></li>		
+		<% else %>
+			<li><%= link_to t(".new_vehicle"), new_user_vehicles_path(current_user) %></li>
+		<% end %>
+
+	  <li class="divider"></li>
+
 		<li><%= link_to t("navbar.session.sign_out"), destroy_user_session_path, method: :delete %>  </li>
 	</ul>
 </li>

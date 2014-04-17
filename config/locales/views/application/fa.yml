@@ -35,6 +35,10 @@ fa:
       spacial_offers: خدمات ویژه
       term: شرايط استفاده
     nav:
+      profile:
+        vehicle_detail: مشخصات خودرو
+        edit_vehicle: ویرایش مشخصات خودرو
+        new_vehicle: ثبت مشخصات خودرو
       my_trips:
         booked_trips: سفرهای رزرو کرده
         booking waiting list: لیست مسافران منتظر

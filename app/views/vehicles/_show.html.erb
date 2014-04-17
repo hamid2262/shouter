@@ -16,7 +16,9 @@
 
           <div class="panel-body">
             <%= profile_sidebar_row Vehicle.human_attribute_name("color"),user.vehicle.color  %>
-            <%= profile_sidebar_row Vehicle.human_attribute_name("vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
+            <%= profile_sidebar_row t(".vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
+            <%= profile_sidebar_row t(".vehicle_model"), user.vehicle.vehicle_model.try(:name)  %>
+
             <%= profile_sidebar_row Vehicle.human_attribute_name("number_plate"),user.vehicle.number_plate  %>
             <%= profile_sidebar_row Vehicle.human_attribute_name("air_condition"),t_has(user.vehicle.air_condition)  %>
             <%= profile_sidebar_row Vehicle.human_attribute_name("year"),user.vehicle.year.year  %>

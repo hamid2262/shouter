@@ -12,14 +12,14 @@ fa:
         air_condition: کولر
         year: سال ساخت
         image: تصویر
-        brand: کارخانه سازنده
+        brand: برند
     errors:
       template:
         header:
           one:   "1 error prohibited this %{model} from being saved"
           other: "%{count} errors prohibited this %{model} from being saved"
         body:    "There were problems with the following fields:"
-     
+
   helpers:
     submit:
       vehicle:

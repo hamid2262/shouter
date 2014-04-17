@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413231952) do
+ActiveRecord::Schema.define(version: 20140417133754) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -356,11 +356,33 @@ ActiveRecord::Schema.define(version: 20140413231952) do
   add_index "users", ["slug"], name: "index_users_on_slug", using: :btree
   add_index "users", ["ulat", "ulng"], name: "index_users_on_ulat_and_ulng", using: :btree
 
+  create_table "vehicle_brand_translations", force: true do |t|
+    t.integer  "vehicle_brand_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "vehicle_brand_translations", ["locale"], name: "index_vehicle_brand_translations_on_locale", using: :btree
+  add_index "vehicle_brand_translations", ["vehicle_brand_id"], name: "index_vehicle_brand_translations_on_vehicle_brand_id", using: :btree
+
   create_table "vehicle_brands", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "vehicle_model_translations", force: true do |t|
+    t.integer  "vehicle_model_id", null: false
+    t.string   "locale",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "vehicle_model_translations", ["locale"], name: "index_vehicle_model_translations_on_locale", using: :btree
+  add_index "vehicle_model_translations", ["vehicle_model_id"], name: "index_vehicle_model_translations_on_vehicle_model_id", using: :btree
 
   create_table "vehicle_models", force: true do |t|
     t.integer  "vehicle_brand_id"

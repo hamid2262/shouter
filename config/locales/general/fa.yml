@@ -79,7 +79,7 @@ fa:
 
   trip_create_message: سفر با موفقیت ثبت شد
   trip_update_message: سفر با موفقبت به روزرسانی شد
-  trip_delete_message: سفر ما موفقیت حذف شد
+  trip_delete_message: سفر با موفقیت حذف شد
   
   image_updated_message: تصویر با موفقیت به روز رسانی شد
   profile_updated_message: پروفایل با موفقبت به روزرسانی شد   
