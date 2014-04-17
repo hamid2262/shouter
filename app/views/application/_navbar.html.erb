@@ -26,6 +26,9 @@
           <li><%= link_to t("navbar.user.sign_up"), new_user_registration_path, class: "text-nav " %></li>
   			<% end %>	
         <li class="hidden-sm"><%= link_to t("navbar.how_it_works"), page_path('how_does_hamsafaryab_work'), class: "text-nav" %></li>
+
+        <%= render 'application/nav/facebook_like' %>
+        
       </ul>
 
       <ul class="nav navbar-nav navbar-<%= lang_other_side %>">
