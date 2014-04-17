@@ -1,12 +1,13 @@
-<%= simple_form_for(@vehicle_model) do |f| %>
+<%= simple_form_for([@vehicle_brand, @vehicle_model]) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :name %>
-    <%= f.input :seats_number %>
-    <%= f.input :default_image %>
-    <%= f.association :vehicle_brand %>
-    <%= f.input :up_view_image %>
+    <strong>number of seats:</strong> 
+    <%= f.select :seats_number, 1..50, {selected: 4} %>
+
+    <%#= f.input :default_image %>
+    <%#= f.input :up_view_image %>
   </div>
 
   <div class="form-actions">

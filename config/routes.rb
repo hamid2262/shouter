@@ -74,8 +74,9 @@ Shouter::Application.routes.draw do
     end
     resources :networks, only: [:show]
     resources :currencies
-    resources :vehicle_brands
-    resources :vehicle_models
+    resources :vehicle_brands do
+      resources :vehicle_models
+    end
     resource  :search, only: [:show]
     resource  :dashboard, only: [:show,:create]  
     

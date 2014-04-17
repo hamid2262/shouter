@@ -25,5 +25,5 @@
   <%= @vehicle_model.up_view_image %>
 </p>
 
-<%= link_to 'Edit', edit_vehicle_model_path(@vehicle_model) %> |
-<%= link_to 'Back', vehicle_models_path %>
+<%= link_to 'Edit', edit_vehicle_brand_vehicle_model_path(@vehicle_brand, @vehicle_model) %> |
+<%= link_to 'Back', [@vehicle_brand, @vehicle_model] %>

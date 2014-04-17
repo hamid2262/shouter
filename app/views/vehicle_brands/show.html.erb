@@ -5,5 +5,35 @@
   <%= @vehicle_brand.name %>
 </p>
 
+
 <%= link_to 'Edit', edit_vehicle_brand_path(@vehicle_brand) %> |
 <%= link_to 'Back', vehicle_brands_path %>
+
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Number of seats</th>
+      <th>Brand name</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+		<% @vehicle_brand.vehicle_models.each do |m| %>
+			<tr>
+        <td><%= m.name %></td>
+        <td><%= m.seats_number %></td>
+        <td><%= m.vehicle_brand.name %></td>
+				<td>
+					<%= link_to "edit",edit_vehicle_brand_vehicle_model_path(vehicle_brand_id:@vehicle_brand.id, id: m.id) %>					
+				</td>
+      </tr>
+		<% end %>
+
+  </tbody>
+</table>
+<%= link_to "new model", new_vehicle_brand_vehicle_model_path(@vehicle_brand) %>

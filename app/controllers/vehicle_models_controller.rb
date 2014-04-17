@@ -1,5 +1,6 @@
 class VehicleModelsController < ApplicationController
   before_action :set_vehicle_model, only: [:show, :edit, :update, :destroy]
+  before_action :set_vehicle_brand
 
   load_and_authorize_resource 
   skip_load_resource only: [:create] 
@@ -27,11 +28,11 @@ class VehicleModelsController < ApplicationController
   # POST /vehicle_models
   # POST /vehicle_models.json
   def create
-    @vehicle_model = VehicleModel.new(vehicle_model_params)
+    @vehicle_model = @vehicle_brand.vehicle_models.build(vehicle_model_params)
 
     respond_to do |format|
       if @vehicle_model.save
-        format.html { redirect_to @vehicle_model, notice: 'Vehicle model was successfully created.' }
+        format.html { redirect_to @vehicle_brand, notice: 'Vehicle model was successfully created.' }
         format.json { render action: 'show', status: :created, location: @vehicle_model }
       else
         format.html { render action: 'new' }
@@ -45,7 +46,7 @@ class VehicleModelsController < ApplicationController
   def update
     respond_to do |format|
       if @vehicle_model.update(vehicle_model_params)
-        format.html { redirect_to @vehicle_model, notice: 'Vehicle model was successfully updated.' }
+        format.html { redirect_to @vehicle_brand, notice: 'Vehicle model was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +70,11 @@ class VehicleModelsController < ApplicationController
     def set_vehicle_model
       @vehicle_model = VehicleModel.find(params[:id])
     end
+
+    def set_vehicle_brand
+      @vehicle_brand = VehicleBrand.find params[:vehicle_brand_id]
+    end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def vehicle_model_params

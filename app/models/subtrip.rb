@@ -7,7 +7,7 @@ class Subtrip < ActiveRecord::Base
 
   has_many	 :bookings
   has_many   :notifications, as: :notificationable, dependent: :destroy
-  # has_many   :notes, class_name: "Notification" , dependent: :destroy
+  has_many   :notes, class_name: "Notification" , dependent: :destroy
 
   default_scope { order('date_time ASC').order(:id) } 
 

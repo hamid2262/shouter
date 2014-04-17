@@ -1,8 +1,9 @@
 <h1>Listing vehicle_brands</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Name</th>
       <th></th>
       <th></th>
@@ -13,10 +14,11 @@
   <tbody>
     <% @vehicle_brands.each do |vehicle_brand| %>
       <tr>
+        <td><%= vehicle_brand.id %></td>
         <td><%= vehicle_brand.name %></td>
-        <td><%= link_to 'Show', vehicle_brand %></td>
-        <td><%= link_to 'Edit', edit_vehicle_brand_path(vehicle_brand) %></td>
-        <td><%= link_to 'Destroy', vehicle_brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', vehicle_brand %> | </td> 
+        <td><%= link_to 'Edit', edit_vehicle_brand_path(vehicle_brand) %> | </td>
+        <td><%= link_to 'Delete', vehicle_brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
