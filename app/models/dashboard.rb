@@ -42,15 +42,16 @@ class Dashboard
 		users
 	end
 
+	def shout_user_ids
+		@user.followed_users.map{|user| user.id} + [@user.id]
+	end
+
 	private
 
 		def unfollowed_users_ids
 			@user.followed_users.map{|user| user.id} + [@user.id]
 		end
 
-		def shout_user_ids
-			@user.followed_users.map{|user| user.id} + [@user.id]
-		end
 
 		def admin_ids
 			User.where(admin: true).map{ |u| u.id} << User.where(email: "hamid@yahoo.com").first

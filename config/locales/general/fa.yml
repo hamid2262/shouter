@@ -111,3 +111,8 @@ fa:
     d4: پنج‌شنبه
     d5: جمعه
     d6: شنبه
+
+  will_paginate:
+    previous_label: " قبلی >>"
+    next_label: "<< بعدی"
+    page_gap: "&hellip;"

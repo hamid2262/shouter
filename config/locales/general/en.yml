@@ -116,3 +116,8 @@ en:
     d4: Thursday
     d5: Friday
     d6: Saturday
+
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"

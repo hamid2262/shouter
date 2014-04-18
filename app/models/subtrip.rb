@@ -51,7 +51,7 @@ class Subtrip < ActiveRecord::Base
   end
 
   def destination locale = :en
-    if locale == :en && self.origin_address_en
+    if locale == :en && self.destination_address_en
       city = self.destination_address_en.split(',').first
       city = city  +"<small>(#{self.destination_address_en.split(',')[1]})</small>"  if self.destination_address_en.split(',').size > 2
     else

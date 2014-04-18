@@ -16,6 +16,7 @@ class BranchesController < ApplicationController
   # GET /branches/1
   # GET /branches/1.json
   def show
+    @timeline = @branch.timeline.page(params[:page]).per_page(10)
     begin
       @drivers = @branch.drivers
     rescue  

@@ -12,7 +12,7 @@ class InvitationsController < ApplicationController
 
   def invite_acceptation
   	@inviter = User.where(slug: params[:inviter]).first
-  	session[:inviter] = @inviter.id
-  	redirect_to new_user_registration_path, notice: t('.invited_user_welcome_message', name: @inviter.name)
+  	session[:inviter] = @inviter.id if @inviter
+  	redirect_to new_user_registration_path, notice: t('.invited_user_welcome_message', name: @inviter.try(:name) )
   end
 end

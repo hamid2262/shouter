@@ -3,10 +3,14 @@
 		<%= t 'posts' %>
   </div>
   <div class="panel-body ">
-  	<% if objs.any? %>
-			<%= render objs %>	  		
+  	<% if @timeline.any? %>
+			<%= render @timeline %>	  		
   	<% else %>
   		<%= t 'no_post_message' %>
   	<% end %>
+
+    <% if @timeline.try(:any?) %>
+      <%= will_paginate @timeline, renderer: BootstrapPagination::Rails %>
+    <% end %>
 	</div>
 </div>
