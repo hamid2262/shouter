@@ -10,7 +10,7 @@
   	<% end %>
 
     <% if @timeline.try(:any?) %>
-      <%= will_paginate @timeline, renderer: BootstrapPagination::Rails %>
+      <%= will_paginate @timeline %>
     <% end %>
 	</div>
 </div>
