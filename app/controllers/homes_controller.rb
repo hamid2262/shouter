@@ -4,6 +4,16 @@ class HomesController < ApplicationController
   def show
     redirect_to dashboard_path if current_user
 
+    if (request.try(:location).try(:country_code) == 'IR')  
+      if (request.original_url.include? "/en")
+        new_url = request.original_url.gsub! '/en', '/fa'
+        cookies[:lang] = :fa
+        I18n.locale =  :fa
+        redirect_to new_url
+        return false
+      end
+    end
+
 		@search_subtrip = SearchSubtrip.new
 
 		@subtrips = Home.newtrips.limit(8)
@@ -17,9 +27,10 @@ class HomesController < ApplicationController
   		new_url = params[:url].gsub! '/fa', '/en'
   	else
   		cookies[:lang] = :fa
+      cookies[:lang] = :fa
   		new_url = params[:url].gsub! '/en', '/fa'
   	end
-  	redirect_to new_url
+    redirect_to new_url
   end
 
   private
