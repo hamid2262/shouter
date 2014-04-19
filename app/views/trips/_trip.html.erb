@@ -1,8 +1,9 @@
+<% subtrips = trip.subtrips %>
 <div class="trip_timeline">
 	<h4> 
 		<%= t('.line1') %> 
-		<%= jday_humanize(trip.subtrips.first.try(:date_time)) %> 
-		<%= jdate_humanize(trip.subtrips.first.try(:date_time)) %>
+		<%= jday_humanize(subtrips.first.try(:date_time)) %> 
+		<%= jdate_humanize(subtrips.first.try(:date_time)) %>
 	</h4>
 
 	<div class="table-responsive">
@@ -17,7 +18,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<% trip.subtrips.each do |subtrip| %>
+				<% subtrips.each do |subtrip| %>
 				  <% next if subtrip.olat == subtrip.dlat %>
 					<%= render partial: 'trips/trip/subtrip_row', locals: {subtrip: subtrip} %>
 				<% end %>

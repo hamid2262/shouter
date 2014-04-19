@@ -10,7 +10,7 @@
   	<% end %>
 
     <% if @timeline.try(:any?) %>
-      <%= will_paginate @timeline %>
+      <%= will_paginate @timeline, class: "pagination" %>
     <% end %>
 	</div>
 </div>

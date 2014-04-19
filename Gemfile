@@ -32,6 +32,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'letter_opener'
+  gem 'bullet'
 end
 
 group :assets do
