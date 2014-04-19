@@ -17,11 +17,11 @@ class Dashboard
 	end
 
 	def followers
-		@user.followers.order(updated_at: :desc)
+		@user.followers.order(updated_at: :desc).uniq
 	end
 
 	def followed_users
-		@user.followed_users.order(updated_at: :desc)
+		@user.followed_users.order(updated_at: :desc).uniq
 	end
 
 	def random_users

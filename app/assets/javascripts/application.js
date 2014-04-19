@@ -8,8 +8,8 @@
 //= require underscore
 //= require gmaps/google
 //= require jquery.ui.datepicker
-//= require ckeditor/override
-//= require ckeditor/init
+// require ckeditor/override
+// require ckeditor/init
 //= require_tree .
 
 $(function() {
