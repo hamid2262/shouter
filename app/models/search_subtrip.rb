@@ -40,8 +40,8 @@ class SearchSubtrip
 	end
 
 	def newtrips
-    subtrips = Subtrip.where.not("origin_address = destination_address")
-    subtrips = subtrips.where("date_time > ?", DateTime.now)
+    subtrips = Subtrip.where.not("olat = dlat")
+    subtrips = subtrips.where("date_time > ?", (DateTime.now - 1.hour))
     subtrips = subtrips.where("active = true")
     subtrips = subtrips.order(date_time: :desc)		
 	end
@@ -59,18 +59,19 @@ class SearchSubtrip
 		end_date = start_date.end_of_day + days.days
 
 		subtrips = Subtrip.where("date_time > ?", start_date).where("date_time < ?", end_date)
+		subtrips = subtrips.where("date_time > ?", (DateTime.now - 1.hour))
 		subtrips = subtrips.near(self.destination_address, self.destination_cycle , :units => :km) unless self.destination_address.blank?
+	  
 	  subtrips = where_near_origin(subtrips,self.origin_address, self.origin_cycle) unless self.origin_address.blank?
-    subtrips = subtrips.where.not("origin_address = destination_address")
+
+    subtrips = subtrips.where.not("olat = dlat")
     subtrips = subtrips.where("active = true")
 	end
-
-
 
 private
 	def where_near_origin subtrips, address, cycle
 		lat,lng = Geocoder.coordinates address
-		subtrips.where("olat - ? < ?", lat, cycle.to_f/80).where("olng - ? < ?", lng, cycle.to_f/80)
+		subtrips.where(" sqrt( power(olat - ?, 2) + power(olng - ?, 2) ) < ?", lat, lng, cycle.to_f / 110)
 	end
 
 		def convert_jalali_to_gregorian date

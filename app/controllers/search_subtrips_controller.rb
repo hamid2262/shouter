@@ -9,7 +9,7 @@ class SearchSubtripsController < ApplicationController
 		else
 			@search_subtrip = SearchSubtrip.new(params[:search_subtrip])
 			if @search_subtrip.valid?
-				@subtrips = @search_subtrip.subtrips(30).page(params[:page]).per_page(10) if @search_subtrip
+				@subtrips = @search_subtrip.subtrips(300).page(params[:page]).per_page(10) if @search_subtrip
 			end			
 		end
 		session[:search_show_init_date] = nil 
