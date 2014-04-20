@@ -4,9 +4,8 @@ class DashboardsController < ApplicationController
 	skip_authorization_check
 	def show
 		@dashboard      = Dashboard.new(current_user)
-		# @timeline       = Shout.where(user_id: @dashboard.shout_user_ids)
 
-		@timeline = @dashboard.timeline.page(params[:page]).per_page(10)
+		@timeline       = @dashboard.timeline.page(params[:page]).per_page(10)
 
 		@followed_users = @dashboard.followed_users
 		@followers      = @dashboard.followers

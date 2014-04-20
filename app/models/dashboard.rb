@@ -13,7 +13,7 @@ class Dashboard
 	end
 	
 	def timeline
-		Shout.where(user_id: shout_user_ids)
+		Shout.where(user_id: shout_user_ids).includes(:user).includes(:content)
 	end
 
 	def followers

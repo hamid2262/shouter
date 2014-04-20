@@ -2,17 +2,19 @@ class HomesController < ApplicationController
 	skip_authorization_check :only => [:show, :lang_select]
   before_action  :redirect_to_appropriate_lang
   def show
-    redirect_to dashboard_path if current_user
-
-    if (request.try(:location).try(:country_code) == 'IR')  
-      if (request.original_url.include? "/en")
-        new_url = request.original_url.gsub! '/en', '/fa'
-        cookies[:lang] = :fa
-        I18n.locale =  :fa
-        redirect_to new_url
-        return false
-      end
+    if current_user
+      redirect_to dashboard_path 
+      return false
     end
+    # unless (request.try(:location).try(:country_code) == 'IR')  
+    #   if (request.original_url.include? "/en")
+    #     new_url = request.original_url.gsub! '/en', '/fa'
+    #     cookies[:lang] = :fa
+    #     I18n.locale =  :fa
+    #     redirect_to new_url
+    #     return false
+    #   end
+    # end
 
 		@search_subtrip = SearchSubtrip.new
 

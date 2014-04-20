@@ -223,11 +223,11 @@ module ApplicationHelper
 			['مهر', 7], ['آبان', 8], 
 			['آذر', 9], ['دی', 10], 
 			['بهمن', 11], ['اسفند', 12] 
-		]	, JalaliDate.new(Date.today).month)		
+		]	, JalaliDate.new(Date.today).month + 1)		
 	end		 
 
 	def options_for_day
-		options_for_select(1..31 , JalaliDate.new(2.days.from_now).day)		
+		options_for_select(1..31 , JalaliDate.new(2.days.from_now).day)	
 	end		 
 
 	def options_for_hour

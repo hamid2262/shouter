@@ -1,10 +1,12 @@
+<% trip = subtrip.trip %>
+
 <a href="<%= subtrip_path(subtrip.id) %>" >
 	<div style="<%= full_style subtrip %>" class="search_subtrips_row row ">
-		<%= render partial: 'subtrips/subtrip_search_row/user_info', locals: {subtrip: subtrip, driver: subtrip.trip.driver} %>
-		<%= render partial: 'subtrips/subtrip_search_row/description', locals: {subtrip: subtrip, driver: subtrip.trip.driver} %>
+		<%= render partial: 'subtrips/subtrip_search_row/user_info', locals: {subtrip: subtrip, driver: trip.driver} %>
+		<%= render partial: 'subtrips/subtrip_search_row/description', locals: {subtrip: subtrip, driver: trip.driver} %>
 		<%= render partial: 'subtrips/subtrip_search_row/offer', locals: {subtrip: subtrip} %>
 
-		<% if subtrip.trip.ladies_only %>
+		<% if trip.ladies_only %>
 			<div class="ladies_only <%= lang_other_side %>0" >
 				<%= image_tag("#{IMAGES_PATH}ladies_only_#{params[:locale]}.png" ) %>	
 			</div>				

@@ -39,7 +39,7 @@ class Branch < ActiveRecord::Base
   end
 
   def timeline
-    @shouts = Shout.where(user_id: shout_user_ids)
+    @shouts = Shout.where(user_id: shout_user_ids).includes(:user).includes(:content)
   end
 
   def name_with_company

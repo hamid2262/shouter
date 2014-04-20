@@ -11,7 +11,7 @@ class ProfilesController < ApplicationController
         end
 		user                    = User.find_by!(slug: params[:id])
 		@profile                = Profile.new(user)
-        @timeline = @profile.timeline.page(params[:page]).per_page(10)
+        @timeline               = @profile.timeline.page(params[:page]).per_page(10)
         
 
         @followed_users         = @profile.followed_users
