@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140419073923) do
+ActiveRecord::Schema.define(version: 20140421155438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -350,6 +350,7 @@ ActiveRecord::Schema.define(version: 20140419073923) do
     t.text     "details"
     t.integer  "followers_count",                   default: 0,     null: false
     t.integer  "followed_users_count",              default: 0,     null: false
+    t.boolean  "active",                            default: true
   end
 
   add_index "users", ["avatar_file_name"], name: "index_users_on_avatar_file_name", using: :btree

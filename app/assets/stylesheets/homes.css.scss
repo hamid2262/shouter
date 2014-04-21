@@ -15,6 +15,63 @@ $green: #b5c023;
 			border-left: 10px solid #F3F3F3;
 		}
 	}
+	#steps{
+		font-size: .7em;
+		.how_works{
+			background: #fff;
+			border-radius: 8px;
+			position: relative;
+			text-align: center;
+			border: 4px solid #b5c023;
+			min-height: 240px;
+			.number{
+				margin-top: -24px;
+			}
+			a{
+				position: absolute;
+				bottom: 0;
+				text-align: center;
+				left: -1%;
+				width: 100%;
+			}
+		}
+		.step1{
+			padding: 0;
+			.number{
+				left: 44%;
+				position: absolute;
+			}
+			h2{
+				// width: 50%;
+			}
+			.or{
+				position: absolute;
+				color: #0700A8;
+				left: 47%;
+				font-size: 1.7em;
+				top: 36px;
+			}
+			.map, .search{
+				width: 50%;
+				position: absolute;
+				text-align: center;
+				bottom: 0;
+			}
+			.role{
+				color: #0700A8;
+				display: block;
+				padding-bottom: 12px;
+			}
+		}
+		.calling_image{
+			right: 100px;
+			width: 130px;
+		}
+		.carpool_image{
+			width: 120px;
+		}
+	}
+
 	#insert_trip{
 		position: relative;	
 		.title h4{

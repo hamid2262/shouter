@@ -85,6 +85,10 @@ class UsersController < Devise::RegistrationsController
       redirect_to root_url
       return false
     end  
+    @user =  User.where(slug: params[:id]).first
+    @user.active = false
+    @user.save
+    redirect_to :back
   end
 
   def refresh

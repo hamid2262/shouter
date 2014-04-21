@@ -1,0 +1,42 @@
+<div class="col-xs-12">
+	<h3>
+	<%= t ".qoute" %>
+	</h3>
+</div>
+<div id="steps" class="col-xs-12">
+	<div class="col-sm-4 how_works step1">
+			<%= image_tag(IMAGES_PATH+"homes/one.png", class: "number")	%>
+			<div class="col-xs-6">
+				<h2> <span class="role"><%= t ".Drivers" %></span><%= t ".Offer a ride" %> </h2> 			
+			</div>
+
+			<div class="col-xs-6">
+				<h2> <div class="role"><%= t ".Passengers" %></div><%= t ".Look for a ride" %> </h2>
+			</div>
+
+			<div class="map <%= lang_side %>">
+				<%= image_tag(IMAGES_PATH+"homes/map.png", class: "")	%>
+			</div>
+			<div class="search <%= lang_other_side %>">
+				<%= image_tag(IMAGES_PATH+"homes/search.png", class: "")	%>		
+			</div>
+
+			<span class="or"> <%= t ".or" %></span>
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-3 how_works calling">
+		<%= image_tag(IMAGES_PATH+"homes/two.png", class: "number")	%>
+			<h2><%= t ".Plan your trip" %></h2> 
+		<a href="">
+			<%= image_tag(IMAGES_PATH+"homes/calling.png", class: "calling_image")	%>
+		</a>
+	</div>
+	<div class="col-sm-1"></div>
+	<div class="col-sm-3 how_works carpool">
+		<%= image_tag(IMAGES_PATH+"homes/three.png", class: "number")	%>
+		<h2><%= t ".Travel together" %></h2> 
+		<a href="">
+			<%= image_tag(IMAGES_PATH+"homes/carpool.png", class: "carpool_image")	%>
+		</a>
+	</div>
+</div>

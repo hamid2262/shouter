@@ -3,6 +3,17 @@ fa:
     facebook_signin:
       frame_title: ورود با فیسبوک
       sign_in_with_facebook: ورود با حساب کاربری فیسبوک
+    how_it_works:
+      Drivers: راننده ها
+      Look for a ride: جستجوی یک سفر
+      Offer a ride: ثبت سفر در همسفریاب
+      Passengers: مسافرها
+      Plan your trip: هماهنگ شدن با راننده
+      Travel together: مسافرت با همدیگر
+      or: یا
+      qoute: "همسفر یاب سایتی برای یافتن همسفر در سفرهای شهری و بین شهری است. با به\
+        \ اشتراک گذاشتن سفرها در همسفریاب، تردد خودروهای تک سرنشین کاهش می یابد و\
+        \ در نتیجه ترافیک و آلودگی هوا کم می شود. \n"
     sample_subtrips:
       nearest_ride_sharings: سفرهای در حال عزیمت در ساعات آینده
       rest_of_trips: ادامه سفرها

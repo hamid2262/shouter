@@ -3,6 +3,16 @@ en:
     facebook_signin:
       frame_title: Sign In With Facabook
       sign_in_with_facebook: Sign In With Facebook
+    how_it_works:
+      Drivers: Drivers
+      Look for a ride: Look for a ride
+      Offer a ride: Offer a ride
+      Passengers: Passengers
+      Plan your trip: Plan your trip
+      Travel together: Travel together
+      or: OR
+      qoute: Hamsafaryab is a ride sharing website which is based on social network.
+        Users can communicate with each other to plan for having enjoyable trips.
     sample_subtrips:
       nearest_ride_sharings: Nearest Ride Sharings
       rest_of_trips: More Trips

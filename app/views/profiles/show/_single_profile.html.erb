@@ -19,6 +19,7 @@
         <%= profile_sidebar_row User.human_attribute_name("mobile"), @profile.user.mobile  %>
         <%= profile_sidebar_row User.human_attribute_name("tel"), @profile.user.tel  %>
         <%= profile_sidebar_row User.human_attribute_name("email"), @profile.user.email  %>     
+        <%= link_to 'deactive', user_registration_path(id: @profile.user.slug), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
 		<% else %>
 			<%= force_to_sign_in_message %>
