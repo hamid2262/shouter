@@ -1,3 +1,5 @@
+<%= @page_title = t(".title", origin: @subtrip.origin_city, destination: @subtrip.destination_city ) %>
+
 <div class="subtrip_single">
 	<div class="col-sm-7">
 		<%= render 'subtrips/show/subtrip_overview' %>

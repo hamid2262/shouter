@@ -56,6 +56,7 @@ fa:
           امکانپذیر نیست.
         only_bookable_via_tel: در حال حاضر فقط با تماس تلفنی امکان رزرو این سفر وجود
           دارد
+      title: ' سفر از %{origin} به %{destination}'
     subtrip_search_raw:
       from: از
     subtrip_search_row:

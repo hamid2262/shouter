@@ -55,6 +55,7 @@ en:
         have_rejected: You have already a reject response from this trip. you can
           not book this trip again.
         only_bookable_via_tel: Only bookable via phone
+      title: trip from %{origin} to %{destination}
     subtrip_search_raw:
       from: from
     subtrip_search_row:
