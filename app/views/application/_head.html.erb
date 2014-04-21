@@ -35,17 +35,11 @@
     <%= stylesheet_link_tag ASSETS_PATH+"css/bootstrap-rtl.css", media: "all", "data-turbolinks-track" => true %>
   <% end %>
 
-  <% unless params[:locale] == 'fa' %>
-    <style>
-      th {text-align: left;}
-    </style>
-  <% end %>
+  <%= render 'shared/style' %>
 
   <%= csrf_meta_tags %>
 </head>
 <body style="direction:<%= 'ltr' if params[:locale] == 'en' %> ;">
-
-<div id="fb-root"></div>
 
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];

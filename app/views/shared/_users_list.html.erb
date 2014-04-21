@@ -29,7 +29,7 @@
 					</span> 
 
 					<span class="<%= "online" if user.online? %> ">
-						<%= link_to gravatar(user, 50, "img-thumbnail #{lang_side}0"), profile_url(user.slug) %>
+						<%= link_to gravatar(user, 50, "user_list img-thumbnail #{lang_side}0"), profile_url(user.slug) %>
 					</span>		
 					
 					<% if random_user %>

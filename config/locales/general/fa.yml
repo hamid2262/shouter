@@ -113,6 +113,6 @@ fa:
     d6: شنبه
 
   will_paginate:
-    previous_label: " قبلی >>"
-    next_label: "<< بعدی"
+    previous_label: " قبلی"
+    next_label: "بعدی"
     page_gap: "&hellip;"

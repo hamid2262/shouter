@@ -132,3 +132,22 @@ select.datepicker {
     border-radius: 5px;
     padding: 7px 2px;
 }
+
+.pagination{
+  margin: auto;
+  span, em, a{
+    padding: 6px 11px;
+    border: 1px solid #E2E2E2;
+    border-radius: 2px;
+    &:hover {
+      background-color: #F3F3F3;
+    }    
+  }
+  .current{
+    background-color: #F5F5F5;
+  }
+
+  .previous_page, .next_page{
+    
+  }
+}

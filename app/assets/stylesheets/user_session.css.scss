@@ -88,6 +88,7 @@
     img{
       right: 0;
       position: absolute;
+      padding: 1px;
     }
     .meta{
       position: absolute;
@@ -116,7 +117,7 @@
     }
   }
   img{
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
   }
   .online{
     img{

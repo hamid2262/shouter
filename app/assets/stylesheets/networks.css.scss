@@ -17,9 +17,39 @@
 		margin: 0 auto;
 	}
 	.level{
-		border-top: 1px solid;
+		border-top: 1px solid #E9E9E9;
 		margin: 13px 0;
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	#list{
+		img{
+			border-radius: 2px;
+		}
+		.himself{
+			padding: 0;
+			background: #FaFaFa;
+			.level1{
+				background: #F7F7F7;
+				border: 1px solid #F3F3F3;
+				.level2{
+					background: #F3F3F3;
+					border: 1px solid #eee;
+					.level3{
+						background: #eee;
+						border: 1px solid #e7e7e7;
+						.level4{
+							background: #e7e7e7;
+							border: 1px solid #e1e1e1;
+							.level5{
+								background: #e1e1e1;
+								border: 1px solid #D3D3D3;
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 }

@@ -1,0 +1,29 @@
+<div id="list">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h3 class="panel-title">شبکه <%= @network.current.name %> در همسفریاب </h3>
+	  </div>
+		<div class="panel-body">
+
+			<ul class="media-list himself">
+				<li class="media">
+					<a href="<%= profile_url(@network.current.slug) %>" class="pull-<%= lang_side %>">
+						<%= image_tag	@network.current.avatar.url(:thumb), size: "50x50", class: "media-object img-rounded" %>
+					</a>
+					<div class="media-body">
+						<h4  class="media-heading"><%= @network.current.name %></h4>
+						<p>.</p>
+						<% di1 = @network.current.invited_users.size %>
+						<% @network.current.invited_users.each do |user| %>
+							<div class="media level1">
+								<%= render partial: 'networks/list/level1', locals: {user: user} %>
+							</div> 
+						<% end %>
+
+					</div> 
+				</li>
+			</ul>
+
+		</div>
+	</div>
+</div>

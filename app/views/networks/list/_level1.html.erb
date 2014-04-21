@@ -1,0 +1,14 @@
+<a href="<%= profile_url(user.slug) %>" class="pull-<%= lang_side %>">
+	<%= image_tag	user.avatar.url(:thumb), size: "30x30", class: "media-object img-rounded" %>
+</a>
+<div class="media-body">
+	<h4  class="media-heading"><%= user.name %></h4>
+	<p>زیر مجموعه اول </p>
+	<% di1 = user.invited_users.size %>
+	<% user.invited_users.each do |user| %>
+		<div class="media level2">
+			<%= render partial: 'networks/list/level2',locals: {user: user} %>	
+		</div> 
+	<% end %>
+
+</div> 

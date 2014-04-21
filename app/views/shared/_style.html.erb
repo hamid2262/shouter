@@ -1,0 +1,23 @@
+<style>
+<% if params[:locale] == 'fa' %>
+
+	.pagination .previous_page{
+	  border-radius: 2px 20px 20px 2px;
+	}
+  .pagination .next_page{
+    border-radius: 20px 2px 2px 20px;
+  }
+
+<% else %>
+
+  th {text-align: left;}
+
+	.pagination .previous_page{
+    border-radius: 20px 2px 2px 20px;
+	}
+  .pagination .next_page{
+	  border-radius: 2px 20px 20px 2px;
+  }
+
+<% end %>
+</style>

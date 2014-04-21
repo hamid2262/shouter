@@ -1,7 +1,7 @@
 class NetworksController < ApplicationController
 	
 	authorize_resource
-	before_action :authorize_user, only: [:show]
+	# before_action :authorize_user, only: [:show]
 
   def show
 		@network = Network.new(user)

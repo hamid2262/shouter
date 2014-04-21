@@ -31,7 +31,7 @@
 					<th><%=  user.followed_users.size %></th>
 				</tr>
 				<tr>
-					<th><%= link_to(t(".number_of_network", user: user.name), network_path(current.slug) ) %></th>
+					<th><%= link_to(t(".number_of_network", user: user.name), network_path(user.slug) ) %></th>
 					<th><%= Network.network_size(user) %></th>
 				</tr>
 				<tr>
