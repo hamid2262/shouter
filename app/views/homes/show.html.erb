@@ -1,38 +1,53 @@
 <div id="home">
-	<div class="col-md-5">
-		<div id="search_form" >
-			<% unless (request.try(:location).try(:country_code) == 'IR')  %>
-				<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
-			<% end %>
-			<%= render partial: 'trip_search' %>	
-	  </div>
+	<div class="row">
+		<div class="col-md-5">
+			<div id="search_form" >
+				<% unless (request.try(:location).try(:country_code) == 'IR')  %>
+					<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
+				<% end %>
+				<%= render partial: 'trip_search' %>	
+		  </div>
 
-		<% if @spacial_events.any? %>
+			<% if @spacial_events.any? %>
+			  <div id="spacial_events">
+					<%= render 'spacial_events'%>	
+				</div>			
+			<% end %>
+
 		  <div id="spacial_events">
-				<%= render 'spacial_events'%>	
+				<%= render 'facebook_signin'%>	
 			</div>			
-		<% end %>
+		</div>	
 
-	  <div id="spacial_events">
-			<%= render 'facebook_signin'%>	
-		</div>			
-	</div>	
-
-	<div class="col-md-7">
-		<div id="insert_trip" >
-			<img src="<%= IMAGES_PATH+"passenger_man.png" %> " alt="" style= "<%= lang_other_side %> : -12px;" class= "passenger passenger_man">
-			<%= render 'trip_insert' %>	
-		</div>
-		<div id="sample_trips">
-  		<% if @subtrips && @subtrips.any? %>
-				<%= render 'sample_subtrips'%>	
-			<% end %>
+		<div class="col-md-7">
+			<div id="insert_trip" >
+				<img src="<%= IMAGES_PATH+"passenger_man.png" %> " alt="" style= "<%= lang_other_side %> : -12px;" class= "passenger passenger_man">
+				<%= render 'trip_insert' %>	
+			</div>
+			<div id="sample_trips">
+	  		<% if @subtrips && @subtrips.any? %>
+					<%= render 'sample_subtrips'%>	
+				<% end %>
+			</div>
 		</div>
 	</div>
-	
-	<div class="col-xs-12">
-		<h3>
-همسفر یاب سایتی برای یافتن همسفر در سفرهای شهری و بین شهری است. با به اشتراک گذاشتن سفرها در همسفریاب، تردد خودروهای تک سرنشین کاهش می یابد و در نتیجه ترافیک و آلودگی هوا کم می شود. 
-</h3>
+
+	<div id="quote" class="row">
+		<div class="col-xs-12">
+			<h3>
+				همسفر یاب سایتی برای یافتن همسفر در سفرهای شهری و بین شهری است. با به اشتراک گذاشتن سفرها در همسفریاب، تردد خودروهای تک سرنشین کاهش می یابد و در نتیجه ترافیک و آلودگی هوا کم می شود. 
+			</h3>
+		</div>
+		
+		<div class="col-xs-12">
+		
+		</div>
+		<div class="col-xs-12">
+		
+		</div>
+		<div class="col-xs-12">
+		
+		</div>
+
 	</div>
 </div>

@@ -14,7 +14,12 @@
   <div class="panel-body">
 		<% if current_user %>
     	<%= profile_sidebar_row User.human_attribute_name("city"), @profile.user.city  %>
-    	<%= profile_sidebar_row User.human_attribute_name("address"), @profile.user.address  %>
+      <%= profile_sidebar_row User.human_attribute_name("address"), @profile.user.address  %>
+      <% if current_user.is_super_admin? %>
+        <%= profile_sidebar_row User.human_attribute_name("mobile"), @profile.user.mobile  %>
+        <%= profile_sidebar_row User.human_attribute_name("tel"), @profile.user.tel  %>
+        <%= profile_sidebar_row User.human_attribute_name("email"), @profile.user.email  %>     
+      <% end %>
 		<% else %>
 			<%= force_to_sign_in_message %>
 		<% end %> <!-- if current_user -->

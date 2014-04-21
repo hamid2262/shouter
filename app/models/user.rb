@@ -196,6 +196,10 @@ class User < ActiveRecord::Base
     true if self.admin? || self.email == 'hamid2262@yahoo.com'  
   end
 
+  def is_super_admin?
+    true if ["hamid2262@yahoo.com", "ns_9166@yahoo.com"].include? self.email 
+  end
+
   def following? user
     self.followed_users.include? user
   end
