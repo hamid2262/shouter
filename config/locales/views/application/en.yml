@@ -34,11 +34,10 @@ en:
       security: Security
       spacial_offers: Special offers
       term: Terms
+    head:
+      description: Social network for ride sharing and carpooling
+      tags: Ride sharing, carpooling, carpool, Ride share. Mitfahrzentrale, ride-sharing‎
     nav:
-      profile:
-        vehicle_detail: Vehicle Details
-        edit_vehicle: Edit Vehicle details
-        new_vehicle: Register Vehicle Details
       my_trips:
         booked_trips: Booked trips
         booking waiting list: Booking waiting list
@@ -56,3 +55,7 @@ en:
           'rejected_msg ': rejected you trip request.
           to: to
         registered_trips: Registered Trips
+      profile:
+        edit_vehicle: Edit Vehicle details
+        new_vehicle: Register Vehicle Details
+        vehicle_detail: Vehicle Details

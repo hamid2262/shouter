@@ -34,11 +34,11 @@ fa:
       security: امنیت
       spacial_offers: خدمات ویژه
       term: شرايط استفاده
+    head:
+      description: همسفریاب، سایت جستجوی همسفر در مسافرت های داخل شهری و بین شهری
+      tags: ' بلیط اتوبوس, خرید اینترنتی بلیط ,همسفر ,مسافرت ,بلیط ,رزرو اینترنتی
+        بلیط'
     nav:
-      profile:
-        vehicle_detail: مشخصات خودرو
-        edit_vehicle: ویرایش مشخصات خودرو
-        new_vehicle: ثبت مشخصات خودرو
       my_trips:
         booked_trips: سفرهای رزرو کرده
         booking waiting list: لیست مسافران منتظر
@@ -58,3 +58,7 @@ fa:
           'rejected_msg ': درخواست رزرو سفر شما را رد کرده است.
           to: به مقصد
         registered_trips: سفرهای ثبت کرده
+      profile:
+        edit_vehicle: ویرایش مشخصات خودرو
+        new_vehicle: ثبت مشخصات خودرو
+        vehicle_detail: مشخصات خودرو

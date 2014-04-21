@@ -229,7 +229,7 @@ module ApplicationHelper
 			['دی', 10], 
 			['بهمن', 11], 
 			['اسفند', 12] 
-		]	, JalaliDate.new(Date.today).month + 1)		
+		]	, JalaliDate.new(Date.today).month)		
 	end		 
 
 	def options_for_day

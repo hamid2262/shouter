@@ -3,16 +3,19 @@ $green: #b5c023;
 	#quote{
 		border: 1px solid #eee;
 		h3{
-			background: #E4E4E4;
+			background: #fff;
 			padding: 8px 16px;
 			text-align: center;
 			font-family: sans-serif;
-			text-shadow: 0px 2px #F8F8F8;
+			margin-bottom: 25px;
+			text-shadow: 1px 1px #AEC2FF;
 			color: #585858;
-			border-right: 10px solid #ECECEC;
-			border-top: 10px solid #F1F1F1;
-			border-bottom: 10px solid #F0F0F0;
-			border-left: 10px solid #F3F3F3;
+			border-right: 4px solid #b5c023;
+			border-top: 4px solid #b5c023;
+			border-bottom: 4px solid #b5c023;
+			border-left: 4px solid #b5c023;
+			font-weight: bold;
+			border-radius: 5px;
 		}
 	}
 	#steps{
@@ -90,7 +93,7 @@ $green: #b5c023;
 		.passenger{
 			position: absolute;
 			top: -14px;
-			right: -29px;
+			right: -39px;
 			z-index: 10;
 			width: 58px;
 		}

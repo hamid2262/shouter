@@ -2,26 +2,30 @@
 <html lang="fa">
 <head>
   <title> 
-  <% if current_user && ( (notification_exist? @unread_messages_notifications) || 
-           @booking_request_notifications.any? ||
-           @booking_respond_notifications.any?)
-  %>
-    <%= "(#{@unread_messages_notifications.to_i + 
-            @booking_request_notifications.try(:size).to_i +
-            @booking_respond_notifications.try(:size).to_i 
-          })" 
-    %>     
-  <% end %>
-    <%=t 'site_info.title' %>
-    <%= " | #{@page_title}" if @page_title %>
+    <% if current_user && ( (notification_exist? @unread_messages_notifications) || 
+             @booking_request_notifications.any? ||
+             @booking_respond_notifications.any?)
+    %>
+      <%= "(#{@unread_messages_notifications.to_i + 
+              @booking_request_notifications.try(:size).to_i +
+              @booking_respond_notifications.try(:size).to_i 
+            })" 
+      %>     
+    <% end %>
+
+    <% if @page_title %>
+      <%= @page_title %>
+    <% else %>
+      <%=t 'site_info.title' %>
+    <% end %>
   </title>
   <meta name="samandehi-secure-footprint" content="samandehi-secure-footprint:786e4a2f594f712f392b34533568727a32615934323457466d7a6971526f2b304172447658583769517a653738394c777930506657673d3d">
   <!-- dp2dxhgz2DSL0XBruyi43dku3so -->
   <meta name="alexaVerifyID" content="dp2dxhgz2DSL0XBruyi43dku3so" />
 
-  <meta name="keywords"   content="بلیط اتوبوس, خرید اینترنتی بلیط ,همسفر ,مسافرت ,بلیط ,رزرو اینترنتی بلیط , dp2dxhgz2DSL0XBruyi43dku3so" />
+  <meta name="keywords"   content="<%= t ".tags" %> , dp2dxhgz2DSL0XBruyi43dku3so" />
 
-  <meta name="description" content="تسهیل در یافتن همسفر در مسافرت های بین شهری">
+  <meta name="description" content="<%= t ".description"  %>">
 
   <%= favicon_link_tag IMAGES_PATH + "ico/favicon.gif" %>
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
