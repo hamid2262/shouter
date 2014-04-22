@@ -23,8 +23,7 @@
 					<%# commentable_url = url_for controller: @comment.commentable.class.name.downcase.pluralize, 
 						action: 'show', host: @host, id: @comment.commentable.id, locale: locale  %>	
 
-					<% commentable_url = mailer_profile_url(@owner) %>											
-					<%=link_to t(".see_post"), commentable_url, class: "button" %> 
+					<%=link_to t(".see_post"), @commentable_url, class: "button" %> 
 				</td>
 			</tr>
 			

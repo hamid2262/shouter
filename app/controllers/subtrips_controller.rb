@@ -4,24 +4,27 @@ class SubtripsController < ApplicationController
   authorize_resource  
 
   def show
-    @driver = @subtrip.trip.driver
-    if @subtrip.trip.driver.branches.any?
-      @branch = @subtrip.trip.driver.branches.first 
+    @trip = @subtrip.trip
+    @driver = @trip.driver
+    if @trip.driver.branches.any?
+      @branch = @trip.driver.branches.first 
       @company = @branch.company
     end
-  	@hash = Gmaps4rails.build_markers(@subtrip.trip.path_list) do |subtrip, marker|
+  	@hash = Gmaps4rails.build_markers(@trip.path_list) do |subtrip, marker|
 		  marker.lat subtrip.olat
 		  marker.lng subtrip.olng
 		  marker.infowindow render_to_string(:partial => "subtrips/show/data_for_gmaps", :locals => { subtrip: subtrip})
 		end
 
+    @comments = @trip.comments
     if current_user
+      @comment = Comment.new
+
       Notification.clear_notificatins(current_user, @subtrip)
       @bookings = @subtrip.bookings.where(user_id: current_user.id)
       if @bookings.any?
         @booking = @bookings.last
       end
-
     end
   end
 

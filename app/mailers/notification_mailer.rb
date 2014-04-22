@@ -14,7 +14,9 @@ class NotificationMailer < ActionMailer::Base
     @owner = owner 
     @commenter = commenter
     @comment = comment
-    mail to: @owner.email, subject: t(".subject", commenter: @commenter.name)
+    @commentable_url = commentable_url
+    
+    mail to: @owner.email, subject: t(".subject", commenter: @commenter.name), from: @commenter.email
   end
 
   def comment_notification_to_shout_commenters(owner, commenters, comment)
@@ -22,10 +24,10 @@ class NotificationMailer < ActionMailer::Base
     commenters.delete @owner
     @commenters = commenters
     @comment = comment
-
+    @commentable_url = commentable_url
     emails = @commenters.map{|u| u.email}.uniq
     if emails.any? 
-      mail to: emails, subject: t(".subject", owner: @owner.name)
+      mail to: emails, subject: t(".subject", owner: @owner.name), from: @owner.email
     end
   end
 
@@ -52,6 +54,14 @@ class NotificationMailer < ActionMailer::Base
     end
   end
   
+  def commentable_url
+    if @comment.commentable.class.name == "Trip"
+      subtrip_url(id: @comment.commentable.subtrips.first.id, locale: locale)
+    else
+      profile_url(id:@owner.slug, locale: locale)
+    end
+  end
+
   def lang_direction
     if locale==:fa
       'rtl'

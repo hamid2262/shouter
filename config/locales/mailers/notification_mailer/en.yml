@@ -2,4 +2,11 @@ en:
   notification_mailer:
     comment_notification_to_shout_owner:
       subject: '%{commenter} wrote a comment on your post: '
-      see_post: See Post      
+      see_post: See Post
+    comment_notification_to_shout_commenters:
+      subject: '%{owner} answered your comment:'
+      see_post: see post
+    message_notification:
+      subject: '%{sender} sent a message to you '
+      see_message: see message
+            

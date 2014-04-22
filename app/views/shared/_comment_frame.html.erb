@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+	<div class="comment-frame-single">
+		<% if current_user %>
+			<%= render partial:'comments/form', locals:{commentable: @trip, comment: @comment} %>
+		<% end %>
+		<%= render partial: 'comments/comments', locals:{comments: @comments}  %>
+	</div>
+	</div>

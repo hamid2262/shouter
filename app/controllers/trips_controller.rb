@@ -19,9 +19,6 @@ class TripsController < ApplicationController
     end
 
     @via_cities = @trip.via_cities
-    @commentable = @trip
-    @comments = @commentable.comments
-    @comment = Comment.new
   end
 
   def start_new_trip
