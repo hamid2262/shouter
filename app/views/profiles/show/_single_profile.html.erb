@@ -1,11 +1,11 @@
 <div class="panel panel-default clear">
   <div class="panel-heading"> <%=t  '.personal_profile'  %></div>
   <div class="panel-body">
-    <%= profile_sidebar_row User.human_attribute_name("firstname"), @profile.user.firstname  %>
-    <%= profile_sidebar_row User.human_attribute_name("lastname"), @profile.user.lastname  %>
-    <%= profile_sidebar_row User.human_attribute_name("gender"), t_gender(@profile.user.gender)  %>
-    <%= profile_sidebar_row User.human_attribute_name("age"), @profile.user.age  %>
-    <%= profile_sidebar_row User.human_attribute_name("details"), @profile.user.details  %>
+    <%= profile_sidebar_row User.human_attribute_name("firstname"), @user.firstname  %>
+    <%= profile_sidebar_row User.human_attribute_name("lastname"), @user.lastname  %>
+    <%= profile_sidebar_row User.human_attribute_name("gender"), t_gender(@user.gender)  %>
+    <%= profile_sidebar_row User.human_attribute_name("age"), @user.age  %>
+    <%= profile_sidebar_row User.human_attribute_name("details"), @user.details  %>
 	</div>
 </div>
 
@@ -13,13 +13,13 @@
   <div class="panel-heading"><%=t '.contact_details'  %></div>
   <div class="panel-body">
 		<% if current_user %>
-    	<%= profile_sidebar_row User.human_attribute_name("city"), @profile.user.city  %>
-      <%= profile_sidebar_row User.human_attribute_name("address"), @profile.user.address  %>
+    	<%= profile_sidebar_row User.human_attribute_name("city"), @user.city  %>
+      <%= profile_sidebar_row User.human_attribute_name("address"), @user.address  %>
       <% if current_user.is_super_admin? %>
-        <%= profile_sidebar_row User.human_attribute_name("mobile"), @profile.user.mobile  %>
-        <%= profile_sidebar_row User.human_attribute_name("tel"), @profile.user.tel  %>
-        <%= profile_sidebar_row User.human_attribute_name("email"), @profile.user.email  %>     
-        <%= link_to 'deactive', user_registration_path(id: @profile.user.slug), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= profile_sidebar_row User.human_attribute_name("mobile"), @user.mobile  %>
+        <%= profile_sidebar_row User.human_attribute_name("tel"), @user.tel  %>
+        <%= profile_sidebar_row User.human_attribute_name("email"), @user.email  %>     
+        <%= link_to 'deactive', user_registration_path(id: @user.slug), method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
 		<% else %>
 			<%= force_to_sign_in_message %>

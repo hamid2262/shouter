@@ -9,13 +9,14 @@
 	<% if current_user %>
 		<%= render partial: 'shared/users_list', locals: {users: @followed_users, title: t('followed_users_by', user: user.name), random_user: false} %>
 		<%= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: user.name), random_user: false} %>
-
 	<% end %>
 </div>
+
 <div id="leftContent" class="col-md-8">
 	<%= render partial: 'profiles/show/cover', locals: {user:user} %>
 	<%= flash_creator flash %>
 
-	<%= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>
+	<%= render 'profiles/show/nearest_trips' %>
+	<%= render partial: 'shared/posts_panel', locals: {objs:@timeline} %>
 
 </div>

@@ -3,6 +3,13 @@ fa:
     follow: دنبال کن
     show:
       force_login_message: قابل رویت برای کاربران عضو.
+      nearest_trip:
+        later: بعد
+        line1: 'تاریخ و زمان سفر: '
+        mydate: 'در تاریخ '
+      nearest_trips:
+        all trips: ادامه سفرها
+        list_of_upcoming_trips: لیست سفرهای آینده
       single_profile:
         contact_details: اطلاعات تماس
         personal_profile: مشخصات فردی

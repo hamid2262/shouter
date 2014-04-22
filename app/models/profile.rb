@@ -31,7 +31,14 @@ class Profile
   end
 
 	def timeline
-		Shout.where(user_id: shout_user_ids).includes(:user).includes(:content)
+		Shout.where(user_id: shout_user_ids).includes(:user,:content)
+	end
+
+	def nearest_trips
+		trips = Trip.where(user_id: @user.id).includes(:subtrips)
+		trips = trips.where.not("subtrips.olat = subtrips.dlat")
+		trips = trips.where("subtrips.date_time > ?", Time.now)
+		trips = trips.order("subtrips.date_time ASC")
 	end
 
 	def followed_users

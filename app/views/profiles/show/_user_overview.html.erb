@@ -1,9 +1,3 @@
-<% if current_user && current_user.is_admin? %>
-	<% current = user %>
-<% else %>
-	<% current = current_user %>
-<% end %>
-
 <div class="panel panel-default clear">
   <div class="panel-heading">
   	<%= user.name %> 

@@ -1,46 +1,47 @@
 en:
-  shared:
-    users_list:
-      list_is_empty: List is Empty.
-  ladies_only: Ladies only
-  followers:
-    zero: without follower
-    one: one follower
-    other: ' %{count} followers'
-  followeds:
-    zero: without following
-    one: one following
-    other: '%{count} followings'
-
-  followed_users_by: Followed user by %{user}
-  followers_of: Followers of %{user}
-
-  followed_users_num: followings
-  followers_num:  followers
-  
-  posted_at: Posted at 
-  
-  sign_in: Sign In
-  last_login: Last login
-  posts: Posts
-  reviews: reviews        
-  currency:  "%{unit} %{amount}"
-  no_post_message: There is no post to display.
-  site_info:
-    title: "Hamsafaryab"
+  accepted: Accepted
   application:
+    error_messages:
+      description: 'There were problems with the following fields:'
+      title: Errors prohibited this record from being saved
     footer:
-      copyright:  © %{year} %{href} All rights reserved
-      term: Terms
+      contact: Contact
+      copyright: © %{year} %{href} All rights reserved
       privacy: Privacy
       security: Security
-      contact: Contact
-    error_messages:
-      title: Errors prohibited this record from being saved 
-      description: 'There were problems with the following fields:'
-  facebook_sign_in_title: Sign In With Facabook
+      term: Terms
+  currency: '%{unit} %{amount}'
   facebook_sign_in_caption: Sign In With Facebook
-
-  waiting: "waiting.."
-  accepted: Accepted
+  facebook_sign_in_title: Sign In With Facabook
+  followed_users_by: Followed user by %{user}
+  followed_users_num: followings
+  followeds:
+    one: one following
+    other: '%{count} followings'
+    zero: without following
+  followers:
+    one: one follower
+    other: ' %{count} followers'
+    zero: without follower
+  followers_num: followers
+  followers_of: Followers of %{user}
+  ladies_only: Ladies only
+  last_login: Last login
+  no_post_message: There is no post to display.
+  posted_at: Posted at
+  posts: Posts
   rejected: Rejected
+  reviews: reviews
+  shared:
+    nearest_trip:
+      from: from
+      later: later
+      mydate: 'on'
+      seats: Seats
+      to: to
+    users_list:
+      list_is_empty: List is Empty.
+  sign_in: Sign In
+  site_info:
+    title: Hamsafaryab
+  waiting: waiting..

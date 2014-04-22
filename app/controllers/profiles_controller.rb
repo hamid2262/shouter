@@ -9,10 +9,11 @@ class ProfilesController < ApplicationController
             u = request.url.gsub! "/en", "/fa"
             redirect_to u
         end
-		user                    = User.find_by!(slug: params[:id])
-		@profile                = Profile.new(user)
-        @timeline               = @profile.timeline.page(params[:page]).per_page(10)
-        
+		@user                   = User.find_by!(slug: params[:id])
+		@profile                = Profile.new(@user)
+        @timeline               = @profile.timeline.page(params[:page]).per_page(5)
+
+        @nearest_trips          = @profile.nearest_trips.first(5)
 
         @followed_users         = @profile.followed_users
         @followers              = @profile.followers
@@ -23,6 +24,12 @@ class ProfilesController < ApplicationController
         @booking_canceled_count = @profile.booking_canceled_count
         @trip_canceled_count    = @profile.trip_canceled_count
 
+        @vehicle = @user.vehicle      
 	end
 
+    def all_trips
+        @user          = User.find_by!(slug: params[:id])
+        @profile       = Profile.new(@user)
+        @nearest_trips = @profile.nearest_trips        
+    end
 end

@@ -1,0 +1,31 @@
+#all_upcoming_trips{
+	.all_trips_btn{
+		margin: 8px 0 8px;
+		.all_trips_btn{
+			text-align: center;
+		}
+	}
+	.nearest_trip{
+		.row{
+			font-size: 0.9em;
+		}
+		.table{
+			margin-bottom: 0px;
+			thead{
+				tr{
+					color: #0F64B3;
+					border: 2px solid #F0F0F0;
+				}
+			}
+			td{
+				border-top: 0;
+			}			
+		}
+		.clickableRow{
+			cursor: pointer;
+			&:hover{
+				background: #F0F0F0;
+			}
+		}
+	}
+}

@@ -1,12 +1,14 @@
+<% vehicle = @vehicle  %>
+
 <div class="vehicle_show">
   <div class="panel panel-default clear">
     <div class="panel-heading"><h4><%= t '.car_details' %></h4></div>
     <div class="panel-body">
       <% if current_user %>
-        <% if user.vehicle.present? %>
+        <% if vehicle.present? %>
           <div id="vehicle_image">
-            <%= link_to (image_tag user.vehicle.image.url(:normal)), user.vehicle.image.url(:original) %>
-            <% if can? :edit, user.vehicle %>
+            <%= link_to (image_tag vehicle.image.url(:normal)), vehicle.image.url(:original) %>
+            <% if can? :edit, vehicle %>
               <%= simple_form_for(:vehicle, url: user_vehicles_path(user), html: { method: :put, class: "vehicle_upload_form" } ) do |f| %>
                 <%= f.input :image, as: :file, label: false, input_html: { class: 'image_upload_button' } %>
                 <%= f.button :submit, t("please_wait"), disabled: true, class: 'btn-primary image_upload_submit' %>
@@ -15,13 +17,13 @@
           </div>
 
           <div class="panel-body">
-            <%= profile_sidebar_row Vehicle.human_attribute_name("color"),user.vehicle.color  %>
-            <%= profile_sidebar_row t(".vehicle_brand"), user.vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
-            <%= profile_sidebar_row t(".vehicle_model"), user.vehicle.vehicle_model.try(:name)  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("color"),vehicle.color  %>
+            <%= profile_sidebar_row t(".vehicle_brand"), vehicle.vehicle_model.try(:vehicle_brand).try(:name)  %>
+            <%= profile_sidebar_row t(".vehicle_model"), vehicle.vehicle_model.try(:name)  %>
 
-            <%= profile_sidebar_row Vehicle.human_attribute_name("number_plate"),user.vehicle.number_plate  %>
-            <%= profile_sidebar_row Vehicle.human_attribute_name("air_condition"),t_has(user.vehicle.air_condition)  %>
-            <%= profile_sidebar_row Vehicle.human_attribute_name("year"),user.vehicle.year.year  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("number_plate"),vehicle.number_plate  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("air_condition"),t_has(vehicle.air_condition)  %>
+            <%= profile_sidebar_row Vehicle.human_attribute_name("year"),vehicle.year.year  %>
           </div>         
           <% if user == current_user %>
             <%= link_to t('.edit_car_detail_btn'), edit_user_vehicles_path(user), class: "btn btn-warning" %>
@@ -31,7 +33,7 @@
           <% if user == current_user %>
             <p><%= link_to t('.enter_car_detail_btn'), new_user_vehicles_path(user), class: "btn btn-warning" %></p>    
           <% end %>
-        <% end %>  <!-- if user.vehicle.present? -->
+        <% end %>  <!-- if vehicle.present? -->
 
       <% else %>
         <%= force_to_sign_in_message %>

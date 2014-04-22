@@ -1,0 +1,11 @@
+<% if @nearest_trips.any? %>
+<div id="all_upcoming_trips">
+	<h4> <%= t ".list_of_upcoming_trips" %> </h4>
+	<div class="panel-group" id="accordion">
+	<% @nearest_trips.each do |trip| %>
+		<%= render partial: 'shared/nearest_trip', locals: {trip:trip} %>
+	<% end %>
+	<p class="all_trips_btn"><%= link_to t(".all trips"), all_trips_profile_path(@user.slug), class: "btn btn-info" %></p>
+	</div>
+</div>
+<% end %>

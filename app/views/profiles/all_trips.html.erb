@@ -1,0 +1,5 @@
+<div class="panel-group" id="accordion">
+	<% @nearest_trips.each do |trip| %>
+		<%= render partial: 'shared/nearest_trip', locals: {trip:trip} %>
+	<% end %>
+</div>

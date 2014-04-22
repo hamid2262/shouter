@@ -87,7 +87,9 @@ Shouter::Application.routes.draw do
     resources :text_shouts, only: [:create, :destroy]
     resources :hashtags, only: [:show]
 
-    resources :profiles, only: [:show]
+    resources :profiles, only: [:show] do
+      get 'all_trips', on: :member
+    end
     
     root 'homes#show'
 

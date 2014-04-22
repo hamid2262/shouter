@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   before_update :update_slug_update
   before_save :check_for_cities_validation
 
-  has_one    :vehicle
+  has_one    :vehicle, -> { includes vehicle_model: :vehicle_brand }
   has_many   :trips
   has_many   :bookings  
   has_many   :notifications  

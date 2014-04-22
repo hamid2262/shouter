@@ -1,0 +1,42 @@
+<% subtrips = trip.subtrips  %>
+<div class="nearest_trip">
+	<div class="panel panel-default">
+	  <div class="panel-heading">
+	    <h4 class="panel-title">
+	      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= trip.id %>">
+	      	<div class="row">
+	      		<div class="col-xs-3"><%= time_ago_in_words(subtrips.first.date_time) %> <%= t('.later') %></div>
+	      		<div class="col-xs-3"><%= t('.mydate') %> <%= jdate_humanize(subtrips.first.try(:date_time)) %></div>	 	
+	      		<div class="col-xs-2"><%= jday_humanize(subtrips.first.try(:date_time)) %></div>	 	
+	      		<div class="col-xs-2"><%= t ".from" %>&nbsp; <%= subtrips.first.origin_city %></div>	 	
+	      		<div class="col-xs-2"><%= t ".to" %> &nbsp;	<%= subtrips.last.destination_city %></div>	 	
+	      	</div>
+	      </a>
+	    </h4>
+	  </div>
+	  <div id="collapse<%= trip.id %>" class="panel-collapse collapse">
+	    <table class="table">
+	    	<thead>
+	    		<tr>
+	    			<th><%= t ".from" %></th>
+	    			<th><%= t ".to" %></th>
+	    			<th><%= t "at" %></th>
+	    			<th><%= t "price" %></th>
+	    			<th><%= t ".seats" %></th>
+	    		</tr>
+	    	</thead>
+		    <% trip.subtrips.each do |subtrip| %>
+					<tr class='clickableRow' href='<%= subtrip_path(subtrip.id) %>'>
+						<th><%= subtrip.origin_city %></th>
+						<th><%= subtrip.destination_city %></th>
+						<td><%= jtime_humanize(subtrip.date_time) %></td>
+						<th><%= t('currency', amount: subtrip.price, unit: subtrip.trip.currency.try(:symbol)) %></th>
+						<th><%= "#{subtrip.free_seats}/#{subtrip.number_of_total_seats}" %></th>
+					</tr>
+		    <% end %>
+	   	</table>
+	  </div>
+	</div>
+</div>
+
+	

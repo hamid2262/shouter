@@ -1,38 +1,35 @@
 fa:
-  shared:
-    users_list:
-      list_is_empty: لیست خالی است.
-  ladies_only: مخصوص بانوان  
-  followers:
-    zero: بدون دنبال کننده
-    one: یک دنبال کننده
-    other: ' %{count} دنبال کننده'
+  accepted: تایید شده
+  currency: '%{amount} %{unit}'
+  facebook_sign_in_caption: ورود با حساب کاربری فیسبوک
+  facebook_sign_in_title: ورود با فیسبوک
+  followed_users: دنبال شونده های
+  followed_users_by: دنبال شونده ها توسط %{user}
+  followed_users_num: دنبال شونده
   followeds:
-    zero: بدون دنبال شونده
     one: یک دنبال شونده
     other: '%{count} دنبال شونده'
-
-  followed_users_by: دنبال شونده ها توسط %{user}
+    zero: بدون دنبال شونده
+  followers: دنبال کننده ها
+  followers_num: دنبال کننده
   followers_of: دنبال کننده های %{user}
-
-  followed_users_num: دنبال شونده
-  followers_num:  دنبال کننده
-  
-  posted_at: پست شده در 
-  
-  sign_in: ورود
-  last_login: آخرین ورود  
-  followed_users:  دنبال شونده های
-  followers:  دنبال کننده ها
-  posts: پستها
-  reviews: نظرات
-  currency: "%{amount} %{unit}"
+  ladies_only: مخصوص بانوان
+  last_login: آخرین ورود
   no_post_message: هیچ پستی برای نمایش وجود ندارد.
-  site_info:
-    title: "همسفریاب"
-  facebook_sign_in_title: ورود با فیسبوک
-  facebook_sign_in_caption: ورود با حساب کاربری فیسبوک
-
-  waiting: در حالت انتظار 
-  accepted: تایید شده
+  posted_at: پست شده در
+  posts: پستها
   rejected: رد شده
+  reviews: نظرات
+  shared:
+    nearest_trip:
+      from: از
+      later: بعد
+      mydate: در تاریخ
+      seats: وضعیت صندلیها
+      to: به
+    users_list:
+      list_is_empty: لیست خالی است.
+  sign_in: ورود
+  site_info:
+    title: همسفریاب
+  waiting: در حالت انتظار

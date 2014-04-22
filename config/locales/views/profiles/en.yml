@@ -3,6 +3,13 @@ en:
     follow: Follow
     show:
       force_login_message: Visible for signed in users.
+      nearest_trip:
+        later: later
+        line1: 'Date and time of the trip: '
+        mydate: 'on'
+      nearest_trips:
+        all trips: More Trips
+        list_of_upcoming_trips: list of upcoming trips
       single_profile:
         contact_details: Contact Details
         personal_profile: Personal Profile

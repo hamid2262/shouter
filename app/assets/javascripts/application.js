@@ -36,5 +36,9 @@ $(function() {
 // contact controller in messages
   $("#messages").scrollTop($("#messages").height()+20000) ;
 
+  $(".clickableRow").click(function() {
+    window.document.location = $(this).attr("href");
+  });
+
 });
 

@@ -10,6 +10,7 @@
 		<%= render partial: 'shared/users_list', locals: {users: @followers, title: t('followers_of', user: user.name), random_user: false} %>
 	<% end %>
 
-	<%= render partial: 'shared/posts_panel', locals: {objs:@profile.timeline} %>
+	<%= render 'profiles/show/nearest_trips' %>
+	<%= render partial: 'shared/posts_panel', locals: {objs:@timeline} %>
 
 </div>

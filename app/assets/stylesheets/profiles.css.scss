@@ -89,6 +89,15 @@ h2{
 	.gravatar{
 		position: relative;
 	}
+	#all_upcoming_trips{
+		.all_trips_btn{
+			margin: 8px 0 8px;
+			.all_trips_btn{
+				text-align: center;
+			}
+		}
+	}
+
 	.hidden-lg{
 		.userAvatar{
 			position: absolute;
