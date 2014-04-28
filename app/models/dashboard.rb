@@ -53,6 +53,6 @@ class Dashboard
 		end
 
 		def super_admin_ids
-			User.find(1, 11)
+			User.where(id: [1, 11])
 		end
 end
