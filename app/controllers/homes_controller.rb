@@ -24,10 +24,11 @@ class HomesController < ApplicationController
   end
 
   def lang_select
+    new_url = root_url
   	if params[:lang] == "en"
   		cookies[:lang] = :en
   		new_url = params[:url].gsub! '/fa', '/en'
-  	else
+  	elsif params[:lang] == "fa"
   		cookies[:lang] = :fa
       cookies[:lang] = :fa
   		new_url = params[:url].gsub! '/en', '/fa'
