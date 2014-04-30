@@ -17,6 +17,13 @@
 		  <div id="spacial_events">
 				<%= render 'facebook_signin'%>	
 			</div>			
+
+		<% unless (request.try(:location).try(:country_code) == 'IR')  %>
+				<div class="ads">
+					<%= render 'google_ads/homepage_ad' %>
+				</div>
+		<% end %>
+
 		</div>	
 
 		<div class="col-md-7">
@@ -35,5 +42,11 @@
 	<div id="quote" class="row">
 	  <%= render 'how_it_works'%>	
 	</div>
+
+	<% unless (request.try(:location).try(:country_code) == 'IR')  %>
+		<div class="ads">
+			<%= render 'google_ads/homepage_ad_above_footer' %>
+		</div>
+	<% end %>
 
 </div>
