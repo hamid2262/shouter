@@ -39,9 +39,9 @@
         <li><%= link_to "#{t("navbar.trip.search")}<b class=\"caret actions  search_subtrip\"></b>".html_safe, search_search_subtrips_path, class: "text-nav" %></li>
 
         <% if current_page?( locale: "fa") %>
-          <li><%= link_to_unless_current t("navbar.language.english"), lang_select_path(lang: "en",  url:  request.original_url), class: "text-nav " %></li>
+          <li><%= link_to_unless_current t("navbar.language.english"), lang_select_path(lang: "en",  url:  u(request.original_url)), class: "text-nav " %></li>
         <% else %>
-          <li><%= link_to_unless_current t("navbar.language.farsi"), lang_select_path(lang: "fa",  url:  request.original_url), class: "text-nav " %></li> 
+          <li><%= link_to_unless_current t("navbar.language.farsi"), lang_select_path(lang: "fa",  url:  u(request.original_url)), class: "text-nav " %></li> 
         <% end %>
       </ul>     
 

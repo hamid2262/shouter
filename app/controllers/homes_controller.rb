@@ -24,14 +24,15 @@ class HomesController < ApplicationController
   end
 
   def lang_select
+    old_url = URI.unescape params[:url]
     new_url = root_url
-  	if params[:lang] == "en"
+    lang = params[:lang]
+  	if lang == "en"
   		cookies[:lang] = :en
-  		new_url = params[:url].gsub! '/fa', '/en'
-  	elsif params[:lang] == "fa"
-  		cookies[:lang] = :fa
+  		new_url = old_url.sub '/fa', '/en'
+  	elsif lang == "fa"
       cookies[:lang] = :fa
-  		new_url = params[:url].gsub! '/en', '/fa'
+  		new_url = old_url.sub '/en', '/fa'
   	end
     redirect_to new_url
   end
