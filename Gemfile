@@ -11,8 +11,8 @@ gem 'pg'
 gem 'simple_form'
 gem "gravatar_image_tag", "~> 1.2.0"
 gem "jalalidate", "~> 0.3.3"
-gem 'awesome_print'
-gem 'newrelic_rpm'
+# gem 'awesome_print'
+# gem 'newrelic_rpm'
 gem 'exception_notification'
 gem 'will_paginate'
 # gem 'will_paginate-bootstrap', '~> 1.0.0'
