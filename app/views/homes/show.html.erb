@@ -2,9 +2,9 @@
 	<div class="row">
 		<div class="col-md-5">
 			<div id="search_form" >
-				<% unless (request.try(:location).try(:country_code) == 'IR')  %>
-					<%= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
-				<% end %>
+				<%# unless (request.try(:location).try(:country_code) == 'IR')  %>
+					<%#= image_tag(IMAGES_PATH+"passenger.png", class: "passenger")	%>
+				<%# end %>
 				<%= render partial: 'trip_search' %>	
 		  </div>
 
@@ -18,11 +18,11 @@
 				<%= render 'facebook_signin'%>	
 			</div>			
 
-		<% unless (request.try(:location).try(:country_code) == 'IR')  %>
-				<div class="ads">
-					<%= render 'google_ads/homepage_ad' %>
-				</div>
-		<% end %>
+		<%# unless (request.try(:location).try(:country_code) == 'IR')  %>
+				<!-- <div class="ads"> -->
+					<%#= render 'google_ads/homepage_ad' %>
+				<!-- </div> -->
+		<%# end %>
 
 		</div>	
 
@@ -43,10 +43,10 @@
 	  <%= render 'how_it_works'%>	
 	</div>
 
-	<% unless (request.try(:location).try(:country_code) == 'IR')  %>
-		<div class="ads">
-			<%= render 'google_ads/homepage_ad_above_footer' %>
-		</div>
-	<% end %>
+	<%# unless (request.try(:location).try(:country_code) == 'IR')  %>
+		<!-- <div class="ads"> -->
+			<%#= render 'google_ads/homepage_ad_above_footer' %>
+		<!-- </div> -->
+	<%# end %>
 
 </div>
