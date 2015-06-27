@@ -10,6 +10,10 @@ class ProfilesController < ApplicationController
             redirect_to u
         end
 		@user                   = User.find_by!(slug: params[:id])
+        if @user.active == false
+            flash[:error] = "کاربر مورد نظر غیر فعال است."
+            redirect_to root_path
+        end
 		@profile                = Profile.new(@user)
         @timeline               = @profile.timeline.page(params[:page]).per_page(5)
 
